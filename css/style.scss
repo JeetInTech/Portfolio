@@ -1,0 +1,60 @@
+$white: #ffffff;
+$green1:#0caa7d;
+$green2:#0ca57a;
+$red:#fb1004;
+$black:#000000;
+
+
+
+// end do section
+
+// skill section
+.skill_section {
+  background-color: rgb(15, 18, 20);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .row {
+    .col-md-3 {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      color: $white;
+      margin: 25px 0;
+
+      h6 {
+        font-weight: bold;
+        margin-top: 20px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .skill_padding {
+    padding: 75px 0;
+  }
+
+
+
+  .custom_heading-container {
+    justify-content: flex-end;
+
+    h2 {
+      color: $white;
+
+      &::before,
+      &::after {
+        background-color: $white;
+      }
+    }
+  }
+
+  .progress_text {
+    font-size: 24px !important;
+    color: $white;
+    font-weight: bold;
+  }
+}
+
+
+// end skill section

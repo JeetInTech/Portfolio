@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+
+   
+
+    
+</head>
+
+<body>
+  
+    <header class="header">
+        <a href="#" class="logo">Portfolio</a>
+
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#services">Skills</a>
+            <a href="#portfolio">Projects</a>
+            <a href="#certi">Insights</a>
+            <a href="#contact">Contacts</a>
+            <a href="../html/about.html">About</a>
+            <a href="../html/gallery.html">Gallery</a>
+            
+        </nav>
+
+        <div class="bx bx-moon" id="darkMode-icon"></div>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+
+    <!-- home section design -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, I'm</h3>
+            <h1>Sangramjeet Ghosh</h1>
+            <p>
+                A passionate full-stack developer with expertise in  Python.
+            </p>
+            <p> With a strong foundation in modern frameworks like Flask, React, and MongoDB, I enjoy building innovative applications, including 
+                AI-powered solutions, while continuously expanding my skill set</p>
+
+            <div class="social-media">
+                <a href="https://github.com/JeetInTech" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="https://x.com/SangramJee97448" target="_blank"><i class='bx bxl-twitter'></i></a>
+                <a href="https://www.instagram.com/officiallyjeet/" target="_blank"><i class='bx bxl-instagram-alt'></i></a>
+                <a href="https://www.linkedin.com/in/sangramjeetghosh/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+            </div>
+
+            <a id="downloadPDF" class="btn">Download CV</a>
+            
+
+        </div>
+
+        <div class="profession-container">
+            <div class="profession-box">
+                <div class="profession" style="--i:0;">
+                    <i class='bx bx-code-alt'></i>
+                    <h3>Web Developer</h3>
+                </div>
+                <div class="profession" style="--i:1;">
+                    <i class='bx bx-'></i>
+                    <h3>Full-Stack Dev.</h3>
+                </div>
+                <div class="profession" style="--i:2;">
+                    <i class='bx bx-palette'></i>
+                    <h3>Content Creator</h3>
+                </div>
+                <div class="profession" style="--i:3;">
+                    <i class='bx bx-video-recording'></i>
+                    <h3>Photographer</h3>
+                </div>
+
+                <div class="circle"></div>
+            </div>
+
+            <div class="overlay"></div>
+        </div>
+
+        <div class="home-img">
+            <img src="" alt="wait">
+        </div>
+    </section>
+
+  
+
+   <!-- services section design -->
+<section class="services" id="services">
+    <h2 class="heading">My <span>Expertise</span></h2>
+
+    <div class="services-container">
+        <div class="services-box">
+            <i class='bx bx-code-alt'></i>
+            <h3>Web Development</h3>
+            <p>I have developed responsive and user-friendly websites using HTML, CSS, JavaScript, and frameworks like React and TailwindCSS.</p>
+            <a href="../html/skills.html" class="btn">Read More</a>
+        </div>
+        <div class="services-box">
+            <i class='bx bxs-paint'></i>
+            <h3>Full-Stack Dev.</h3>
+            <p>Proficient in building full-stack applications with technologies like Node.js, Express, MongoDB, and RESTful APIs.</p>
+            <a href="../html/skills.html" class="btn">Read More</a>
+        </div>
+        <div class="services-box">
+            <i class='bx bx-bar-chart-alt'></i>
+            <h3>Ai&ML</h3>
+            <p>Worked on AI/ML projects involving data analysis, predictive modeling, and Python libraries like TensorFlow and scikit-learn.</p>
+            <a href="../html/skills.html" class="btn">Read More</a>
+        </div>
+    </div>
+</section>
+
+<!-- portfolio section design -->
+<section class="portfolio" id="portfolio">
+    <h2 class="heading">Latest <span>Project</span></h2>
+
+    <div class="portfolio-container">
+        <div class="portfolio-box">
+            <img src="../images/auth.jpeg" alt="">
+            <div class="portfolio-layer">
+                <h4>Authentication System</h4>
+                <p>A secure platform enabling user registration, login, and role-based access management.</p>
+                <a href="https://github.com/JeetInTech/Authentication-System"><i class='bx bx-link-external'></i></a>
+            </div>
+        </div>
+        <div class="portfolio-box">
+            <img src="../images/front.jpeg" alt="">
+            <div class="portfolio-layer">
+                <h4>Dynamic Responsive Frontend</h4>
+                <p>A mobile-friendly and interactive frontend design adapting to various screen sizes seamlessly.</p>
+                <a href="https://github.com/JeetInTech/Dynamic-Responsive-Frontend-Website"><i class='bx bx-link-external'></i></a>
+            </div>
+        </div>
+        <div class="portfolio-box">
+            <img src="../images/poly.jpeg" alt="">
+            <div class="portfolio-layer">
+                <h4>PolyGlot Translator</h4>
+                <p>A multi-language translation tool supporting real-time text translation and language detection.</p>
+                <a href="https://github.com/JeetInTech/PolyGlot-Translator-With-Google-Api"><i class='bx bx-link-external'></i></a>
+            </div>
+        </div>
+        <div class="portfolio-box">
+            <img src="../images/blog.jpeg" alt="">
+            <div class="portfolio-layer">
+                <h4>React-Blog</h4>
+                <p>A modern blogging platform featuring a clean UI, dynamic content loading, and comment sections.</p>
+                <a href="https://github.com/JeetInTech/Blog-Reactjs"><i class='bx bx-link-external'></i></a>
+            </div>
+        </div>
+        <div class="portfolio-box">
+            <img src="../images/trend.jpeg" alt="">
+            <div class="portfolio-layer">
+                <h4>Twitter Trends Analysis</h4>
+                <p>A data analytics tool for visualizing and exploring trending hashtags and user insights on Twitter.</p>
+                <a href="https://github.com/JeetInTech/Twitter-Trends-Analysis-"><i class='bx bx-link-external'></i></a>
+            </div>
+        </div>
+        <div class="portfolio-box">
+            <img src="../images/cal.jpeg" alt="">
+            <div class="portfolio-layer">
+                <h4>Scientific Calculator</h4>
+                <p>An advanced calculator application for solving complex mathematical equations and functions.</p>
+                <a href="https://machinecalc.netlify.app/"><i class='bx bx-link-external'></i></a>
+            </div>
+        </div>
+       
+    </div>
+    <button type="button" class="butam" onclick="window.location.href='../html/projects.html'">More</button>
+</section>
+
+
+    <!-- testimonial design -->
+     <section class="certi" id="certi">
+    <div class="testimonial-container">
+        <h2 class="heading">Real-Life  <span>Insights</span></h2>
+    
+        <div class="testimonial-wrapper">
+            <div class="testimonial-box mySwiper">
+                <div class="testimonial-content swiper-wrapper">
+                    <!-- Certificate Slides -->
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer1.png" alt="Certificate 1"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer2.png" alt="Certificate 2"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer3.png" alt="Certificate 3"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer4.png" alt="Certificate 4"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer5.png" alt="Certificate 5"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/c6.png" alt="Certificate 6"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/c7.jpg" alt="Certificate 7"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/c8.jpg" alt="Certificate 8"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/c9.jpg" alt="Certificate 9"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/c10.jpg" alt="Certificate 10"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/c11.jpg" alt="Certificate 11"></div>
+                    <!-- <div class="testimonial-slide swiper-slide"><img src="../images/cer12.png" alt="Certificate 12"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer13.png" alt="Certificate 13"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer14.png" alt="Certificate 14"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer15.png" alt="Certificate 15"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer16.png" alt="Certificate 16"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer17.png" alt="Certificate 17"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer18.png" alt="Certificate 18"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer19.png" alt="Certificate 19"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer20.png" alt="Certificate 20"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer21.png" alt="Certificate 21"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer22.png" alt="Certificate 22"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer23.png" alt="Certificate 23"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer23.png" alt="Certificate 24"></div>
+                    <div class="testimonial-slide swiper-slide"><img src="../images/cer23.png" alt="Certificate 25"></div> -->
+                </div>
+        
+                <!-- Optional Navigation (If Needed) -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        
+        
+        <button type="button" class="butam" onclick="window.location.href='../html/projects.html'">Know More</button>
+    </div>
+    
+</section>
+    <!-- contact section design -->
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me!</span></h2>
+        <form id="contact-form">
+            <div class="input-box">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Your Email (Senders)*" required>
+            </div>
+            <div class="input-box">
+                <input type="text" name="designation" placeholder="Designation (optional)">
+                <input type="text" name="subject" placeholder="Email Subject" required>
+            </div>
+            <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+        
+        
+        
+
+    </section>
+    
+
+    <!-- footer design -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2025 |JEET - All Rights Reserved.</p>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
+
+
+    <!-- scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- swiper js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- custom js -->
+    <script src="../js/main.js"></script>
+    <script src="../js/contact.js"></script>
+    <script src="../js/download.js"></script>
+</body>
+
+</html>
+ 
