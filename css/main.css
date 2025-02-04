@@ -336,7 +336,7 @@ section {
 .home-img img {
     position: absolute;
     bottom: 0;
-    right: 40px;
+    right: 0px;
     pointer-events: none;
     max-width: 480px;
     max-height: 100vh;
