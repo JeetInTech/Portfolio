@@ -4,6 +4,11 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 require('dotenv').config();
+// console.log(process.env); // Debugging
+console.log('Email User:', process.env.EMAIL_USER  ? 'Exists' : 'Missing'); // Debugging
+console.log('Email Pass:', process.env.EMAIL_PASS ? 'Exists' : 'Missing');
+
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
