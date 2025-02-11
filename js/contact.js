@@ -4,6 +4,9 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     const formData = new FormData(this);
     const data = Object.fromEntries(formData);
 
+    // Log the form data to verify its content
+    console.log('Form data:', data);
+
     try {
         const response = await fetch('https://portfolio-server-eysf.onrender.com/send-email', {
             method: 'POST',
