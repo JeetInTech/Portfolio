@@ -1,6 +1,7 @@
 {
   "scripts": {
     "start": "servor --reload"
+    
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",

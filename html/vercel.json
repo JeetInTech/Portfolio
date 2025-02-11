@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/backend/(.*)", "destination": "/backend/app.js" }
+  ],
+  "redirects": [
+    { "source": "/", "destination": "/html/index.html", "statusCode": 301 }
+  ]
+}
