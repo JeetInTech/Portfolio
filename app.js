@@ -79,7 +79,7 @@ app.post('/send-email', emailLimiter, async (req, res) => {
     
     
 
-    try {
+    try { 
         // Send the email
         const info = await transporter.sendMail(mailOptions);
         console.log('Email sent:', info.response);
