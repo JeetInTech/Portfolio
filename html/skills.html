@@ -1,365 +1,507 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skills</title>
-<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext" rel="stylesheet">
-
-<link rel="stylesheet" href= "../assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="../assets/css/flaticon.css">
-<link rel="stylesheet" href="../assets/css/animate.css">
-<link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
-<link rel="stylesheet" href="../assets/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="../assets/css/bootsnav.css">
-<link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/responsive.css">
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
-<link href="../css/style.css" rel="stylesheet" />
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
-<!-- <link rel="stylesheet" href="/css/navbar.css"> -->
-<link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Professional Web Developer | Sangramjeet Ghosh</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Developer with 3+ years of experience building scalable web solutions in JavaScript, Python, AI technologies. Specializing in MERN & MEAN stack development.">
+    <meta name="keywords" content="web developer, full stack developer, JavaScript, Python, React, Node.js, AI developer">
+    <meta name="author" content="Sangramjeet Ghosh">
+    
+    <!-- Essential CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/skills.css">
+    
+    <style>
+        /* Mobile Menu Styles */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background: var(--bg-color);
+            z-index: 9999;
+            padding: 80px 30px 30px;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu .nav-item {
+            display: block;
+            padding: 15px 0;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-menu .nav-item:hover,
+        .mobile-menu .nav-item.active {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-color);
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-color);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* CSS Variables for Light/Dark Mode */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --card-bg: #f8f9fa;
+            --border-color: #e9ecef;
+            --accent-color: #6c63ff;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --card-bg: #2d2d2d;
+            --border-color: #404040;
+            --accent-color: #8b7fff;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .skill-card, .tool-card, .expertise-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .header {
+            background: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                padding: 5px;
+            }
+            
+            .menu-toggle span {
+                width: 25px;
+                height: 3px;
+                background: var(--text-color);
+                margin: 3px 0;
+                transition: 0.3s;
+            }
+            
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+            
+            .skills-grid, .tools-grid, .expertise-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .intro-section {
+                padding: 60px 20px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .menu-toggle {
+                display: none;
+            }
+            
+            .mobile-menu,
+            .mobile-menu-overlay {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="close-btn" id="mobile-menu-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav>
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="about.html" class="nav-item">About</a>
+            <a href="skills.html" class="nav-item active">Skills</a>
+            <a href="index.html" class="nav-item">Insights</a>
+            <a href="gallery.html" class="nav-item">Gallery</a>
+        </nav>
+    </div>
 
-    <!-- header design -->
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" id="dark-mode-toggle">
+        <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+
+    <!-- Floating Social Media Buttons -->
+    <div class="floating-social">
+        <a href="https://linkedin.com/in/sangramjeetghosh/" target="_blank" class="social-btn linkedin">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/JeetInTech" target="_blank" class="social-btn github">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://twitter.com/yourhandle" target="_blank" class="social-btn twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+    </div>
+
+    <!-- Header -->
     <header class="header">
-      <a href="/html/index.html" class="logo">Portfolio</a>
-      <nav class="navbar">
-        <a href="/html/index.html" >Home</a>
-        <a href="/html/about.html" >About</a>
-        <a href="/html/skills.html" class="active">Skills</a>
-        <a href="/html/projects.html">Projects</a>
-        <a href="/html/index.html">Insights</a>
-        <a href="/html/gallery.html">Gallery</a>
-      </nav>
-      
-      <!-- <div class="bx bx-moon" id="darkMode-icon"></div> -->
-      <div class="bx bx-menu" id="menu-icon"></div>
-   </header>
-  <!--skills start -->
-  <section id="skills" class="skills">
-    <div class="skill-content">
-      <div class="section-heading text-center">
-        <h2>skills</h2>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="single-skill-content">
-              <div class="barWrapper">  
-                <span class="progressText" style="color: rgb(255, 255, 255);">HTML & CSS</span>
-                <div class="single-progress-txt">
-                  <div class="progress ">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="10" aria-valuemax="100" style="">
-                        
+        <a href="index.html" class="logo">Portfolio</a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="skills.html" class="active">Skills</a>
+            <a href="index.html">Insights</a>
+            <a href="gallery.html">Gallery</a>
+        </nav>
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Intro Section -->
+        <section class="intro-section">
+            <div class="container">
+                <h1 class="intro-title">My Technical Arsenal</h1>
+                <p class="intro-text">From full-stack engineering to intelligent systems — here's a quick look at what powers my code.</p>
+            </div>
+        </section>
+
+        <!-- Skills I Master Section -->
+        <section class="skills-section" id="skills-master">
+            <div class="container">
+                <h2 class="section-title">Skills I <span>Master</span></h2>
+                <div class="skills-grid">
+                    <div class="skill-card" data-category="frontend">
+                        <div class="skill-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <h3>React</h3>
+                        <p>Modern component-based UI development</p>
                     </div>
-                  </div>
-                  <h3>95%</h3>	
-                </div>
-              </div><!-- /.barWrapper -->
-              <div class="barWrapper">
-                <span class="progressText" style="color: rgb(255, 255, 255);">PYTHON</span>
-                <div class="single-progress-txt">
-                  <div class="progress ">
-                     <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="10" aria-valuemax="100" style="">
-                        
-                     </div>
-                  </div>
-                  <h3>85%</h3>	
-                </div>
-              </div><!-- /.barWrapper -->
-              <div class="barWrapper">
-                <span class="progressText" style="color: rgb(255, 255, 255);">JavaScript</span>
-                <div class="single-progress-txt">
-                  <div class="progress ">
-                     <div class="progress-bar" role="progressbar" aria-valuenow="97" aria-valuemin="10" aria-valuemax="100" style="">
-                       
-                     </div>
-                  </div>
-                  <h3>97%</h3>	
-                </div>
-              </div><!-- /.barWrapper -->
-              <div class="barWrapper">
-                <span class="progressText" style="color: rgb(255, 255, 255);">PHP & RUST</span>
-                <div class="single-progress-txt">
-                  <div class="progress ">
-                     <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="10" aria-valuemax="100" style="">
-                        
-                     </div>
-                  </div>
-                  <h3>90%</h3>	
-                </div>
-              </div><!-- /.barWrapper -->
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="single-skill-content">
-              <div class="barWrapper">
-                <span class="progressText" style="color: rgb(255, 255, 255);">TypeScript</span>
-                <div class="single-progress-txt">
-                  <div class="progress ">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="10" aria-valuemax="100" style="">
-                      
+                    <div class="skill-card" data-category="frontend">
+                        <div class="skill-icon">
+                            <i class="fab fa-js-square"></i>
+                        </div>
+                        <h3>JavaScript</h3>
+                        <p>ES6+, DOM manipulation, async programming</p>
                     </div>
-                  </div>
-                  <h3>90%</h3>	
+                    <div class="skill-card" data-category="backend">
+                        <div class="skill-icon">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <h3>Node.js</h3>
+                        <p>Server-side JavaScript runtime</p>
+                    </div>
+                    <div class="skill-card" data-category="backend">
+                        <div class="skill-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>Express.js</h3>
+                        <p>Fast, minimalist web framework</p>
+                    </div>
+                    <div class="skill-card" data-category="database">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>MongoDB</h3>
+                        <p>NoSQL document database</p>
+                    </div>
+                    <div class="skill-card" data-category="backend">
+                        <div class="skill-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3>Python</h3>
+                        <p>Data science, automation, web development</p>
+                    </div>
+                    <div class="skill-card" data-category="backend">
+                        <div class="skill-icon">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <h3>Java</h3>
+                        <p>Enterprise applications, OOP</p>
+                    </div>
+                    <div class="skill-card" data-category="backend">
+                        <div class="skill-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Ruby</h3>
+                        <p>Ruby on Rails, web applications</p>
+                    </div>
+                    <div class="skill-card" data-category="ai">
+                        <div class="skill-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>AI/ML/NLP</h3>
+                        <p>Machine learning, natural language processing</p>
+                    </div>
+                    <div class="skill-card" data-category="backend">
+                        <div class="skill-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Flask</h3>
+                        <p>Lightweight Python web framework</p>
+                    </div>
+                    <div class="skill-card" data-category="backend">
+                        <div class="skill-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3>Django</h3>
+                        <p>High-level Python web framework</p>
+                    </div>
+                    <div class="skill-card" data-category="systems">
+                        <div class="skill-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h3>Rust</h3>
+                        <p>Systems programming, performance</p>
+                    </div>
                 </div>
-              </div><!-- /.barWrapper -->
-              <div class="barWrapper">
-                <span class="progressText" style="color: rgb(255, 255, 255);">React & Angular</span>
-                <div class="single-progress-txt">
-                  <div class="progress ">
-                     <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="10" aria-valuemax="100" style="">
-                        
-                     </div>
-                  </div>
-                  <h3>85%</h3>	
+            </div>
+        </section>
+
+        <!-- Tools I Use Section -->
+        <section class="tools-section" id="tools-use">
+            <div class="container">
+                <h2 class="section-title">Tools I <span>Use</span></h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>VS Code</h3>
+                        <p>Primary development environment</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <h3>Git</h3>
+                        <p>Version control system</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3>GitHub</h3>
+                        <p>Code repository and collaboration</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fab fa-docker"></i>
+                        </div>
+                        <h3>Docker</h3>
+                        <p>Containerization platform</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>Firebase</h3>
+                        <p>Backend-as-a-Service platform</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>MongoDB</h3>
+                        <p>NoSQL database management</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                        <h3>Postman</h3>
+                        <p>API development and testing</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fab fa-figma"></i>
+                        </div>
+                        <h3>Figma</h3>
+                        <p>UI/UX design and prototyping</p>
+                    </div>
                 </div>
-              </div><!-- /.barWrapper -->
-              <div class="barWrapper">
-                <span class="progressText" style="color:#ffffff;">Node.js</span>
-                <div class="single-progress-txt">
-                  <div class="progress ">
-                     <div class="progress-bar" role="progressbar" aria-valuenow="97" aria-valuemin="10" aria-valuemax="100" style="">
-                       
-                     </div>
-                  </div>
-                  <h3>97%</h3>	
+            </div>
+        </section>
+
+        <!-- My Expertise Section -->
+        <section class="expertise-section" id="expertise">
+            <div class="container">
+                <h2 class="section-title">My <span>Expertise</span></h2>
+                <div class="expertise-grid">
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3>Full-stack Web Development</h3>
+                        <p>End-to-end web application development using modern frameworks and technologies</p>
+                        <div class="expertise-tags">
+                            <span>MERN Stack</span>
+                            <span>RESTful APIs</span>
+                            <span>Responsive Design</span>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Tools & Integration</h3>
+                        <p>Building intelligent applications with machine learning and AI capabilities</p>
+                        <div class="expertise-tags">
+                            <span>ML Models</span>
+                            <span>NLP</span>
+                            <span>AI APIs</span>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3>Productivity Systems</h3>
+                        <p>Creating efficient workflows and automation solutions for enhanced productivity</p>
+                        <div class="expertise-tags">
+                            <span>Automation</span>
+                            <span>Workflows</span>
+                            <span>Integration</span>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h3>API Development</h3>
+                        <p>Designing and building robust, scalable APIs for web and mobile applications</p>
+                        <div class="expertise-tags">
+                            <span>REST APIs</span>
+                            <span>GraphQL</span>
+                            <span>Authentication</span>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Deployment</h3>
+                        <p>Deploying and managing applications on cloud platforms with DevOps practices</p>
+                        <div class="expertise-tags">
+                            <span>AWS</span>
+                            <span>CI/CD</span>
+                            <span>Scalability</span>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Automation</h3>
+                        <p>Streamlining processes through intelligent automation and scripting solutions</p>
+                        <div class="expertise-tags">
+                            <span>Scripts</span>
+                            <span>Bots</span>
+                            <span>Workflows</span>
+                        </div>
+                    </div>
                 </div>
-              </div><!-- /.barWrapper -->
-              <div class="barWrapper">
-                <span class="progressText" style="color: rgb(255, 255, 255);">Django & Flask</span>
-                <div class="single-progress-txt">
-                  <div class="progress ">
-                     <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="10" aria-valuemax="100" style="">
-                        
-                     </div>
-                  </div>
-                  <h3>90%</h3>	
-                </div>
-              </div><!-- /.barWrapper -->
             </div>
-          </div>
-        </div><!-- /.row -->
-      </div>	<!-- /.container -->		
-    </div><!-- /.skill-content-->
+        </section>
+    </main>
 
-</section><!--/.skills-->
-<!--skills end -->
-
-<!-- skill section -->
-
-<section class="skill_section layout_padding2">
-  <div class="container">
-    <div class="custom_heading-container">
-      
-    </div>
-    <div class="skill_padding">
-      <div class="row">
-        <div class="col-md-3 col-sm-6">
-          <div class="box">
-            <div class="circle" id="circles-1"></div>
-            <h6>
-              MERN & MEAN Stack
-            </h6>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="box">
-            <div class="circle" id="circles-2"></div>
-            <h6>
-              DevOps & Deployment
-            </h6>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="box">
-            <div class="circle" id="circles-3"></div>
-            <h6>
-            Artificial Intelligence
-            </h6>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="box">
-            <div class="circle" id="circles-4"></div>
-            <h6>
-              ML & DL & NLP
-            </h6>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- end skill section -->
-
-<!--profiles start -->
-<section id="profiles" class="profiles">
-  <div class="profiles-details">
-    <div class="section-heading text-center">
-      <h2>profiles</h2>
-    </div>
-    <!-- Add Font Awesome for icons -->
-
-
-<div class="container">
-  <div class="profiles-content">
-    <div class="row">
-      <div class="col-sm-3">
-        <div class="single-profile">
-          <div class="profile-txt">
-            <a href="https://leetcode.com/u/jeetintech/" <i class="fa-solid fa-code"></i></a>
-            <div class="profile-icon-name">LeetCode</div>
-          </div>
-          <div class="single-profile-overlay">
-            <div class="profile-txt">
-              <a href="https://leetcode.com/u/jeetintech/" target="_blank"><i class="fa-solid fa-code"></i></a>
-              <div class="profile-icon-name">LeetCode</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-sm-3">
-        <div class="single-profile">
-          <div class="profile-txt">
-            <a href="https://dev.to/sangramjeet0012"><i class="fa-brands fa-dev"></i></a>
-            <div class="profile-icon-name">Dev.to</div>
-          </div>
-          <div class="single-profile-overlay">
-            <div class="profile-txt">
-              <a href="https://dev.to/sangramjeet0012"  target="_blank"><i class="fa-brands fa-dev"></i></a>
-              <div class="profile-icon-name">Dev.to</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-3">
-        <div class="single-profile">
-          <div class="profile-txt">
-            <a href="https://www.hackerrank.com/"><i class="fa-brands fa-hackerrank"></i></a>
-            <div class="profile-icon-name">HackerRank</div>
-          </div>
-          <div class="single-profile-overlay">
-            <div class="profile-txt">
-              <a href="https://www.hackerrank.com/profile/jeeth_enterpris1"  target="_blank"><i class="fa-brands fa-hackerrank"></i></a>
-              <div class="profile-icon-name">HackerRank</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-3">
-        <div class="single-profile profile-no-border">
-          <div class="profile-txt">
-            <a href="https://github.com/"><i class="fa-brands fa-github"></i></a>
-            <div class="profile-icon-name">GitHub</div>
-          </div>
-          <div class="single-profile-overlay">
-            <div class="profile-txt">
-              <a href="https://github.com/JeetInTech"  target="_blank"><i class="fa-brands fa-github"></i></a>
-              <div class="profile-icon-name">GitHub</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="profile-border"></div>
-
-    <div class="row">
-      <div class="col-sm-3">
-        <div class="single-profile">
-          <div class="profile-txt">
-            <a href="https://www.topcoder.com/"><i class="fa-solid fa-trophy"></i></a>
-            <div class="profile-icon-name">TopCoder</div>
-          </div>
-          <div class="single-profile-overlay">
-            <div class="profile-txt">
-              <a href="https://profiles.topcoder.com/Sangramjeet"  target="_blank"><i class="fa-solid fa-trophy"></i></a>
-              <div class="profile-icon-name">TopCoder</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-3">
-        <div class="single-profile">
-          <div class="profile-txt">
-            <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
-            <div class="profile-icon-name">LinkedIn</div>
-          </div>
-          <div class="single-profile-overlay">
-            <div class="profile-txt">
-              <a href="https://www.linkedin.com/in/sangramjeetghosh/"  target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-              <div class="profile-icon-name">LinkedIn</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-3">
-        <div class="single-profile">
-          <div class="profile-txt">
-            <a href="https://www.geeksforgeeks.org/"><i class="fa-solid fa-book"></i></a>
-            <div class="profile-icon-name">GeeksforGeeks</div>
-          </div>
-          <div class="single-profile-overlay">
-            <div class="profile-txt">
-              <a href="https://www.geeksforgeeks.org/user/sangramwirw/"  target="_blank"><i class="fa-solid fa-book"></i></a>
-              <div class="profile-icon-name">GeeksforGeeks</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-3">
-        <div class="single-profile profile-no-border">
-          <div class="profile-txt">
-            <a href="https://www.showwcase.com/"><i class="fa-solid fa-user"></i></a>
-            <div class="profile-icon-name">Showwcase</div>
-          </div>
-          <div class="single-profile-overlay">
-            <div class="profile-txt">
-              <a href="https://www.showwcase.com/sangramjeet47881"  target="_blank"><i class="fa-solid fa-user"></i></a>
-              <div class="profile-icon-name">Showwcase</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-  </div>
-
-</section><!--/.profiles-->
-<!--profiles end -->
-<script src="../assets/js/jquery.js"></script>
-<script src="../assets/js/bootstrap.min.js"></script>
-<script src="../assets/js/jquery.sticky.js"></script>
-<script src="../assets/js/progressbar.js"></script>
-<script src="../assets/js/jquery.appear.js"></script>
-<script src="../assets/js/owl.carousel.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-<script src="../assets/js/custom.js"></script>
-<script src="../js/circles.min.js"></script>
-<script src="../js/custom.js"></script>
-<script src="/js/main.js"></script>
-
-
+    <script src="/js/skills.js"></script>
 </body>
 </html>

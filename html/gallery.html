@@ -3,68 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Photo Gallery</title>
+    <title>Modern Photo Gallery</title>
     <link rel="stylesheet" href="/css/gallery.css">
-    <!-- Box Icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    <header class="header" >
+    <header class="header">
         <a href="/html/index.html" class="logo">Portfolio</a>
         <nav class="navbar">
             <a href="/html/index.html">Home</a>
             <a href="/html/about.html">About</a>
             <a href="/html/skills.html">Skills</a>
-            <a href="/html/projects.html">Projects</a>
             <a href="/html/index.html">Insights</a>
-            <a href="/html/gallery.html"  class="active">Gallery</a>
+            <a href="/html/gallery.html" class="active">Gallery</a>
         </nav>
         <div class="bx bx-moon" id="darkMode-icon"></div>
         <div class="bx bx-menu" id="menu-icon"></div>
     </header>
 
-    <div class="gallery-container">
-        <div class="gallery">
-            <div class="gallery-item"><img src="/photos/photos (1).jpeg" alt="Photo 1"></div>
-            <div class="gallery-item"><img src="/photos/photos (2).jpeg" alt="Photo 2"></div>
-            <div class="gallery-item"><img src="/photos/photos (3).jpeg" alt="Photo 3"></div>
-            <div class="gallery-item"><img src="/photos/photos (4).jpg" alt="Photo 4"></div>
-            <div class="gallery-item"><img src="/photos/photos (5).jpg" alt="Photo 5"></div>
-            <div class="gallery-item"><img src="/photos/photos (6).jpg" alt="Photo 6"></div>
-            <div class="gallery-item"><img src="/photos/photos (7).jpg" alt="Photo 7"></div>
-            <div class="gallery-item"><img src="/photos/photos (8).jpg" alt="Photo 8"></div>
-            <div class="gallery-item"><img src="/photos/photos (9).jpg" alt="Photo 9"></div>
-            <div class="gallery-item"><img src="/photos/photos (10).jpg" alt="Photo 10"></div>
-            <div class="gallery-item"><img src="/photos/photos (11).jpg" alt="Photo 11"></div>
-            <div class="gallery-item"><img src="/photos/photos (12).jpg" alt="Photo 12"></div>
-            <div class="gallery-item"><img src="/photos/photos (13).jpg" alt="Photo 13"></div>
-            <div class="gallery-item"><img src="/photos/photos (14).jpg" alt="Photo 14"></div>
-            <div class="gallery-item"><img src="/photos/photos (15).jpg" alt="Photo 15"></div>
-            <div class="gallery-item"><img src="/photos/photos (16).jpg" alt="Photo 16"></div>
-            <div class="gallery-item"><img src="/photos/photos (17).jpg" alt="Photo 17"></div>
-            <div class="gallery-item"><img src="/photos/photos (18).jpg" alt="Photo 18"></div>
-            <div class="gallery-item"><img src="/photos/photos (19).jpg" alt="Photo 19"></div>
-            <div class="gallery-item"><img src="/photos/photos (20).jpg" alt="Photo 20"></div>
+    <main class="gallery-section">
+        <div class="gallery-container">
+            <h1 class="gallery-title">
+                <span class="title-word">Visual</span>
+                <span class="title-word">Stories</span>
+            </h1>
             
+            <div class="gallery-grid">
+                <div class="gallery-item" data-index="1">
+                    <div class="image-container">
+                        <img src="/photos/photos (1).jpeg" alt="Photo 1" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-index="2">
+                    <div class="image-container">
+                        <img src="/photos/photos (2).jpeg" alt="Photo 2" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-index="3">
+                    <div class="image-container">
+                        <img src="/photos/photos (3).jpeg" alt="Photo 3" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-index="4">
+                    <div class="image-container">
+                        <img src="/photos/photos (4).jpg" alt="Photo 4" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-index="5">
+                    <div class="image-container">
+                        <img src="/photos/photos (5).jpg" alt="Photo 5" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-index="6">
+                    <div class="image-container">
+                        <img src="/photos/photos (6).jpg" alt="Photo 6" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-index="7">
+                    <div class="image-container">
+                        <img src="/photos/photos (7).jpg" alt="Photo 7" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-index="8">
+                    <div class="image-container">
+                        <img src="/photos/photos (8).jpg" alt="Photo 8" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-index="9">
+                    <div class="image-container">
+                        <img src="/photos/photos (9).jpg" alt="Photo 9" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-index="10">
+                    <div class="image-container">
+                        <img src="/photos/photos (10).jpg" alt="Photo 10" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-index="11">
+                    <div class="image-container">
+                        <img src="/photos/photos (11).jpg" alt="Photo 11" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-index="12">
+                    <div class="image-container">
+                        <img src="/photos/photos (12).jpg" alt="Photo 12" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal" id="imageModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="close-btn" id="closeBtn">
+                <i class='bx bx-x'></i>
+            </button>
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="">
+            </div>
+            
+            <div class="modal-interactions">
+                <div class="interaction-buttons">
+                    <button class="interaction-btn like-btn" data-action="like">
+                        <i class='bx bx-heart'></i>
+                        <span class="like-count">0</span>
+                    </button>
+                    <button class="interaction-btn dislike-btn" data-action="dislike">
+                        <i class='bx bx-heart-circle'></i>
+                        <span class="dislike-count">0</span>
+                    </button>
+                    <button class="interaction-btn toggle-comments-btn" id="toggleCommentsBtn">
+                        <i class='bx bx-comment'></i>
+                        <span class="comment-count">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="comments-section" style="display: none;">
+                <div class="comment-input-container">
+                    <input type="text" class="comment-input" id="commentInput" placeholder="Add a comment...">
+                    <button class="interaction-btn" id="postCommentBtn">
+                        <i class='bx bx-send'></i>
+                    </button>
+                </div>
+                <div class="comments-list" id="commentsList">
+                </div>
+            </div>
         </div>
     </div>
 
-    <footer class="floating-footer">
-        <div class="footer-content">
-            <!-- <p>© 2025 JEET | All rights reserved</p> -->
-            <div class="social-links">
-                <a href="https://www.instagram.com/officiallyjeet/" target="_blank"><i class='bx bxl-instagram'></i></a>
-                <a href="https://www.facebook.com/people/JeetinTech/61571949751902/" target="_blank"><i class='bx bxl-facebook'></i></a>
-                <a href="https://x.com/SangramJee97448" target="_blank"><i class='bx bxl-twitter'></i></a>
-            </div>
-        </div>
-    </footer>
+    <div class="floating-like-buttons">
+        <button class="floating-btn global-like-btn" id="globalLikeBtn">
+            <i class='bx bx-heart'></i>
+            <span class="global-like-count">0</span>
+        </button>
+        <button class="floating-btn global-dislike-btn" id="globalDislikeBtn">
+            <i class='bx bx-heart-circle'></i>
+            <span class="global-dislike-count">0</span>
+        </button>
+    </div>
 
-    <div class="overlay"></div>
-    
+    <div class="floating-social">
+        <a href="https://www.instagram.com/officiallyjeet/" target="_blank" class="social-btn">
+            <i class='bx bxl-instagram'></i>
+        </a>
+        <a href="https://www.facebook.com/people/JeetinTech/61571949751902/" target="_blank" class="social-btn">
+            <i class='bx bxl-facebook'></i>
+        </a>
+        <a href="https://x.com/SangramJee97448" target="_blank" class="social-btn">
+            <i class='bx bxl-twitter'></i>
+        </a>
+    </div>
+
+    <script>
+        const commentInput = document.getElementById('commentInput');
+        const postCommentBtn = document.getElementById('postCommentBtn');
+        const commentsList = document.getElementById('commentsList');
+        const commentCount = document.querySelector('.comment-count');
+        const toggleCommentsBtn = document.getElementById('toggleCommentsBtn');
+    </script>
     <script src="/js/gallery.js"></script>
-    <script src="/js/about.js"></script>
-    <script src="/js/main.js"></script>
 </body>
 </html>
