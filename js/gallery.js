@@ -7,6 +7,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalBackdrop = document.querySelector('.modal-backdrop');
     const menuIcon = document.querySelector('#menu-icon');
     const navbar = document.querySelector('.navbar');
+    const header = document.querySelector('.header');
+
+    // Sticky Header on Scroll
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('sticky', window.scrollY > 100);
+    });
+
+    // Dark Mode Toggle
+    const darkModeIcon = document.getElementById('darkMode-icon');
+    const body = document.body;
+
+    function toggleDarkMode() {
+        body.classList.toggle('dark-mode');
+        
+        if (body.classList.contains('dark-mode')) {
+            darkModeIcon.classList.replace('bx-moon', 'bx-sun');
+            localStorage.setItem('galleryDarkMode', 'enabled');
+        } else {
+            darkModeIcon.classList.replace('bx-sun', 'bx-moon');
+            localStorage.setItem('galleryDarkMode', 'disabled');
+        }
+    }
+
+    // Initialize dark mode state from localStorage
+    const darkMode = localStorage.getItem('galleryDarkMode');
+    if (darkMode === 'enabled') {
+        body.classList.add('dark-mode');
+        if (darkModeIcon) {
+            darkModeIcon.classList.remove('bx-moon');
+            darkModeIcon.classList.add('bx-sun');
+        }
+    } else {
+        body.classList.remove('dark-mode');
+        if (darkModeIcon) {
+            darkModeIcon.classList.remove('bx-sun');
+            darkModeIcon.classList.add('bx-moon');
+        }
+    }
+
+    if (darkModeIcon) {
+        darkModeIcon.addEventListener('click', toggleDarkMode);
+    }
 
     // Interaction elements
     const likeBtn = document.querySelector('.like-btn');

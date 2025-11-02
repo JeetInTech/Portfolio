@@ -1,4 +1,12 @@
 // ================================
+// STICKY HEADER FUNCTIONALITY
+// ================================
+const header = document.querySelector('.header');
+window.addEventListener('scroll', () => {
+    header.classList.toggle('sticky', window.scrollY > 100);
+});
+
+// ================================
 // MOBILE MENU FUNCTIONALITY
 // ================================
 class MobileMenu {
@@ -125,7 +133,13 @@ class DarkMode {
 
     applyTheme(theme) {
         this.currentTheme = theme;
-        document.documentElement.setAttribute('data-theme', theme);
+        
+        // Apply dark mode class to body
+        if (theme === 'dark') {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
         
         // Update icon
         if (this.themeIcon) {

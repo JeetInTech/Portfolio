@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills - Professional Web Developer | Sangramjeet Ghosh</title>
+    <link rel="icon" type="image/png" href="../images/logo1.png">
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Developer with 3+ years of experience building scalable web solutions in JavaScript, Python, AI technologies. Specializing in MERN & MEAN stack development.">
@@ -42,7 +43,7 @@
             right: -300px;
             width: 300px;
             height: 100vh;
-            background: var(--bg-color);
+            background: var(--bg-primary);
             z-index: 9999;
             padding: 80px 30px 30px;
             transition: right 0.3s ease;
@@ -56,7 +57,7 @@
         .mobile-menu .nav-item {
             display: block;
             padding: 15px 0;
-            color: var(--text-color);
+            color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
             border-bottom: 1px solid var(--border-color);
@@ -65,7 +66,7 @@
         
         .mobile-menu .nav-item:hover,
         .mobile-menu .nav-item.active {
-            color: var(--accent-color);
+            color: var(--primary-color);
         }
         
         .mobile-menu .close-btn {
@@ -75,69 +76,9 @@
             background: none;
             border: none;
             font-size: 24px;
-            color: var(--text-color);
+            color: var(--text-primary);
             cursor: pointer;
             padding: 10px;
-        }
-        
-        /* Dark Mode Toggle */
-        .dark-mode-toggle {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background: var(--accent-color);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-        
-        .dark-mode-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* CSS Variables for Light/Dark Mode */
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #333333;
-            --card-bg: #f8f9fa;
-            --border-color: #e9ecef;
-            --accent-color: #6c63ff;
-            --shadow: rgba(0, 0, 0, 0.1);
-        }
-        
-        [data-theme="dark"] {
-            --bg-color: #1a1a1a;
-            --text-color: #ffffff;
-            --card-bg: #2d2d2d;
-            --border-color: #404040;
-            --accent-color: #8b7fff;
-            --shadow: rgba(0, 0, 0, 0.3);
-        }
-        
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        
-        .skill-card, .tool-card, .expertise-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 15px var(--shadow);
-            transition: all 0.3s ease;
-        }
-        
-        .header {
-            background: var(--bg-color);
-            border-bottom: 1px solid var(--border-color);
         }
         
         /* Mobile Responsive */
@@ -212,7 +153,9 @@
             <a href="index.html" class="nav-item">Home</a>
             <a href="about.html" class="nav-item">About</a>
             <a href="skills.html" class="nav-item active">Skills</a>
-            <a href="index.html" class="nav-item">Insights</a>
+            <a href="index.html#portfolio" class="nav-item">Projects</a>
+            <a href="index.html#certi" class="nav-item">Insights</a>
+            <a href="index.html#contact" class="nav-item">Contact</a>
             <a href="gallery.html" class="nav-item">Gallery</a>
         </nav>
     </div>
@@ -242,7 +185,9 @@
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="skills.html" class="active">Skills</a>
-            <a href="index.html">Insights</a>
+            <a href="index.html#portfolio">Projects</a>
+            <a href="index.html#certi">Insights</a>
+            <a href="index.html#contact">Contact</a>
             <a href="gallery.html">Gallery</a>
         </nav>
         <div class="menu-toggle" id="menu-toggle">
@@ -267,89 +212,166 @@
             <div class="container">
                 <h2 class="section-title">Skills I <span>Master</span></h2>
                 <div class="skills-grid">
-                    <div class="skill-card" data-category="frontend">
-                        <div class="skill-icon">
-                            <i class="fab fa-react"></i>
-                        </div>
-                        <h3>React</h3>
-                        <p>Modern component-based UI development</p>
-                    </div>
-                    <div class="skill-card" data-category="frontend">
-                        <div class="skill-icon">
-                            <i class="fab fa-js-square"></i>
-                        </div>
-                        <h3>JavaScript</h3>
-                        <p>ES6+, DOM manipulation, async programming</p>
-                    </div>
-                    <div class="skill-card" data-category="backend">
-                        <div class="skill-icon">
-                            <i class="fab fa-node-js"></i>
-                        </div>
-                        <h3>Node.js</h3>
-                        <p>Server-side JavaScript runtime</p>
-                    </div>
-                    <div class="skill-card" data-category="backend">
-                        <div class="skill-icon">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <h3>Express.js</h3>
-                        <p>Fast, minimalist web framework</p>
-                    </div>
-                    <div class="skill-card" data-category="database">
-                        <div class="skill-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <h3>MongoDB</h3>
-                        <p>NoSQL document database</p>
-                    </div>
-                    <div class="skill-card" data-category="backend">
+                    <!-- Programming -->
+                    <div class="skill-card" data-category="programming">
                         <div class="skill-icon">
                             <i class="fab fa-python"></i>
                         </div>
                         <h3>Python</h3>
-                        <p>Data science, automation, web development</p>
+                        <p>Advanced programming, data science, automation</p>
                     </div>
-                    <div class="skill-card" data-category="backend">
+                    <div class="skill-card" data-category="programming">
                         <div class="skill-icon">
-                            <i class="fab fa-java"></i>
+                            <i class="fas fa-database"></i>
                         </div>
-                        <h3>Java</h3>
-                        <p>Enterprise applications, OOP</p>
+                        <h3>SQL</h3>
+                        <p>Database queries, data manipulation, optimization</p>
                     </div>
-                    <div class="skill-card" data-category="backend">
+                    <div class="skill-card" data-category="programming">
                         <div class="skill-icon">
-                            <i class="fas fa-gem"></i>
+                            <i class="fab fa-js-square"></i>
                         </div>
-                        <h3>Ruby</h3>
-                        <p>Ruby on Rails, web applications</p>
+                        <h3>JavaScript</h3>
+                        <p>ES6+, async programming, full-stack development</p>
+                    </div>
+                    
+                    <!-- AI & ML -->
+                    <div class="skill-card" data-category="ai">
+                        <div class="skill-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Transformers</h3>
+                        <p>Modern NLP architectures, attention mechanisms</p>
+                    </div>
+                    <div class="skill-card" data-category="ai">
+                        <div class="skill-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3>AutoML</h3>
+                        <p>Automated machine learning pipelines</p>
+                    </div>
+                    <div class="skill-card" data-category="ai">
+                        <div class="skill-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3>NLP</h3>
+                        <p>Natural language processing, text analytics</p>
                     </div>
                     <div class="skill-card" data-category="ai">
                         <div class="skill-icon">
                             <i class="fas fa-brain"></i>
                         </div>
-                        <h3>AI/ML/NLP</h3>
-                        <p>Machine learning, natural language processing</p>
+                        <h3>Deep Learning</h3>
+                        <p>Neural networks, model training, optimization</p>
                     </div>
-                    <div class="skill-card" data-category="backend">
+                    <div class="skill-card" data-category="ai">
                         <div class="skill-icon">
-                            <i class="fas fa-flask"></i>
+                            <i class="fas fa-project-diagram"></i>
                         </div>
-                        <h3>Flask</h3>
-                        <p>Lightweight Python web framework</p>
+                        <h3>BERT</h3>
+                        <p>Bidirectional encoder representations</p>
                     </div>
-                    <div class="skill-card" data-category="backend">
+                    <div class="skill-card" data-category="ai">
                         <div class="skill-icon">
-                            <i class="fab fa-python"></i>
+                            <i class="fas fa-comments"></i>
                         </div>
-                        <h3>Django</h3>
-                        <p>High-level Python web framework</p>
+                        <h3>Large Language Models</h3>
+                        <p>LLM development, fine-tuning, deployment</p>
                     </div>
-                    <div class="skill-card" data-category="systems">
+                    <div class="skill-card" data-category="ai">
                         <div class="skill-icon">
-                            <i class="fas fa-cog"></i>
+                            <i class="fas fa-search"></i>
                         </div>
-                        <h3>Rust</h3>
-                        <p>Systems programming, performance</p>
+                        <h3>RAG</h3>
+                        <p>Retrieval-augmented generation systems</p>
+                    </div>
+                    <div class="skill-card" data-category="ai">
+                        <div class="skill-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>MLOps</h3>
+                        <p>ML lifecycle management, deployment pipelines</p>
+                    </div>
+                    
+                    <!-- Data Tools -->
+                    <div class="skill-card" data-category="data">
+                        <div class="skill-icon">
+                            <i class="fas fa-table"></i>
+                        </div>
+                        <h3>Pandas</h3>
+                        <p>Data manipulation and analysis library</p>
+                    </div>
+                    <div class="skill-card" data-category="data">
+                        <div class="skill-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3>NumPy</h3>
+                        <p>Numerical computing and array operations</p>
+                    </div>
+                    <div class="skill-card" data-category="data">
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Matplotlib</h3>
+                        <p>Data visualization and plotting library</p>
+                    </div>
+                    <div class="skill-card" data-category="data">
+                        <div class="skill-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h3>Scikit-learn</h3>
+                        <p>Machine learning algorithms and tools</p>
+                    </div>
+                    <div class="skill-card" data-category="data">
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-area"></i>
+                        </div>
+                        <h3>Seaborn</h3>
+                        <p>Statistical data visualization library</p>
+                    </div>
+                    
+                    <!-- DevOps & Cloud -->
+                    <div class="skill-card" data-category="devops">
+                        <div class="skill-icon">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <h3>AWS</h3>
+                        <p>Cloud computing services and infrastructure</p>
+                    </div>
+                    <div class="skill-card" data-category="devops">
+                        <div class="skill-icon">
+                            <i class="fab fa-docker"></i>
+                        </div>
+                        <h3>Docker</h3>
+                        <p>Containerization and application deployment</p>
+                    </div>
+                    <div class="skill-card" data-category="devops">
+                        <div class="skill-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <h3>Git</h3>
+                        <p>Version control and collaborative development</p>
+                    </div>
+                    <div class="skill-card" data-category="devops">
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>Google Analytics</h3>
+                        <p>Web analytics and user behavior tracking</p>
+                    </div>
+                    <div class="skill-card" data-category="devops">
+                        <div class="skill-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h3>API Integration</h3>
+                        <p>RESTful APIs, third-party integrations</p>
+                    </div>
+                    <div class="skill-card" data-category="devops">
+                        <div class="skill-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3>CI/CD Pipelines</h3>
+                        <p>Continuous integration and deployment automation</p>
                     </div>
                 </div>
             </div>
@@ -365,56 +387,112 @@
                             <i class="fas fa-code"></i>
                         </div>
                         <h3>VS Code</h3>
-                        <p>Primary development environment</p>
+                        <p>Primary development environment with extensions</p>
                     </div>
                     <div class="tool-card">
                         <div class="tool-icon">
-                            <i class="fab fa-git-alt"></i>
+                            <i class="fas fa-book"></i>
                         </div>
-                        <h3>Git</h3>
-                        <p>Version control system</p>
+                        <h3>Jupyter Notebook</h3>
+                        <p>Interactive data science and ML development</p>
                     </div>
                     <div class="tool-card">
                         <div class="tool-icon">
                             <i class="fab fa-github"></i>
                         </div>
                         <h3>GitHub</h3>
-                        <p>Code repository and collaboration</p>
+                        <p>Code repository and collaboration platform</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <h3>Git</h3>
+                        <p>Version control and source code management</p>
                     </div>
                     <div class="tool-card">
                         <div class="tool-icon">
                             <i class="fab fa-docker"></i>
                         </div>
                         <h3>Docker</h3>
-                        <p>Containerization platform</p>
+                        <p>Containerization and deployment</p>
                     </div>
                     <div class="tool-card">
                         <div class="tool-icon">
-                            <i class="fas fa-fire"></i>
+                            <i class="fab fa-aws"></i>
                         </div>
-                        <h3>Firebase</h3>
-                        <p>Backend-as-a-Service platform</p>
-                    </div>
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <h3>MongoDB</h3>
-                        <p>NoSQL database management</p>
+                        <h3>AWS Services</h3>
+                        <p>EC2, S3, Lambda, SageMaker</p>
                     </div>
                     <div class="tool-card">
                         <div class="tool-icon">
                             <i class="fas fa-satellite-dish"></i>
                         </div>
                         <h3>Postman</h3>
-                        <p>API development and testing</p>
+                        <p>API development, testing, and documentation</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Hugging Face</h3>
+                        <p>Transformers, model hub, datasets</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>TensorFlow</h3>
+                        <p>Deep learning framework and model training</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>PyTorch</h3>
+                        <p>ML research and production deployment</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>MongoDB</h3>
+                        <p>NoSQL database for modern applications</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>PostgreSQL</h3>
+                        <p>Advanced relational database system</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fab fa-slack"></i>
+                        </div>
+                        <h3>Slack</h3>
+                        <p>Team communication and collaboration</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fab fa-jira"></i>
+                        </div>
+                        <h3>Jira</h3>
+                        <p>Project management and issue tracking</p>
                     </div>
                     <div class="tool-card">
                         <div class="tool-icon">
                             <i class="fab fa-figma"></i>
                         </div>
                         <h3>Figma</h3>
-                        <p>UI/UX design and prototyping</p>
+                        <p>UI/UX design and prototyping tool</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Tableau</h3>
+                        <p>Data visualization and business intelligence</p>
                     </div>
                 </div>
             </div>
@@ -427,74 +505,194 @@
                 <div class="expertise-grid">
                     <div class="expertise-card">
                         <div class="expertise-icon">
-                            <i class="fas fa-layer-group"></i>
+                            <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3>Full-stack Web Development</h3>
-                        <p>End-to-end web application development using modern frameworks and technologies</p>
+                        <h3>Data Science</h3>
+                        <p>Advanced analytics, predictive modeling, and automated ML workflows for data-driven insights</p>
                         <div class="expertise-tags">
-                            <span>MERN Stack</span>
-                            <span>RESTful APIs</span>
-                            <span>Responsive Design</span>
+                            <span>AutoML</span>
+                            <span>Predictive Models</span>
+                            <span>Feature Engineering</span>
                         </div>
                     </div>
                     <div class="expertise-card">
                         <div class="expertise-icon">
-                            <i class="fas fa-robot"></i>
+                            <i class="fas fa-database"></i>
                         </div>
-                        <h3>AI Tools & Integration</h3>
-                        <p>Building intelligent applications with machine learning and AI capabilities</p>
+                        <h3>Data Analysis</h3>
+                        <p>End-to-end data processing from ingestion to visualization, handling datasets from rows to millions of records</p>
                         <div class="expertise-tags">
-                            <span>ML Models</span>
-                            <span>NLP</span>
-                            <span>AI APIs</span>
+                            <span>Data Cleaning</span>
+                            <span>EDA</span>
+                            <span>Visualization</span>
                         </div>
                     </div>
                     <div class="expertise-card">
                         <div class="expertise-icon">
-                            <i class="fas fa-tasks"></i>
+                            <i class="fas fa-code"></i>
                         </div>
-                        <h3>Productivity Systems</h3>
-                        <p>Creating efficient workflows and automation solutions for enhanced productivity</p>
+                        <h3>Software Engineering</h3>
+                        <p>Building scalable platforms and applications with modern frameworks and best practices</p>
                         <div class="expertise-tags">
-                            <span>Automation</span>
-                            <span>Workflows</span>
-                            <span>Integration</span>
+                            <span>FastAPI</span>
+                            <span>Python</span>
+                            <span>PostgreSQL</span>
                         </div>
                     </div>
                     <div class="expertise-card">
                         <div class="expertise-icon">
-                            <i class="fas fa-plug"></i>
+                            <i class="fas fa-lightbulb"></i>
                         </div>
-                        <h3>API Development</h3>
-                        <p>Designing and building robust, scalable APIs for web and mobile applications</p>
+                        <h3>Product Development</h3>
+                        <p>Creating AI-powered automation platforms and delivering custom solutions for diverse industries</p>
                         <div class="expertise-tags">
-                            <span>REST APIs</span>
-                            <span>GraphQL</span>
-                            <span>Authentication</span>
+                            <span>MVP Development</span>
+                            <span>Client Solutions</span>
+                            <span>End-to-End Delivery</span>
                         </div>
                     </div>
                     <div class="expertise-card">
                         <div class="expertise-icon">
-                            <i class="fas fa-cloud"></i>
+                            <i class="fas fa-brain"></i>
                         </div>
-                        <h3>Cloud Deployment</h3>
-                        <p>Deploying and managing applications on cloud platforms with DevOps practices</p>
+                        <h3>AI & Machine Learning</h3>
+                        <p>Implementing LLMs, RAG systems, transformers, and multi-agent AI architectures for intelligent automation</p>
                         <div class="expertise-tags">
-                            <span>AWS</span>
+                            <span>LLMs</span>
+                            <span>RAG</span>
+                            <span>Transformers</span>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>NLP & Conversational AI</h3>
+                        <p>Building chatbots, sentiment analysis, and real-time text processing systems with advanced NLP techniques</p>
+                        <div class="expertise-tags">
+                            <span>Chatbots</span>
+                            <span>Sentiment Analysis</span>
+                            <span>Text Processing</span>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>MLOps & Data Pipelines</h3>
+                        <p>Designing scalable data pipelines and deploying ML models with cloud-based infrastructure</p>
+                        <div class="expertise-tags">
                             <span>CI/CD</span>
-                            <span>Scalability</span>
+                            <span>AWS</span>
+                            <span>Model Deployment</span>
                         </div>
                     </div>
                     <div class="expertise-card">
                         <div class="expertise-icon">
                             <i class="fas fa-cogs"></i>
                         </div>
-                        <h3>Automation</h3>
-                        <p>Streamlining processes through intelligent automation and scripting solutions</p>
+                        <h3>AI Automation</h3>
+                        <p>Creating automated workflows for content creation, social media management, and business process optimization</p>
                         <div class="expertise-tags">
-                            <span>Scripts</span>
-                            <span>Bots</span>
-                            <span>Workflows</span>
+                            <span>LangChain</span>
+                            <span>LangGraph</span>
+                            <span>Multi-Agent Systems</span>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h3>API Development & Integration</h3>
+                        <p>Building robust APIs and integrating third-party services for seamless data flow and functionality</p>
+                        <div class="expertise-tags">
+                            <span>REST APIs</span>
+                            <span>FastAPI</span>
+                            <span>Third-party APIs</span>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>SEO & Analytics</h3>
+                        <p>Implementing data optimization strategies and achieving top search rankings with analytics-driven insights</p>
+                        <div class="expertise-tags">
+                            <span>SEO Strategy</span>
+                            <span>Analytics</span>
+                            <span>Performance Tracking</span>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Freelance Consulting</h3>
+                        <p>Delivering custom AI and data automation solutions for startups and enterprises across multiple industries</p>
+                        <div class="expertise-tags">
+                            <span>Client Projects</span>
+                            <span>Remote Work</span>
+                            <span>Custom Solutions</span>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3>Full-Stack Web Development</h3>
+                        <p>End-to-end web application development with modern frameworks and scalable architectures</p>
+                        <div class="expertise-tags">
+                            <span>MERN Stack</span>
+                            <span>FastAPI</span>
+                            <span>Responsive Design</span>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>Frontend Development</h3>
+                        <p>Creating beautiful, responsive, and interactive user interfaces with modern JavaScript frameworks</p>
+                        <div class="expertise-tags">
+                            <span>React</span>
+                            <span>JavaScript</span>
+                            <span>UI/UX</span>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>Backend Development</h3>
+                        <p>Building robust server-side applications, APIs, and database architectures for scalable systems</p>
+                        <div class="expertise-tags">
+                            <span>Node.js</span>
+                            <span>Python</span>
+                            <span>Database Design</span>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <h3>Algorithms & Problem Solving</h3>
+                        <p>Designing efficient algorithms and data structures for optimized performance and scalability</p>
+                        <div class="expertise-tags">
+                            <span>DSA</span>
+                            <span>Optimization</span>
+                            <span>Complex Systems</span>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3>ML Model Development</h3>
+                        <p>Building, training, and fine-tuning machine learning models for various use cases and applications</p>
+                        <div class="expertise-tags">
+                            <span>Model Training</span>
+                            <span>Fine-tuning</span>
+                            <span>Evaluation</span>
                         </div>
                     </div>
                 </div>

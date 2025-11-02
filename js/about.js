@@ -3,6 +3,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const menuIcon = document.getElementById('menu-icon');
     const navbar = document.querySelector('.navbar');
     const body = document.body;
+    const header = document.querySelector('.header');
+
+    // Sticky Header on Scroll
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('sticky', window.scrollY > 100);
+    });
 
     // 🌙 Dark Mode Toggle
     function toggleDarkMode() {
@@ -10,21 +16,25 @@ document.addEventListener("DOMContentLoaded", function() {
         
         if (body.classList.contains('dark-mode')) {
             darkModeIcon.classList.replace('bx-moon', 'bx-sun');
-            // Store preference in memory instead of localStorage
-            window.darkModeEnabled = true;
+            localStorage.setItem('darkMode', 'enabled');
         } else {
             darkModeIcon.classList.replace('bx-sun', 'bx-moon');
-            window.darkModeEnabled = false;
+            localStorage.setItem('darkMode', 'disabled');
         }
     }
 
-    // Initialize dark mode state
-    if (window.darkModeEnabled) {
+    // Initialize dark mode state from localStorage
+    const darkMode = localStorage.getItem('darkMode');
+    if (darkMode === 'enabled') {
         body.classList.add('dark-mode');
-        darkModeIcon.classList.replace('bx-moon', 'bx-sun');
+        if (darkModeIcon) {
+            darkModeIcon.classList.remove('bx-moon');
+            darkModeIcon.classList.add('bx-sun');
+        }
     } else {
-        // Ensure moon icon is set if dark mode is disabled
-        if (!darkModeIcon.classList.contains('bx-moon') && !darkModeIcon.classList.contains('bx-sun')) {
+        body.classList.remove('dark-mode');
+        if (darkModeIcon) {
+            darkModeIcon.classList.remove('bx-sun');
             darkModeIcon.classList.add('bx-moon');
         }
     }
