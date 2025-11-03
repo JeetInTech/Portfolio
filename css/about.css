@@ -1326,46 +1326,276 @@ body.dark-mode::after {
 }
 
 @media (max-width: 480px) {
+  html {
+    font-size: 55%;
+  }
+
   .container {
-    padding: 1rem 5%;
+    padding: 1rem 4%;
   }
 
   .page-title {
     font-size: 2.5rem;
+    margin-bottom: 2rem;
   }
 
   .logo {
     font-size: 1.8rem;
   }
 
+  .header {
+    padding: 1rem 4%;
+  }
+
+  .navbar a {
+    font-size: 1.6rem;
+    padding: 0.8rem 1rem;
+  }
+
+  #darkMode-icon {
+    font-size: 2rem;
+  }
+
+  .profile-section {
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
   .profile-card {
     padding: 1.5rem;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .profile-image-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .profile-name {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .profile-title {
+    font-size: 1.3rem;
+  }
+
+  .profile-bio {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-item {
+    padding: 1rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 1.1rem;
   }
 
   .content-section {
     padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-line {
+    width: 60px;
+    margin-bottom: 2rem;
+  }
+
+  .skill-bubbles {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .bubble {
+    padding: 0.7rem 1.3rem;
+    font-size: 1.1rem;
+  }
+
+  .timeline-item {
+    padding-left: 2rem;
+  }
+
+  .timeline-item::before {
+    left: 0;
+    width: 12px;
+    height: 12px;
+  }
+
+  .timeline-item::after {
+    left: 5px;
+    width: 2px;
+  }
+
+  .timeline-year {
+    font-size: 1.3rem;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .timeline-content p {
+    font-size: 1.2rem;
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .education-card {
+    padding: 1.5rem;
+  }
+
+  .education-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+
+  .education-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .education-card p {
+    font-size: 1.2rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-card {
+    padding: 1.5rem;
+  }
+
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+
+  .contact-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .contact-card p,
+  .contact-card a {
+    font-size: 1.2rem;
+  }
+
+  .social-container {
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .social-icon {
+    font-size: 1.8rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .floating-social {
+    display: none;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 375px) {
+  html {
+    font-size: 52%;
+  }
+
+  .profile-name {
+    font-size: 1.8rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-item {
+    padding: 1.2rem;
+  }
+
+  .bubble {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* Very Small Mobile */
+@media (max-width: 320px) {
+  html {
+    font-size: 50%;
+  }
+
+  .container {
+    padding: 0.8rem 3%;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .profile-image-container {
+    width: 180px;
+    height: 180px;
+  }
+
+  .profile-name {
+    font-size: 1.6rem;
+  }
+
+  .profile-title {
+    font-size: 1.2rem;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+  }
+
+  .content-section {
+    padding: 1.2rem;
   }
 
   .section-title {
     font-size: 1.5rem;
   }
 
-  .skill-bubbles {
-    justify-content: center;
-  }
-
-  .bubble {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-  }
-
-  .social-container {
-    padding: 0.8rem 1.5rem;
-    gap: 1rem;
-  }
-
   .social-icon {
-    font-size: 1.3rem;
+    width: 35px;
+    height: 35px;
+    font-size: 1.6rem;
   }
 }
 

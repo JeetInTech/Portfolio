@@ -243,7 +243,7 @@ body.dark-mode .header.sticky .navbar a::before {
    INTRO SECTION
    ================================ */
 .intro-section {
-    padding: 4rem 0;
+    padding: 10rem 0 3rem;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     text-align: center;
 }
@@ -253,21 +253,22 @@ body.dark-mode .intro-section {
 }
 
 .intro-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     animation: fadeInUp 0.8s ease-out;
 }
 
 .intro-text {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
+    line-height: 1.5;
     animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
@@ -275,14 +276,14 @@ body.dark-mode .intro-section {
    SECTION STYLES
    ================================ */
 section {
-    padding: 5rem 0;
+    padding: 3rem 0;
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     color: var(--text-primary);
 }
 
@@ -302,13 +303,13 @@ section {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
 }
 
 .skill-card {
     background: var(--bg-primary);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: var(--border-radius);
     text-align: center;
     box-shadow: var(--shadow-light);
@@ -329,16 +330,16 @@ section {
 }
 
 .skill-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1.5rem;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--gradient-primary);
     color: white;
-    font-size: 2rem;
+    font-size: 1.8rem;
     transition: var(--transition);
 }
 
@@ -347,15 +348,16 @@ section {
 }
 
 .skill-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     color: var(--text-primary);
 }
 
 .skill-card p {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
 }
 
 /* Category-based hover effects */
@@ -384,13 +386,13 @@ section {
    ================================ */
 .tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
 }
 
 .tool-card {
     background: var(--bg-primary);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: var(--border-radius);
     text-align: center;
     box-shadow: var(--shadow-light);
@@ -428,16 +430,16 @@ section {
 }
 
 .tool-icon {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 1.5rem;
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 1rem;
     border-radius: var(--border-radius);
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--gradient-accent);
     color: white;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     transition: var(--transition);
 }
 
@@ -447,15 +449,16 @@ section {
 }
 
 .tool-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     color: var(--text-primary);
 }
 
 .tool-card p {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
 }
 
 /* ================================
@@ -467,13 +470,13 @@ section {
 
 .expertise-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
 }
 
 .expertise-card {
     background: var(--bg-primary);
-    padding: 2.5rem;
+    padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-light);
     transition: var(--transition);
@@ -511,16 +514,16 @@ section {
 }
 
 .expertise-icon {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 1.5rem;
+    width: 65px;
+    height: 65px;
+    margin-bottom: 1.2rem;
     border-radius: var(--border-radius);
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--gradient-primary);
     color: white;
-    font-size: 2rem;
+    font-size: 1.8rem;
     transition: var(--transition);
 }
 
@@ -530,16 +533,29 @@ section {
 }
 
 .expertise-card h3 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     color: var(--text-primary);
 }
 
 .expertise-card p {
     color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.expertise-card ul {
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.expertise-card ul li {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
 }
 
 .expertise-tags {
@@ -823,12 +839,32 @@ body.dark-mode .dark-mode-toggle {
    RESPONSIVE DESIGN
    ================================ */
 @media (max-width: 768px) {
+    html {
+        font-size: 55%;
+    }
+
     .header {
-        padding: 1rem;
+        padding: 1.2rem 3%;
+    }
+
+    .logo {
+        font-size: 2rem;
     }
     
     .navbar {
         gap: 1rem;
+    }
+
+    .navbar a {
+        font-size: 1.4rem;
+    }
+
+    #darkMode-icon {
+        font-size: 2.2rem;
+    }
+
+    #menu-icon {
+        font-size: 2.8rem;
     }
 
     .menu-toggle {
@@ -836,99 +872,309 @@ body.dark-mode .dark-mode-toggle {
     }
 
     .floating-social {
-        right: 1rem;
-        gap: 0.5rem;
+        right: 1.5rem;
+        gap: 0.8rem;
     }
 
     .social-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
+        width: 45px;
+        height: 45px;
+        font-size: 1.8rem;
+    }
+
+    .intro-section {
+        padding: 10rem 3% 4rem;
     }
 
     .intro-title {
-        font-size: 2rem;
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
     }
 
     .intro-text {
-        font-size: 1rem;
-        padding: 0 1rem;
+        font-size: 1.5rem;
+        padding: 0 2rem;
+        line-height: 1.7;
     }
 
     .section-title {
+        font-size: 2.8rem;
+        margin-bottom: 3rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        padding: 0 2rem;
+    }
+
+    .skill-card {
+        padding: 2.5rem 2rem;
+    }
+
+    .skill-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .skill-card h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .skill-card p {
+        font-size: 1.4rem;
+    }
+
+    .progress-bar {
+        height: 10px;
+    }
+
+    .tools-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.8rem;
+        padding: 0 2rem;
+    }
+
+    .tool-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .tool-icon {
+        width: 60px;
+        height: 60px;
         font-size: 2rem;
     }
 
-    .skills-grid,
-    .tools-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .tool-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .tool-card p {
+        font-size: 1.3rem;
     }
 
     .expertise-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 2rem;
+        padding: 0 2rem;
     }
 
     .expertise-card {
-        padding: 2rem;
+        padding: 2.5rem 2rem;
+    }
+
+    .expertise-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2.5rem;
+    }
+
+    .expertise-card h3 {
+        font-size: 2rem;
+    }
+
+    .expertise-card ul li {
+        font-size: 1.4rem;
     }
 
     section {
-        padding: 3rem 0;
+        padding: 5rem 0 4rem;
     }
 
     .container {
-        padding: 0 1rem;
+        padding: 0 3%;
     }
 }
 
 @media (max-width: 480px) {
+    html {
+        font-size: 52%;
+    }
+
     .header {
-        padding: 1rem;
+        padding: 1rem 3%;
+    }
+
+    .logo {
+        font-size: 1.8rem;
     }
 
     .navbar {
-        gap: 0.8rem;
+        gap: 0;
     }
 
     .navbar a {
-        font-size: 0.9rem;
+        font-size: 1.6rem;
+        padding: 1rem 0.8rem;
+        margin: 1.5rem 0;
+    }
+
+    #darkMode-icon {
+        font-size: 2rem;
+        right: 6rem;
+    }
+
+    #menu-icon {
+        font-size: 2.6rem;
+    }
+
+    .intro-section {
+        padding: 8rem 3% 3rem;
     }
 
     .intro-title {
-        font-size: 1.8rem;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .intro-text {
+        font-size: 1.4rem;
+        padding: 0 1rem;
+        line-height: 1.6;
     }
 
     .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 2rem;
+        font-size: 2.5rem;
+        margin-bottom: 2.5rem;
     }
 
-    .skill-card,
-    .tool-card {
-        padding: 1.5rem;
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+        padding: 0 1rem;
     }
 
-    .expertise-card {
-        padding: 1.5rem;
+    .skill-card {
+        padding: 2rem 1.5rem;
     }
 
-    .skill-icon,
-    .expertise-icon {
+    .skill-icon {
         width: 60px;
         height: 60px;
-        font-size: 1.5rem;
+        font-size: 2.2rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .skill-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .skill-card p {
+        font-size: 1.3rem;
+        line-height: 1.6;
+    }
+
+    .progress-bar {
+        height: 8px;
+        margin-top: 1rem;
+    }
+
+    .progress-fill {
+        border-radius: 10px;
+    }
+
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .tool-card {
+        padding: 1.8rem 1.2rem;
     }
 
     .tool-icon {
         width: 50px;
         height: 50px;
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .tool-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .tool-card p {
+        font-size: 1.2rem;
+    }
+
+    .expertise-grid {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+        padding: 0 1rem;
+    }
+
+    .expertise-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .expertise-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2.2rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .expertise-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .expertise-card ul {
+        padding-left: 2rem;
+    }
+
+    .expertise-card ul li {
         font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.6;
+    }
+
+    .expertise-card ul li::marker {
+        font-size: 1.2rem;
+    }
+
+    section {
+        padding: 4rem 0 3rem;
+    }
+
+    .container {
+        padding: 0 3%;
+        max-width: 100%;
     }
 
     .floating-social {
         display: none;
+    }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 375px) {
+    html {
+        font-size: 50%;
+    }
+
+    .intro-title {
+        font-size: 2.2rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-card,
+    .tool-card,
+    .expertise-card {
+        padding: 1.5rem 1.2rem;
     }
 }
 
