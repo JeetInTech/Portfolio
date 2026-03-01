@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Sangramjeet Ghosh — AI/ML, Full-Stack & SaaS Engineering</title>
+    <link rel="icon" type="image/png" href="../images/logo1.png">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="50+ projects by Sangramjeet Ghosh — AI SaaS platforms, multilingual voice assistants, knowledge management systems, multi-LLM architectures, computer vision, and full-stack web apps. View live demos, tech stacks & source code.">
+    <meta name="keywords" content="Sangramjeet Ghosh projects, AI projects, full-stack projects, Neuroviai, Second Brain, SANA AI, machine learning projects, React, Python, Next.js, LangChain">
+    <meta name="author" content="Sangramjeet Ghosh">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sangramjeet.me/html/projects.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Projects | Sangramjeet Ghosh — 50+ AI & Full-Stack Projects">
+    <meta property="og:description" content="AI SaaS platforms, voice assistants, multi-LLM systems, computer vision & more. Live demos, source code & tech breakdowns.">
+    <meta property="og:image" content="https://sangramjeet.me/images/logo1.png">
+    <meta property="og:url" content="https://sangramjeet.me/html/projects.html">
+    <meta property="og:site_name" content="Sangramjeet Ghosh Portfolio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Projects | Sangramjeet Ghosh">
+    <meta name="twitter:description" content="50+ AI & Full-Stack projects with live demos.">
+    <meta name="twitter:image" content="https://sangramjeet.me/images/logo1.png">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/projects-page.css">
+</head>
+<body>
+    <!-- Ambient Background -->
+    <div class="ambient-bg">
+        <div class="ambient-orb orb-1"></div>
+        <div class="ambient-orb orb-2"></div>
+        <div class="ambient-orb orb-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="logo">Portfolio</a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="index.html#achievements">Achievements</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="gallery.html">Certifications</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span><span></span><span></span>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="close-btn" id="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <nav>
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="about.html" class="nav-item">About</a>
+            <a href="skills.html" class="nav-item">Skills</a>
+            <a href="projects.html" class="nav-item active">Projects</a>
+            <a href="index.html#achievements" class="nav-item">Achievements</a>
+            <a href="index.html#contact" class="nav-item">Contact</a>
+            <a href="gallery.html" class="nav-item">Certifications</a>
+        </nav>
+    </div>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="projects-hero">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>50+ Projects & Counting</span>
+                </div>
+                <h1 class="hero-title">Engineering Ideas<br>Into <span class="gradient-text">Reality</span></h1>
+                <p class="hero-subtitle">From AI SaaS platforms to multilingual voice assistants — production-grade systems built with modern architectures and deployed at scale.</p>
+
+                <!-- Stats Bar -->
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <span class="stat-value" data-count="50">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-value" data-count="5">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Live Deployments</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-value" data-count="12">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">AI/ML Models</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-value" data-count="8">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Languages</span>
+                    </div>
+                </div>
+
+                <!-- Tech Radar -->
+                <div class="tech-cloud">
+                    <span class="tech-pill" style="--delay:0">Python</span>
+                    <span class="tech-pill" style="--delay:1">React</span>
+                    <span class="tech-pill" style="--delay:2">Next.js</span>
+                    <span class="tech-pill" style="--delay:3">TypeScript</span>
+                    <span class="tech-pill" style="--delay:4">FastAPI</span>
+                    <span class="tech-pill" style="--delay:5">LangChain</span>
+                    <span class="tech-pill" style="--delay:6">PostgreSQL</span>
+                    <span class="tech-pill" style="--delay:7">Tailwind CSS</span>
+                    <span class="tech-pill" style="--delay:8">OpenCV</span>
+                    <span class="tech-pill" style="--delay:9">MediaPipe</span>
+                    <span class="tech-pill" style="--delay:10">Gemini AI</span>
+                    <span class="tech-pill" style="--delay:11">Supabase</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Bar -->
+        <section class="filter-section">
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th-large"></i> All Projects
+                    <span class="filter-count">27</span>
+                </button>
+                <button class="filter-btn" data-filter="live">
+                    <i class="fas fa-signal"></i> Live / Deployed
+                    <span class="filter-count">5</span>
+                </button>
+                <button class="filter-btn" data-filter="ai">
+                    <i class="fas fa-brain"></i> AI & ML
+                    <span class="filter-count">10</span>
+                </button>
+                <button class="filter-btn" data-filter="fullstack">
+                    <i class="fas fa-layer-group"></i> Full-Stack
+                    <span class="filter-count">7</span>
+                </button>
+                <button class="filter-btn" data-filter="tools">
+                    <i class="fas fa-wrench"></i> Dev Tools
+                    <span class="filter-count">5</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ========== LIVE / DEPLOYED PROJECTS ========== -->
+        <section class="project-category" id="cat-live">
+            <div class="category-header">
+                <div class="category-icon live"><i class="fas fa-signal"></i></div>
+                <div>
+                    <h2 class="category-title">Live & Deployed</h2>
+                    <p class="category-desc">Production applications serving real users</p>
+                </div>
+                <span class="category-count">5 projects</span>
+            </div>
+
+            <div class="projects-grid">
+                <!-- 1 — Neuroviai -->
+                <article class="pcard pcard--featured" data-cats="live ai fullstack">
+                    <div class="pcard__status"><span class="status-dot live"></span>Live</div>
+                    <div class="pcard__visual">
+                        <iframe src="https://neuroviai.com/" title="Neuroviai" loading="lazy" class="pcard__iframe"></iframe></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Neuroviai — AI Content Automation SaaS</h3>
+                        <p class="pcard__desc">Full-scale AI-powered content automation SaaS with 6 FastAPI microservices, 4-tier AI fallback (GPT-4 → Gemini → Claude → Llama), Razorpay payments, and multi-platform social distribution. Serving 50+ daily users with 99.5% uptime.</p>
+                        <div class="pcard__tech">
+                            <span>Next.js 14</span><span>TypeScript</span><span>Tailwind CSS</span><span>Framer Motion</span><span>FastAPI</span><span>PostgreSQL</span><span>Gemini AI</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:40%;background:#3572A5" title="Python 40%"></div>
+                            <div class="lang-segment" style="width:30%;background:#f1e05a" title="JavaScript 30%"></div>
+                            <div class="lang-segment" style="width:20%;background:#3178c6" title="TypeScript 20%"></div>
+                            <div class="lang-segment" style="width:10%;background:#e34c26" title="HTML/CSS 10%"></div>
+                        </div>
+                        <div class="pcard__meta">
+                            <span class="meta-item"><i class="fas fa-users"></i> 50+ DAU</span>
+                            <span class="meta-item"><i class="fas fa-server"></i> 6 Microservices</span>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://neuroviai.com/" target="_blank" class="action-link primary"><i class="fas fa-external-link-alt"></i> Live Site</a>
+                    </div>
+                </article>
+
+                <!-- 2 — Crafting Brain -->
+                <article class="pcard" data-cats="live fullstack">
+                    <div class="pcard__status"><span class="status-dot live"></span>Live</div>
+                    <div class="pcard__visual">
+                        <iframe src="https://craftingbrain.com/" title="Crafting Brain" loading="lazy" class="pcard__iframe"></iframe></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Crafting Brain — Digital Agency Platform</h3>
+                        <p class="pcard__desc">Modern digital agency website with interactive animations, responsive design, and comprehensive service showcases for creative professionals.</p>
+                        <div class="pcard__tech">
+                            <span>React 18</span><span>React Router</span><span>styled-components</span><span>Axios</span><span>Lucide React</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:45%;background:#e34c26" title="HTML 45%"></div>
+                            <div class="lang-segment" style="width:35%;background:#563d7c" title="CSS 35%"></div>
+                            <div class="lang-segment" style="width:20%;background:#f1e05a" title="JavaScript 20%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://craftingbrain.com/" target="_blank" class="action-link primary"><i class="fas fa-external-link-alt"></i> Live Site</a>
+                    </div>
+                </article>
+
+                <!-- 3 — Second Brain -->
+                <article class="pcard pcard--featured" data-cats="live ai fullstack">
+                    <div class="pcard__status"><span class="status-dot live"></span>Live</div>
+                    <div class="pcard__visual">
+                        <iframe src="https://secondbraindev.vercel.app/" title="Second Brain" loading="lazy" class="pcard__iframe"></iframe></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Second Brain — AI Knowledge Management</h3>
+                        <p class="pcard__desc">Personal AI-powered knowledge management system built with Next.js 15. Capture notes & links, auto-summarize with Gemini AI, semantic search, and conversational Q&A against your entire knowledge base.</p>
+                        <div class="pcard__tech">
+                            <span>Next.js 15</span><span>TypeScript</span><span>Tailwind CSS v4</span><span>Framer Motion</span><span>PostgreSQL</span><span>Prisma</span><span>Gemini 2.5 Flash</span><span>Vercel AI SDK</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:70%;background:#3178c6" title="TypeScript 70%"></div>
+                            <div class="lang-segment" style="width:20%;background:#e34c26" title="HTML/CSS 20%"></div>
+                            <div class="lang-segment" style="width:10%;background:#3572A5" title="Other 10%"></div>
+                        </div>
+                        <div class="pcard__meta">
+                            <span class="meta-item"><i class="fas fa-bolt"></i> Gemini 2.5 Flash</span>
+                            <span class="meta-item"><i class="fas fa-database"></i> Prisma ORM</span>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://secondbraindev.vercel.app/" target="_blank" class="action-link primary"><i class="fas fa-external-link-alt"></i> Live App</a>
+                        <a href="https://github.com/JeetInTech/Second-Brain" target="_blank" class="action-link secondary"><i class="fab fa-github"></i> Source</a>
+                    </div>
+                </article>
+
+                <!-- 4 — Ezz Notes -->
+                <article class="pcard" data-cats="live fullstack">
+                    <div class="pcard__status"><span class="status-dot live"></span>Live</div>
+                    <div class="pcard__visual">
+                        <iframe src="https://ezznotes.netlify.app/" title="Ezz Notes" loading="lazy" class="pcard__iframe"></iframe></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Ezz Notes — Smart Note Taking</h3>
+                        <p class="pcard__desc">Intuitive note-taking app with real-time sync, rich text editor, tagging system, and clean responsive UI for enhanced productivity.</p>
+                        <div class="pcard__tech">
+                            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>IndexedDB</span><span>PWA</span><span>Service Worker</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:60%;background:#f1e05a" title="JavaScript 60%"></div>
+                            <div class="lang-segment" style="width:30%;background:#e34c26" title="HTML/CSS 30%"></div>
+                            <div class="lang-segment" style="width:10%;background:#563d7c" title="Other 10%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://ezznotes.netlify.app/" target="_blank" class="action-link primary"><i class="fas fa-external-link-alt"></i> Live App</a>
+                    </div>
+                </article>
+
+                <!-- 5 — Sri Durga Electrical Works -->
+                <article class="pcard" data-cats="live fullstack">
+                    <div class="pcard__status"><span class="status-dot live"></span>Live</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #f59e0b, #d97706)">
+                            <i class="fas fa-bolt" style="font-size:3rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.9rem;margin-top:8px">E‑Commerce Catalog</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Sri Durga Electrical Works</h3>
+                        <p class="pcard__desc">Modern product showcase and catalog website for a family electronics store. Displays products, repair services, spare parts, and store info with Supabase backend.</p>
+                        <div class="pcard__tech">
+                            <span>React 19</span><span>Vite 7</span><span>React Router 7</span><span>Lucide React</span><span>CSS Modules</span><span>Supabase</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:55%;background:#f1e05a" title="JavaScript 55%"></div>
+                            <div class="lang-segment" style="width:30%;background:#e34c26" title="HTML/CSS 30%"></div>
+                            <div class="lang-segment" style="width:15%;background:#3178c6" title="Other 15%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/E-Commerce-Website" target="_blank" class="action-link secondary"><i class="fab fa-github"></i> Source</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ========== AI & ML PROJECTS ========== -->
+        <section class="project-category" id="cat-ai">
+            <div class="category-header">
+                <div class="category-icon ai"><i class="fas fa-brain"></i></div>
+                <div>
+                    <h2 class="category-title">AI & Machine Learning</h2>
+                    <p class="category-desc">Intelligent systems, LLMs, agents, and computer vision</p>
+                </div>
+                <span class="category-count">10 projects</span>
+            </div>
+
+            <div class="projects-grid">
+                <!-- 6 — SANA -->
+                <article class="pcard pcard--featured" data-cats="ai">
+                    <div class="pcard__status"><span class="status-dot ai"></span>AI</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #0f0c29, #302b63, #24243e)">
+                            <div class="mini-orb"></div>
+                            <span style="color:rgba(255,255,255,0.8);font-size:0.85rem;margin-top:12px;letter-spacing:2px">VOICE-FIRST AI BUTLER</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">SANA — Multilingual AI Voice Assistant</h3>
+                        <p class="pcard__desc">Real-time voice-first AI butler with holographic face visualizer rendered on HTML5 Canvas. English + Hindi bidirectional audio streaming with sub-second latency via Gemini 2.5 Flash Live API.</p>
+                        <div class="pcard__tech">
+                            <span>React 19</span><span>TypeScript</span><span>Vite 6</span><span>Gemini 2.5 Flash</span><span>Three.js</span><span>Canvas</span><span>Tailwind CSS</span><span>Web Audio API</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:80%;background:#3178c6" title="TypeScript 80%"></div>
+                            <div class="lang-segment" style="width:15%;background:#e34c26" title="HTML/CSS 15%"></div>
+                            <div class="lang-segment" style="width:5%;background:#f1e05a" title="Other 5%"></div>
+                        </div>
+                        <div class="pcard__meta">
+                            <span class="meta-item"><i class="fas fa-microphone-alt"></i> Real-time Audio</span>
+                            <span class="meta-item"><i class="fas fa-language"></i> Bilingual</span>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/SANA-MULTILINGUAL-AI-ASSISTANT" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+
+                <!-- 7 — Sebastian Butler -->
+                <article class="pcard pcard--featured" data-cats="ai">
+                    <div class="pcard__status"><span class="status-dot ai"></span>AI Agent</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)">
+                            <i class="fas fa-robot" style="font-size:3rem;color:#00d4ff"></i>
+                            <span style="color:rgba(255,255,255,0.8);font-size:0.85rem;margin-top:12px">AUTONOMOUS DIGITAL BUTLER</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Sebastian — Autonomous AI Butler</h3>
+                        <p class="pcard__desc">Highly capable autonomous assistant with persistent memory (pgvector), real-time bidirectional voice, camera-based perception, full computer/browser control, 110+ API integrations, and contextual habit tracking.</p>
+                        <div class="pcard__tech">
+                            <span>Python</span><span>FastAPI</span><span>WebSockets</span><span>Gemini Live</span><span>Groq</span><span>Ollama</span><span>faster-whisper</span><span>Edge TTS</span><span>OpenCV</span><span>pgvector</span><span>Playwright</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:85%;background:#3572A5" title="Python 85%"></div>
+                            <div class="lang-segment" style="width:10%;background:#3178c6" title="TypeScript 10%"></div>
+                            <div class="lang-segment" style="width:5%;background:#e34c26" title="Other 5%"></div>
+                        </div>
+                        <div class="pcard__meta">
+                            <span class="meta-item"><i class="fas fa-cogs"></i> 110+ APIs</span>
+                            <span class="meta-item"><i class="fas fa-eye"></i> Computer Vision</span>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <span class="action-link secondary" style="opacity:0.6;cursor:default"><i class="fas fa-lock"></i> Private</span>
+                    </div>
+                </article>
+
+                <!-- 8 — Multi-LLM Discussion -->
+                <article class="pcard" data-cats="ai">
+                    <div class="pcard__status"><span class="status-dot ai"></span>AI</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2)">
+                            <i class="fas fa-comments" style="font-size:2.8rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">5-LLM GROUP CHAT</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Multi-LLM Group Discussion</h3>
+                        <p class="pcard__desc">Simulates human-like group chat using 5 independent LLMs with distinct thinking styles — Logical, Creative, Skeptical, Practical, Synthesizer — to analyze topics from multiple angles.</p>
+                        <div class="pcard__tech">
+                            <span>Python</span><span>Ollama</span><span>Groq</span><span>Google Gemini</span><span>Rich CLI</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:95%;background:#3572A5" title="Python 95%"></div>
+                            <div class="lang-segment" style="width:5%;background:#89e051" title="Config 5%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/Multi-LLM-Discussion" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+
+                <!-- 9 — Virtual Therapist -->
+                <article class="pcard" data-cats="ai">
+                    <div class="pcard__status"><span class="status-dot ai"></span>AI Agent</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #11998e, #38ef7d)">
+                            <i class="fas fa-heartbeat" style="font-size:2.8rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">AGENTIC AI THERAPY</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Virtual Therapist — LangGraph Agentic AI</h3>
+                        <p class="pcard__desc">Personalized mental health therapy recommendations via multi-modal sentiment analysis. Built with LangGraph agentic architecture and multi-modal input processing.</p>
+                        <div class="pcard__tech">
+                            <span>Python</span><span>FastAPI</span><span>LangGraph</span><span>LangChain</span><span>ChromaDB</span><span>Groq</span><span>Edge TTS</span><span>WebSockets</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:95%;background:#3572A5" title="Python 95%"></div>
+                            <div class="lang-segment" style="width:5%;background:#89e051" title="Config 5%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/Virtual-Therapist---LangGraph-Agentic-AI-System" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+
+                <!-- 10 — PixelPerfect -->
+                <article class="pcard" data-cats="ai fullstack">
+                    <div class="pcard__status"><span class="status-dot ai"></span>ML</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #f12711, #f5af19)">
+                            <i class="fas fa-gamepad" style="font-size:2.8rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">AI SCREENSHOT GALLERY</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">PixelPerfect — AI Game Screenshot Gallery</h3>
+                        <p class="pcard__desc">Dynamic gallery that auto-detects and classifies game screenshots using OpenAI CLIP model. Filters out non-game content intelligently with real-time WebSocket folder watching.</p>
+                        <div class="pcard__tech">
+                            <span>React 18</span><span>Vite 5</span><span>Tailwind CSS</span><span>Framer Motion</span><span>Flask</span><span>CLIP</span><span>PyTorch</span><span>Socket.IO</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:45%;background:#f1e05a" title="JavaScript 45%"></div>
+                            <div class="lang-segment" style="width:45%;background:#3572A5" title="Python 45%"></div>
+                            <div class="lang-segment" style="width:10%;background:#e34c26" title="HTML/CSS 10%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/PixelPerfect-AI-Powered-Game-Screenshot-Gallery" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+
+                <!-- 11 — AI Data Analysis Platform -->
+                <article class="pcard" data-cats="ai">
+                    <div class="pcard__status"><span class="status-dot ai"></span>AI Agent</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #5b86e5, #36d1dc)">
+                            <i class="fas fa-chart-bar" style="font-size:2.8rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">AGENT DATA PLATFORM</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">AI Data Analysis Platform — Agent</h3>
+                        <p class="pcard__desc">AI-powered data analysis agent that ingests datasets, performs automated EDA, generates visualizations, and provides actionable insights through conversational interface.</p>
+                        <div class="pcard__tech">
+                            <span>Python</span><span>LangChain</span><span>Groq</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:90%;background:#3572A5" title="Python 90%"></div>
+                            <div class="lang-segment" style="width:10%;background:#89e051" title="Config 10%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/AI-Data-Analysis-Platform---Agent" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+
+                <!-- 12 — AI Chess -->
+                <article class="pcard" data-cats="ai">
+                    <div class="pcard__status"><span class="status-dot ai"></span>AI</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #434343, #000000)">
+                            <i class="fas fa-chess-knight" style="font-size:3rem;color:#e5c07b"></i>
+                            <span style="color:rgba(255,255,255,0.8);font-size:0.85rem;margin-top:8px">AI CHESS ENGINE</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">AI Chess</h3>
+                        <p class="pcard__desc">AI-powered chess engine with intelligent move evaluation, position analysis, and adjustable difficulty. Play against a machine that learns from optimal strategies.</p>
+                        <div class="pcard__tech">
+                            <span>Python</span><span>Pygame</span><span>python-chess</span><span>Stockfish</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:95%;background:#3572A5" title="Python 95%"></div>
+                            <div class="lang-segment" style="width:5%;background:#89e051" title="Config 5%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/AI-CHESS" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+
+                <!-- 13 — Gesture Controls -->
+                <article class="pcard" data-cats="ai">
+                    <div class="pcard__status"><span class="status-dot ai"></span>CV</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #cc2b5e, #753a88)">
+                            <i class="fas fa-hand-sparkles" style="font-size:2.8rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">HAND GESTURE CONTROLS</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Hand Gesture Keyboard & Mouse Control</h3>
+                        <p class="pcard__desc">Control your entire computer with hand and finger gestures. Real-time hand tracking with MediaPipe, mapped to keyboard, mouse, and scrolling actions.</p>
+                        <div class="pcard__tech">
+                            <span>Python</span><span>OpenCV</span><span>MediaPipe</span><span>face-recognition</span><span>PyAutoGUI</span><span>NumPy</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:100%;background:#3572A5" title="Python 100%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/keyboard-and-Mouse-Cintrolls-With-hands-and-finger-Gestures" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+
+                <!-- 14 — Facial Recognition -->
+                <article class="pcard" data-cats="ai">
+                    <div class="pcard__status"><span class="status-dot ai"></span>CV</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364)">
+                            <i class="fas fa-fingerprint" style="font-size:2.8rem;color:#00d4ff"></i>
+                            <span style="color:rgba(255,255,255,0.8);font-size:0.85rem;margin-top:8px">BIOMETRIC SECURITY</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Facial Recognition Biometric Lock</h3>
+                        <p class="pcard__desc">Real-time facial recognition security system using deep learning for biometric authentication. Supports multi-face enrollment, liveness detection, and access logging.</p>
+                        <div class="pcard__tech">
+                            <span>Python</span><span>OpenCV</span><span>MediaPipe</span><span>PyAutoGUI</span><span>NumPy</span><span>Pillow</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:100%;background:#3572A5" title="Python 100%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/facial-recognition-security-biometric-lock" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+
+                <!-- 15 — Twitter Trends Analysis -->
+                <article class="pcard" data-cats="ai">
+                    <div class="pcard__status"><span class="status-dot ai"></span>NLP</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #1da1f2, #0d8bd9)">
+                            <i class="fab fa-twitter" style="font-size:2.8rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">TREND ANALYSIS / LDA</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Twitter Trends Analysis — LDA</h3>
+                        <p class="pcard__desc">Analyzes Twitter trends using Latent Dirichlet Allocation (LDA) topic modeling. Extracts hidden themes from tweet data and visualizes trending conversations.</p>
+                        <div class="pcard__tech">
+                            <span>Node.js</span><span>Express.js</span><span>SQLite</span><span>Natural.js</span><span>Sentiment.js</span><span>Axios</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:80%;background:#f1e05a" title="JavaScript 80%"></div>
+                            <div class="lang-segment" style="width:20%;background:#e34c26" title="HTML/CSS 20%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/Twitter-Trends-Analysis-" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ========== FULL-STACK WEB APPS ========== -->
+        <section class="project-category" id="cat-fullstack">
+            <div class="category-header">
+                <div class="category-icon fullstack"><i class="fas fa-layer-group"></i></div>
+                <div>
+                    <h2 class="category-title">Full-Stack Web Applications</h2>
+                    <p class="category-desc">End-to-end web apps with modern architectures</p>
+                </div>
+                <span class="category-count">7 projects</span>
+            </div>
+
+            <div class="projects-grid">
+                <!-- 16 — Voice Studio Pro -->
+                <article class="pcard" data-cats="fullstack ai">
+                    <div class="pcard__status"><span class="status-dot ai"></span>AI</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #8e2de2, #4a00e0)">
+                            <i class="fas fa-volume-up" style="font-size:2.8rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">TEXT-TO-SPEECH SUITE</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Voice Studio Pro — AI Voice Suite</h3>
+                        <p class="pcard__desc">Professional text-to-speech and voice cloning suite powered by Gemini 2.5 Flash. Built as a Google AI Studio app with rich voice customization and real-time preview.</p>
+                        <div class="pcard__tech">
+                            <span>React 19</span><span>TypeScript</span><span>Vite 6</span><span>Gemini AI</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:80%;background:#3178c6" title="TypeScript 80%"></div>
+                            <div class="lang-segment" style="width:15%;background:#e34c26" title="HTML/CSS 15%"></div>
+                            <div class="lang-segment" style="width:5%;background:#f1e05a" title="Other 5%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <span class="action-link secondary" style="opacity:0.6;cursor:default"><i class="fas fa-lock"></i> Private</span>
+                    </div>
+                </article>
+
+                <!-- 17 — YouTube Converter -->
+                <article class="pcard" data-cats="fullstack tools">
+                    <div class="pcard__status"><span class="status-dot tools"></span>Tool</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #ff0000, #cc0000)">
+                            <i class="fab fa-youtube" style="font-size:3rem;color:rgba(255,255,255,0.95)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">MP3 & MP4 CONVERTER</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">StreamRip — YouTube Converter</h3>
+                        <p class="pcard__desc">Full-stack YouTube to MP3/MP4 converter with React UI, Flask backend, yt-dlp + FFmpeg processing. Also ships as an Electron desktop app (Neurotube).</p>
+                        <div class="pcard__tech">
+                            <span>React 18</span><span>Vite 5</span><span>Tailwind CSS</span><span>Electron</span><span>Flask</span><span>yt-dlp</span><span>FFmpeg</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:50%;background:#f1e05a" title="JavaScript 50%"></div>
+                            <div class="lang-segment" style="width:35%;background:#3572A5" title="Python 35%"></div>
+                            <div class="lang-segment" style="width:15%;background:#e34c26" title="HTML/CSS 15%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/Youtube-mp3-and-mp4-converter" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+
+                <!-- 18 — Wallpaper Generator -->
+                <article class="pcard" data-cats="fullstack ai">
+                    <div class="pcard__status"><span class="status-dot ai"></span>AI</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #ee9ca7, #ffdde1)">
+                            <i class="fas fa-image" style="font-size:2.8rem;color:rgba(0,0,0,0.6)"></i>
+                            <span style="color:rgba(0,0,0,0.6);font-size:0.85rem;margin-top:8px">PROMPT → WALLPAPER</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Wallpaper Generator — AI Art</h3>
+                        <p class="pcard__desc">Prompt-to-wallpaper generator for phone and desktop resolutions. Type a description, AI generates stunning wallpapers in multiple aspect ratios.</p>
+                        <div class="pcard__tech">
+                            <span>TypeScript</span><span>Vite</span><span>Gemini AI</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:85%;background:#3178c6" title="TypeScript 85%"></div>
+                            <div class="lang-segment" style="width:15%;background:#e34c26" title="HTML/CSS 15%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/Wallpaper-Generator" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+
+                <!-- 19 — Profile Photo Headshot -->
+                <article class="pcard" data-cats="fullstack ai">
+                    <div class="pcard__status"><span class="status-dot ai"></span>AI</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d)">
+                            <i class="fas fa-camera" style="font-size:2.8rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">AI HEADSHOT GENERATOR</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Profile Photo Headshot — AI</h3>
+                        <p class="pcard__desc">Upload any photo and get a perfect professional headshot. AI-powered background removal, face enhancement, and professional lighting adjustment.</p>
+                        <div class="pcard__tech">
+                            <span>TypeScript</span><span>Vite</span><span>Gemini AI</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:85%;background:#3178c6" title="TypeScript 85%"></div>
+                            <div class="lang-segment" style="width:15%;background:#e34c26" title="HTML/CSS 15%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/Profile-Photo-Headshot" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+
+                <!-- 20 — Background Remover -->
+                <article class="pcard" data-cats="fullstack ai tools">
+                    <div class="pcard__status"><span class="status-dot tools"></span>Tool</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #00b4db, #0083b0)">
+                            <i class="fas fa-eraser" style="font-size:2.8rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">U²-NET REMOVAL</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Background Remover — AI</h3>
+                        <p class="pcard__desc">Web-based image background removal tool using rembg (U²-Net). Upload an image, get clean cutout. Dockerized FastAPI backend for easy deployment.</p>
+                        <div class="pcard__tech">
+                            <span>FastAPI</span><span>rembg</span><span>U²-Net</span><span>Docker</span><span>Pillow</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:90%;background:#3572A5" title="Python 90%"></div>
+                            <div class="lang-segment" style="width:10%;background:#384d54" title="Docker 10%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech" target="_blank" class="action-link secondary"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </article>
+
+                <!-- 21 — PDF Reader TTS -->
+                <article class="pcard" data-cats="fullstack tools">
+                    <div class="pcard__status"><span class="status-dot tools"></span>Tool</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #e44d26, #f16529)">
+                            <i class="fas fa-file-pdf" style="font-size:2.8rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">PDF TEXT-TO-SPEECH</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">PDF Reader with Text-to-Speech</h3>
+                        <p class="pcard__desc">Full-stack PDF reader that reads documents aloud using natural voices. Upload PDFs up to 200 pages, select pages, customize voice/speed/pitch, and track progress.</p>
+                        <div class="pcard__tech">
+                            <span>Node.js</span><span>Express.js</span><span>Multer</span><span>pdf-parse</span><span>Web Speech API</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:50%;background:#f1e05a" title="JavaScript 50%"></div>
+                            <div class="lang-segment" style="width:35%;background:#e34c26" title="HTML/CSS 35%"></div>
+                            <div class="lang-segment" style="width:15%;background:#89e051" title="Node.js 15%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech" target="_blank" class="action-link secondary"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </article>
+
+                <!-- 22 — Novel Reading Site -->
+                <article class="pcard" data-cats="fullstack">
+                    <div class="pcard__status"><span class="status-dot fullstack"></span>Web</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #2c3e50, #4ca1af)">
+                            <i class="fas fa-book-open" style="font-size:2.8rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">READING PLATFORM</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Novel Reading Site</h3>
+                        <p class="pcard__desc">Feature-rich web novel reading platform with chapter navigation, bookmarks, reading progress, dark mode, and clean distraction-free reading experience.</p>
+                        <div class="pcard__tech">
+                            <span>Next.js 15</span><span>TypeScript</span><span>Tailwind CSS</span><span>react-markdown</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:80%;background:#3178c6" title="TypeScript 80%"></div>
+                            <div class="lang-segment" style="width:20%;background:#e34c26" title="HTML/CSS 20%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/novel-reading-site" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ========== DEV TOOLS & UTILITIES ========== -->
+        <section class="project-category" id="cat-tools">
+            <div class="category-header">
+                <div class="category-icon tools"><i class="fas fa-wrench"></i></div>
+                <div>
+                    <h2 class="category-title">Developer Tools & Utilities</h2>
+                    <p class="category-desc">Productivity tools, automation scripts, and utilities</p>
+                </div>
+                <span class="category-count">5 projects</span>
+            </div>
+
+            <div class="projects-grid">
+                <!-- 23 — Hologram + Body Movement -->
+                <article class="pcard" data-cats="tools ai">
+                    <div class="pcard__status"><span class="status-dot ai"></span>CV</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #7f00ff, #e100ff)">
+                            <i class="fas fa-person-running" style="font-size:2.8rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">HOLOGRAM BODY TRACK</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Holographic Body Movement Detection</h3>
+                        <p class="pcard__desc">Real-time holographic body movement detection and visualization using computer vision. Tracks body pose, creates holographic representation overlay.</p>
+                        <div class="pcard__tech">
+                            <span>Python</span><span>OpenCV</span><span>MediaPipe</span><span>NumPy</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:100%;background:#3572A5" title="Python 100%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/Hologram-and-body-movement-detection" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+
+                <!-- 24 — On-Screen Virtual Keyboard -->
+                <article class="pcard" data-cats="tools ai">
+                    <div class="pcard__status"><span class="status-dot ai"></span>CV</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #30cfd0, #330867)">
+                            <i class="fas fa-keyboard" style="font-size:2.8rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">VIRTUAL AIR KEYBOARD</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">On-Screen Virtual Keyboard</h3>
+                        <p class="pcard__desc">Air-type on a virtual keyboard using finger gestures. Real-time hand tracking recognizes tap gestures to input text without touching any physical device.</p>
+                        <div class="pcard__tech">
+                            <span>Python</span><span>OpenCV</span><span>MediaPipe</span><span>PyAutoGUI</span><span>NumPy</span><span>Pygame</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:100%;background:#3572A5" title="Python 100%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/On-Screen-Virtual-Keyboard" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+
+                <!-- 25 — Scrolling Control Gestures -->
+                <article class="pcard" data-cats="tools ai">
+                    <div class="pcard__status"><span class="status-dot ai"></span>CV</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #373b44, #4286f4)">
+                            <i class="fas fa-arrows-up-down" style="font-size:2.8rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">GESTURE SCROLL CONTROL</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Scrolling Control with Hand Gestures</h3>
+                        <p class="pcard__desc">Control page scrolling with hand gestures using webcam. Raise or lower your hand to scroll up/down — fully touchless browser navigation.</p>
+                        <div class="pcard__tech">
+                            <span>Python</span><span>OpenCV</span><span>MediaPipe</span><span>PyAutoGUI</span><span>NumPy</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:100%;background:#3572A5" title="Python 100%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/Scrolling-Control-With-hand-Gestures" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+
+                <!-- 26 — Scientific Calculator -->
+                <article class="pcard" data-cats="tools fullstack">
+                    <div class="pcard__status"><span class="status-dot tools"></span>Tool</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #485563, #29323c)">
+                            <i class="fas fa-calculator" style="font-size:2.8rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">SCIENTIFIC CALCULATOR</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Scientific Calculator</h3>
+                        <p class="pcard__desc">Full-featured scientific calculator with trigonometric functions, logarithms, exponents, and expression parsing. Clean modern UI with keyboard support.</p>
+                        <div class="pcard__tech">
+                            <span>TypeScript</span><span>React</span><span>Vite</span><span>Tailwind CSS</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:85%;background:#3178c6" title="TypeScript 85%"></div>
+                            <div class="lang-segment" style="width:15%;background:#e34c26" title="HTML/CSS 15%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/Scientific-calculator" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+
+                <!-- 27 — Jeet Notes -->
+                <article class="pcard" data-cats="tools fullstack">
+                    <div class="pcard__status"><span class="status-dot tools"></span>Tool</div>
+                    <div class="pcard__visual">
+                        <div class="pcard__placeholder" style="background: linear-gradient(135deg, #56ab2f, #a8e063)">
+                            <i class="fas fa-sticky-note" style="font-size:2.8rem;color:rgba(255,255,255,0.9)"></i>
+                            <span style="color:#fff;font-size:0.85rem;margin-top:8px">NOTE TAKING APP</span>
+                        </div></div>
+                    <div class="pcard__body">
+                        <h3 class="pcard__title">Jeet Notes</h3>
+                        <p class="pcard__desc">Lightweight, fast note-taking application with markdown support, local storage persistence, search functionality, and clean minimalist design.</p>
+                        <div class="pcard__tech">
+                            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>IndexedDB</span><span>PWA</span><span>Service Worker</span>
+                        </div>
+                        <div class="pcard__lang-bar">
+                            <div class="lang-segment" style="width:60%;background:#f1e05a" title="JavaScript 60%"></div>
+                            <div class="lang-segment" style="width:40%;background:#e34c26" title="HTML/CSS 40%"></div>
+                        </div>
+                    </div>
+                    <div class="pcard__actions">
+                        <a href="https://github.com/JeetInTech/Jeet-Notes" target="_blank" class="action-link primary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- GitHub CTA -->
+        <section class="github-cta">
+            <div class="cta-content">
+                <div class="cta-icon"><i class="fab fa-github"></i></div>
+                <h2>Want to see more?</h2>
+                <p>Explore 50+ repositories on GitHub — from AI agents to full-stack SaaS platforms.</p>
+                <a href="https://github.com/JeetInTech" target="_blank" class="cta-btn">
+                    <i class="fab fa-github"></i> View All on GitHub
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Tech Visualization Modal -->
+    <div class="viz-modal-overlay" id="viz-overlay">
+        <div class="viz-modal">
+            <div class="viz-modal__header">
+                <h3 class="viz-modal__title" id="viz-title">Project Architecture</h3>
+                <button class="viz-modal__close" id="viz-close" aria-label="Close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="viz-canvas-wrap">
+                <canvas id="viz-canvas"></canvas>
+            </div>
+            <div class="viz-modal__stack" id="viz-stack"></div>
+            <div class="viz-modal__actions" id="viz-actions"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="projects-footer">
+        <p>Copyright &copy; 2026 | JEET — All Rights Reserved.</p>
+        <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    </footer>
+
+    <script src="/js/projects-page.js"></script>
+</body>
+</html>

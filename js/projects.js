@@ -12,13 +12,9 @@ function openModal(project) {
       url: "https://craftingbrain.com/",
       title: "Crafting Brain - Live Preview",
     },
-    ezznotes: {
-      url: "https://ezznotes.netlify.app/",
-      title: "Ezz Notes - Live Preview",
-    },
-    youtube: {
-      url: "https://www.youtube.com/embed/B3doCOSjnus?autoplay=1",
-      title: "Project Demo Showcase",
+    secondbrain: {
+      url: "https://secondbraindev.vercel.app/",
+      title: "Second Brain - Live Preview",
     },
   };
 
