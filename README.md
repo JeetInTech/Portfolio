@@ -317,7 +317,7 @@ This project is **free to use** and does not contain any license. Feel free to u
 - LinkedIn: [Sangramjeet Ghosh](https://www.linkedin.com/in/sangramjeetghosh/)
 - GitHub: [@JeetInTech](https://github.com/JeetInTech)
 - Twitter: [@SangramJee97448](https://x.com/SangramJee97448)
-- Instagram: [@officiallyjeet](https://www.instagram.com/officiallyjeet/)
+- Instagram: [@sangramjeeth](https://www.instagram.com/sangramjeeth/)
 
 ## 🙏 Acknowledgments
 
