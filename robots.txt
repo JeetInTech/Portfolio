@@ -1,9 +1,9 @@
-# robots.txt for sangramjeetghosh.com
+# robots.txt for sangramjeet.me
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://sangramjeetghosh.com/sitemap.xml
+Sitemap: https://sangramjeet.me/sitemap.xml
 
 # Disallow admin/internal paths
 Disallow: /node_modules/
