@@ -788,6 +788,60 @@ span {
     transform: scale(1.02);
 }
 
+/* Achievement placeholder for certs without images */
+.achievement-img-placeholder {
+    width: 100%;
+    height: 150px;
+    border-radius: 12px;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.achievement-img-placeholder.aws-theme {
+    background: linear-gradient(135deg, #232F3E, #1a2332);
+    border: 1px solid rgba(255, 153, 0, 0.3);
+}
+
+.achievement-img-placeholder.aws-theme i {
+    font-size: 3rem;
+    color: #FF9900;
+}
+
+.achievement-img-placeholder.aws-theme span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #FF9900;
+    letter-spacing: 0.5px;
+}
+
+.achievement-img-placeholder.coursera-theme {
+    background: linear-gradient(135deg, #0056D2, #003d99);
+    border: 1px solid rgba(0, 192, 255, 0.3);
+}
+
+.achievement-img-placeholder.coursera-theme i {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.achievement-img-placeholder.coursera-theme span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.5px;
+}
+
+.achievement-card:hover .achievement-img-placeholder {
+    transform: scale(1.02);
+}
+
 /* ================================
    RESUME DROPDOWN
    ================================ */

@@ -315,10 +315,20 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // If item has a PDF link, open it in a new tab instead of modal
+        const pdfLink = clickedItem.getAttribute('data-pdf');
+        if (pdfLink) {
+            window.open(pdfLink, '_blank');
+            return;
+        }
+
+        const img = clickedItem.querySelector('img');
+        // If no image, do nothing (avoid blank modal)
+        if (!img) return;
+
         isModalOpen = true;
         currentImageIndex = index;
         
-        const img = clickedItem.querySelector('img');
         modalImage.src = img.src;
         modalImage.alt = img.alt;
         
