@@ -3,7 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Photo Gallery</title>
+    <title>Certifications | Sangramjeet Ghosh — Google, AWS, Coursera & More</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="20+ professional certifications by Sangramjeet Ghosh — Google Ads, AWS Cloud, Coursera Deep Learning Specialization, TensorFlow, Computer Vision, NLP. Verified credentials from top platforms.">
+    <meta name="keywords" content="Sangramjeet Ghosh certifications, Google certified, AWS certified, Coursera certificates, Deep Learning specialization, AI ML certifications, TensorFlow developer, computer vision, NLP">
+    <meta name="author" content="Sangramjeet Ghosh">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sangramjeetghosh.com/html/gallery.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Certifications | Sangramjeet Ghosh — 20+ Verified Credentials">
+    <meta property="og:description" content="Google, AWS, Coursera & more. 20+ professional certifications in AI/ML, Cloud Computing & Full-Stack Development.">
+    <meta property="og:image" content="https://sangramjeetghosh.com/images/logo1.png">
+    <meta property="og:url" content="https://sangramjeetghosh.com/html/gallery.html">
+    <meta property="og:site_name" content="Sangramjeet Ghosh Portfolio">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Certifications | Sangramjeet Ghosh">
+    <meta name="twitter:description" content="20+ verified certifications from Google, AWS, Coursera & more.">
+    <meta name="twitter:image" content="https://sangramjeetghosh.com/images/logo1.png">
+    
     <link rel="icon" type="image/png" href="../images/logo1.png">
     <link rel="stylesheet" href="/css/gallery.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -16,9 +38,9 @@
             <a href="/html/about.html">About</a>
             <a href="/html/skills.html">Skills</a>
             <a href="/html/index.html#portfolio">Projects</a>
-            <a href="/html/index.html#certi">Insights</a>
+            <a href="/html/index.html#achievements">Achievements</a>
             <a href="/html/index.html#contact">Contact</a>
-            <a href="/html/gallery.html" class="active">Gallery</a>
+            <a href="/html/gallery.html" class="active">Certifications</a>
         </nav>
         <div class="bx bx-moon" id="darkMode-icon"></div>
         <div class="bx bx-menu" id="menu-icon"></div>
@@ -27,14 +49,68 @@
     <main class="gallery-section">
         <div class="gallery-container">
             <h1 class="gallery-title">
-                <span class="title-word">Visual</span>
-                <span class="title-word">Stories</span>
+                <span class="title-word">My</span>
+                <span class="title-word">Certifications</span>
             </h1>
-            
+            <p class="cert-page-subtitle">20+ verified credentials from Google, AWS, Coursera & more</p>
+
+            <!-- Filter Tabs -->
+            <div class="cert-filter-bar">
+                <button class="cert-filter-btn active" data-filter="all">
+                    <i class='bx bx-grid-alt'></i> All
+                </button>
+                <button class="cert-filter-btn" data-filter="aiml">
+                    <i class='bx bx-brain'></i> AI / ML
+                </button>
+                <button class="cert-filter-btn" data-filter="cloud">
+                    <i class='bx bxl-aws'></i> Cloud
+                </button>
+                <button class="cert-filter-btn" data-filter="competition">
+                    <i class='bx bx-trophy'></i> Competitions
+                </button>
+            </div>
+
             <div class="gallery-grid">
-                <div class="gallery-item" data-index="1">
+                <!-- Google -->
+                <div class="gallery-item" data-index="1" data-category="cloud">
                     <div class="image-container">
-                        <img src="/photos/photos (1).jpeg" alt="Photo 1" loading="lazy">
+                        <div class="cert-placeholder-card">
+                            <i class='bx bxl-google' style="font-size:5rem;color:#4285f4"></i>
+                            <h3>Google Ads</h3>
+                            <span class="cert-cat-badge cloud">Cloud / Platform</span>
+                        </div>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-link-external'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AWS -->
+                <div class="gallery-item" data-index="2" data-category="cloud">
+                    <div class="image-container">
+                        <div class="cert-placeholder-card">
+                            <i class='bx bxl-aws' style="font-size:5rem;color:#FF9900"></i>
+                            <h3>AWS Cloud</h3>
+                            <span class="cert-cat-badge cloud">Cloud / Platform</span>
+                        </div>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-link-external'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deep Learning Specialization -->
+                <div class="gallery-item" data-index="3" data-category="aiml">
+                    <div class="image-container">
+                        <img src="/images/cert-deep-learning.jpg" alt="Deep Learning Specialization" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge aiml">AI / ML</span>
+                            <span>Deep Learning Specialization</span>
+                        </div>
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <i class='bx bx-search-alt'></i>
@@ -42,10 +118,15 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="gallery-item" data-index="2">
+
+                <!-- CNN -->
+                <div class="gallery-item" data-index="4" data-category="aiml">
                     <div class="image-container">
-                        <img src="/photos/photos (2).jpeg" alt="Photo 2" loading="lazy">
+                        <img src="/images/cert-cnn.jpg" alt="Convolutional Neural Networks" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge aiml">AI / ML</span>
+                            <span>Convolutional Neural Networks</span>
+                        </div>
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <i class='bx bx-search-alt'></i>
@@ -53,10 +134,15 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="gallery-item" data-index="3">
+
+                <!-- Face Detection -->
+                <div class="gallery-item" data-index="5" data-category="aiml">
                     <div class="image-container">
-                        <img src="/photos/photos (3).jpeg" alt="Photo 3" loading="lazy">
+                        <img src="/images/cert-face-detection.jpg" alt="Face Detection & Recognition" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge aiml">AI / ML</span>
+                            <span>Face Detection & Recognition</span>
+                        </div>
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <i class='bx bx-search-alt'></i>
@@ -64,10 +150,15 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="gallery-item" data-index="4">
+
+                <!-- AI/ML Professional  -->
+                <div class="gallery-item" data-index="6" data-category="aiml">
                     <div class="image-container">
-                        <img src="/photos/photos (4).jpg" alt="Photo 4" loading="lazy">
+                        <img src="/images/cert-sangramjeet.jpg" alt="AI/ML Professional Certificate" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge aiml">AI / ML</span>
+                            <span>AI/ML Professional Certificate</span>
+                        </div>
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <i class='bx bx-search-alt'></i>
@@ -75,10 +166,15 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="gallery-item" data-index="5">
+
+                <!-- Machine Learning -->
+                <div class="gallery-item" data-index="7" data-category="aiml">
                     <div class="image-container">
-                        <img src="/photos/photos (5).jpg" alt="Photo 5" loading="lazy">
+                        <img src="/images/cer1.png" alt="Machine Learning" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge aiml">AI / ML</span>
+                            <span>Machine Learning</span>
+                        </div>
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <i class='bx bx-search-alt'></i>
@@ -86,10 +182,15 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="gallery-item" data-index="6">
+
+                <!-- Data Science -->
+                <div class="gallery-item" data-index="8" data-category="aiml">
                     <div class="image-container">
-                        <img src="/photos/photos (6).jpg" alt="Photo 6" loading="lazy">
+                        <img src="/images/cer2.png" alt="Data Science" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge aiml">AI / ML</span>
+                            <span>Data Science</span>
+                        </div>
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <i class='bx bx-search-alt'></i>
@@ -97,10 +198,15 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="gallery-item" data-index="7">
+
+                <!-- Python for Data Science -->
+                <div class="gallery-item" data-index="9" data-category="aiml">
                     <div class="image-container">
-                        <img src="/photos/photos (7).jpg" alt="Photo 7" loading="lazy">
+                        <img src="/images/cer3.png" alt="Python for Data Science" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge aiml">AI / ML</span>
+                            <span>Python for Data Science</span>
+                        </div>
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <i class='bx bx-search-alt'></i>
@@ -108,10 +214,15 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="gallery-item" data-index="8">
+
+                <!-- Neural Networks -->
+                <div class="gallery-item" data-index="10" data-category="aiml">
                     <div class="image-container">
-                        <img src="/photos/photos (8).jpg" alt="Photo 8" loading="lazy">
+                        <img src="/images/cer4.png" alt="Neural Networks & Deep Learning" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge aiml">AI / ML</span>
+                            <span>Neural Networks & Deep Learning</span>
+                        </div>
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <i class='bx bx-search-alt'></i>
@@ -119,10 +230,15 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="gallery-item" data-index="9">
+
+                <!-- NLP -->
+                <div class="gallery-item" data-index="11" data-category="aiml">
                     <div class="image-container">
-                        <img src="/photos/photos (9).jpg" alt="Photo 9" loading="lazy">
+                        <img src="/images/cer5.png" alt="NLP Specialization" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge aiml">AI / ML</span>
+                            <span>NLP Specialization</span>
+                        </div>
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <i class='bx bx-search-alt'></i>
@@ -130,10 +246,15 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="gallery-item" data-index="10">
+
+                <!-- Advanced ML -->
+                <div class="gallery-item" data-index="12" data-category="aiml">
                     <div class="image-container">
-                        <img src="/photos/photos (10).jpg" alt="Photo 10" loading="lazy">
+                        <img src="/images/c6.png" alt="Advanced Machine Learning" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge aiml">AI / ML</span>
+                            <span>Advanced Machine Learning</span>
+                        </div>
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <i class='bx bx-search-alt'></i>
@@ -141,10 +262,15 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="gallery-item" data-index="11">
+
+                <!-- TensorFlow -->
+                <div class="gallery-item" data-index="13" data-category="aiml">
                     <div class="image-container">
-                        <img src="/photos/photos (11).jpg" alt="Photo 11" loading="lazy">
+                        <img src="/images/c7.jpg" alt="TensorFlow Developer" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge aiml">AI / ML</span>
+                            <span>TensorFlow Developer</span>
+                        </div>
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <i class='bx bx-search-alt'></i>
@@ -152,10 +278,111 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="gallery-item" data-index="12">
+
+                <!-- Computer Vision -->
+                <div class="gallery-item" data-index="14" data-category="aiml">
                     <div class="image-container">
-                        <img src="/photos/photos (12).jpg" alt="Photo 12" loading="lazy">
+                        <img src="/images/c8.jpg" alt="Computer Vision" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge aiml">AI / ML</span>
+                            <span>Computer Vision</span>
+                        </div>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Engineering -->
+                <div class="gallery-item" data-index="15" data-category="aiml">
+                    <div class="image-container">
+                        <img src="/images/c9.jpg" alt="AI Engineering" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge aiml">AI / ML</span>
+                            <span>AI Engineering</span>
+                        </div>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reinforcement Learning -->
+                <div class="gallery-item" data-index="16" data-category="aiml">
+                    <div class="image-container">
+                        <img src="/images/c10.jpg" alt="Reinforcement Learning" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge aiml">AI / ML</span>
+                            <span>Reinforcement Learning</span>
+                        </div>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MLOps -->
+                <div class="gallery-item" data-index="17" data-category="aiml">
+                    <div class="image-container">
+                        <img src="/images/c11.jpg" alt="MLOps & Deployment" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge aiml">AI / ML</span>
+                            <span>MLOps & Deployment</span>
+                        </div>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ideathon 2.0 -->
+                <div class="gallery-item" data-index="18" data-category="competition">
+                    <div class="image-container">
+                        <img src="/images/cert-ideathon.jpg" alt="Ideathon 2.0 Winner" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge competition">Competition</span>
+                            <span>Ideathon 2.0 Winner</span>
+                        </div>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Competition Winner -->
+                <div class="gallery-item" data-index="19" data-category="competition">
+                    <div class="image-container">
+                        <img src="/images/cert-winner.jpg" alt="Competition Winner" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge competition">Competition</span>
+                            <span>Competition Winner</span>
+                        </div>
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class='bx bx-search-alt'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metaloop Recognition -->
+                <div class="gallery-item" data-index="20" data-category="competition">
+                    <div class="image-container">
+                        <img src="/images/cert-metaloop.jpg" alt="Metaloop Recognition" loading="lazy">
+                        <div class="cert-info-tag">
+                            <span class="cert-cat-badge competition">Competition</span>
+                            <span>Metaloop Recognition</span>
+                        </div>
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <i class='bx bx-search-alt'></i>
@@ -167,6 +394,7 @@
         </div>
     </main>
 
+    <!-- Image Modal -->
     <div class="modal" id="imageModal">
         <div class="modal-backdrop"></div>
         <div class="modal-content">
@@ -176,67 +404,9 @@
             <div class="modal-image-container">
                 <img id="modalImage" src="" alt="">
             </div>
-            
-            <!-- <div class="modal-interactions">
-                <div class="interaction-buttons">
-                    <button class="interaction-btn like-btn" data-action="like">
-                        <i class='bx bx-heart'></i>
-                        <span class="like-count">0</span>
-                    </button>
-                    <button class="interaction-btn dislike-btn" data-action="dislike">
-                        <i class='bx bx-heart-circle'></i>
-                        <span class="dislike-count">0</span>
-                    </button>
-                    <button class="interaction-btn toggle-comments-btn" id="toggleCommentsBtn">
-                        <i class='bx bx-comment'></i>
-                        <span class="comment-count">0</span>
-                    </button>
-                </div>
-            </div> -->
-
-            <!-- <div class="comments-section" style="display: none;">
-                <div class="comment-input-container">
-                    <input type="text" class="comment-input" id="commentInput" placeholder="Add a comment...">
-                    <button class="interaction-btn" id="postCommentBtn">
-                        <i class='bx bx-send'></i>
-                    </button>
-                </div>
-                <div class="comments-list" id="commentsList">
-                </div>
-            </div>
         </div>
     </div>
 
-    <div class="floating-like-buttons">
-        <button class="floating-btn global-like-btn" id="globalLikeBtn">
-            <i class='bx bx-heart'></i>
-            <span class="global-like-count">0</span>
-        </button>
-        <button class="floating-btn global-dislike-btn" id="globalDislikeBtn">
-            <i class='bx bx-heart-circle'></i>
-            <span class="global-dislike-count">0</span>
-        </button>
-    </div> -->
-
-    <!-- <div class="floating-social">
-        <a href="https://www.instagram.com/officiallyjeet/" target="_blank" class="social-btn">
-            <i class='bx bxl-instagram'></i>
-        </a>
-        <a href="https://www.facebook.com/people/JeetinTech/61571949751902/" target="_blank" class="social-btn">
-            <i class='bx bxl-facebook'></i>
-        </a>
-        <a href="https://x.com/SangramJee97448" target="_blank" class="social-btn">
-            <i class='bx bxl-twitter'></i>
-        </a>
-    </div> -->
-
-    <script>
-        const commentInput = document.getElementById('commentInput');
-        const postCommentBtn = document.getElementById('postCommentBtn');
-        const commentsList = document.getElementById('commentsList');
-        const commentCount = document.querySelector('.comment-count');
-        const toggleCommentsBtn = document.getElementById('toggleCommentsBtn');
-    </script>
     <script src="/js/gallery.js"></script>
 </body>
 </html>

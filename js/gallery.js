@@ -50,6 +50,28 @@ document.addEventListener('DOMContentLoaded', () => {
         darkModeIcon.addEventListener('click', toggleDarkMode);
     }
 
+    // Certificate Filter Functionality
+    const filterBtns = document.querySelectorAll('.cert-filter-btn');
+    if (filterBtns.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+                
+                galleryItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        item.classList.remove('hidden');
+                        item.style.animation = 'fadeInUp 0.5s ease-out forwards';
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    }
+
     // Interaction elements
     const likeBtn = document.querySelector('.like-btn');
     const dislikeBtn = document.querySelector('.dislike-btn');

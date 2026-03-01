@@ -107,7 +107,7 @@ body {
 .navbar a {
     position: relative;
     font-size: 1.7rem;
-    color: var(--white-color);
+    color: var(--text-color);
     font-weight: 500;
     margin-right: 3.5rem;
 }
@@ -127,7 +127,7 @@ body {
     bottom: -6px;
     width: 100%;
     height: .2rem;
-    background: var(--white-color);
+    background: var(--main-color);
 }
 
 .header.sticky .navbar a::before {
@@ -137,13 +137,26 @@ body {
 
 #darkMode-icon {
     font-size: 2.4rem;
-    color: var(--white-color);
+    color: var(--text-color);
     cursor: pointer;
 }
 
 .header.sticky #darkMode-icon {
     color: var(--text-color);
     opacity: .9;
+}
+
+/* Dark mode overrides for header when not sticky (hero area) */
+.dark-mode .header:not(.sticky) .navbar a {
+    color: var(--white-color);
+}
+
+.dark-mode .header:not(.sticky) #darkMode-icon {
+    color: var(--white-color);
+}
+
+.dark-mode .header:not(.sticky) .navbar a.active::before {
+    background: var(--white-color);
 }
 
 #menu-icon {
@@ -671,6 +684,556 @@ span {
 
 .testimonial-box .swiper-pagination-bullet-active {
     background: var(--main-color);
+}
+
+/* ================================
+   ACHIEVEMENTS SECTION
+   ================================ */
+.achievements {
+    min-height: auto;
+    padding: 8rem 7% 5rem;
+    background: var(--bg-color);
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 4rem;
+}
+
+.achievement-card {
+    background: linear-gradient(135deg, var(--glass-bg), transparent);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.achievement-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-gradient);
+    border-radius: 4px 0 0 4px;
+}
+
+.achievement-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-heavy);
+    border-color: var(--main-color);
+}
+
+.achievement-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--white-color);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(27, 94, 32, 0.3);
+    transition: all 0.4s ease;
+}
+
+.achievement-card:hover .achievement-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.achievement-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.8rem;
+}
+
+.achievement-content p {
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.achievement-year {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    background: var(--primary-gradient);
+    color: var(--white-color);
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.achievement-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-top: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.achievement-card:hover .achievement-img {
+    transform: scale(1.02);
+}
+
+/* ================================
+   RESUME DROPDOWN
+   ================================ */
+.resume-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.resume-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.2rem 2.8rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.resume-arrow {
+    transition: transform 0.3s ease;
+    font-size: 1.4rem;
+}
+
+.resume-dropdown.open .resume-arrow {
+    transform: rotate(180deg);
+}
+
+.resume-menu {
+    position: absolute;
+    top: calc(100% + 1rem);
+    left: 0;
+    min-width: 320px;
+    background: var(--bg-color);
+    border: 2px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 0.8rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+}
+
+.resume-dropdown.open .resume-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.resume-option {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem 1.4rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: none;
+    background: none;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.resume-option:hover {
+    background: linear-gradient(135deg, var(--glass-bg), rgba(27, 94, 32, 0.08));
+    transform: translateX(4px);
+}
+
+.resume-option i {
+    font-size: 2.2rem;
+    color: var(--main-color);
+    flex-shrink: 0;
+    width: 3.6rem;
+    height: 3.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(27, 94, 32, 0.1), rgba(46, 139, 87, 0.1));
+    border-radius: 10px;
+}
+
+.resume-title {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.resume-desc {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+}
+
+.resume-divider {
+    height: 1px;
+    background: var(--glass-border);
+    margin: 0.5rem 1rem;
+}
+
+.download-all {
+    color: var(--main-color);
+}
+
+.download-all .resume-title {
+    color: var(--main-color);
+}
+
+/* ================================
+   CERTIFICATIONS SHOWCASE
+   ================================ */
+.certi-subtitle {
+    font-size: 1.6rem;
+    color: var(--text-secondary);
+    text-align: center;
+    max-width: 700px;
+    margin: -2rem auto 3rem;
+    line-height: 1.6;
+}
+
+.cert-showcase {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cert-featured-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.cert-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cert-card-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(27, 94, 32, 0.15), rgba(46, 139, 87, 0.05));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.cert-card:hover .cert-card-glow {
+    opacity: 1;
+}
+
+.cert-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(27, 94, 32, 0.2);
+}
+
+.cert-card-inner {
+    position: relative;
+    z-index: 1;
+    padding: 3rem 2.5rem;
+    background: linear-gradient(135deg, var(--glass-bg), transparent);
+    border: 2px solid var(--glass-border);
+    border-radius: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cert-issuer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cert-issuer span {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cert-card-inner h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.3;
+}
+
+.cert-card-inner p {
+    font-size: 1.35rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.cert-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.4rem;
+    background: linear-gradient(135deg, #1b5e20, #2e8b57);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    width: fit-content;
+}
+
+/* Marquee Animation */
+.cert-marquee-container {
+    overflow: hidden;
+    margin: 0 -2rem;
+    padding: 2rem 0;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.cert-marquee-track {
+    display: flex;
+    gap: 2rem;
+    animation: marqueeScroll 40s linear infinite;
+    width: max-content;
+}
+
+.cert-marquee-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-item {
+    flex-shrink: 0;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.marquee-item:hover {
+    transform: scale(1.08);
+}
+
+.marquee-item img {
+    width: 220px;
+    height: 155px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid var(--glass-border);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.marquee-item:hover img {
+    border-color: var(--main-color);
+    box-shadow: 0 8px 25px rgba(27, 94, 32, 0.2);
+}
+
+.marquee-item span {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-color);
+    text-align: center;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Cert Bottom */
+.cert-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.certi-counter {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    padding: 3rem;
+    background: linear-gradient(135deg, var(--glass-bg), transparent);
+    border: 2px solid var(--glass-border);
+    border-radius: 20px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.counter-item {
+    text-align: center;
+}
+
+.counter-number {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.counter-label {
+    display: block;
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+.view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.6rem;
+    padding: 1.2rem 3rem;
+}
+
+/* ================================
+   RESPONSIVE - CERTIFICATIONS
+   ================================ */
+@media (max-width: 768px) {
+    .cert-featured-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .cert-card-inner {
+        padding: 2rem 1.5rem;
+    }
+    
+    .marquee-item {
+        width: 180px;
+    }
+    
+    .marquee-item img {
+        width: 180px;
+        height: 125px;
+    }
+    
+    .certi-counter {
+        gap: 2rem;
+        padding: 2rem;
+    }
+    
+    .counter-number {
+        font-size: 2.5rem;
+    }
+    
+    .resume-menu {
+        min-width: 280px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+    }
+    
+    .resume-dropdown.open .resume-menu {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+   ================================ */
+@media (max-width: 768px) {
+    .achievements {
+        padding: 6rem 3% 4rem;
+    }
+
+    .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .achievement-card {
+        padding: 2rem;
+    }
+
+    .certi-filter {
+        gap: 0.6rem;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1.4rem;
+        font-size: 1.2rem;
+    }
+
+    .certi-counter {
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .counter-number {
+        font-size: 2.8rem;
+    }
+
+    .counter-label {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .achievement-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+    }
+
+    .achievement-content h3 {
+        font-size: 1.8rem;
+    }
+
+    .achievement-content p {
+        font-size: 1.3rem;
+    }
+
+    .certi-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .certi-counter {
+        flex-direction: row;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .counter-number {
+        font-size: 2.4rem;
+    }
 }
 
 .contact {
@@ -2439,5 +3002,100 @@ img {
         width: 40px;
         height: 40px;
         font-size: 1.8rem;
+    }
+}
+
+/* ================================
+   DYNAMIC ANIMATIONS
+   ================================ */
+
+/* Shimmer effect on featured cert cards */
+.cert-card.featured-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.03) 50%,
+        transparent 60%
+    );
+    animation: shimmer 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes shimmer {
+    0%, 100% { transform: translateX(-100%) rotate(0deg); }
+    50% { transform: translateX(100%) rotate(0deg); }
+}
+
+/* Subtle float for achievement cards */
+.achievement-card:nth-child(odd) {
+    animation: subtleFloat 6s ease-in-out infinite;
+}
+
+.achievement-card:nth-child(even) {
+    animation: subtleFloat 6s ease-in-out infinite 1.5s;
+}
+
+@keyframes subtleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.achievement-card:hover {
+    animation-play-state: paused;
+}
+
+/* Pulse on cert badge */
+.cert-badge {
+    animation: badgePulse 3s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(27, 94, 32, 0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(27, 94, 32, 0); }
+}
+
+/* Stat cards stagger entrance */
+.stat-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUpIn 0.6s ease forwards;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+.stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeUpIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Highlight items slide in */
+.highlight-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInLeft 0.5s ease forwards;
+}
+
+.highlight-item:nth-child(1) { animation-delay: 0.3s; }
+.highlight-item:nth-child(2) { animation-delay: 0.45s; }
+.highlight-item:nth-child(3) { animation-delay: 0.6s; }
+.highlight-item:nth-child(4) { animation-delay: 0.75s; }
+.highlight-item:nth-child(5) { animation-delay: 0.9s; }
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }

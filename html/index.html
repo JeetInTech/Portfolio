@@ -5,10 +5,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sangramjeet Ghosh</title>
+    <title>Sangramjeet Ghosh | Data Scientist, AI/ML Engineer & Full-Stack Developer</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Sangramjeet Ghosh - Data Scientist, AI/ML Engineer & Full-Stack Developer. Expert in Python, Machine Learning, Deep Learning, React, FastAPI. 50+ projects, 20+ certifications, AWS & Google certified. Based in Hyderabad, India.">
+    <meta name="keywords" content="Sangramjeet Ghosh, sangramjeet ghosh, Sangramjeet, Ghosh, JeetInTech, Data Scientist, AI Engineer, ML Engineer, Full Stack Developer, Machine Learning, Python, React, FastAPI, Deep Learning, NLP, Hyderabad, AI/ML Engineer, Portfolio, Sangramjeet Ghosh portfolio, Sangramjeet Ghosh developer, Sangramjeet Ghosh AI">
+    <meta name="author" content="Sangramjeet Ghosh">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sangramjeetghosh.com">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sangramjeet Ghosh | AI/ML Engineer & Full-Stack Developer">
+    <meta property="og:description" content="Passionate Data Scientist & Full-Stack Developer specializing in AI/ML solutions. 50+ projects, 20+ certifications. Building intelligent applications that transform data into actionable insights.">
+    <meta property="og:image" content="https://sangramjeetghosh.com/images/logo1.png">
+    <meta property="og:url" content="https://sangramjeetghosh.com">
+    <meta property="og:site_name" content="Sangramjeet Ghosh Portfolio">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sangramjeet Ghosh | AI/ML Engineer & Full-Stack Developer">
+    <meta name="twitter:description" content="AI/ML Engineer, Full-Stack Developer & Neuroviai Founder. 50+ projects, 20+ certifications, AWS & Google certified.">
+    <meta name="twitter:image" content="https://sangramjeetghosh.com/images/logo1.png">
+    
+    <!-- Structured Data - JSON-LD for Google Search -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sangramjeet Ghosh",
+        "alternateName": ["sangramjeet ghosh", "Sangramjeet", "JeetInTech", "Jeet"],
+        "url": "https://sangramjeetghosh.com",
+        "image": "https://sangramjeetghosh.com/images/logo1.png",
+        "jobTitle": ["Data Scientist", "AI/ML Engineer", "Full-Stack Developer"],
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance / Neurovia AI"
+        },
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Malla Reddy University"
+        },
+        "knowsAbout": ["Python", "Machine Learning", "Deep Learning", "React", "FastAPI", "NLP", "Computer Vision", "Data Science", "Full-Stack Development", "AWS", "TensorFlow", "Node.js"],
+        "sameAs": [
+            "https://github.com/JeetInTech",
+            "https://www.linkedin.com/in/sangramjeetghosh/",
+            "https://x.com/SangramJee97448",
+            "https://www.instagram.com/officiallyjeet/"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Hyderabad",
+            "addressCountry": "India"
+        }
+    }
+    </script>
+    
     <link rel="icon" type="image/png" href="../images/logo1.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="../css/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
@@ -29,9 +85,10 @@
             <a href="./about.html">About</a>
             <a href="./skills.html">Skills</a>
             <a href="#portfolio">Projects</a>
-            <a href="#certi">Insights</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#certi">Certifications</a>
             <a href="#contact">Contact</a>
-            <a href="./gallery.html">Gallery</a>
+            <a href="./gallery.html">All Certs</a>
         </nav>
 
         <div class="bx bx-moon" id="darkMode-icon"></div>
@@ -45,9 +102,9 @@
             <h3>Hello, I'm</h3>
             <h1>Sangramjeet Ghosh</h1>
             <p>
-                A passionate Data Scientist & Full-Stack Developer specializing in AI/ML solutions.
+                Versatile AI & Full-Stack Engineer building production-grade SaaS and intelligent automation systems.
             </p>
-            <p>With expertise in Python, advanced machine learning, and modern frameworks like FastAPI, React, and PostgreSQL, I build intelligent applications that transform data into actionable insights. From automated ML pipelines to scalable AI platforms, I deliver end-to-end solutions that drive innovation and efficiency.</p>
+            <p>Creator of <strong>Neuroviai</strong> — a live AI-powered content-automation SaaS. Expert in LangChain, RAG Pipelines, React, FastAPI & cloud infrastructure. From automated ML pipelines to scalable AI platforms, I deliver end-to-end solutions that drive real business value.</p>
 
             <div class="social-media">
                 <a href="https://github.com/JeetInTech" target="_blank"><i class='bx bxl-github'></i></a>
@@ -58,7 +115,43 @@
                         class='bx bxl-linkedin'></i></a>
             </div>
 
-            <a href="/images/Sangramjeet resume.pdf" class="btn" download="Sangramjeet Ghosh CV">Download CV</a>
+            <!-- Dynamic Resume Download -->
+            <div class="resume-dropdown">
+                <button class="btn resume-btn" onclick="toggleResumeMenu()">
+                    <i class='bx bx-download'></i> Download Resume <i class='bx bx-chevron-down resume-arrow'></i>
+                </button>
+                <div class="resume-menu" id="resumeMenu">
+                    <a href="/resumes/Sangramjeet-Ghosh-AI-Resume.pdf" download class="resume-option">
+                        <i class='bx bx-brain'></i>
+                        <div>
+                            <span class="resume-title">AI / ML Engineer</span>
+                            <span class="resume-desc">ML, Deep Learning, NLP, Computer Vision</span>
+                        </div>
+                    </a>
+                    <a href="/resumes/Sangramjeet-Ghosh-Fullstack-Resume.pdf" download class="resume-option">
+                        <i class='bx bx-code-alt'></i>
+                        <div>
+                            <span class="resume-title">Full-Stack Developer</span>
+                            <span class="resume-desc">React, Node.js, FastAPI, MongoDB</span>
+                        </div>
+                    </a>
+                    <a href="/resumes/Sangramjeet-Ghosh-CV.pdf" download class="resume-option">
+                        <i class='bx bx-file'></i>
+                        <div>
+                            <span class="resume-title">Complete CV</span>
+                            <span class="resume-desc">All skills, experience & education</span>
+                        </div>
+                    </a>
+                    <div class="resume-divider"></div>
+                    <button class="resume-option download-all" onclick="downloadAllResumes()">
+                        <i class='bx bx-download'></i>
+                        <div>
+                            <span class="resume-title">Download All</span>
+                            <span class="resume-desc">Get all 3 resumes at once</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
 
 
 
@@ -138,37 +231,37 @@
                         <i class='bx bx-world'></i>
                     </div>
                     <div class="stat-content">
-                        <h3 class="stat-number">5</h3>
-                        <p class="stat-label">Languages Spoken</p>
+                        <h3 class="stat-number">3+</h3>
+                        <p class="stat-label">Startups Served</p>
                     </div>
                 </div>
             </div>
 
             <div class="about-content-box">
                 <div class="about-text">
-                    <h3>Data Scientist, AI/ML Engineer & Full Stack Developer</h3>
-                    <p>Currently pursuing Computer Science with specialization in AI/ML at Malla Reddy University (CGPA: 8.0). I'm passionate about transforming complex data into actionable insights and building intelligent automation systems with modern full-stack technologies.</p>
+                    <h3>AI/ML Engineer, Full-Stack Developer & Founder of Neuroviai</h3>
+                    <p>I'm a versatile AI & Full-Stack Engineer who builds production-grade SaaS applications, intelligent automation systems, and data-driven products. I designed and launched <strong>Neuroviai</strong> — a live AI-powered content-automation SaaS serving 50+ daily users with 99.5% reliability. Currently pursuing B.Tech in CSE (AI/ML) at Malla Reddy University with a CGPA of 8.0.</p>
                     
                     <div class="journey-highlights">
                         <div class="highlight-item">
                             <i class='bx bx-check-circle'></i>
-                            <span>Expert in Python, SQL, JavaScript & Advanced ML Frameworks</span>
+                            <span>Built Neuroviai SaaS — 6 FastAPI microservices, 4-tier AI fallback, Razorpay payments</span>
                         </div>
                         <div class="highlight-item">
                             <i class='bx bx-check-circle'></i>
-                            <span>Specialized in LLMs, RAG Systems, NLP & Deep Learning</span>
+                            <span>Expert in LangChain, RAG Pipelines, Transformers, OpenAI & Gemini APIs</span>
                         </div>
                         <div class="highlight-item">
                             <i class='bx bx-check-circle'></i>
-                            <span>Full Stack Development with React, Node.js, FastAPI & MongoDB</span>
+                            <span>Full-Stack: React 18, Next.js 14, FastAPI, PostgreSQL, Supabase, AWS</span>
                         </div>
                         <div class="highlight-item">
                             <i class='bx bx-check-circle'></i>
-                            <span>Built Production-Ready AI Platforms & Scalable Data Pipelines</span>
+                            <span>Freelance AI Developer — Delivered MVPs for 3+ startup founders</span>
                         </div>
                         <div class="highlight-item">
                             <i class='bx bx-check-circle'></i>
-                            <span>Freelance AI Developer serving Healthcare, EdTech & Business Analytics</span>
+                            <span>Published Author — "The Future of Touchless Technology" on Amazon KDP</span>
                         </div>
                     </div>
 
@@ -408,65 +501,178 @@
 
 
 
-    <!-- testimonial design -->
+    <!-- Achievements Section -->
+    <section class="achievements" id="achievements">
+        <h2 class="heading">Achievements & <span>Awards</span></h2>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class='bx bx-trophy'></i>
+                </div>
+                <div class="achievement-content">
+                    <h3>Ideathon 2.0 Winner</h3>
+                    <p>Won the Ideathon 2.0 hackathon with an innovative AI-powered solution, competing against top developers.</p>
+                    <span class="achievement-year">2024</span>
+                </div>
+                <img src="../images/cert-ideathon.jpg" alt="Ideathon 2.0 Winner" class="achievement-img">
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class='bx bx-medal'></i>
+                </div>
+                <div class="achievement-content">
+                    <h3>Competition Winner</h3>
+                    <p>Recognized for outstanding performance in competitive programming and AI/ML challenges.</p>
+                    <span class="achievement-year">2024</span>
+                </div>
+                <img src="../images/cert-winner.jpg" alt="Competition Winner" class="achievement-img">
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class='bx bx-brain'></i>
+                </div>
+                <div class="achievement-content">
+                    <h3>Deep Learning Specialization</h3>
+                    <p>Completed the full Deep Learning Specialization covering CNNs, RNNs, GANs, and advanced architectures.</p>
+                    <span class="achievement-year">2025</span>
+                </div>
+                <img src="../images/cert-deep-learning.jpg" alt="Deep Learning Specialization" class="achievement-img">
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class='bx bx-cloud'></i>
+                </div>
+                <div class="achievement-content">
+                    <h3>AWS Certified</h3>
+                    <p>Earned AWS certification demonstrating cloud computing and deployment expertise for scalable AI solutions.</p>
+                    <span class="achievement-year">2025</span>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class='bx bx-code-block'></i>
+                </div>
+                <div class="achievement-content">
+                    <h3>Metaloop Recognition</h3>
+                    <p>Recognized at Metaloop for contributions to innovative tech solutions and collaborative development.</p>
+                    <span class="achievement-year">2024</span>
+                </div>
+                <img src="../images/cert-metaloop.jpg" alt="Metaloop Recognition" class="achievement-img">
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class='bx bx-certification'></i>
+                </div>
+                <div class="achievement-content">
+                    <h3>20+ Coursera Certifications</h3>
+                    <p>Completed over 20 professional courses in AI/ML, Data Science, Deep Learning, and Software Engineering on Coursera.</p>
+                    <span class="achievement-year">2024-2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Certifications Section -->
     <section class="certi" id="certi">
-        <div class="testimonial-container">
-            <h2 class="heading">Real-Life <span>Insights</span></h2>
+        <h2 class="heading">Featured <span>Certifications</span></h2>
+        <p class="certi-subtitle">Verified credentials from Google, AWS, IBM, Coursera & more</p>
 
-            <div class="testimonial-wrapper">
-                <div class="testimonial-box mySwiper">
-                    <div class="testimonial-content swiper-wrapper">
-                        <!-- Certificate Slides -->
-                        <div class="testimonial-slide swiper-slide"><img src="../images/cer1.png" alt="Certificate 1">
+        <div class="cert-showcase">
+            <!-- Top Row - Featured Large Cards -->
+            <div class="cert-featured-row">
+                <div class="cert-card featured-card" data-tilt>
+                    <div class="cert-card-glow"></div>
+                    <div class="cert-card-inner">
+                        <div class="cert-issuer">
+                            <i class='bx bxl-google' style="color:#4285f4;font-size:3rem"></i>
+                            <span>Google</span>
                         </div>
-                        <div class="testimonial-slide swiper-slide"><img src="../images/cer2.png" alt="Certificate 2">
-                        </div>
-                        <div class="testimonial-slide swiper-slide"><img src="../images/cer3.png" alt="Certificate 3">
-                        </div>
-                        <div class="testimonial-slide swiper-slide"><img src="../images/cer4.png" alt="Certificate 4">
-                        </div>
-                        <div class="testimonial-slide swiper-slide"><img src="../images/cer5.png" alt="Certificate 5">
-                        </div>
-                        <div class="testimonial-slide swiper-slide"><img src="../images/c6.png" alt="Certificate 6">
-                        </div>
-                        <div class="testimonial-slide swiper-slide"><img src="../images/c7.jpg" alt="Certificate 7">
-                        </div>
-                        <div class="testimonial-slide swiper-slide"><img src="../images/c8.jpg" alt="Certificate 8">
-                        </div>
-                        <div class="testimonial-slide swiper-slide"><img src="../images/c9.jpg" alt="Certificate 9">
-                        </div>
-                        <div class="testimonial-slide swiper-slide"><img src="../images/c10.jpg" alt="Certificate 10">
-                        </div>
-                        <div class="testimonial-slide swiper-slide"><img src="../images/c11.jpg" alt="Certificate 11">
-                        </div>
-                        <!-- <div class="testimonial-slide swiper-slide"><img src="../images/cer12.png" alt="Certificate 12"></div>
-                    <div class="testimonial-slide swiper-slide"><img src="../images/cer13.png" alt="Certificate 13"></div>
-                    <div class="testimonial-slide swiper-slide"><img src="../images/cer14.png" alt="Certificate 14"></div>
-                    <div class="testimonial-slide swiper-slide"><img src="../images/cer15.png" alt="Certificate 15"></div>
-                    <div class="testimonial-slide swiper-slide"><img src="../images/cer16.png" alt="Certificate 16"></div>
-                    <div class="testimonial-slide swiper-slide"><img src="../images/cer17.png" alt="Certificate 17"></div>
-                    <div class="testimonial-slide swiper-slide"><img src="../images/cer18.png" alt="Certificate 18"></div>
-                    <div class="testimonial-slide swiper-slide"><img src="../images/cer19.png" alt="Certificate 19"></div>
-                    <div class="testimonial-slide swiper-slide"><img src="../images/cer20.png" alt="Certificate 20"></div>
-                    <div class="testimonial-slide swiper-slide"><img src="../images/cer21.png" alt="Certificate 21"></div>
-                    <div class="testimonial-slide swiper-slide"><img src="../images/cer22.png" alt="Certificate 22"></div>
-                    <div class="testimonial-slide swiper-slide"><img src="../images/cer23.png" alt="Certificate 23"></div>
-                    <div class="testimonial-slide swiper-slide"><img src="../images/cer23.png" alt="Certificate 24"></div>
-                    <div class="testimonial-slide swiper-slide"><img src="../images/cer23.png" alt="Certificate 25"></div> -->
+                        <h3>Google Ads Certification</h3>
+                        <p>Digital marketing & advertising expertise certified by Google</p>
+                        <span class="cert-badge">Verified</span>
                     </div>
-
-                    <!-- Optional Navigation (If Needed) -->
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="cert-card featured-card" data-tilt>
+                    <div class="cert-card-glow"></div>
+                    <div class="cert-card-inner">
+                        <div class="cert-issuer">
+                            <i class='bx bxl-aws' style="color:#FF9900;font-size:3rem"></i>
+                            <span>Amazon</span>
+                        </div>
+                        <h3>AWS Cloud Certification</h3>
+                        <p>Cloud computing, deployment & scalable infrastructure</p>
+                        <span class="cert-badge">Verified</span>
+                    </div>
+                </div>
+                <div class="cert-card featured-card" data-tilt>
+                    <div class="cert-card-glow"></div>
+                    <div class="cert-card-inner">
+                        <div class="cert-issuer">
+                            <i class='bx bxs-graduation-cap' style="color:#0056D2;font-size:3rem"></i>
+                            <span>Coursera</span>
+                        </div>
+                        <h3>Deep Learning Specialization</h3>
+                        <p>CNNs, RNNs, GANs & advanced neural network architectures</p>
+                        <span class="cert-badge">Verified</span>
+                    </div>
                 </div>
             </div>
 
+            <!-- Scrolling Marquee of All Certs -->
+            <div class="cert-marquee-container">
+                <div class="cert-marquee">
+                    <div class="cert-marquee-track">
+                        <div class="marquee-item"><img src="../images/cert-deep-learning.jpg" alt="Deep Learning"><span>Deep Learning</span></div>
+                        <div class="marquee-item"><img src="../images/cert-cnn.jpg" alt="CNN"><span>Convolutional Neural Networks</span></div>
+                        <div class="marquee-item"><img src="../images/cert-face-detection.jpg" alt="Face Detection"><span>Face Detection</span></div>
+                        <div class="marquee-item"><img src="../images/cert-sangramjeet.jpg" alt="AI/ML Certificate"><span>AI/ML Professional</span></div>
+                        <div class="marquee-item"><img src="../images/cer1.png" alt="Machine Learning"><span>Machine Learning</span></div>
+                        <div class="marquee-item"><img src="../images/cer2.png" alt="Data Science"><span>Data Science</span></div>
+                        <div class="marquee-item"><img src="../images/cer3.png" alt="Python Data Science"><span>Python for Data Science</span></div>
+                        <div class="marquee-item"><img src="../images/cer4.png" alt="Neural Networks"><span>Neural Networks</span></div>
+                        <div class="marquee-item"><img src="../images/cer5.png" alt="NLP"><span>NLP Specialization</span></div>
+                        <div class="marquee-item"><img src="../images/c6.png" alt="Advanced ML"><span>Advanced ML</span></div>
+                        <div class="marquee-item"><img src="../images/c7.jpg" alt="TensorFlow"><span>TensorFlow</span></div>
+                        <div class="marquee-item"><img src="../images/c8.jpg" alt="Computer Vision"><span>Computer Vision</span></div>
+                        <div class="marquee-item"><img src="../images/c9.jpg" alt="AI Engineering"><span>AI Engineering</span></div>
+                        <div class="marquee-item"><img src="../images/c10.jpg" alt="Reinforcement Learning"><span>Reinforcement Learning</span></div>
+                        <div class="marquee-item"><img src="../images/c11.jpg" alt="MLOps"><span>MLOps & Deployment</span></div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="marquee-item"><img src="../images/cert-deep-learning.jpg" alt="Deep Learning"><span>Deep Learning</span></div>
+                        <div class="marquee-item"><img src="../images/cert-cnn.jpg" alt="CNN"><span>Convolutional Neural Networks</span></div>
+                        <div class="marquee-item"><img src="../images/cert-face-detection.jpg" alt="Face Detection"><span>Face Detection</span></div>
+                        <div class="marquee-item"><img src="../images/cert-sangramjeet.jpg" alt="AI/ML Certificate"><span>AI/ML Professional</span></div>
+                        <div class="marquee-item"><img src="../images/cer1.png" alt="Machine Learning"><span>Machine Learning</span></div>
+                        <div class="marquee-item"><img src="../images/cer2.png" alt="Data Science"><span>Data Science</span></div>
+                        <div class="marquee-item"><img src="../images/cer3.png" alt="Python Data Science"><span>Python for Data Science</span></div>
+                        <div class="marquee-item"><img src="../images/cer4.png" alt="Neural Networks"><span>Neural Networks</span></div>
+                        <div class="marquee-item"><img src="../images/cer5.png" alt="NLP"><span>NLP Specialization</span></div>
+                        <div class="marquee-item"><img src="../images/c6.png" alt="Advanced ML"><span>Advanced ML</span></div>
+                    </div>
+                </div>
+            </div>
 
-            <button type="button" class="butam" onclick="window.location.href='../html/projects.html'">Know
-                More</button>
+            <!-- Stats + CTA -->
+            <div class="cert-bottom">
+                <div class="certi-counter">
+                    <div class="counter-item">
+                        <span class="counter-number">20+</span>
+                        <span class="counter-label">Certifications</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-number">5+</span>
+                        <span class="counter-label">Platforms</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-number">3</span>
+                        <span class="counter-label">Hackathon Wins</span>
+                    </div>
+                </div>
+                <a href="./gallery.html" class="btn view-all-btn">
+                    <i class='bx bx-grid-alt'></i> View All Certifications
+                </a>
+            </div>
         </div>
-
     </section>
     <!-- contact section design -->
     <section class="contact" id="contact">
@@ -493,7 +699,7 @@
     <!-- footer design -->
     <footer class="footer">
         <div class="footer-text">
-            <p>Copyright &copy; 2025 |JEET - All Rights Reserved.</p>
+            <p>Copyright &copy; 2026 |JEET - All Rights Reserved.</p>
         </div>
 
         <div class="footer-iconTop">

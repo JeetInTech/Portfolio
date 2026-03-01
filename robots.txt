@@ -1,0 +1,11 @@
+# robots.txt for sangramjeetghosh.com
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sangramjeetghosh.com/sitemap.xml
+
+# Disallow admin/internal paths
+Disallow: /node_modules/
+Disallow: /assets/
+Disallow: /.git/

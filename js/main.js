@@ -107,23 +107,114 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   var swiper = new Swiper(".mySwiper", {
-    slidesPerView: "auto", // Show multiple slides at a time
-    spaceBetween: 20, // Adjust spacing
-    loop: true, // Infinite loop
-    speed: 5500, // Smooth continuous scrolling speed
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    speed: 600,
     autoplay: {
-        delay: 0, // No delay, continuous scrolling
-        disableOnInteraction: false, // Keeps autoplay even if user interacts
+        delay: 3000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
     },
-    allowTouchMove: false, // Disable manual dragging for smooth flow
-    freeMode: true, // Enables smooth continuous effect
+    allowTouchMove: true,
+    grabCursor: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 1,
+            spaceBetween: 30,
+        },
+        1024: {
+            slidesPerView: 1,
+            spaceBetween: 40,
+        },
+    },
 });
 
 
 
 
 ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img img, .services-container, .portfolio-box, .testimonial-wrapper, .contact form', { origin: 'bottom' });
+ScrollReveal().reveal('.home-img img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
 ScrollReveal().reveal('.home-content h1, .about-img img', { origin: 'left' });
 ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { origin: 'right' });
+ScrollReveal().reveal('.achievement-card', { origin: 'bottom', interval: 150 });
+ScrollReveal().reveal('.cert-card', { origin: 'bottom', interval: 200 });
+ScrollReveal().reveal('.cert-bottom', { origin: 'bottom' });
+
+/*========== Resume Dropdown ==========*/
+function toggleResumeMenu() {
+    const dropdown = document.querySelector('.resume-dropdown');
+    dropdown.classList.toggle('open');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+    const dropdown = document.querySelector('.resume-dropdown');
+    if (dropdown && !dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+    }
+});
+
+function downloadAllResumes() {
+    const resumes = [
+        '/resumes/Sangramjeet-Ghosh-AI-Resume.pdf',
+        '/resumes/Sangramjeet-Ghosh-Fullstack-Resume.pdf',
+        '/resumes/Sangramjeet-Ghosh-CV.pdf'
+    ];
+    resumes.forEach((url, i) => {
+        setTimeout(() => {
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = url.split('/').pop();
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }, i * 500);
+    });
+    // Close dropdown after clicking
+    document.querySelector('.resume-dropdown').classList.remove('open');
+}
+
+/*========== Counter Animation ==========*/
+function animateCounters() {
+    const counters = document.querySelectorAll('.counter-number');
+    counters.forEach(counter => {
+        const text = counter.textContent;
+        const target = parseInt(text);
+        if (isNaN(target)) return;
+        const suffix = text.replace(/[0-9]/g, '');
+        let current = 0;
+        const increment = Math.ceil(target / 30);
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            counter.textContent = current + suffix;
+        }, 50);
+    });
+}
+
+// Trigger counter animation when section is visible
+const certiSection = document.querySelector('.certi-counter');
+if (certiSection) {
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    counterObserver.observe(certiSection);
+}
 
