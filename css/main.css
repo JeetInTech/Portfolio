@@ -435,11 +435,11 @@ span {
 
 .services {
     min-height: auto;
-    padding-bottom: 10rem;
+    padding-bottom: 7rem;
 }
 
 .services h2 {
-    margin-bottom: 5rem;
+    margin-bottom: 1.5rem;
 }
 
 .services .services-container {
@@ -453,7 +453,7 @@ span {
 .services-container .services-box {
     flex: 1 1 30rem;
     background: var(--bg-color);
-    padding: 3rem 2rem 4rem;
+    padding: 2rem 2rem 2.5rem;
     border-radius: 2rem;
     box-shadow: 0 .1rem .5rem var(--shadow-color);
     text-align: center;
@@ -468,12 +468,12 @@ span {
 }
 
 .services-box i {
-    font-size: 7rem;
+    font-size: 5rem;
     color: var(--main-color);
 }
 
 .services-box h3 {
-    font-size: 2.6rem;
+    font-size: 2.2rem;
     transition: .5s ease;
 }
 
@@ -482,8 +482,55 @@ span {
 }
 
 .services-box p {
-    font-size: 1.6rem;
-    margin: 1rem 0 3rem;
+    font-size: 1.4rem;
+    margin: 0.8rem 0 1.5rem;
+    line-height: 1.7;
+}
+
+.expertise-subtitle {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--main-color);
+    margin-top: 0;
+    margin-bottom: 3rem;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    font-style: italic;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--main-color);
+    background: rgba(27, 94, 32, 0.08);
+    border: 1px solid rgba(27, 94, 32, 0.2);
+    border-radius: 2rem;
+    letter-spacing: 0.03rem;
+    transition: 0.3s ease;
+}
+
+.services-box:hover .tech-tag {
+    background: rgba(27, 94, 32, 0.15);
+    border-color: var(--main-color);
+}
+
+.services-box:hover i {
+    animation: iconPulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes iconPulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
 }
 
 /* About Section Styles */
@@ -2845,6 +2892,23 @@ img {
     .services-box p {
         font-size: 1.4rem;
         line-height: 1.7;
+    }
+
+    .tech-tags {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .tech-tag {
+        font-size: 1.1rem;
+        padding: 0.3rem 0.8rem;
+    }
+
+    .expertise-subtitle {
+        font-size: 1.3rem;
+        margin-top: -2rem;
+        margin-bottom: 3rem;
+        padding: 0 1rem;
     }
 
     .services-box .btn {
