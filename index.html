@@ -19,7 +19,7 @@
     <link rel="icon" type="image/png" href="./images/logo1.png">
     <style>
         body {
-            background-color: #000;
+            background-color: #030407;
             display: flex;
             place-content: center;
             align-items: center;
@@ -28,16 +28,16 @@
 
         .loader-container {
             width: 200px;
-            height: 20px;
-            border: 1px solid #ddd;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.08);
             overflow: hidden;
             position: relative;
-            border-radius: 5px;
+            border-radius: 2px;
         }
         .loader {
             width: 10%; height: 100%;
-            background: linear-gradient(90deg, #1b5e20, #43a047, #66bb6a);
-            animation: loader 1.5s linear infinite; box-shadow: 0 0 25px #43a047;
+            background: linear-gradient(90deg, rgba(255,255,255,0.2), #ffffff);
+            animation: loader 1.5s linear infinite;
         }
 
         @keyframes loader {

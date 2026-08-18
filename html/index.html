@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sangramjeet Ghosh | Data Scientist, AI/ML Engineer & Full-Stack Developer</title>
+    <title>Sangramjeet Ghosh | AI/ML Systems Engineer & Full-Stack Architect</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Sangramjeet Ghosh - Data Scientist, AI/ML Engineer & Full-Stack Developer. Expert in Python, Machine Learning, Deep Learning, React, FastAPI. 50+ projects, 40+ certifications, AWS & Google certified. Based in Hyderabad, India.">
-    <meta name="keywords" content="Sangramjeet Ghosh, sangramjeet ghosh, Sangramjeet, Ghosh, JeetInTech, Data Scientist, AI Engineer, ML Engineer, Full Stack Developer, Machine Learning, Python, React, FastAPI, Deep Learning, NLP, Hyderabad, AI/ML Engineer, Portfolio, Sangramjeet Ghosh portfolio, Sangramjeet Ghosh developer, Sangramjeet Ghosh AI">
+    <meta name="description" content="Sangramjeet Ghosh - AI/ML Engineer, Founder of Neuroviai & Full-Stack Developer. Specialist in LangChain, Multi-Agent Systems, RAG, FastAPI, React & AWS Cloud. 50+ projects, 40+ certifications.">
+    <meta name="keywords" content="Sangramjeet Ghosh, Sangramjeet, Ghosh, JeetInTech, AI Engineer, ML Engineer, Full Stack Developer, Neuroviai, Machine Learning, Python, React, FastAPI, Deep Learning, NLP, Hyderabad">
     <meta name="author" content="Sangramjeet Ghosh">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://sangramjeet.me">
@@ -17,7 +17,7 @@
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Sangramjeet Ghosh | AI/ML Engineer & Full-Stack Developer">
-    <meta property="og:description" content="Passionate Data Scientist & Full-Stack Developer specializing in AI/ML solutions. 50+ projects, 40+ certifications. Building intelligent applications that transform data into actionable insights.">
+    <meta property="og:description" content="AI/ML Engineer, Full-Stack Developer & Neuroviai Founder. 50+ projects, 40+ certifications. Building production-grade AI platforms and scalable systems.">
     <meta property="og:image" content="https://sangramjeet.me/images/logo1.png">
     <meta property="og:url" content="https://sangramjeet.me">
     <meta property="og:site_name" content="Sangramjeet Ghosh Portfolio">
@@ -28,7 +28,7 @@
     <meta name="twitter:description" content="AI/ML Engineer, Full-Stack Developer & Neuroviai Founder. 50+ projects, 40+ certifications, AWS & Google certified.">
     <meta name="twitter:image" content="https://sangramjeet.me/images/logo1.png">
     
-    <!-- Structured Data - JSON-LD for Google Search -->
+    <!-- Structured Data - JSON-LD -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -40,13 +40,14 @@
         "jobTitle": ["Data Scientist", "AI/ML Engineer", "Full-Stack Developer"],
         "worksFor": {
             "@type": "Organization",
-            "name": "Freelance / Neurovia AI"
+            "name": "Freelance / Neurovia AI",
+            "url": "https://neuroviai.dev/"
         },
         "alumniOf": {
             "@type": "CollegeOrUniversity",
             "name": "Malla Reddy University"
         },
-        "knowsAbout": ["Python", "Machine Learning", "Deep Learning", "React", "FastAPI", "NLP", "Computer Vision", "Data Science", "Full-Stack Development", "AWS", "TensorFlow", "Node.js"],
+        "knowsAbout": ["Python", "Machine Learning", "Deep Learning", "React", "FastAPI", "NLP", "Computer Vision", "Data Science", "Full-Stack Development", "AWS", "TensorFlow", "Node.js", "LangChain", "RAG"],
         "sameAs": [
             "https://github.com/JeetInTech",
             "https://www.linkedin.com/in/sangramjeetghosh/",
@@ -66,702 +67,1140 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/grav.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
-
-
-
-
 </head>
 
 <body>
 
     <header class="header">
-        <a href="#" class="logo">Portfolio</a>
-
+        <a href="#home" class="logo">Portfolio<span class="logo-dot">.</span></a>
 
         <nav class="navbar">
             <a href="#home" class="active">Home</a>
-            <a href="./about.html">About</a>
-            <a href="./skills.html">Skills</a>
-            <a href="./projects.html">Projects</a>
-            <a href="#achievements">Achievements</a>
-            <a href="#certi">Certifications</a>
+            <a href="#about">Identity</a>
+            <a href="#journey">Trajectory</a>
+            <a href="#architecture">Systems</a>
+            <a href="#skills">Arsenal</a>
+            <a href="#projects">Projects</a>
+            <a href="#terminal">Terminal</a>
+            <a href="#achievements">Archive</a>
             <a href="#contact">Contact</a>
-            <a href="./gallery.html">All Certs</a>
+            <a href="./gallery.html">Credentials</a>
         </nav>
 
-        <div class="bx bx-moon" id="darkMode-icon"></div>
-
-        <div class="bx bx-menu" id="menu-icon"></div>
+        <div class="header-actions">
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
     </header>
 
-    <!-- home section design -->
-    <section class="home" id="home">
-        <div class="home-content">
-            <h3>Hello, I'm</h3>
-            <h1>Sangramjeet Ghosh</h1>
-            <p>
-                Versatile AI & Full-Stack Engineer building production-grade SaaS and intelligent automation systems.
+    <!-- ========================================================
+         HERO SECTION &mdash; DWARF STAR & CELESTIAL ORBIT EXPERIENCE
+         ======================================================== -->
+    <section class="home cosmic-hero" id="home">
+        <!-- Cosmic Nebula & Space Atmosphere -->
+        <div class="cosmic-nebula-clouds"></div>
+        <div class="cosmic-floor-reflection"></div>
+
+        <div class="home-content cosmic-content">
+            <div class="cosmic-role-tag">
+                <span class="star-sparkle">&#10022;</span> AI AUTOMATION & SYSTEMS ENGINEER
+            </div>
+            <h1 class="cosmic-hero-title">
+                <span class="cosmic-first-name">Sangramjeet</span>
+                <span class="cosmic-last-name">Ghosh</span>
+            </h1>
+            <p class="cosmic-bio">
+                Building the future of AI-driven automation, full-stack systems, and next-gen SaaS products. Creator of <strong><a href="https://neuroviai.dev/" target="_blank" class="cosmic-link">Neuroviai</a></strong>.
             </p>
-            <p>Creator of <strong>Neuroviai</strong> — a live AI-powered content-automation SaaS. Expert in LangChain, RAG Pipelines, React, FastAPI & cloud infrastructure. From automated ML pipelines to scalable AI platforms, I deliver end-to-end solutions that drive real business value.</p>
 
-            <div class="social-media">
-                <a href="https://github.com/JeetInTech" target="_blank"><i class='bx bxl-github'></i></a>
-                <a href="https://x.com/SangramJee97448" target="_blank"><i class='bx bxl-twitter'></i></a>
-                <a href="https://www.instagram.com/sangramjeeth/" target="_blank"><i
-                        class='bx bxl-instagram-alt'></i></a>
-                <a href="https://www.linkedin.com/in/sangramjeetghosh/" target="_blank"><i
-                        class='bx bxl-linkedin'></i></a>
-            </div>
-
-            <!-- Dynamic Resume Download -->
-            <div class="resume-dropdown">
-                <button class="btn resume-btn" onclick="toggleResumeMenu()">
-                    <i class='bx bx-download'></i> Download Resume <i class='bx bx-chevron-down resume-arrow'></i>
-                </button>
-                <div class="resume-menu" id="resumeMenu">
-                    <a href="/resumes/Sangramjeet-Ghosh-AI-Resume.pdf" download class="resume-option">
-                        <i class='bx bx-brain'></i>
-                        <div>
-                            <span class="resume-title">AI / ML Engineer</span>
-                            <span class="resume-desc">ML, Deep Learning, NLP, Computer Vision</span>
-                        </div>
-                    </a>
-                    <a href="/resumes/Sangramjeet-Ghosh-Fullstack-Resume.pdf" download class="resume-option">
-                        <i class='bx bx-code-alt'></i>
-                        <div>
-                            <span class="resume-title">Full-Stack Developer</span>
-                            <span class="resume-desc">React, Node.js, FastAPI, MongoDB</span>
-                        </div>
-                    </a>
-                    <a href="/resumes/Sangramjeet-Ghosh-CV.pdf" download class="resume-option">
-                        <i class='bx bx-file'></i>
-                        <div>
-                            <span class="resume-title">Complete CV</span>
-                            <span class="resume-desc">All skills, experience & education</span>
-                        </div>
-                    </a>
-                    <div class="resume-divider"></div>
-                    <button class="resume-option download-all" onclick="downloadAllResumes()">
-                        <i class='bx bx-download'></i>
-                        <div>
-                            <span class="resume-title">Download All</span>
-                            <span class="resume-desc">Get all 3 resumes at once</span>
-                        </div>
-                    </button>
-                </div>
-            </div>
-
-
-
-        </div>
-
-        <div class="profession-container">
-            <div class="profession-box">
-                <div class="profession" style="--i:0;">
-                    <i class='bx bx-code-alt'></i>
-                    <h3>AI engineer</h3>
-                </div>
-                <div class="profession" style="--i:1;">
+            <!-- Cosmic Glass Badge Cards (Matching Reference) -->
+            <div class="cosmic-pill-cards">
+                <div class="cosmic-pill-card active">
                     <i class='bx bx-layer'></i>
-                    <h3>Full-Stack Dev</h3>
+                    <span>Full-Stack Dev</span>
                 </div>
-                <div class="profession" style="--i:2;">
-                    <i class='bx bx-brain'></i>
-                    <h3>AI Automation</h3>
-                </div>
-                <div class="profession" style="--i:3;">
+                <div class="cosmic-pill-card">
                     <i class='bx bx-line-chart'></i>
-                    <h3>Data Analyst</h3>
+                    <span>Data Scientist</span>
                 </div>
-
-                <!-- <div class="profession" style="--i:4;">
-                    <i class='bx bx-cog'></i>
-                    <h3>DevOps</h3>
-                </div> -->
-
-                <div class="circle"></div>
-            </div>
-
-
-            <div class="overlay"></div>
-        </div>
-
-        <div class="home-img">
-            <img src="/images/jjj.png" alt="wait">
-        </div>
-    </section>
-
-    <!-- About Me Section -->
-    <section class="about" id="about">
-        <h2 class="heading">About <span>Me</span></h2>
-        
-        <div class="about-container">
-            <div class="about-stats">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class='bx bx-code-curly'></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-number">5+</h3>
-                        <p class="stat-label">Years Coding</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class='bx bx-briefcase'></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-number">50+</h3>
-                        <p class="stat-label">Projects Completed</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class='bx bx-brain'></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-number">10+</h3>
-                        <p class="stat-label">AI/ML Models</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class='bx bx-world'></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-number">3+</h3>
-                        <p class="stat-label">Startups Served</p>
-                    </div>
+                <div class="cosmic-pill-card">
+                    <i class='bx bx-brain'></i>
+                    <span>AI Automation</span>
                 </div>
             </div>
 
-            <div class="about-content-box">
-                <div class="about-text">
-                    <h3>AI/ML Engineer, Full-Stack Developer & Founder of Neuroviai</h3>
-                    <p>I'm a versatile AI & Full-Stack Engineer who builds production-grade SaaS applications, intelligent automation systems, and data-driven products. I designed and launched <strong>Neuroviai</strong> — a live AI-powered content-automation SaaS serving 50+ daily users with 99.5% reliability. Currently pursuing B.Tech in CSE (AI/ML) at Malla Reddy University with a CGPA of 8.0.</p>
-                    
-                    <div class="journey-highlights">
-                        <div class="highlight-item">
-                            <i class='bx bx-check-circle'></i>
-                            <span>Built Neuroviai SaaS — 6 FastAPI microservices, 4-tier AI fallback, Razorpay payments</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class='bx bx-check-circle'></i>
-                            <span>Expert in LangChain, RAG Pipelines, Transformers, OpenAI & Gemini APIs</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class='bx bx-check-circle'></i>
-                            <span>Full-Stack: React 18, Next.js 14, FastAPI, PostgreSQL, Supabase, AWS</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class='bx bx-check-circle'></i>
-                            <span>Freelance AI Developer — Delivered MVPs for 3+ startup founders</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class='bx bx-check-circle'></i>
-                            <span>Published Author — "The Future of Touchless Technology" on Amazon KDP</span>
-                        </div>
-                    </div>
-
-                    <a href="./about.html" class="btn">Learn More About Me</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- services section design -->
-    <section class="services" id="services">
-        <h2 class="heading">My <span>Expertise</span></h2>
-        <p class="section-subtitle expertise-subtitle">What I build, ship, and scale — from AI pipelines to production apps.</p>
-
-        <div class="services-container">
-            <div class="services-box">
-                <i class='bx bx-brain'></i>
-                <h3>AI & LLM Engineering</h3>
-                <p>Designing intelligent systems using machine learning, LLMs, and retrieval-augmented generation. Building AI pipelines, automation tools, and scalable AI services with Python and modern ML frameworks.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">LLMs</span>
-                    <span class="tech-tag">RAG</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">scikit-learn</span>
-                    <span class="tech-tag">AutoML</span>
-                </div>
-                <a href="./projects.html" class="btn">View AI Projects</a>
-            </div>
-            <div class="services-box">
-                <i class='bx bx-server'></i>
-                <h3>Backend Systems & APIs</h3>
-                <p>Building high-performance backend systems and APIs using FastAPI, PostgreSQL, and cloud infrastructure. Focused on deploying scalable AI services and production-ready ML workflows.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">FastAPI</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">AWS</span>
-                    <span class="tech-tag">REST APIs</span>
-                </div>
-                <a href="./projects.html" class="btn">See Backend Work</a>
-            </div>
-            <div class="services-box">
-                <i class='bx bx-layer'></i>
-                <h3>Full-Stack AI Applications</h3>
-                <p>Developing complete AI-powered applications using React, Python, and modern backend architectures. Integrating ML models into real-world products and automation platforms.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">MongoDB</span>
-                    <span class="tech-tag">Express</span>
-                    <span class="tech-tag">AI Integration</span>
-                </div>
-                <a href="./projects.html" class="btn">Explore Builds</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- portfolio section design -->
-
-
-    <section class="projects-section">
-        <div class="section-header">
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">Real-world applications and solutions that showcase my expertise in full-stack
-                development, AI integration, and modern web technologies.</p>
-        </div>
-
-        <div class="projects-grid">
-            <!-- Neurovia AI -->
-            <div class="project-card">
-                <div class="card-header">
-                    <div class="card-icon ai">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="card-title">Neurovia AI</h3>
-                </div>
-                <div class="card-content">
-                    <div class="project-preview">
-                        <iframe class="preview-iframe" src="https://neuroviai.com/"
-                            title="Neurovia AI Preview"></iframe>
-                        <div class="preview-overlay">
-                            <div class="overlay-content">
-                                <button class="play-button" onclick="openModal('neurovia')">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </button>
-                                <p>Click to explore live site</p>
+            <!-- Socials & Resume CTA -->
+            <div class="cosmic-actions-row">
+                <div class="resume-dropdown">
+                    <button class="btn cosmic-btn resume-btn" onclick="toggleResumeMenu()">
+                        <i class='bx bx-download'></i> Download Resume <i class='bx bx-chevron-down resume-arrow'></i>
+                    </button>
+                    <div class="resume-menu" id="resumeMenu">
+                        <a href="../resumes/Sangramjeet-Ghosh-AI-Resume.pdf" download class="resume-option">
+                            <i class='bx bx-brain'></i>
+                            <div>
+                                <span class="resume-title">AI / ML Engineer</span>
+                                <span class="resume-desc">ML, Deep Learning, NLP, Computer Vision</span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <p class="project-description">Advanced AI platform offering intelligent solutions for business
-                        automation and data analysis. Built with cutting-edge machine learning algorithms.</p>
-                    <div class="project-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">AI/ML</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">Python</span>
-                    </div>
-                    <div class="card-actions">
-                        <button class="action-btn btn-primary" onclick="openModal('neurovia')">
-                            <i class="fas fa-eye"></i>
-                            Preview
+                        </a>
+                        <a href="../resumes/Sangramjeet-Ghosh-Fullstack-Resume.pdf" download class="resume-option">
+                            <i class='bx bx-code-alt'></i>
+                            <div>
+                                <span class="resume-title">Full-Stack Developer</span>
+                                <span class="resume-desc">React, Node.js, FastAPI, MongoDB</span>
+                            </div>
+                        </a>
+                        <a href="../resumes/Sangramjeet-Ghosh-CV.pdf" download class="resume-option">
+                            <i class='bx bx-file'></i>
+                            <div>
+                                <span class="resume-title">Complete CV</span>
+                                <span class="resume-desc">All skills, experience & education</span>
+                            </div>
+                        </a>
+                        <div class="resume-divider"></div>
+                        <button class="resume-option download-all" onclick="downloadAllResumes()">
+                            <i class='bx bx-download'></i>
+                            <div>
+                                <span class="resume-title">Download All</span>
+                                <span class="resume-desc">Get all 3 resumes at once</span>
+                            </div>
                         </button>
-                        <a href="https://neuroviai.com/" target="_blank" class="action-btn btn-secondary">
-                            <i class="fas fa-external-link-alt"></i>
-                            Visit Site
-                        </a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Crafting Brain -->
-            <div class="project-card">
-                <div class="card-header">
-                    <div class="card-icon design">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3 class="card-title">Crafting Brain</h3>
-                </div>
-                <div class="card-content">
-                    <div class="project-preview">
-                        <iframe class="preview-iframe" src="https://craftingbrain.com/"
-                            title="Crafting Brain Preview"></iframe>
-                        <div class="preview-overlay">
-                            <div class="overlay-content">
-                                <button class="play-button" onclick="openModal('crafting')">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </button>
-                                <p>Click to explore live site</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <p class="project-description">Creative digital agency platform featuring modern design, interactive
-                        elements, and comprehensive service showcases for creative professionals.</p>
-                    <div class="project-tags">
-                        <span class="tag">HTML5</span>
-                        <span class="tag">CSS3</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">Responsive</span>
-                    </div>
-                    <div class="card-actions">
-                        <button class="action-btn btn-primary" onclick="openModal('crafting')">
-                            <i class="fas fa-eye"></i>
-                            Preview
-                        </button>
-                        <a href="https://craftingbrain.com/" target="_blank" class="action-btn btn-secondary">
-                            <i class="fas fa-external-link-alt"></i>
-                            Visit Site
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Second Brain -->
-            <div class="project-card">
-                <div class="card-header">
-                    <div class="card-icon notes">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="card-title">Second Brain</h3>
-                    <span class="live-badge">LIVE</span>
-                </div>
-                <div class="card-content">
-                    <div class="project-preview">
-                        <iframe class="preview-iframe" src="https://secondbraindev.vercel.app/"
-                            title="Second Brain Preview"></iframe>
-                        <div class="preview-overlay">
-                            <div class="overlay-content">
-                                <button class="play-button" onclick="openModal('secondbrain')">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </button>
-                                <p>Click to explore live app</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <p class="project-description">AI-powered knowledge management system — capture notes, auto-summarize with Gemini AI, semantic search, and conversational Q&A against your knowledge base.</p>
-                    <div class="project-tags">
-                        <span class="tag">Next.js 15</span>
-                        <span class="tag">Gemini AI</span>
-                        <span class="tag">PostgreSQL</span>
-                        <span class="tag">Prisma</span>
-                    </div>
-                    <div class="card-actions">
-                        <button class="action-btn btn-primary" onclick="openModal('secondbrain')">
-                            <i class="fas fa-eye"></i>
-                            Preview
-                        </button>
-                        <a href="https://secondbraindev.vercel.app/" target="_blank" class="action-btn btn-secondary">
-                            <i class="fas fa-external-link-alt"></i>
-                            Try App
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SANA - Multilingual AI Assistant -->
-            <div class="project-card">
-                <div class="card-header">
-                    <div class="card-icon ai">
-                        <i class="fas fa-microphone-alt"></i>
-                    </div>
-                    <h3 class="card-title">SANA AI Assistant</h3>
-                </div>
-                <div class="card-content">
-                    <div class="project-preview">
-                        <div class="project-preview-visual sana-visual">
-                            <div class="sana-orb"></div>
-                            <div class="sana-rings">
-                                <div class="sana-ring"></div>
-                                <div class="sana-ring"></div>
-                                <div class="sana-ring"></div>
-                            </div>
-                            <p class="sana-label">Voice-First AI</p>
-                        </div>
-                        <div class="preview-overlay">
-                            <div class="overlay-content">
-                                <button class="play-button" onclick="window.open('https://github.com/JeetInTech/SANA-MULTILINGUAL-AI-ASSISTANT','_blank')">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </button>
-                                <p>View on GitHub</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <p class="project-description">Real-time multilingual voice AI butler with holographic face visualizer. English + Hindi bidirectional audio streaming with sub-second latency via Gemini 2.5 Flash.</p>
-                    <div class="project-tags">
-                        <span class="tag">React 19</span>
-                        <span class="tag">Gemini Live</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Canvas</span>
-                    </div>
-                    <div class="card-actions">
-                        <a href="https://github.com/JeetInTech/SANA-MULTILINGUAL-AI-ASSISTANT" target="_blank" class="action-btn btn-primary">
-                            <i class="fab fa-github"></i>
-                            Source Code
-                        </a>
-                        <a href="https://github.com/JeetInTech/SANA-MULTILINGUAL-AI-ASSISTANT" target="_blank" class="action-btn btn-secondary">
-                            <i class="fas fa-external-link-alt"></i>
-                            Details
-                        </a>
-                    </div>
+                <div class="social-media cosmic-socials">
+                    <a href="https://github.com/JeetInTech" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                    <a href="https://x.com/SangramJee97448" target="_blank" aria-label="Twitter / X"><i class='bx bxl-twitter'></i></a>
+                    <a href="https://www.instagram.com/sangramjeeth/" target="_blank" aria-label="Instagram"><i class='bx bxl-instagram-alt'></i></a>
+                    <a href="https://www.linkedin.com/in/sangramjeetghosh/" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
                 </div>
             </div>
         </div>
 
-        <a href="./projects.html" class="more-projects-btn">
-            <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
-            Explore All Projects
-        </a>
+        <!-- COSMIC VISUAL STAGE (DWARF STAR & STANDING HERO) -->
+        <div class="cosmic-visual-stage">
+            <div class="dwarf-star-system">
+                <!-- Vertical Celestial Lens Flare Beam -->
+                <div class="dwarf-star-vertical-beam"></div>
+                <div class="dwarf-star-flare-spark"></div>
+
+                <!-- Deep Cosmic Void / Core Halo -->
+                <div class="dwarf-star-corona-glow"></div>
+                <div class="dwarf-star-core-ring"></div>
+
+                <!-- Celestial Coordinate / Orbital Rings -->
+                <div class="celestial-orbit-rings">
+                    <div class="orbit-ring ring-1"></div>
+                    <div class="orbit-ring ring-2"></div>
+                    <div class="orbit-ring ring-3"></div>
+                    <div class="orbit-ring ring-grid"></div>
+                </div>
+
+                <!-- Rotating Curved SVG Orbital Text Track -->
+                <svg class="dwarf-star-orbit-text-svg" viewBox="0 0 600 600">
+                    <defs>
+                        <path id="orbitPath" d="M 300, 300 m -230, 0 a 230,230 0 1,1 460,0 a 230,230 0 1,1 -460,0" />
+                    </defs>
+                    <text class="orbit-text-curved">
+                        <textPath href="#orbitPath" startOffset="0%">
+                            &#10022; AI ENGINEER  &#10022;  FULL-STACK DEVELOPER  &#10022;  AI AUTOMATION ARCHITECT  &#10022;  DATA SCIENTIST  &#10022;
+                        </textPath>
+                    </text>
+                </svg>
+
+                <!-- Rotating Orbital Badges -->
+                <div class="dwarf-star-orbit-nodes">
+                    <div class="orbit-node" style="--angle: 0deg;">
+                        <div class="node-content"><i class='bx bx-code-alt'></i><span>AI Engineer</span></div>
+                    </div>
+                    <div class="orbit-node" style="--angle: 90deg;">
+                        <div class="node-content"><i class='bx bx-layer'></i><span>Full-Stack Dev</span></div>
+                    </div>
+                    <div class="orbit-node" style="--angle: 180deg;">
+                        <div class="node-content"><i class='bx bx-brain'></i><span>AI Automation</span></div>
+                    </div>
+                    <div class="orbit-node" style="--angle: 270deg;">
+                        <div class="node-content"><i class='bx bx-line-chart'></i><span>Data Scientist</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Standing Hero Figure with Cosmic Ground Shadow/Reflection -->
+            <div class="home-img cosmic-hero-img">
+                <div class="figure-floor-shadow"></div>
+                <img src="../images/jeet.png" alt="Sangramjeet Ghosh">
+            </div>
+        </div>
     </section>
 
-    <!-- Modal -->
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
+    <!-- ========================================================
+         01. IDENTITY &mdash; GRAVITATIONAL FIELD
+         ======================================================== -->
+    <section class="grav-section" id="about">
+        <div class="grav-section-num">01</div>
+        <div class="grav-container">
+            <div class="identity-grid">
+                <!-- Left: Anchor Column -->
+                <div class="identity-left grav-reveal">
+                    <span class="grav-label">Identity</span>
+                    <h2 class="identity-headline">
+                        Sangramjeet<br><span>Ghosh</span>
+                    </h2>
+                    <p class="identity-role">AI Engineer &amp; Founder</p>
+
+                    <div class="identity-stats">
+                        <div class="identity-stat">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-desc">Years of Engineering</span>
+                        </div>
+                        <div class="identity-stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-desc">Projects Shipped</span>
+                        </div>
+                        <div class="identity-stat">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-desc">Deployed AI Models</span>
+                        </div>
+                        <div class="identity-stat">
+                            <span class="stat-number">40+</span>
+                            <span class="stat-desc">Verified Certifications</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Content Field -->
+                <div class="identity-right grav-reveal grav-reveal-delay-2">
+                    <p class="identity-bio">
+                        I build <strong>production-grade AI platforms</strong> that bridge cutting-edge research with commercial SaaS architectures. Currently scaling <strong><a href="https://neuroviai.dev/" target="_blank">Neuroviai</a></strong> &mdash; a live AI content automation platform serving 50+ daily active users with 99.5% uptime.
+                    </p>
+
+                    <div class="identity-fields">
+                        <div class="identity-field">
+                            <span class="field-label">Founder</span>
+                            <span class="field-value"><a href="https://neuroviai.dev/" target="_blank">Neuroviai</a> &mdash; AI Content Automation SaaS. 6 FastAPI microservices, 4-tier LLM fallback, Razorpay checkout.</span>
+                        </div>
+                        <div class="identity-field">
+                            <span class="field-label">Education</span>
+                            <span class="field-value">B.Tech CSE (AI &amp; Machine Learning) &middot; Malla Reddy University &middot; CGPA 8.0</span>
+                        </div>
+                        <div class="identity-field">
+                            <span class="field-label">Specialization</span>
+                            <span class="field-value">Agentic RAG Systems &middot; Multi-LLM Orchestration &middot; Full-Stack Cloud SaaS &middot; Computer Vision</span>
+                        </div>
+                        <div class="identity-field">
+                            <span class="field-label">Recognition</span>
+                            <span class="field-value">1st Place &mdash; Ideathon 2.0 &middot; AWS Certified &middot; DeepLearning.AI Specialization &middot; Published Author on Amazon KDP</span>
+                        </div>
+                        <div class="identity-field">
+                            <span class="field-label">Location</span>
+                            <span class="field-value">Hyderabad, India &middot; Open to Remote Global</span>
+                        </div>
+                    </div>
+
+                    <div class="identity-cta-row">
+                        <button class="grav-btn grav-btn-primary" data-popup="bio">Full Biography &#8599;</button>
+                        <a href="https://neuroviai.dev/" target="_blank" rel="noopener" class="grav-btn grav-btn-ghost">Visit Neuroviai &#8599;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         02. TRAJECTORY &mdash; ENGINEERING ODYSSEY
+         ======================================================== -->
+    <section class="grav-section" id="journey">
+        <div class="grav-section-num">02</div>
+        <div class="grav-container">
+            <div class="trajectory-header grav-reveal">
+                <span class="grav-label">Trajectory</span>
+                <h2 class="trajectory-title">Engineering Odyssey</h2>
+                <p class="trajectory-subtitle">From foundational algorithms to autonomous AI agents and scalable SaaS platforms.</p>
+            </div>
+
+            <div class="trajectory-track">
+                <div class="trajectory-axis">
+                    <div class="trajectory-axis-progress" id="trajectoryProgress"></div>
+                </div>
+
+                <div class="trajectory-milestone" data-step="1">
+                    <div class="milestone-year">2019</div>
+                    <p class="milestone-period">2019 &ndash; 2021 &middot; Foundations</p>
+                    <h3 class="milestone-title">Algorithmic Roots &amp; Core Development</h3>
+                    <p class="milestone-desc">Mastered Python, object-oriented systems, data structures, and responsive web foundations. Built initial data analysis toolkits and interactive scripts.</p>
+                    <div class="milestone-tags">
+                        <span class="milestone-tag">Python</span><span class="milestone-tag">Data Structures</span><span class="milestone-tag">Algorithms</span><span class="milestone-tag">JavaScript</span><span class="milestone-tag">SQL</span>
+                    </div>
+                </div>
+
+                <div class="trajectory-milestone" data-step="2">
+                    <div class="milestone-year">2022</div>
+                    <p class="milestone-period">2022 &ndash; 2023 &middot; Deep Tech</p>
+                    <h3 class="milestone-title">Machine Learning, NLP &amp; Computer Vision</h3>
+                    <p class="milestone-desc">Explored neural network architectures, CNNs, transformers, and real-time vision pipelines with MediaPipe and OpenCV. Built biometric security systems and touchless gesture interfaces.</p>
+                    <div class="milestone-tags">
+                        <span class="milestone-tag">PyTorch</span><span class="milestone-tag">TensorFlow</span><span class="milestone-tag">OpenCV</span><span class="milestone-tag">MediaPipe</span><span class="milestone-tag">BERT</span><span class="milestone-tag">scikit-learn</span>
+                    </div>
+                </div>
+
+                <div class="trajectory-milestone" data-step="3">
+                    <div class="milestone-year">2024</div>
+                    <p class="milestone-period">2024 &middot; Production AI</p>
+                    <h3 class="milestone-title">Hackathon Champion &amp; Agentic RAG Systems</h3>
+                    <p class="milestone-desc">Won 1st Place at Ideathon 2.0. Pioneered retrieval-augmented generation (RAG) and multi-LLM consensus architectures using LangChain, ChromaDB, and Groq inference.</p>
+                    <div class="milestone-tags">
+                        <span class="milestone-tag">LangChain</span><span class="milestone-tag">LangGraph</span><span class="milestone-tag">ChromaDB</span><span class="milestone-tag">Groq</span><span class="milestone-tag">FastAPI</span><span class="milestone-tag">Ideathon 2.0</span>
+                    </div>
+                </div>
+
+                <div class="trajectory-milestone" data-step="4">
+                    <div class="milestone-year">2025</div>
+                    <p class="milestone-period">2025 &middot; Cloud Scale</p>
+                    <h3 class="milestone-title">Microservices, AWS &amp; Scalable Infrastructure</h3>
+                    <p class="milestone-desc">Earned AWS Certification and Deep Learning Specialization credentials. Deployed production backends with pgvector persistent memory, Docker containers, and high-frequency WebSockets.</p>
+                    <div class="milestone-tags">
+                        <span class="milestone-tag">AWS</span><span class="milestone-tag">Docker</span><span class="milestone-tag">PostgreSQL</span><span class="milestone-tag">pgvector</span><span class="milestone-tag">WebSockets</span><span class="milestone-tag">Supabase</span>
+                    </div>
+                </div>
+
+                <div class="trajectory-milestone active" data-step="5">
+                    <div class="milestone-year">2026</div>
+                    <p class="milestone-period">2026 &ndash; Present &middot; Product Founder</p>
+                    <h3 class="milestone-title">Founder of Neuroviai &amp; Autonomous AI Systems</h3>
+                    <p class="milestone-desc">Launched <a href="https://neuroviai.dev/" target="_blank" style="color:var(--grav-pure);text-decoration:underline;">Neuroviai</a> (live AI content-automation platform), developed SANA (voice-first AI butler with holographic visualizer), and built Sebastian (autonomous desktop/browser agent with 110+ APIs).</p>
+                    <div class="milestone-tags">
+                        <span class="milestone-tag">Neuroviai</span><span class="milestone-tag">Gemini Live</span><span class="milestone-tag">Next.js 15</span><span class="milestone-tag">React 19</span><span class="milestone-tag">Autonomous Agents</span><span class="milestone-tag">40+ Certs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         03. SYSTEMS &mdash; AI ARCHITECTURE BLUEPRINT
+         ======================================================== -->
+    <section class="grav-section" id="architecture">
+        <div class="grav-section-num">03</div>
+        <div class="grav-container">
+            <div class="systems-header grav-reveal">
+                <span class="grav-label">Systems</span>
+                <h2 class="systems-title">Production AI Architecture</h2>
+                <p class="systems-subtitle">Click any pipeline node to inspect real-time data flows, latency targets, and deployed production architectures.</p>
+            </div>
+
+            <div class="systems-blueprint">
+                <!-- Pipeline Nodes -->
+                <div class="systems-pipeline">
+                    <div class="sys-node active" data-node="input" onclick="selectGravNode('input')">
+                        <span class="sys-node-num">01</span>
+                        <div class="sys-node-body">
+                            <div class="sys-node-label">Multimodal Input</div>
+                            <div class="sys-node-sub">Audio / Text / Vision</div>
+                        </div>
+                        <span class="sys-node-arrow">&rarr;</span>
+                        <div class="sys-node-signal"></div>
+                    </div>
+                    <div class="sys-node" data-node="gateway" onclick="selectGravNode('gateway')">
+                        <span class="sys-node-num">02</span>
+                        <div class="sys-node-body">
+                            <div class="sys-node-label">FastAPI Gateway</div>
+                            <div class="sys-node-sub">Auth &amp; Rate-Limit</div>
+                        </div>
+                        <span class="sys-node-arrow">&rarr;</span>
+                        <div class="sys-node-signal"></div>
+                    </div>
+                    <div class="sys-node" data-node="orchestrator" onclick="selectGravNode('orchestrator')">
+                        <span class="sys-node-num">03</span>
+                        <div class="sys-node-body">
+                            <div class="sys-node-label">Agent Swarm</div>
+                            <div class="sys-node-sub">LangGraph Router</div>
+                        </div>
+                        <span class="sys-node-arrow">&rarr;</span>
+                        <div class="sys-node-signal"></div>
+                    </div>
+                    <div class="sys-node" data-node="memory" onclick="selectGravNode('memory')">
+                        <span class="sys-node-num">04</span>
+                        <div class="sys-node-body">
+                            <div class="sys-node-label">Vector Memory</div>
+                            <div class="sys-node-sub">pgvector &amp; RAG</div>
+                        </div>
+                        <span class="sys-node-arrow">&rarr;</span>
+                        <div class="sys-node-signal"></div>
+                    </div>
+                    <div class="sys-node" data-node="inference" onclick="selectGravNode('inference')">
+                        <span class="sys-node-num">05</span>
+                        <div class="sys-node-body">
+                            <div class="sys-node-label">Multi-LLM Tier</div>
+                            <div class="sys-node-sub">GPT-4 &rarr; Gemini &rarr; Groq</div>
+                        </div>
+                        <span class="sys-node-arrow">&rarr;</span>
+                        <div class="sys-node-signal"></div>
+                    </div>
+                    <div class="sys-node" data-node="tools" onclick="selectGravNode('tools')">
+                        <span class="sys-node-num">06</span>
+                        <div class="sys-node-body">
+                            <div class="sys-node-label">Tool Sandbox</div>
+                            <div class="sys-node-sub">110+ APIs &amp; Code</div>
+                        </div>
+                        <span class="sys-node-arrow">&rarr;</span>
+                        <div class="sys-node-signal"></div>
+                    </div>
+                    <div class="sys-node" data-node="stream" onclick="selectGravNode('stream')">
+                        <span class="sys-node-num">07</span>
+                        <div class="sys-node-body">
+                            <div class="sys-node-label">Client Stream</div>
+                            <div class="sys-node-sub">WebSockets &amp; Audio</div>
+                        </div>
+                        <span class="sys-node-arrow">&rarr;</span>
+                        <div class="sys-node-signal"></div>
+                    </div>
+                </div>
+
+                <!-- Inspector Panel -->
+                <div class="systems-inspector">
+                    <div class="inspector-label">
+                        <div class="inspector-live-dot"></div>
+                        Active Component
+                    </div>
+                    <h3 class="inspector-title" id="gravInspectorTitle">01. Multimodal Streaming Ingestion</h3>
+                    <p class="inspector-desc" id="gravInspectorDesc">
+                        Captures bidirectional PCM 16kHz audio chunks, live video frames, or structured text payloads. Performs low-latency buffering and audio normalisation before dispatching.
+                    </p>
+                    <div class="inspector-data">
+                        <div class="inspector-datum">
+                            <div class="datum-key">Latency</div>
+                            <div class="datum-val" id="gravInspectorLatency">&lt; 30 ms</div>
+                        </div>
+                        <div class="inspector-datum">
+                            <div class="datum-key">Protocol</div>
+                            <div class="datum-val" id="gravInspectorTech">WebAudio / WebSockets</div>
+                        </div>
+                        <div class="inspector-datum">
+                            <div class="datum-key">Fault Tolerance</div>
+                            <div class="datum-val" id="gravInspectorReliability">99.9% Recovery</div>
+                        </div>
+                        <div class="inspector-datum">
+                            <div class="datum-key">Status</div>
+                            <div class="datum-val">Operational</div>
+                        </div>
+                    </div>
+                    <div class="inspector-deployments">
+                        <div class="deployment-label">Deployed in</div>
+                        <div class="deployment-tags" id="gravInspectorProjects">
+                            <span class="deployment-tag">SANA Voice Butler</span>
+                            <span class="deployment-tag">Sebastian Agent</span>
+                            <span class="deployment-tag">Voice Studio Pro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         04. ARSENAL &mdash; TECHNOLOGY ECOSYSTEM
+         ======================================================== -->
+    <section class="grav-section" id="skills">
+        <div class="grav-section-num">04</div>
+        <div class="grav-container">
+            <div class="arsenal-header grav-reveal">
+                <span class="grav-label">Arsenal</span>
+                <h2 class="arsenal-title">Technology Stack</h2>
+                <p class="arsenal-subtitle">Production-tested technologies deployed in real systems serving real users.</p>
+            </div>
+
+            <div class="arsenal-layout">
+                <!-- Left: Categorized Skill Lists -->
+                <div class="arsenal-skill-lists">
+                    <div class="arsenal-category-group grav-reveal">
+                        <div class="category-label-row">
+                            <span class="category-name">AI, LLMs &amp; Agents</span>
+                            <span class="category-count">09</span>
+                        </div>
+                        <div class="category-skills-list">
+                            <span class="cat-skill-chip">LangChain</span>
+                            <span class="cat-skill-chip">LangGraph</span>
+                            <span class="cat-skill-chip">RAG / pgvector</span>
+                            <span class="cat-skill-chip">Gemini 2.5 Flash</span>
+                            <span class="cat-skill-chip">OpenAI GPT-4</span>
+                            <span class="cat-skill-chip">Groq Inference</span>
+                            <span class="cat-skill-chip">OpenCV</span>
+                            <span class="cat-skill-chip">MediaPipe</span>
+                            <span class="cat-skill-chip">BERT / Transformers</span>
+                        </div>
+                    </div>
+
+                    <div class="arsenal-category-group grav-reveal grav-reveal-delay-1">
+                        <div class="category-label-row">
+                            <span class="category-name">Backend &amp; Data Engines</span>
+                            <span class="category-count">07</span>
+                        </div>
+                        <div class="category-skills-list">
+                            <span class="cat-skill-chip">Python</span>
+                            <span class="cat-skill-chip">FastAPI</span>
+                            <span class="cat-skill-chip">PostgreSQL</span>
+                            <span class="cat-skill-chip">pgvector</span>
+                            <span class="cat-skill-chip">Supabase</span>
+                            <span class="cat-skill-chip">Redis</span>
+                            <span class="cat-skill-chip">WebSockets</span>
+                        </div>
+                    </div>
+
+                    <div class="arsenal-category-group grav-reveal grav-reveal-delay-2">
+                        <div class="category-label-row">
+                            <span class="category-name">Frontend &amp; Web</span>
+                            <span class="category-count">06</span>
+                        </div>
+                        <div class="category-skills-list">
+                            <span class="cat-skill-chip">React 19</span>
+                            <span class="cat-skill-chip">Next.js 15</span>
+                            <span class="cat-skill-chip">TypeScript</span>
+                            <span class="cat-skill-chip">Tailwind CSS</span>
+                            <span class="cat-skill-chip">Three.js</span>
+                            <span class="cat-skill-chip">Framer Motion</span>
+                        </div>
+                    </div>
+
+                    <div class="arsenal-category-group grav-reveal grav-reveal-delay-3">
+                        <div class="category-label-row">
+                            <span class="category-name">Cloud, DevOps &amp; Tools</span>
+                            <span class="category-count">05</span>
+                        </div>
+                        <div class="category-skills-list">
+                            <span class="cat-skill-chip">AWS (Certified)</span>
+                            <span class="cat-skill-chip">Docker</span>
+                            <span class="cat-skill-chip">Git &amp; CI/CD</span>
+                            <span class="cat-skill-chip">Vercel / Render</span>
+                            <span class="cat-skill-chip">GitHub Actions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Gravitational Core Display -->
+                <div class="arsenal-depth-field grav-reveal grav-reveal-delay-2">
+                    <div class="arsenal-core-display">
+                        <div class="core-ring-outer"></div>
+                        <div class="core-ring-mid"></div>
+                        <div class="core-ring-inner">
+                            <span>SYS<br>CORE</span>
+                        </div>
+                        <div class="core-orbit-skills" id="orbitSkills">
+                            <!-- Orbit labels positioned by JS -->
+                        </div>
+                    </div>
+
+                    <div class="arsenal-github-cta">
+                        <button class="grav-btn grav-btn-ghost" data-popup="skills">View All 40+ Skills &#8599;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         05. PROJECTS &mdash; ENGINEERING OBJECTS
+         ======================================================== -->
+    <section class="grav-section" id="projects">
+        <div class="grav-section-num">05</div>
+        <div class="grav-container">
+            <div class="projects-header grav-reveal">
+                <span class="grav-label">Projects</span>
+                <h2 class="projects-title">Featured Engineering Objects</h2>
+                <p class="projects-subtitle">Real-world AI platforms, voice assistants, and full-stack systems serving real users.</p>
+            </div>
+
+            <div class="project-panels">
+                <!-- 01: Neurovia AI -->
+                <div class="project-panel grav-reveal" id="neurovia-panel">
+                    <div class="project-index">01</div>
+                    <div class="project-info">
+                        <div class="project-status">
+                            <div class="project-status-dot"></div>
+                            <span class="project-status-text">Flagship SaaS &middot; Live</span>
+                        </div>
+                        <h3 class="project-name">Neurovia AI</h3>
+                        <p class="project-tagline">Next-Gen AI Content Automation SaaS engineered for 50+ daily users with 99.5% uptime.</p>
+                        <div class="project-stack">
+                            <span>Next.js 14</span><span class="project-stack-sep">&middot;</span>
+                            <span>TypeScript</span><span class="project-stack-sep">&middot;</span>
+                            <span>FastAPI</span><span class="project-stack-sep">&middot;</span>
+                            <span>PostgreSQL</span><span class="project-stack-sep">&middot;</span>
+                            <span>Gemini AI</span><span class="project-stack-sep">&middot;</span>
+                            <span>Razorpay</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://neuroviai.dev/" target="_blank" rel="noopener" class="project-link">Live Platform <span class="project-link-arrow">&#8599;</span></a>
+                            <button class="project-link" data-open-project="neurovia">Details <span class="project-link-arrow">&#8599;</span></button>
+                        </div>
+                    </div>
+                    <div class="project-visual" data-open-project="neurovia" role="button" tabindex="0" aria-label="Open Neurovia AI details">
+                        <div class="project-visual-card pv-screenshot">
+                            <img
+                                src="https://api.microlink.io/?url=https%3A%2F%2Fneuroviai.dev%2F&screenshot=true&meta=false&embed=screenshot.url"
+                                alt="Neurovia AI live preview"
+                                class="pv-screenshot-img"
+                                loading="lazy"
+                                onerror="this.style.display='none';this.parentElement.classList.add('pv-fallback');this.parentElement.innerHTML+='<span class=&quot;pv-mark&quot;>N</span><span class=&quot;pv-host&quot;>neuroviai.dev</span>';"
+                            >
+                        </div>
+                        <div class="project-visual-overlay">
+                            <span class="project-expand-hint">&#8599; View Details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 02: Second Brain -->
+                <div class="project-panel grav-reveal" id="secondbrain-panel">
+                    <div class="project-index">02</div>
+                    <div class="project-info">
+                        <div class="project-status">
+                            <div class="project-status-dot"></div>
+                            <span class="project-status-text">Live Web App</span>
+                        </div>
+                        <h3 class="project-name">Second Brain</h3>
+                        <p class="project-tagline">AI-powered knowledge management engine. Semantic search, auto-summarization, and conversational Q&amp;A.</p>
+                        <div class="project-stack">
+                            <span>Next.js 15</span><span class="project-stack-sep">&middot;</span>
+                            <span>TypeScript</span><span class="project-stack-sep">&middot;</span>
+                            <span>Prisma ORM</span><span class="project-stack-sep">&middot;</span>
+                            <span>PostgreSQL</span><span class="project-stack-sep">&middot;</span>
+                            <span>Gemini 2.5</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://secondbraindev.vercel.app/" target="_blank" rel="noopener" class="project-link">Try App <span class="project-link-arrow">&#8599;</span></a>
+                            <a href="https://github.com/JeetInTech/Second-Brain" target="_blank" rel="noopener" class="project-link">GitHub <span class="project-link-arrow">&#8599;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-visual" data-open-project="secondbrain" role="button" tabindex="0" aria-label="Open Second Brain details">
+                        <div class="project-visual-card pv-screenshot">
+                            <img
+                                src="https://api.microlink.io/?url=https%3A%2F%2Fsecondbraindev.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url"
+                                alt="Second Brain live preview"
+                                class="pv-screenshot-img"
+                                loading="lazy"
+                                onerror="this.style.display='none';this.parentElement.classList.add('pv-fallback');this.parentElement.innerHTML+='<span class=&quot;pv-mark&quot;>SB</span><span class=&quot;pv-host&quot;>secondbraindev.vercel.app</span>';"
+                            >
+                        </div>
+                        <div class="project-visual-overlay">
+                            <span class="project-expand-hint">&#8599; View Details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 03: SANA -->
+                <div class="project-panel grav-reveal" id="sana-panel">
+                    <div class="project-index">03</div>
+                    <div class="project-info">
+                        <div class="project-status">
+                            <div class="project-status-dot"></div>
+                            <span class="project-status-text">Voice-First AI</span>
+                        </div>
+                        <h3 class="project-name">SANA</h3>
+                        <p class="project-tagline">Multilingual AI voice butler with holographic face visualizer. English + Hindi, sub-second latency.</p>
+                        <div class="project-stack">
+                            <span>React 19</span><span class="project-stack-sep">&middot;</span>
+                            <span>TypeScript</span><span class="project-stack-sep">&middot;</span>
+                            <span>Vite 6</span><span class="project-stack-sep">&middot;</span>
+                            <span>Gemini Live</span><span class="project-stack-sep">&middot;</span>
+                            <span>Three.js</span><span class="project-stack-sep">&middot;</span>
+                            <span>Web Audio</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/JeetInTech/SANA-MULTILINGUAL-AI-ASSISTANT" target="_blank" rel="noopener" class="project-link">Source Code <span class="project-link-arrow">&#8599;</span></a>
+                            <button class="project-link" data-open-project="sana">Architecture &#8599;</button>
+                        </div>
+                    </div>
+                    <div class="project-visual" data-open-project="sana" role="button" tabindex="0" aria-label="Open SANA details">
+                        <div class="project-visual-card pv-screenshot">
+                            <img
+                                src="https://api.microlink.io/?url=https%3A%2F%2Fgithub.com%2FJeetInTech%2FSANA-MULTILINGUAL-AI-ASSISTANT&screenshot=true&meta=false&embed=screenshot.url"
+                                alt="SANA GitHub live preview"
+                                class="pv-screenshot-img"
+                                loading="lazy"
+                                onerror="this.style.display='none';this.parentElement.classList.add('pv-fallback');this.parentElement.innerHTML+='<span class=&quot;pv-mark&quot;>S</span><span class=&quot;pv-host&quot;>github.com/JeetInTech</span>';"
+                            >
+                        </div>
+                        <div class="project-visual-overlay">
+                            <span class="project-expand-hint">&#8599; View Details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 04: Crafting Brain -->
+                <div class="project-panel grav-reveal" id="crafting-panel">
+                    <div class="project-index">04</div>
+                    <div class="project-info">
+                        <div class="project-status">
+                            <div class="project-status-dot"></div>
+                            <span class="project-status-text">Live Client Platform</span>
+                        </div>
+                        <h3 class="project-name">Crafting Brain</h3>
+                        <p class="project-tagline">Creative agency web platform with interactive animations and optimized responsive layouts.</p>
+                        <div class="project-stack">
+                            <span>React 18</span><span class="project-stack-sep">&middot;</span>
+                            <span>styled-components</span><span class="project-stack-sep">&middot;</span>
+                            <span>Axios</span><span class="project-stack-sep">&middot;</span>
+                            <span>React Router</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://craftingbrain.com/" target="_blank" rel="noopener" class="project-link">Visit Site <span class="project-link-arrow">&#8599;</span></a>
+                            <button class="project-link" data-open-project="crafting">Details <span class="project-link-arrow">&#8599;</span></button>
+                        </div>
+                    </div>
+                    <div class="project-visual" data-open-project="crafting" role="button" tabindex="0" aria-label="Open Crafting Brain details">
+                        <div class="project-visual-card pv-screenshot">
+                            <img
+                                src="https://api.microlink.io/?url=https%3A%2F%2Fcraftingbrain.com%2F&screenshot=true&meta=false&embed=screenshot.url"
+                                alt="Crafting Brain live preview"
+                                class="pv-screenshot-img"
+                                loading="lazy"
+                                onerror="this.style.display='none';this.parentElement.classList.add('pv-fallback');this.parentElement.innerHTML+='<span class=&quot;pv-mark&quot;>CB</span><span class=&quot;pv-host&quot;>craftingbrain.com</span>';"
+                            >
+                        </div>
+                        <div class="project-visual-overlay">
+                            <span class="project-expand-hint">&#8599; View Details</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-more grav-reveal">
+                <span class="projects-more-text">50+ projects across AI, ML, web, and cloud infrastructure.</span>
+                <button class="grav-btn grav-btn-ghost" data-popup="archive">Explore Full Archive &#8599;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         06. TERMINAL &mdash; COMMAND INTERFACE
+         ======================================================== -->
+    <section class="grav-section" id="terminal">
+        <div class="grav-section-num">06</div>
+        <div class="grav-container">
+            <div class="terminal-grav-header grav-reveal">
+                <span class="grav-label">Terminal</span>
+                <h2 class="terminal-grav-title">Command Interface</h2>
+                <p class="terminal-grav-subtitle">Interact with my live developer environment. Type commands or click triggers below.</p>
+            </div>
+
+            <div class="terminal-shell grav-reveal grav-reveal-delay-1">
+                <div class="terminal-shell-bar">
+                    <span class="terminal-shell-identity">JEET@SYSTEM ~ sebastian-ai-v2.5</span>
+                    <div class="terminal-shell-status">
+                        <span class="terminal-status-blink"></span>
+                        ONLINE
+                    </div>
+                </div>
+
+                <div class="terminal-shell-output" id="terminalOutput">
+                    <p class="term-grav-line">
+                        <span class="term-grav-sys">system:</span> Welcome to Sebastian AI Terminal [v2.5.0-prod].
+                    </p>
+                    <p class="term-grav-line">
+                        <span class="term-grav-sys">system:</span> Type <span class="term-grav-cmd">help</span> to inspect all available commands.
+                    </p>
+                </div>
+
+                <div class="terminal-shell-input-row">
+                    <span class="term-grav-prompt-label">JEET@SYSTEM ~$</span>
+                    <input type="text" id="terminalInput" class="term-grav-input" placeholder="Type a command..." autocomplete="off" spellcheck="false">
+                    <button class="term-grav-submit" id="terminalSubmit" title="Execute">&rarr;</button>
+                </div>
+            </div>
+
+            <div class="terminal-grav-chips grav-reveal grav-reveal-delay-2">
+                <button class="term-grav-chip" onclick="executeTermCommand('help')">help</button>
+                <button class="term-grav-chip" onclick="executeTermCommand('whoami')">whoami</button>
+                <button class="term-grav-chip" onclick="executeTermCommand('neurovia')">neurovia</button>
+                <button class="term-grav-chip" onclick="executeTermCommand('projects')">projects</button>
+                <button class="term-grav-chip" onclick="executeTermCommand('skills')">skills</button>
+                <button class="term-grav-chip" onclick="executeTermCommand('resume')">resume</button>
+                <button class="term-grav-chip" onclick="executeTermCommand('contact')">contact</button>
+                <button class="term-grav-chip" onclick="executeTermCommand('clear')">clear</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         07. ARCHIVE &mdash; ACHIEVEMENTS & PRESTIGE
+         ======================================================== -->
+    <section class="grav-section" id="achievements">
+        <div class="grav-section-num">07</div>
+        <div class="grav-container">
+            <div class="archive-header grav-reveal">
+                <span class="grav-label">Archive</span>
+                <h2 class="archive-title">Recognition &amp; Prestige</h2>
+                <p class="archive-subtitle">Verified performance in competitive AI hackathons and professional certification programs.</p>
+            </div>
+
+            <div class="archive-shelf">
+                <div class="archive-panel grav-reveal">
+                    <div class="archive-num">01</div>
+                    <p class="archive-meta">Hackathon &middot; 2024</p>
+                    <h3 class="archive-name">Ideathon 2.0 Winner</h3>
+                    <p class="archive-desc">Won 1st place in the national-level Ideathon 2.0 hackathon with an autonomous AI system, evaluated against top engineering teams.</p>
+                </div>
+
+                <div class="archive-panel grav-reveal grav-reveal-delay-1">
+                    <div class="archive-num">02</div>
+                    <p class="archive-meta">Recognition &middot; 2024</p>
+                    <h3 class="archive-name">Competitive AI Champion</h3>
+                    <p class="archive-desc">Top honors in algorithmic programming and machine learning challenges for optimal neural network modeling and deployment.</p>
+                </div>
+
+                <div class="archive-panel grav-reveal grav-reveal-delay-2">
+                    <div class="archive-num">03</div>
+                    <p class="archive-meta">Specialization &middot; 2025</p>
+                    <h3 class="archive-name">Deep Learning Specialization</h3>
+                    <p class="archive-desc">Mastery of CNNs, sequence models, transformers, and neural network optimization &mdash; verified by DeepLearning.AI.</p>
+                </div>
+
+                <div class="archive-panel grav-reveal grav-reveal-delay-3">
+                    <div class="archive-num">04</div>
+                    <p class="archive-meta">Certification &middot; 2025</p>
+                    <h3 class="archive-name">AWS Cloud Certified</h3>
+                    <p class="archive-desc">Certified in AWS cloud architectures, scalable deployments, EC2, S3, Lambda, IAM security, and AI service integrations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         08. CREDENTIALS &mdash; VERIFIED CERTIFICATIONS
+         ======================================================== -->
+    <section class="grav-section" id="certi">
+        <div class="grav-section-num">08</div>
+        <div class="grav-container">
+            <div class="credentials-header grav-reveal">
+                <span class="grav-label">Credentials</span>
+                <h2 class="credentials-title">Verified Certifications</h2>
+            </div>
+
+            <div class="credentials-stats grav-reveal grav-reveal-delay-1">
+                <div class="credential-stat">
+                    <div class="cred-stat-num">40+</div>
+                    <div class="cred-stat-label">Certifications</div>
+                </div>
+                <div class="credential-stat">
+                    <div class="cred-stat-num">5+</div>
+                    <div class="cred-stat-label">Platforms</div>
+                </div>
+                <div class="credential-stat">
+                    <div class="cred-stat-num">3</div>
+                    <div class="cred-stat-label">Hackathon Wins</div>
+                </div>
+            </div>
+
+            <div class="grav-marquee-container">
+                <div class="grav-marquee-track">
+                    <div class="grav-marquee-item"><img src="../images/cert-deep-learning.jpg" alt="Deep Learning" loading="lazy"><span>Deep Learning Specialization</span></div>
+                    <div class="grav-marquee-item"><img src="../images/cert-cnn.jpg" alt="CNN" loading="lazy"><span>Convolutional Neural Networks</span></div>
+                    <div class="grav-marquee-item"><img src="../images/cert-face-detection.jpg" alt="Face Detection" loading="lazy"><span>Face Detection &amp; Recognition</span></div>
+                    <div class="grav-marquee-item"><img src="../images/cert-sangramjeet.jpg" alt="AI/ML Certificate" loading="lazy"><span>AI/ML Professional</span></div>
+                    <div class="grav-marquee-item"><img src="../images/cer1.png" alt="Machine Learning" loading="lazy"><span>Machine Learning</span></div>
+                    <div class="grav-marquee-item"><img src="../images/cer2.png" alt="Data Science" loading="lazy"><span>Data Science</span></div>
+                    <div class="grav-marquee-item"><img src="../images/cer3.png" alt="Python Data Science" loading="lazy"><span>Python for Data Science</span></div>
+                    <div class="grav-marquee-item"><img src="../images/cer4.png" alt="Neural Networks" loading="lazy"><span>Neural Networks</span></div>
+                    <div class="grav-marquee-item"><img src="../images/cer5.png" alt="NLP" loading="lazy"><span>NLP Specialization</span></div>
+                    <div class="grav-marquee-item"><img src="../images/c6.png" alt="Advanced ML" loading="lazy"><span>Advanced ML</span></div>
+                    <div class="grav-marquee-item"><img src="../images/c7.jpg" alt="TensorFlow" loading="lazy"><span>TensorFlow Developer</span></div>
+                    <div class="grav-marquee-item"><img src="../images/c8.jpg" alt="Computer Vision" loading="lazy"><span>Computer Vision</span></div>
+                    <div class="grav-marquee-item"><img src="../images/c9.jpg" alt="AI Engineering" loading="lazy"><span>AI Engineering</span></div>
+                    <!-- Seamless loop duplicate -->
+                    <div class="grav-marquee-item"><img src="../images/cert-deep-learning.jpg" alt="Deep Learning" loading="lazy"><span>Deep Learning Specialization</span></div>
+                    <div class="grav-marquee-item"><img src="../images/cert-cnn.jpg" alt="CNN" loading="lazy"><span>Convolutional Neural Networks</span></div>
+                    <div class="grav-marquee-item"><img src="../images/cert-face-detection.jpg" alt="Face Detection" loading="lazy"><span>Face Detection &amp; Recognition</span></div>
+                    <div class="grav-marquee-item"><img src="../images/cert-sangramjeet.jpg" alt="AI/ML Certificate" loading="lazy"><span>AI/ML Professional</span></div>
+                    <div class="grav-marquee-item"><img src="../images/cer1.png" alt="Machine Learning" loading="lazy"><span>Machine Learning</span></div>
+                </div>
+            </div>
+
+            <div class="credentials-cta grav-reveal">
+                <a href="./gallery.html" class="grav-btn grav-btn-ghost">View All 40+ Certifications &#8599;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         09. CONTACT &mdash; SIGNAL TERMINAL
+         ======================================================== -->
+    <section class="grav-section" id="contact">
+        <div class="grav-section-num">09</div>
+        <div class="grav-container">
+            <div class="contact-grid">
+                <!-- Left: Big Statement -->
+                <div class="contact-statement grav-reveal">
+                    <h2 class="contact-big-headline">LET'S<br>BUILD<br>SOMETHING.</h2>
+
+                    <div class="contact-channels">
+                        <a href="mailto:jeeth.enterprises108@gmail.com" class="contact-channel">
+                            <div class="channel-info">
+                                <span class="channel-label">Email</span>
+                                <span class="channel-value">jeeth.enterprises108@gmail.com</span>
+                            </div>
+                            <span class="channel-arrow">&#8599;</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sangramjeetghosh/" target="_blank" class="contact-channel">
+                            <div class="channel-info">
+                                <span class="channel-label">LinkedIn</span>
+                                <span class="channel-value">linkedin.com/in/sangramjeetghosh</span>
+                            </div>
+                            <span class="channel-arrow">&#8599;</span>
+                        </a>
+                        <a href="https://github.com/JeetInTech" target="_blank" class="contact-channel">
+                            <div class="channel-info">
+                                <span class="channel-label">GitHub</span>
+                                <span class="channel-value">github.com/JeetInTech</span>
+                            </div>
+                            <span class="channel-arrow">&#8599;</span>
+                        </a>
+                        <a href="https://x.com/SangramJee97448" target="_blank" class="contact-channel">
+                            <div class="channel-info">
+                                <span class="channel-label">Twitter / X</span>
+                                <span class="channel-value">@SangramJee97448</span>
+                            </div>
+                            <span class="channel-arrow">&#8599;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Form -->
+                <div class="contact-form-grav grav-reveal grav-reveal-delay-2">
+                    <p class="contact-form-label">&mdash; Send a Transmission</p>
+                    <form id="contact-form">
+                        <div class="grav-form-row">
+                            <div class="grav-form-group">
+                                <label for="form-name">Full Name *</label>
+                                <input type="text" id="form-name" name="name" placeholder="Elon Musk" required>
+                            </div>
+                            <div class="grav-form-group">
+                                <label for="form-email">Email *</label>
+                                <input type="email" id="form-email" name="email" placeholder="you@company.com" required>
+                            </div>
+                        </div>
+                        <div class="grav-form-row">
+                            <div class="grav-form-group">
+                                <label for="form-role">Designation</label>
+                                <input type="text" id="form-role" name="designation" placeholder="Founder / Engineering Lead">
+                            </div>
+                            <div class="grav-form-group">
+                                <label for="form-subject">Subject *</label>
+                                <input type="text" id="form-subject" name="subject" placeholder="AI Platform Collaboration" required>
+                            </div>
+                        </div>
+                        <div class="grav-form-group">
+                            <label for="form-message">Message *</label>
+                            <textarea id="form-message" name="message" rows="5" placeholder="Describe your project, timeline, or engineering inquiry..." required></textarea>
+                        </div>
+                        <div class="grav-form-submit">
+                            <button type="submit" class="grav-btn grav-btn-primary" id="submitBtn">
+                                <span class="btn-text">Transmit Message &#8599;</span>
+                                <span class="btn-loader" style="display:none;">Transmitting...</span>
+                            </button>
+                            <span class="contact-security">Hyderabad, India &middot; Open to Remote Global</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+         POPUP CONTENT — replaces the old about / skills / projects pages.
+         Hidden until a [data-popup] trigger clones it into #infoModal.
+         ======================================================== -->
+    <div class="popup-source" hidden>
+
+        <!-- BIOGRAPHY -->
+        <div id="popup-bio" data-popup-title="Full Biography">
+            <p class="pop-lead">Data Scientist, AI/ML Engineer &amp; Full-Stack Developer &mdash; building intelligent systems and the infrastructure that keeps them running.</p>
+            <p class="pop-text">I specialise in turning research-grade AI into production software. Machine learning, deep learning, NLP and full-stack engineering, applied end to end: data pipelines, model training, inference infrastructure, and the product surface on top. Currently completing a B.Tech in CSE (AI &amp; Machine Learning) at Malla Reddy University while running <a href="https://neuroviai.dev/" target="_blank" rel="noopener">Neuroviai</a> as a live commercial platform.</p>
+
+            <h4 class="pop-h">Journey</h4>
+            <div class="pop-timeline">
+                <div class="pop-tl-row"><span class="pop-tl-year">2019&ndash;2021</span><span>Python, data analysis and web development fundamentals.</span></div>
+                <div class="pop-tl-row"><span class="pop-tl-year">2022&ndash;2023</span><span>Deep dive into machine learning, NLP and model development.</span></div>
+                <div class="pop-tl-row"><span class="pop-tl-year">2024</span><span>Production ML pipelines, RAG systems and full-stack AI applications. Won Ideathon 2.0.</span></div>
+                <div class="pop-tl-row"><span class="pop-tl-year">2025</span><span>LLMs, MLOps, AI automation and cloud-based ML. AWS certified.</span></div>
+                <div class="pop-tl-row"><span class="pop-tl-year">2026</span><span>Leading AI/ML projects, 40+ certifications, scaling production AI platforms.</span></div>
+            </div>
+
+            <h4 class="pop-h">Education</h4>
+            <div class="pop-grid">
+                <div class="pop-card"><span class="pop-card-k">College &middot; 2026</span><span class="pop-card-v">B.Tech CSE (AI &amp; ML)<br>Malla Reddy University &middot; CGPA 8.0</span></div>
+                <div class="pop-card"><span class="pop-card-k">Intermediate &middot; 2021</span><span class="pop-card-v">St. Andrews School</span></div>
+                <div class="pop-card"><span class="pop-card-k">Secondary &middot; 2019</span><span class="pop-card-v">Radcliffe School</span></div>
+            </div>
+
+            <h4 class="pop-h">Languages</h4>
+            <div class="pop-chips">
+                <span class="pop-chip">English</span><span class="pop-chip">Hindi</span><span class="pop-chip">Bengali</span><span class="pop-chip">Telugu</span><span class="pop-chip">Japanese</span>
+            </div>
+
+            <h4 class="pop-h">Reach me</h4>
+            <div class="pop-meta">
+                <div class="pop-meta-row"><span class="pop-meta-k">Location</span><span class="pop-meta-v">Hyderabad, India &middot; Open to Remote Global</span></div>
+                <div class="pop-meta-row"><span class="pop-meta-k">Email</span><span class="pop-meta-v"><a href="mailto:jeeth.enterprises108@gmail.com">jeeth.enterprises108@gmail.com</a></span></div>
+                <div class="pop-meta-row"><span class="pop-meta-k">Hours</span><span class="pop-meta-v">Mon&ndash;Sat, 9:00 AM &ndash; 10:00 PM IST</span></div>
+            </div>
+        </div>
+
+        <!-- SKILLS -->
+        <div id="popup-skills" data-popup-title="Technical Arsenal">
+            <p class="pop-lead">From full-stack engineering to intelligent systems &mdash; what powers the code.</p>
+
+            <h4 class="pop-h">AI, LLMs &amp; Agents</h4>
+            <div class="pop-chips">
+                <span class="pop-chip">LangChain</span><span class="pop-chip">LangGraph</span><span class="pop-chip">RAG</span><span class="pop-chip">Large Language Models</span><span class="pop-chip">Gemini API</span><span class="pop-chip">OpenAI API</span><span class="pop-chip">Groq</span><span class="pop-chip">Transformers</span><span class="pop-chip">BERT</span><span class="pop-chip">NLP</span><span class="pop-chip">Computer Vision</span><span class="pop-chip">AutoML</span>
+            </div>
+
+            <h4 class="pop-h">Machine Learning &amp; Data</h4>
+            <div class="pop-chips">
+                <span class="pop-chip">Deep Learning</span><span class="pop-chip">PyTorch</span><span class="pop-chip">TensorFlow</span><span class="pop-chip">scikit-learn</span><span class="pop-chip">Pandas</span><span class="pop-chip">NumPy</span><span class="pop-chip">Matplotlib</span><span class="pop-chip">Seaborn</span><span class="pop-chip">OpenCV</span><span class="pop-chip">MediaPipe</span><span class="pop-chip">MLOps</span><span class="pop-chip">Hugging Face</span>
+            </div>
+
+            <h4 class="pop-h">Backend &amp; Databases</h4>
+            <div class="pop-chips">
+                <span class="pop-chip">Python</span><span class="pop-chip">FastAPI</span><span class="pop-chip">Flask</span><span class="pop-chip">Node.js</span><span class="pop-chip">PostgreSQL</span><span class="pop-chip">pgvector</span><span class="pop-chip">MongoDB</span><span class="pop-chip">Prisma</span><span class="pop-chip">Supabase</span><span class="pop-chip">Redis</span><span class="pop-chip">WebSockets</span><span class="pop-chip">SQL</span>
+            </div>
+
+            <h4 class="pop-h">Frontend &amp; Web</h4>
+            <div class="pop-chips">
+                <span class="pop-chip">React</span><span class="pop-chip">Next.js</span><span class="pop-chip">TypeScript</span><span class="pop-chip">JavaScript</span><span class="pop-chip">Tailwind CSS</span><span class="pop-chip">HTML5 / CSS3</span><span class="pop-chip">Three.js</span><span class="pop-chip">Framer Motion</span><span class="pop-chip">Vite</span><span class="pop-chip">Electron</span>
+            </div>
+
+            <h4 class="pop-h">Cloud, DevOps &amp; Tools</h4>
+            <div class="pop-chips">
+                <span class="pop-chip">AWS (Certified)</span><span class="pop-chip">Docker</span><span class="pop-chip">Git</span><span class="pop-chip">GitHub Actions</span><span class="pop-chip">CI/CD</span><span class="pop-chip">Vercel</span><span class="pop-chip">VS Code</span><span class="pop-chip">Jupyter</span><span class="pop-chip">Postman</span><span class="pop-chip">Figma</span>
+            </div>
+
+            <h4 class="pop-h">Expertise Areas</h4>
+            <div class="pop-grid">
+                <div class="pop-card"><span class="pop-card-k">AI &amp; Machine Learning</span><span class="pop-card-v">LLMs, RAG systems, transformers and multi-agent architectures for intelligent automation.</span></div>
+                <div class="pop-card"><span class="pop-card-k">AI Automation</span><span class="pop-card-v">Automated workflows for content creation, social distribution and business process optimisation.</span></div>
+                <div class="pop-card"><span class="pop-card-k">Data Science</span><span class="pop-card-v">Advanced analytics, predictive modelling and automated ML workflows.</span></div>
+                <div class="pop-card"><span class="pop-card-k">MLOps &amp; Pipelines</span><span class="pop-card-v">Scalable data pipelines and cloud-based model deployment.</span></div>
+                <div class="pop-card"><span class="pop-card-k">Full-Stack Development</span><span class="pop-card-v">End-to-end web applications with modern frameworks and scalable architectures.</span></div>
+                <div class="pop-card"><span class="pop-card-k">API Development</span><span class="pop-card-v">Robust REST APIs and third-party integrations for seamless data flow.</span></div>
+            </div>
+        </div>
+
+        <!-- PROJECT ARCHIVE -->
+        <div id="popup-archive" data-popup-title="Project Archive">
+            <p class="pop-lead">27 documented builds across live SaaS, AI systems, full-stack apps and developer tooling &mdash; part of 50+ repositories.</p>
+
+            <h4 class="pop-h">Live &amp; Deployed</h4>
+            <div class="pop-list">
+                <div class="pop-item"><span class="pop-item-name">Neuroviai &mdash; AI Content Automation SaaS</span><span class="pop-item-desc">6 FastAPI microservices, 4-tier LLM fallback, Razorpay payments, multi-platform distribution. 50+ daily users, 99.5% uptime.</span><a href="https://neuroviai.dev/" target="_blank" rel="noopener" class="pop-item-link">Live Site &#8599;</a></div>
+                <div class="pop-item"><span class="pop-item-name">Second Brain &mdash; AI Knowledge Management</span><span class="pop-item-desc">Next.js 15, Prisma, Gemini 2.5 Flash. Auto-summarisation, semantic search and conversational Q&amp;A over your notes.</span><a href="https://secondbraindev.vercel.app/" target="_blank" rel="noopener" class="pop-item-link">Live App &#8599;</a></div>
+                <div class="pop-item"><span class="pop-item-name">Crafting Brain &mdash; Digital Agency Platform</span><span class="pop-item-desc">React 18, styled-components, React Router. Interactive animations and responsive service showcases.</span><a href="https://craftingbrain.com/" target="_blank" rel="noopener" class="pop-item-link">Live Site &#8599;</a></div>
+                <div class="pop-item"><span class="pop-item-name">Ezz Notes &mdash; Smart Note Taking</span><span class="pop-item-desc">PWA with real-time sync, rich text editor, tagging and IndexedDB persistence.</span></div>
+                <div class="pop-item"><span class="pop-item-name">E-Commerce Catalog &mdash; Sri Durga Electrical Works</span><span class="pop-item-desc">React 19, Vite 7, Supabase. Product showcase, repair services and spare-parts catalogue.</span></div>
+            </div>
+
+            <h4 class="pop-h">AI &amp; Machine Learning</h4>
+            <div class="pop-list">
+                <div class="pop-item"><span class="pop-item-name">SANA &mdash; Multilingual AI Voice Assistant</span><span class="pop-item-desc">Voice-first butler with holographic Canvas visualiser. English + Hindi bidirectional audio, sub-second latency via Gemini 2.5 Flash Live.</span><a href="https://github.com/JeetInTech/SANA-MULTILINGUAL-AI-ASSISTANT" target="_blank" rel="noopener" class="pop-item-link">Source &#8599;</a></div>
+                <div class="pop-item"><span class="pop-item-name">Sebastian &mdash; Autonomous AI Butler</span><span class="pop-item-desc">Persistent pgvector memory, real-time voice, camera perception, full computer/browser control and 110+ API integrations.</span></div>
+                <div class="pop-item"><span class="pop-item-name">Multi-LLM Group Discussion</span><span class="pop-item-desc">Five independent LLMs with distinct reasoning styles &mdash; Logical, Creative, Skeptical, Practical, Synthesizer &mdash; debating one topic.</span></div>
+                <div class="pop-item"><span class="pop-item-name">Virtual Therapist &mdash; LangGraph Agentic AI</span><span class="pop-item-desc">Multi-modal sentiment analysis driving personalised therapy recommendations. FastAPI, LangGraph, ChromaDB, Edge TTS.</span><a href="https://github.com/JeetInTech/Virtual-Therapist---LangGraph-Agentic-AI-System" target="_blank" rel="noopener" class="pop-item-link">Source &#8599;</a></div>
+                <div class="pop-item"><span class="pop-item-name">PixelPerfect &mdash; AI Screenshot Gallery</span><span class="pop-item-desc">Auto-classifies game screenshots with OpenAI CLIP. Real-time WebSocket folder watching, Flask + PyTorch backend.</span></div>
+                <div class="pop-item"><span class="pop-item-name">AI Data Analysis Platform</span><span class="pop-item-desc">Agent that ingests datasets, runs automated EDA, generates visualisations and answers questions conversationally.</span></div>
+                <div class="pop-item"><span class="pop-item-name">AI Chess</span><span class="pop-item-desc">Chess engine with move evaluation, position analysis and adjustable difficulty. Python, python-chess, Stockfish.</span></div>
+                <div class="pop-item"><span class="pop-item-name">Hand Gesture Keyboard &amp; Mouse Control</span><span class="pop-item-desc">Full computer control from hand gestures. Real-time MediaPipe tracking mapped to keyboard, mouse and scroll.</span></div>
+                <div class="pop-item"><span class="pop-item-name">Facial Recognition Biometric Lock</span><span class="pop-item-desc">Deep-learning biometric auth with multi-face enrolment, liveness detection and access logging.</span></div>
+                <div class="pop-item"><span class="pop-item-name">Twitter Trends Analysis &mdash; LDA</span><span class="pop-item-desc">Latent Dirichlet Allocation topic modelling over tweet data, surfacing hidden themes in trending conversations.</span></div>
+            </div>
+
+            <h4 class="pop-h">Full-Stack Applications</h4>
+            <div class="pop-list">
+                <div class="pop-item"><span class="pop-item-name">Voice Studio Pro &mdash; AI Voice Suite</span><span class="pop-item-desc">Text-to-speech and voice cloning on Gemini 2.5 Flash, with rich voice customisation and real-time preview.</span></div>
+                <div class="pop-item"><span class="pop-item-name">StreamRip &mdash; YouTube Converter</span><span class="pop-item-desc">React + Flask + yt-dlp/FFmpeg MP3/MP4 converter, also shipped as an Electron desktop app.</span></div>
+                <div class="pop-item"><span class="pop-item-name">Wallpaper Generator &mdash; AI Art</span><span class="pop-item-desc">Prompt-to-wallpaper across phone and desktop aspect ratios.</span></div>
+                <div class="pop-item"><span class="pop-item-name">Profile Photo Headshot &mdash; AI</span><span class="pop-item-desc">Background removal, face enhancement and professional lighting from any uploaded photo.</span></div>
+                <div class="pop-item"><span class="pop-item-name">Background Remover &mdash; U&sup2;-Net</span><span class="pop-item-desc">rembg-powered cutout tool behind a Dockerised FastAPI backend.</span></div>
+                <div class="pop-item"><span class="pop-item-name">PDF Reader with Text-to-Speech</span><span class="pop-item-desc">Reads documents aloud with natural voices. Handles 200-page PDFs with voice, speed and pitch control.</span></div>
+                <div class="pop-item"><span class="pop-item-name">Novel Reading Site</span><span class="pop-item-desc">Chapter navigation, bookmarks, reading progress and distraction-free reading. Next.js 15 + react-markdown.</span></div>
+            </div>
+
+            <h4 class="pop-h">Developer Tools &amp; Utilities</h4>
+            <div class="pop-list">
+                <div class="pop-item"><span class="pop-item-name">Holographic Body Movement Detection</span><span class="pop-item-desc">Real-time pose tracking rendered as a holographic overlay. OpenCV + MediaPipe.</span></div>
+                <div class="pop-item"><span class="pop-item-name">On-Screen Virtual Keyboard</span><span class="pop-item-desc">Air-typing via finger-tap gesture recognition &mdash; no physical device contact.</span></div>
+                <div class="pop-item"><span class="pop-item-name">Scrolling Control with Hand Gestures</span><span class="pop-item-desc">Touchless browser navigation driven by webcam hand tracking.</span></div>
+                <div class="pop-item"><span class="pop-item-name">Scientific Calculator</span><span class="pop-item-desc">Trigonometry, logarithms, exponents and expression parsing with full keyboard support.</span></div>
+                <div class="pop-item"><span class="pop-item-name">Jeet Notes</span><span class="pop-item-desc">Fast markdown note-taking PWA with local persistence and search.</span></div>
+            </div>
+
+            <div class="pop-cta">
+                <a href="https://github.com/JeetInTech" target="_blank" rel="noopener" class="grav-btn grav-btn-primary">View All on GitHub &#8599;</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Info Modal — generic scrollable popup -->
+    <div id="infoModal" class="modal info-modal">
+        <div class="modal-content info-modal-content" role="dialog" aria-modal="true" aria-labelledby="infoModalTitle">
             <div class="modal-header">
-                <h3 id="modalTitle">Project Preview</h3>
-                <button class="modal-close" onclick="closeModal()">
+                <div class="modal-title-wrap">
+                    <span class="status-indicator live"></span>
+                    <h3 id="infoModalTitle">Details</h3>
+                </div>
+                <button class="modal-close" id="infoModalClose" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body info-modal-body" id="infoModalBody"></div>
+        </div>
+    </div>
+
+    <!-- Project Modal — click anywhere inside (except close) opens the live site -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content" id="modalContent" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal-header">
+                <div class="modal-title-wrap">
+                    <span class="status-indicator live"></span>
+                    <h3 id="modalTitle">Project</h3>
+                </div>
+                <button class="modal-close" id="modalClose" aria-label="Close">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="modal-body">
-                <iframe id="modalIframe" class="modal-iframe" src="" title="Project Preview"></iframe>
+                <p class="modal-tagline" id="modalTagline"></p>
+                <p class="modal-desc" id="modalDesc"></p>
+                <div class="modal-stack" id="modalStack"></div>
+                <div class="modal-meta" id="modalMeta"></div>
+                <div class="modal-cta">
+                    <span class="modal-cta-btn">Open <strong id="modalHost"></strong> &#8599;</span>
+                    <span class="modal-cta-note">Opens in a new tab</span>
+                </div>
             </div>
         </div>
     </div>
 
-
-
-    <!-- Achievements Section -->
-    <section class="achievements" id="achievements">
-        <h2 class="heading">Achievements & <span>Awards</span></h2>
-        <div class="achievements-grid">
-            <div class="achievement-card">
-                <div class="achievement-icon">
-                    <i class='bx bx-trophy'></i>
-                </div>
-                <div class="achievement-content">
-                    <h3>Ideathon 2.0 Winner</h3>
-                    <p>Won the Ideathon 2.0 hackathon with an innovative AI-powered solution, competing against top developers.</p>
-                    <span class="achievement-year">2024</span>
-                </div>
-                <img src="../images/cert-ideathon.jpg" alt="Ideathon 2.0 Winner" class="achievement-img">
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">
-                    <i class='bx bx-medal'></i>
-                </div>
-                <div class="achievement-content">
-                    <h3>Competition Winner</h3>
-                    <p>Recognized for outstanding performance in competitive programming and AI/ML challenges.</p>
-                    <span class="achievement-year">2024</span>
-                </div>
-                <img src="../images/cert-winner.jpg" alt="Competition Winner" class="achievement-img">
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">
-                    <i class='bx bx-brain'></i>
-                </div>
-                <div class="achievement-content">
-                    <h3>Deep Learning Specialization</h3>
-                    <p>Completed the full Deep Learning Specialization covering CNNs, RNNs, GANs, and advanced architectures.</p>
-                    <span class="achievement-year">2025</span>
-                </div>
-                <img src="../images/cert-deep-learning.jpg" alt="Deep Learning Specialization" class="achievement-img">
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">
-                    <i class='bx bx-cloud'></i>
-                </div>
-                <div class="achievement-content">
-                    <h3>AWS Certified</h3>
-                    <p>Earned AWS certification demonstrating cloud computing and deployment expertise for scalable AI solutions.</p>
-                    <span class="achievement-year">2025</span>
-                </div>
-                <div class="achievement-img-placeholder aws-theme">
-                    <i class='bx bxl-aws'></i>
-                    <span>AWS Certified</span>
-                </div>
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">
-                    <i class='bx bx-code-block'></i>
-                </div>
-                <div class="achievement-content">
-                    <h3>Metaloop Recognition</h3>
-                    <p>Recognized at Metaloop for contributions to innovative tech solutions and collaborative development.</p>
-                    <span class="achievement-year">2024</span>
-                </div>
-                <img src="../images/cert-metaloop.jpg" alt="Metaloop Recognition" class="achievement-img">
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">
-                    <i class='bx bx-certification'></i>
-                </div>
-                <div class="achievement-content">
-                    <h3>20+ Coursera Certifications</h3>
-                    <p>Completed over 20 professional courses in AI/ML, Data Science, Deep Learning, and Software Engineering on Coursera.</p>
-                    <span class="achievement-year">2024-2026</span>
-                </div>
-                <div class="achievement-img-placeholder coursera-theme">
-                    <i class='bx bxs-graduation-cap'></i>
-                    <span>20+ Courses</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Certifications Section -->
-    <section class="certi" id="certi">
-        <h2 class="heading">Featured <span>Certifications</span></h2>
-        <p class="certi-subtitle">Verified credentials from Google, AWS, IBM, Coursera & more</p>
-
-        <div class="cert-showcase">
-            <!-- Top Row - Featured Large Cards -->
-            <div class="cert-featured-row">
-                <div class="cert-card featured-card" data-tilt>
-                    <div class="cert-card-glow"></div>
-                    <div class="cert-card-inner">
-                        <div class="cert-issuer">
-                            <i class='bx bxl-google' style="color:#4285f4;font-size:3rem"></i>
-                            <span>Google</span>
-                        </div>
-                        <h3>Google Ads Certification</h3>
-                        <p>Digital marketing & advertising expertise certified by Google</p>
-                        <span class="cert-badge">Verified</span>
-                    </div>
-                </div>
-                <div class="cert-card featured-card" data-tilt>
-                    <div class="cert-card-glow"></div>
-                    <div class="cert-card-inner">
-                        <div class="cert-issuer">
-                            <i class='bx bxl-aws' style="color:#FF9900;font-size:3rem"></i>
-                            <span>Amazon</span>
-                        </div>
-                        <h3>AWS Cloud Certification</h3>
-                        <p>Cloud computing, deployment & scalable infrastructure</p>
-                        <span class="cert-badge">Verified</span>
-                    </div>
-                </div>
-                <div class="cert-card featured-card" data-tilt>
-                    <div class="cert-card-glow"></div>
-                    <div class="cert-card-inner">
-                        <div class="cert-issuer">
-                            <i class='bx bxs-graduation-cap' style="color:#0056D2;font-size:3rem"></i>
-                            <span>Coursera</span>
-                        </div>
-                        <h3>Deep Learning Specialization</h3>
-                        <p>CNNs, RNNs, GANs & advanced neural network architectures</p>
-                        <span class="cert-badge">Verified</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Scrolling Marquee of All Certs -->
-            <div class="cert-marquee-container">
-                <div class="cert-marquee">
-                    <div class="cert-marquee-track">
-                        <div class="marquee-item"><img src="../images/cert-deep-learning.jpg" alt="Deep Learning"><span>Deep Learning</span></div>
-                        <div class="marquee-item"><img src="../images/cert-cnn.jpg" alt="CNN"><span>Convolutional Neural Networks</span></div>
-                        <div class="marquee-item"><img src="../images/cert-face-detection.jpg" alt="Face Detection"><span>Face Detection</span></div>
-                        <div class="marquee-item"><img src="../images/cert-sangramjeet.jpg" alt="AI/ML Certificate"><span>AI/ML Professional</span></div>
-                        <div class="marquee-item"><img src="../images/cer1.png" alt="Machine Learning"><span>Machine Learning</span></div>
-                        <div class="marquee-item"><img src="../images/cer2.png" alt="Data Science"><span>Data Science</span></div>
-                        <div class="marquee-item"><img src="../images/cer3.png" alt="Python Data Science"><span>Python for Data Science</span></div>
-                        <div class="marquee-item"><img src="../images/cer4.png" alt="Neural Networks"><span>Neural Networks</span></div>
-                        <div class="marquee-item"><img src="../images/cer5.png" alt="NLP"><span>NLP Specialization</span></div>
-                        <div class="marquee-item"><img src="../images/c6.png" alt="Advanced ML"><span>Advanced ML</span></div>
-                        <div class="marquee-item"><img src="../images/c7.jpg" alt="TensorFlow"><span>TensorFlow</span></div>
-                        <div class="marquee-item"><img src="../images/c8.jpg" alt="Computer Vision"><span>Computer Vision</span></div>
-                        <div class="marquee-item"><img src="../images/c9.jpg" alt="AI Engineering"><span>AI Engineering</span></div>
-                        <div class="marquee-item"><img src="../images/c10.jpg" alt="Reinforcement Learning"><span>Reinforcement Learning</span></div>
-                        <div class="marquee-item"><img src="../images/c11.jpg" alt="MLOps"><span>MLOps & Deployment</span></div>
-                        <!-- Duplicate for seamless loop -->
-                        <div class="marquee-item"><img src="../images/cert-deep-learning.jpg" alt="Deep Learning"><span>Deep Learning</span></div>
-                        <div class="marquee-item"><img src="../images/cert-cnn.jpg" alt="CNN"><span>Convolutional Neural Networks</span></div>
-                        <div class="marquee-item"><img src="../images/cert-face-detection.jpg" alt="Face Detection"><span>Face Detection</span></div>
-                        <div class="marquee-item"><img src="../images/cert-sangramjeet.jpg" alt="AI/ML Certificate"><span>AI/ML Professional</span></div>
-                        <div class="marquee-item"><img src="../images/cer1.png" alt="Machine Learning"><span>Machine Learning</span></div>
-                        <div class="marquee-item"><img src="../images/cer2.png" alt="Data Science"><span>Data Science</span></div>
-                        <div class="marquee-item"><img src="../images/cer3.png" alt="Python Data Science"><span>Python for Data Science</span></div>
-                        <div class="marquee-item"><img src="../images/cer4.png" alt="Neural Networks"><span>Neural Networks</span></div>
-                        <div class="marquee-item"><img src="../images/cer5.png" alt="NLP"><span>NLP Specialization</span></div>
-                        <div class="marquee-item"><img src="../images/c6.png" alt="Advanced ML"><span>Advanced ML</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Stats + CTA -->
-            <div class="cert-bottom">
-                <div class="certi-counter">
-                    <div class="counter-item">
-                        <span class="counter-number">40+</span>
-                        <span class="counter-label">Certifications</span>
-                    </div>
-                    <div class="counter-item">
-                        <span class="counter-number">5+</span>
-                        <span class="counter-label">Platforms</span>
-                    </div>
-                    <div class="counter-item">
-                        <span class="counter-number">3</span>
-                        <span class="counter-label">Hackathon Wins</span>
-                    </div>
-                </div>
-                <a href="./gallery.html" class="btn view-all-btn">
-                    <i class='bx bx-grid-alt'></i> View All Certifications
-                </a>
-            </div>
-        </div>
-    </section>
-    <!-- contact section design -->
-    <section class="contact" id="contact">
-        <h2 class="heading">Contact <span>Me!</span></h2>
-        <form id="contact-form">
-            <div class="input-box">
-                <input type="text" name="name" placeholder="Full Name" required>
-                <input type="email" name="email" placeholder="Your Email (Senders)*" required>
-            </div>
-            <div class="input-box">
-                <input type="text" name="designation" placeholder="Designation (optional)">
-                <input type="text" name="subject" placeholder="Email Subject" required>
-            </div>
-            <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-
-
-
-
-    </section>
-
-
-    <!-- footer design -->
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-text">
-            <p>Copyright &copy; 2026 |JEET - All Rights Reserved.</p>
+        <div class="footer-content">
+            <div class="footer-logo">Sangramjeet Ghosh<span>.</span></div>
+            <p class="footer-tagline">Architecting Intelligent Systems &middot; Built with Pure Precision</p>
+            <p class="footer-copy">Copyright &copy; 2026 | JEET &mdash; All Rights Reserved.</p>
         </div>
-
         <div class="footer-iconTop">
-            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+            <a href="#home" aria-label="Back to Top"><i class='bx bx-up-arrow-alt'></i></a>
         </div>
     </footer>
 
-
-    <!-- scroll reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
-
-    <!-- swiper js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-    <!-- custom js -->
     <script src="../js/main.js"></script>
-    <script src="../js/contact.js"></script>
-    <script src="../js/download.js"></script>
-    <script src="../js/projects.js"></script>
+    <script src="../js/grav.js"></script>
 </body>
 
 </html>

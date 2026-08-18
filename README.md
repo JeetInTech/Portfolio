@@ -146,7 +146,7 @@ Portfolio/
 │
 └── images/                    # Main images directory
     ├── logo1.png             # Site logo/favicon
-    ├── jjj.png               # Profile image
+    ├── jeet.png              # Profile image
     ├── cer1.png - cer11.png  # Certificates
     └── gallery/              # Gallery photos
 ```
@@ -191,7 +191,7 @@ Portfolio/
    - Edit `html/skills.html` - Update skills, tools, expertise
 
 2. **Add Your Images**
-   - Replace `images/jjj.png` with your profile photo
+   - Replace `images/jeet.png` with your profile photo
    - Replace `images/logo1.png` with your logo
    - Add certificates to `images/` folder
 
