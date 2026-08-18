@@ -158,7 +158,8 @@ body {
     padding: 0 7%;
     min-height: 100vh;
     position: relative;
-    overflow: hidden;
+    overflow-x: clip;
+    overflow-y: visible;
     /* Neutral grey-to-black falloff; ends on --grav-void so the seam into
        the first post-hero section is invisible. */
     background:

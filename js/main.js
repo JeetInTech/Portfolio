@@ -73,9 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.downloadAllResumes = function() {
         const resumes = [
-            '../resumes/Sangramjeet-Ghosh-AI-Resume.pdf',
-            '../resumes/Sangramjeet-Ghosh-Fullstack-Resume.pdf',
-            '../resumes/Sangramjeet-Ghosh-CV.pdf'
+            '../resumes/Sangramjeet Ghosh - AI Software Systems.pdf',
+            '../resumes/Sangramjeet Ghosh - Full Stack AI.pdf',
+            '../resumes/Sangramjeet Ghosh - CV.pdf'
         ];
         resumes.forEach((url, i) => {
             setTimeout(() => {
