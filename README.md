@@ -330,7 +330,7 @@ This project is **free to use** and does not contain any license. Feel free to u
 
 ## 📞 Support
 
-For support, email sangramjeetghosh@example.com or open an issue in the repository.
+For support, email sangramjeet47@gmail.com or open an issue in the repository.
 
 ## ⭐ Show Your Support
 
@@ -345,3 +345,5 @@ Give a ⭐️ if you like this project!
 Made with ❤️ by [Sangramjeet Ghosh](https://github.com/JeetInTech)
 
 </div>
+
+git update-index --no-skip-worktree css/orbit-gallery.css html/gallery.html js/orbit-gallery.js

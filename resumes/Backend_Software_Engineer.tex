@@ -1,0 +1,107 @@
+\documentclass[10pt]{article}
+\usepackage[top=0.32in, bottom=0.32in, left=0.42in, right=0.42in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\linespread{0.97}
+\setlist[itemize]{leftmargin=11pt, noitemsep, topsep=1pt, parsep=0pt}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\titlespacing{\section}{0pt}{3.5pt}{1.5pt}
+\titleformat{\section}{\large\bfseries\scshape}{}{0pt}{}[\titlerule]
+\hypersetup{colorlinks=true, linkcolor=blue!75!black, urlcolor=blue!75!black}
+
+\newcommand{\resumeHeader}{
+\begin{center}
+{\LARGE \textbf{SANGRAMJEET GHOSH}} \\[3pt]
+{\small
++91 9059150937 ~$|$~
+\href{mailto:sangramjeet47@gmail.com}{sangramjeet47@gmail.com} ~$|$~
+\href{https://www.linkedin.com/in/sangramjeetghosh}{linkedin.com/in/sangramjeetghosh} ~$|$~
+\href{https://github.com/JeetInTech}{github.com/JeetInTech} ~$|$~
+\href{https://neuroviai.dev}{neuroviai.dev}
+}\\[1pt]
+{\footnotesize Hyderabad, Telangana, India \quad $|$ \quad B.Tech CSE (AI \& ML), Malla Reddy University (2026, GPA: 8.0/10.0)}
+\end{center}
+\vspace{-8pt}
+}
+
+\newcommand{\educationSection}{
+\section*{Education}
+\textbf{Bachelor of Technology in Computer Science and Engineering (AI \& ML)} \hfill Graduated May 2026 \\
+Malla Reddy University, Hyderabad, Telangana \hfill \textbf{GPA: 8.0 / 10.0}
+}
+
+\begin{document}
+\resumeHeader
+
+\section*{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Languages} & Python (3.10--3.13), TypeScript, JavaScript (Node.js), SQL, Rust (basics) \\[1.5pt]
+\textbf{Backend Frameworks} & FastAPI, AsyncIO, RESTful API Architecture, Pydantic v2, WebSockets, Netlify Functions \\[1.5pt]
+\textbf{Distributed Systems} & Celery, Redis Task Queues, Circuit Breaker Pattern, Rate Limiting Buffers, Idempotency, Message Queues \\[1.5pt]
+\textbf{Databases \& Storage} & PostgreSQL, Supabase (RLS, Stored Procedures, Realtime), SQLite, Redis Caching, AWS DynamoDB/S3 \\[1.5pt]
+\textbf{DevOps \& Security} & Docker, Docker Compose, Git, CI/CD, Nginx, Razorpay HMAC-SHA256, OAuth 2.0, JWT Authentication, AWS EC2, pytest \\
+\end{tabularx}
+
+\section*{Professional Experience}
+\textbf{Freelance Software Engineer} \hfill Aug 2025 -- Present \\
+\textit{Independent} \hfill Remote
+\begin{itemize}
+    \item Architected asynchronous microservices with FastAPI and PostgreSQL, designing idempotent webhooks and background task queues.
+    \item Implemented strict Pydantic v2 data serialization contracts, connection pooling, and Docker Compose development/production environments.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Data Science \& Backend Intern} \hfill Mar 2025 -- Dec 2025 \\
+\textit{Inikola Technologies} \hfill Hyderabad, India
+\begin{itemize}
+    \item Developed high-throughput FastAPI REST endpoints for real-time text analysis and configured AWS EC2 and S3 infrastructure.
+    \item Built relational database schemas and automated data preprocessing pipelines using PostgreSQL and Pydantic.
+\end{itemize}
+
+\section*{Featured Projects}
+\textbf{Neuroviai Distributed Core Backend \& Microservices} \hfill \href{https://neuroviai.dev}{neuroviai.dev (1.2K+ Monthly Visitors)} \\
+\textit{Python, FastAPI, PostgreSQL, Supabase, Celery, Redis, Razorpay, Docker}
+\begin{itemize}
+    \item Engineered 6 decoupled FastAPI microservices powering commercial SaaS at \texttt{neuroviai.dev} with \textbf{1.2K+ organic monthly visitors}.
+    \item Built transactional billing via Razorpay webhooks with HMAC-SHA256 signatures, idempotency, and atomic PostgreSQL stored procedures.
+    \item Isolated background browser automation into Celery and Redis queues, preventing worker starvation during bursty traffic.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Genesis: JobPulse — Recruitment Email Intelligence \& FastAPI Service} \hfill \href{https://github.com/JeetInTech}{github.com/JeetInTech} \\
+\textit{Python, FastAPI, Google Gmail API, OAuth 2.0, Groq LLM API, Pydantic v2, SQLite}
+\begin{itemize}
+    \item Built an asynchronous ingestion service connecting to Gmail API via OAuth 2.0, reconstructing email threads across RFC 822 \texttt{Message-ID}s.
+    \item Implemented Groq LLM classification pipeline detecting interview invites, assessment links, and rejections.
+    \item Exposed FastAPI REST endpoints for real-time pipeline status queries.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Neuroviai Multi-Model LLM Routing \& Gateway Engine} \hfill \href{https://neuroviai.dev}{neuroviai.dev} \\
+\textit{Python, FastAPI, Pydantic v2, Groq, Google Gemini Pro, HuggingFace, Local Ollama}
+\begin{itemize}
+    \item Designed a 4-tier circuit-breaking API gateway (Gemini Pro $\to$ Groq Llama-3 $\to$ HuggingFace $\to$ Ollama) delivering 99.7\% uptime.
+    \item Buffered burst traffic under strict rate limits (12k tokens/min) with automated exponential backoff and jitter on HTTP 429 errors.
+    \item Enforced strict Pydantic v2 JSON schema contracts on upstream model completions, preventing malformed outputs from reaching downstream services.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{AIExamTool — Automated Examination \& Evaluation Platform} \hfill \href{https://github.com/JeetInTech}{github.com/JeetInTech} \\
+\textit{Python, AWS Lambda, DynamoDB, FAISS, OpenAI API, Flask}
+\begin{itemize}
+    \item Built a serverless evaluation platform on AWS Lambda + DynamoDB with role-scoped access (student/faculty/HOD).
+    \item Implemented FAISS semantic search over course syllabi for grounded question generation and answer evaluation.
+\end{itemize}
+
+\educationSection
+
+\end{document}

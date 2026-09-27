@@ -1,0 +1,484 @@
+/* ============================================================================
+   world-live.css — WORLD 01 · LIVE PROJECTS
+   Owns two things only:
+     .wl-ent    the slot entity (SVG digital human) inside ctx.stage
+     .wl-world  the project environment inside ctx.projectStage
+   Reads core tokens from :root. Never redefines them. All local values are
+   custom properties scoped to the two root classes below.
+   ========================================================================== */
+
+.wl-ent,
+.wl-world {
+    /* ---- colour ---------------------------------------------------- */
+    --wl-accent:      var(--u-accent-live);        /* warm white   */
+    --wl-cast:        var(--u-accent-live-2);      /* violet cast  */
+    --wl-shape:       #080a0f;                     /* figure body  */
+    --wl-shape-2:     #0c1016;                     /* hair mass    */
+    --wl-line:        rgba(245, 243, 239, 0.46);   /* figure rim   */
+    --wl-line-hot:    rgba(245, 243, 239, 0.78);
+    --wl-detail:      rgba(245, 243, 239, 0.22);   /* garment      */
+    --wl-detail-hot:  rgba(245, 243, 239, 0.40);
+    --wl-frag:        rgba(167, 139, 250, 0.34);   /* interface bits */
+    --wl-frag-hot:    rgba(167, 139, 250, 0.62);
+    --wl-web:         rgba(245, 243, 239, 0.10);   /* connection lines */
+
+    /* ---- metrics ----------------------------------------------------- */
+    --wl-stroke:      1.5px;
+    --wl-panel-w:     clamp(190px, 18%, 268px);
+    --wl-field-h:     clamp(900px, 106vh, 1240px);
+    --wl-ring:        1px;
+
+    /* ---- motion ------------------------------------------------------ */
+    --wl-ease:        var(--u-ease-enter);
+    --wl-exit:        var(--u-ease-exit);
+    --wl-micro:       var(--u-d-micro);
+    --wl-micro-lg:    var(--u-d-micro-lg);
+    --wl-scene:       var(--u-d-scene);
+}
+
+/* ============================================================================
+   1 · THE ENTITY — digital human, procedural SVG
+   Lives inside ctx.stage (a span the core owns). Never intercepts the pointer:
+   the slot button underneath must keep every hover and click.
+   ========================================================================== */
+.wl-ent {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+/* ---- shared stroke language: one thin-line set, 1.5px everywhere -------- */
+.wl-ent .wl-line,
+.wl-ent .wl-detail,
+.wl-ent .wl-hair-line {
+    fill: none;
+    stroke-width: var(--wl-stroke);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+    transition: stroke var(--wl-micro-lg) var(--wl-ease);
+}
+
+.wl-ent .wl-line       { stroke: var(--wl-line); }
+.wl-ent .wl-detail     { stroke: var(--wl-detail); }
+.wl-ent .wl-hair-line  { stroke: var(--wl-detail); }
+
+.wl-ent .wl-fill       { fill: var(--wl-shape); }
+.wl-ent .wl-fill-2     { fill: var(--wl-shape-2); }
+
+/* the figure as a whole lifts in luminance on hover — no glow bomb */
+.wl-ent .wl-fig {
+    transition: opacity var(--wl-micro-lg) var(--wl-ease),
+                filter var(--wl-micro-lg) var(--wl-ease);
+    opacity: 0.92;
+}
+
+.wl-ent.is-hot .wl-fig      { opacity: 1; filter: brightness(1.16); }
+.wl-ent.is-hot .wl-line     { stroke: var(--wl-line-hot); }
+.wl-ent.is-hot .wl-detail,
+.wl-ent.is-hot .wl-hair-line{ stroke: var(--wl-detail-hot); }
+
+/* ---- eyes -------------------------------------------------------------- */
+.wl-ent .wl-iris      { fill: var(--wl-accent); opacity: 0.86; }
+.wl-ent .wl-spec      { fill: var(--u-pure); opacity: 0.55; }
+.wl-ent .wl-eye-rim   { fill: none; stroke: var(--wl-line); stroke-width: 1.25px;
+                        vector-effect: non-scaling-stroke; }
+
+/* ---- background depth plane -------------------------------------------- */
+.wl-ent .wl-web-line {
+    fill: none;
+    stroke: var(--wl-web);
+    stroke-width: 1px;
+    vector-effect: non-scaling-stroke;
+    transition: stroke var(--wl-micro-lg) var(--wl-ease);
+}
+.wl-ent.is-hot .wl-web-line { stroke: rgba(245, 243, 239, 0.2); }
+
+.wl-ent .wl-plate {
+    fill: none;
+    stroke: var(--wl-frag);
+    stroke-width: 1px;
+    vector-effect: non-scaling-stroke;
+    transition: stroke var(--wl-micro-lg) var(--wl-ease);
+}
+.wl-ent.is-hot .wl-plate { stroke: var(--wl-frag-hot); }
+
+/* the hairline that "draws in" across an orbiting fragment on hover */
+.wl-ent .wl-draw {
+    stroke: var(--wl-accent);
+    stroke-width: 1px;
+    vector-effect: non-scaling-stroke;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transform-box: fill-box;
+    transition: transform var(--wl-micro-lg) var(--wl-ease),
+                opacity var(--wl-micro-lg) var(--wl-ease);
+}
+.wl-ent.is-hot .wl-draw { opacity: 0.6; transform: scaleX(1); }
+
+/* ---- mono micro type inside the scene ---------------------------------- */
+.wl-ent .wl-glyph {
+    font-family: var(--u-font-mono);
+    font-size: 6px;
+    letter-spacing: 0.14em;
+    fill: var(--u-muted);
+    opacity: 0.5;
+    transition: opacity var(--wl-micro-lg) var(--wl-ease), fill var(--wl-micro-lg) var(--wl-ease);
+}
+.wl-ent.is-hot .wl-glyph { opacity: 0.8; fill: var(--u-light); }
+
+/* live / deployed indicator: word + dot, never colour alone */
+.wl-ent .wl-tick-dot { fill: var(--u-status-live); opacity: 0.75; }
+
+/* project names that fade in around the figure on hover */
+.wl-ent .wl-lab {
+    font-family: var(--u-font-mono);
+    font-size: 6px;
+    letter-spacing: 0.16em;
+    fill: var(--u-light);
+    opacity: 0;
+    transition: opacity var(--wl-micro-lg) var(--wl-ease);
+}
+.wl-ent.is-hot .wl-lab { opacity: 0.62; }
+
+/* status ticks that only exist while the entity is active */
+.wl-ent .wl-tick {
+    opacity: 0;
+    transition: opacity var(--wl-micro) var(--wl-ease);
+}
+.wl-ent.is-hot .wl-tick { opacity: 1; }
+
+/* ---- activation flourish: fragments scatter, < 180ms ------------------- */
+@keyframes wl-scatter {
+    from { transform: scale(1);    opacity: 1; }
+    60%  { transform: scale(1.14); opacity: 0.5; }
+    to   { transform: scale(1.22); opacity: 0; }
+}
+
+.wl-ent.is-scatter .wl-orbit,
+.wl-ent.is-scatter .wl-depth {
+    transform-box: view-box;
+    transform-origin: 150px 112px;
+    animation: wl-scatter 170ms var(--wl-exit) both;
+}
+
+/* ============================================================================
+   2 · THE PROJECT ENVIRONMENT — a constellation of live surfaces
+   NO CARDS: each project is a thin-line panel fragment on the void.
+   ========================================================================== */
+.wl-world { position: relative; }
+
+.wl-head { max-width: 62ch; margin: 0 0 var(--u-s6); }
+
+.wl-head__kicker {
+    display: block;
+    font-family: var(--u-font-mono);
+    font-size: var(--u-t-micro);
+    letter-spacing: var(--u-track-mono);
+    text-transform: uppercase;
+    color: var(--u-muted);
+}
+
+.wl-head__lead {
+    margin: var(--u-s3) 0 0;
+    font-size: var(--u-t-lead);
+    line-height: 1.6;
+    color: var(--u-light);
+    max-width: 54ch;
+}
+
+/* ---- the field --------------------------------------------------------- */
+.wl-field {
+    position: relative;
+    height: var(--wl-field-h);
+}
+
+/* faint glowing connection lines behind the panels */
+.wl-links {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.wl-links__path {
+    fill: none;
+    stroke: var(--wl-web);
+    stroke-width: 1px;
+    vector-effect: non-scaling-stroke;
+}
+
+.wl-links__node {
+    fill: var(--wl-cast);
+    opacity: 0.35;
+}
+
+/* ---- a project object -------------------------------------------------- */
+.wl-node {
+    --wl-k: 1;          /* hover scale multiplier */
+    --wl-p: 0;          /* parallax depth factor  */
+    --wl-s: 1;          /* depth scale            */
+
+    position: absolute;
+    left: var(--wl-x);
+    top: var(--wl-y);
+    z-index: 1;
+    display: block;
+    width: var(--wl-panel-w);
+    padding: var(--u-s2) var(--u-s2) var(--u-s3) 0;
+    text-align: left;
+    background: none;                 /* NO CARDS */
+    border: 0;
+    border-top: 1px solid var(--u-line-2);
+    color: var(--u-light);
+    font-family: inherit;
+    cursor: pointer;
+    opacity: var(--wl-o, 1);
+    transform: translate3d(calc(var(--wl-px, 0px) * var(--wl-p)),
+                           calc(var(--wl-py, 0px) * var(--wl-p)), 0)
+               scale(calc(var(--wl-s) * var(--wl-k)));
+    transform-origin: left top;
+    transition: transform 240ms var(--wl-ease),
+                opacity var(--wl-micro-lg) var(--wl-ease),
+                border-color var(--wl-micro-lg) var(--wl-ease);
+}
+
+/* interface-fragment corner tick — a running surface, not a card */
+.wl-node::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 24px;
+    height: 1px;
+    background: var(--wl-accent);
+    opacity: 0.45;
+    transform: scaleX(0.4);
+    transform-origin: left center;
+    transition: transform var(--wl-micro-lg) var(--wl-ease),
+                opacity var(--wl-micro-lg) var(--wl-ease);
+}
+
+.wl-node__top {
+    display: flex;
+    align-items: center;
+    gap: var(--u-s2);
+    margin-bottom: var(--u-s2);
+}
+
+.wl-node__idx {
+    font-family: var(--u-font-mono);
+    font-size: var(--u-t-micro);
+    letter-spacing: var(--u-track-mono);
+    color: var(--u-muted);
+}
+
+.wl-node__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--u-font-mono);
+    font-size: var(--u-t-micro);
+    letter-spacing: var(--u-track-mono);
+    text-transform: uppercase;
+    color: var(--wl-chip, var(--u-muted));
+    white-space: nowrap;
+}
+
+.wl-node__dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    flex: 0 0 auto;
+}
+
+/* status colour is always paired with the status WORD */
+.wl-node[data-status="LIVE"]         { --wl-chip: var(--u-status-live); }
+.wl-node[data-status="PRIVATE"]      { --wl-chip: var(--u-status-private); }
+.wl-node[data-status="OPEN SOURCE"]  { --wl-chip: var(--u-status-open); }
+.wl-node[data-status="EXPERIMENTAL"] { --wl-chip: var(--u-status-experimental); }
+
+.wl-node__name {
+    display: block;
+    margin: 0 0 var(--u-s2);
+    font-family: var(--u-font-display);
+    font-size: 1.0625rem;              /* authored copy — never truncated */
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: var(--u-track-title);
+    color: var(--u-white);
+    overflow-wrap: break-word;
+}
+
+/* blurb keeps its space at rest so nothing shifts or collides on reveal */
+.wl-node__blurb {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    min-height: 3em;
+    font-size: var(--u-t-body);        /* 16px floor */
+    line-height: 1.5;
+    color: var(--u-light);
+    opacity: 0;
+    transition: opacity var(--wl-micro-lg) var(--wl-ease);
+}
+
+/* bottom meter hairline — suggestion of a running interface */
+.wl-node__meter {
+    display: block;
+    height: 1px;
+    margin-top: var(--u-s2);
+    background: linear-gradient(90deg, var(--wl-accent), transparent);
+    opacity: 0.35;
+    transform: scaleX(0.22);
+    transform-origin: left center;
+    transition: transform var(--wl-scene) var(--wl-ease),
+                opacity var(--wl-micro-lg) var(--wl-ease);
+}
+
+/* tiny particle cluster that reacts to activation */
+.wl-node__spark {
+    position: absolute;
+    top: var(--u-s2);
+    right: 0;
+    width: 28px;
+    height: 28px;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.wl-node__spark circle {
+    fill: var(--wl-cast);
+    opacity: 0.3;
+    transition: transform var(--wl-scene) var(--wl-ease),
+                opacity var(--wl-micro-lg) var(--wl-ease);
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+/* ---- active states ------------------------------------------------------ */
+.wl-node:focus-visible {
+    outline: var(--wl-ring) solid var(--u-pure);
+    outline-offset: 10px;
+}
+
+.wl-node:focus-visible,
+.wl-node.is-on {
+    z-index: 3;
+    border-top-color: var(--u-line-3);
+}
+
+.wl-node:focus-visible .wl-node__blurb,
+.wl-node.is-on .wl-node__blurb { opacity: 1; }
+
+.wl-node:focus-visible::before,
+.wl-node.is-on::before { transform: scaleX(1); opacity: 0.85; }
+
+.wl-node:focus-visible .wl-node__meter,
+.wl-node.is-on .wl-node__meter { transform: scaleX(1); opacity: 0.6; }
+
+/* pointer-only affordances */
+@media (hover: hover) {
+    .wl-node:hover {
+        --wl-k: 1.035;
+        z-index: 3;
+        border-top-color: var(--u-line-3);
+    }
+    .wl-node:hover .wl-node__blurb { opacity: 1; }
+    .wl-node:hover::before         { transform: scaleX(1); opacity: 0.85; }
+    .wl-node:hover .wl-node__meter { transform: scaleX(1); opacity: 0.6; }
+    .wl-node:hover .wl-node__name  { color: var(--u-pure); }
+    .wl-node:hover .wl-node__spark circle:nth-child(1) { transform: translate(-5px, -4px); opacity: 0.7; }
+    .wl-node:hover .wl-node__spark circle:nth-child(2) { transform: translate(6px, -6px);  opacity: 0.55; }
+    .wl-node:hover .wl-node__spark circle:nth-child(3) { transform: translate(4px, 7px);   opacity: 0.65; }
+    .wl-node:hover .wl-node__spark circle:nth-child(4) { transform: translate(-6px, 5px);  opacity: 0.4; }
+    .wl-node:hover { filter: drop-shadow(0 0 22px rgba(167, 139, 250, 0.16)); }
+}
+
+/* no hover to reveal on touch — the blurb simply stays readable */
+@media (hover: none) {
+    .wl-node__blurb { opacity: 1; }
+}
+
+/* ============================================================================
+   3 · RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .wl-ent, .wl-world {
+        --wl-panel-w: clamp(180px, 20%, 230px);
+        --wl-field-h: 1180px;
+    }
+    /* parallax off: less spatial complexity, entity untouched */
+    .wl-node { --wl-p: 0; }
+    .wl-links { opacity: 0.6; }
+}
+
+@media (max-width: 768px) {
+    /* the world becomes one long vertical scene; projects stack as rows on
+       hairlines — still not cards. */
+    .wl-field {
+        height: auto;
+        display: block;
+    }
+
+    .wl-links { display: none; }
+
+    .wl-node {
+        position: static;
+        width: 100%;
+        min-height: 88px;               /* >= 44px touch target, with air */
+        margin: 0;
+        padding: var(--u-s3) 0;
+        opacity: 1 !important;
+        transform: none;
+        border-top: 1px solid var(--u-line-1);
+    }
+
+    .wl-node + .wl-node { margin-top: var(--u-s1); }
+
+    .wl-node__name  { font-size: 1.125rem; }
+    .wl-node__blurb { min-height: 0; }
+    .wl-node__spark { display: none; }
+
+    .wl-head { margin-bottom: var(--u-s5); }
+}
+
+@media (max-width: 380px) {
+    .wl-node__top { flex-wrap: wrap; gap: var(--u-s1); }
+}
+
+/* ============================================================================
+   4 · REDUCED MOTION — one static composed frame, everything still readable
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .wl-ent *,
+    .wl-node,
+    .wl-node *,
+    .wl-node::before {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .wl-ent.is-scatter .wl-orbit,
+    .wl-ent.is-scatter .wl-depth { animation: none !important; }
+
+    .wl-node        { --wl-k: 1; --wl-p: 0; opacity: 1 !important; }
+    .wl-node__blurb { opacity: 1; }
+    .wl-node__meter { transform: scaleX(1); }
+    .wl-node::before{ transform: scaleX(1); }
+    .wl-ent .wl-lab { opacity: 0.5; }
+
+    @media (hover: hover) {
+        .wl-node:hover { filter: none; }
+    }
+}

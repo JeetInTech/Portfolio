@@ -73,19 +73,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.downloadAllResumes = function() {
         const resumes = [
-            '../resumes/Sangramjeet Ghosh - AI Software Systems.pdf',
-            '../resumes/Sangramjeet Ghosh - Full Stack AI.pdf',
-            '../resumes/Sangramjeet Ghosh - CV.pdf'
+            { url: '../resumes/AI_Agentic_Systems_Engineer.pdf', name: 'Sangramjeet_Ghosh_AI_Agentic_Engineer.pdf' },
+            { url: '../resumes/Full_Stack_Software_Engineer.pdf', name: 'Sangramjeet_Ghosh_Full_Stack_Engineer.pdf' },
+            { url: '../resumes/Data_Scientist_Machine_Learning.pdf', name: 'Sangramjeet_Ghosh_Data_Scientist_ML.pdf' },
+            { url: '../resumes/Backend_Software_Engineer.pdf', name: 'Sangramjeet_Ghosh_Backend_Engineer.pdf' },
+            { url: '../resumes/Frontend_Software_Engineer.pdf', name: 'Sangramjeet_Ghosh_Frontend_Engineer.pdf' },
+            { url: '../resumes/Desktop_Systems_Automation_Engineer.pdf', name: 'Sangramjeet_Ghosh_Desktop_Automation.pdf' },
+            { url: '../resumes/Sangramjeet_Ghosh_UK_CV.pdf', name: 'Sangramjeet_Ghosh_Master_CV.pdf' }
         ];
-        resumes.forEach((url, i) => {
+        resumes.forEach((item, i) => {
             setTimeout(() => {
                 const a = document.createElement('a');
-                a.href = url;
-                a.download = url.split('/').pop();
+                a.href = item.url;
+                a.download = item.name;
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
-            }, i * 400);
+            }, i * 350);
         });
 
         const dropdown = document.querySelector('.resume-dropdown');
@@ -133,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Intelligent multi-provider LLM tier. Prioritizes primary low-latency models (Gemini 2.5 Flash / Groq LLaMA) with automatic seamless fallback to GPT-4o or Claude 3.5 Sonnet on quota/rate spikes.",
             latency: "< 250 ms TTFT",
             tech: "Gemini Live API / Groq LPUs / OpenAI",
-            reliability: "4-Tier Failover (99.5% SaaS Uptime)",
+            reliability: "4-Tier Failover (99.7% SaaS Uptime)",
             projects: ["Neuroviai SaaS", "Multi-LLM Discussion Swarm", "SANA Voice Assistant"]
         },
         tools: {
@@ -206,117 +210,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
-
-    /* ========================================================
-       6. SEBASTIAN AI COMMAND TERMINAL SIMULATOR
-       ======================================================== */
-    const terminalOutput = document.getElementById('terminalOutput');
-    const terminalInput = document.getElementById('terminalInput');
-    const terminalSubmit = document.getElementById('terminalSubmit');
-
-    const COMMAND_REGISTRY = {
-        help: `
-Available System Commands:
-  - <strong class="term-highlight">whoami</strong>     : Summary biography & engineering background
-  - <strong class="term-highlight">neurovia</strong>   : Inspect metrics & link to Neuroviai AI SaaS
-  - <strong class="term-highlight">projects</strong>   : List flagship production & AI open-source systems
-  - <strong class="term-highlight">skills</strong>     : Print technical skills & core architectural domains
-  - <strong class="term-highlight">resume</strong>     : Download official engineering resumes & CV
-  - <strong class="term-highlight">contact</strong>    : Direct channels to reach Sangramjeet Ghosh
-  - <strong class="term-highlight">clear</strong>      : Clear terminal log output
-        `,
-        whoami: `
-<strong>Sangramjeet Ghosh (Jeet)</strong>
-Role: AI/ML Systems Engineer & Full-Stack Architect
-Location: Hyderabad, India
-Education: B.Tech in CSE (Artificial Intelligence & Machine Learning) at Malla Reddy University (CGPA 8.0)
-Specialization: Production RAG, Multi-Agent Swarms, FastAPI Microservices, React 19, AWS Cloud
-Founder: Neuroviai (<a href="https://neuroviai.dev/" target="_blank" class="term-highlight">neuroviai.dev</a>)
-Author: <em>"The Future of Touchless Technology"</em> (Amazon KDP)
-        `,
-        neurovia: `
-<strong>🌟 Neurovia AI — AI Content Automation Platform</strong>
-Status: LIVE & OPERATIONAL (99.5% Uptime)
-URL: <a href="https://neuroviai.dev/" target="_blank" class="term-highlight">https://neuroviai.dev/</a>
-Architecture: 6 FastAPI Microservices, 4-Tier LLM Fallback (GPT-4 / Gemini / Claude / LLaMA), Razorpay Payments
-Metrics: 50+ Daily Active Users
-        `,
-        projects: `
-<strong>Selected Production & Open-Source Projects:</strong>
-  1. <a href="https://neuroviai.dev/" target="_blank" class="term-highlight">Neurovia AI</a> — AI Content Automation SaaS (Next.js, FastAPI, PostgreSQL)
-  2. <a href="https://secondbraindev.vercel.app/" target="_blank" class="term-highlight">Second Brain</a> — AI Knowledge Base & RAG (Next.js 15, Prisma, Gemini 2.5)
-  3. <a href="https://github.com/JeetInTech/SANA-MULTILINGUAL-AI-ASSISTANT" target="_blank" class="term-highlight">SANA Butler</a> — Real-Time Multilingual Voice Butler (React 19, Gemini Live, Canvas)
-  4. <a href="https://craftingbrain.com/" target="_blank" class="term-highlight">Crafting Brain</a> — Creative Agency Web App (React 18, styled-components)
-  5. <a href="https://github.com/JeetInTech/Virtual-Therapist---LangGraph-Agentic-AI-System" target="_blank" class="term-highlight">Virtual Therapist</a> — LangGraph Agentic System (FastAPI, ChromaDB)
-        `,
-        skills: `
-<strong>Primary Technical Capabilities:</strong>
-  • AI & ML: LangChain, LangGraph, Gemini Live API, PyTorch, RAG, pgvector, OpenCV, MediaPipe
-  • Backend: Python, FastAPI, Node.js, Express, PostgreSQL, Prisma, Supabase, WebSockets
-  • Frontend: React 19, Next.js 15, TypeScript, Tailwind CSS, Canvas API, Three.js
-  • Cloud & Ops: AWS (Certified), Docker, Git, CI/CD Actions, Vercel, Render
-        `,
-        resume: `
-Initiating resume download process...
-  → <a href="../resumes/Sangramjeet-Ghosh-AI-Resume.pdf" download class="term-highlight">Download AI Engineer Resume (PDF)</a>
-  → <a href="../resumes/Sangramjeet-Ghosh-Fullstack-Resume.pdf" download class="term-highlight">Download Full-Stack Resume (PDF)</a>
-  → <a href="../resumes/Sangramjeet-Ghosh-CV.pdf" download class="term-highlight">Download Complete Master CV (PDF)</a>
-        `,
-        contact: `
-<strong>Direct Transmission Channels:</strong>
-  • Email: <a href="mailto:jeeth.enterprises108@gmail.com" class="term-highlight">jeeth.enterprises108@gmail.com</a>
-  • LinkedIn: <a href="https://www.linkedin.com/in/sangramjeetghosh/" target="_blank" class="term-highlight">linkedin.com/in/sangramjeetghosh</a>
-  • GitHub: <a href="https://github.com/JeetInTech" target="_blank" class="term-highlight">github.com/JeetInTech</a>
-  • Location: Hyderabad, India (Open to Global Remote)
-        `
-    };
-
-    window.executeTermCommand = function(rawCmd) {
-        const cmd = rawCmd.trim().toLowerCase();
-        if (!cmd) return;
-
-        // Echo User Input Line
-        const echoLine = document.createElement('div');
-        echoLine.className = 'term-line';
-        echoLine.innerHTML = `<span class="term-prompt">guest@sangramjeet:~$</span> <span class="term-command-echo">${rawCmd}</span>`;
-        terminalOutput.appendChild(echoLine);
-
-        if (cmd === 'clear') {
-            terminalOutput.innerHTML = '';
-        } else if (COMMAND_REGISTRY[cmd]) {
-            const respLine = document.createElement('div');
-            respLine.className = 'term-response';
-            respLine.innerHTML = COMMAND_REGISTRY[cmd];
-            terminalOutput.appendChild(respLine);
-        } else {
-            const errLine = document.createElement('div');
-            errLine.className = 'term-response';
-            errLine.innerHTML = `<span style="color: #ff5f56;">Command not recognized: '${rawCmd}'.</span> Type <strong class="term-highlight">help</strong> to view valid commands.`;
-            terminalOutput.appendChild(errLine);
-        }
-
-        // Scroll to bottom
-        terminalOutput.scrollTop = terminalOutput.scrollHeight;
-
-        if (terminalInput) {
-            terminalInput.value = '';
-            terminalInput.focus();
-        }
-    };
-
-    if (terminalInput) {
-        terminalInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                executeTermCommand(terminalInput.value);
-            }
-        });
-    }
-
-    if (terminalSubmit && terminalInput) {
-        terminalSubmit.addEventListener('click', () => {
-            executeTermCommand(terminalInput.value);
-        });
-    }
 
     /* ========================================================
        7. DYNAMIC 3D CARD TILT EFFECT (GPU-Accelerated)
@@ -425,4 +318,91 @@ Initiating resume download process...
         sr.reveal('.achievement-card-new', { origin: 'bottom', interval: 100 });
         sr.reveal('.contact-console-grid', { origin: 'bottom', delay: 200 });
     }
+
+    /* ========================================================
+       11. HERO AVATAR GLITCH & ALTER-EGO SWAP (5s INTERVAL)
+       ======================================================== */
+    const glitchStage = document.getElementById('heroGlitchStage');
+    const heroGlitchContainer = document.getElementById('heroGlitchContainer');
+    const avatarDefault = document.getElementById('heroAvatarDefault');
+    const avatarEgo = document.getElementById('heroAvatarEgo');
+    const ghostCyan = document.getElementById('heroGhostCyan');
+    const ghostRed = document.getElementById('heroGhostRed');
+
+    if (glitchStage && avatarDefault && avatarEgo) {
+        let isEgo = false;
+        let isTransitioning = false;
+        const SWAP_INTERVAL = 5000;
+        const GLITCH_DURATION = 420;
+
+        function triggerGlitchSwap() {
+            if (isTransitioning) return;
+            isTransitioning = true;
+
+            const nextIsEgo = !isEgo;
+            const targetSrc = nextIsEgo ? '../images/jeet.png' : '../images/jeet1.png';
+
+            // Point ghosts to incoming image so glitch slices foreshadow transformation
+            if (ghostCyan) ghostCyan.src = targetSrc;
+            if (ghostRed) ghostRed.src = nextIsEgo ? '../images/jeet.png' : '../images/jeet1.png';
+
+            // Trigger glitch classes
+            glitchStage.classList.add('is-glitching');
+
+            // Swap avatars at the glitch midpoint (210ms)
+            setTimeout(() => {
+                isEgo = nextIsEgo;
+                if (isEgo) {
+                    avatarDefault.classList.remove('active');
+                    avatarEgo.classList.add('active');
+                    glitchStage.classList.add('ego-active');
+                    if (heroGlitchContainer) heroGlitchContainer.classList.add('ego-active');
+                } else {
+                    avatarEgo.classList.remove('active');
+                    avatarDefault.classList.add('active');
+                    glitchStage.classList.remove('ego-active');
+                    if (heroGlitchContainer) heroGlitchContainer.classList.remove('ego-active');
+                }
+            }, 210);
+
+            // Settle out of glitch
+            setTimeout(() => {
+                glitchStage.classList.remove('is-glitching');
+                isTransitioning = false;
+            }, GLITCH_DURATION);
+        }
+
+        // Automatic swap every 5 seconds
+        let swapTimer = setInterval(triggerGlitchSwap, SWAP_INTERVAL);
+
+        // Click to toggle immediately and reset 5s timer
+        glitchStage.addEventListener('click', () => {
+            clearInterval(swapTimer);
+            triggerGlitchSwap();
+            swapTimer = setInterval(triggerGlitchSwap, SWAP_INTERVAL);
+        });
+
+        // Pause timer when tab is hidden, resume when tab is active
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                clearInterval(swapTimer);
+            } else {
+                clearInterval(swapTimer);
+                swapTimer = setInterval(triggerGlitchSwap, SWAP_INTERVAL);
+            }
+        });
+    }
+
+    /* ========================================================
+       12. NEBULA OF CREATION PORTAL TRIGGER
+       ======================================================== */
+    const beaconCard = document.getElementById('beaconCard');
+    const nebulaTrigger = document.getElementById('u-portal-button');
+    const openUniverse = (e) => {
+        if (window.UNIVERSE) return; // universe-core.js handles it natively with full cinematic warp
+        if (e) e.preventDefault();
+        location.hash = '#/universe';
+    };
+    if (beaconCard) beaconCard.addEventListener('click', openUniverse);
+    if (nebulaTrigger) nebulaTrigger.addEventListener('click', openUniverse);
 });

@@ -1,0 +1,106 @@
+\documentclass[10pt]{article}
+\usepackage[top=0.32in, bottom=0.32in, left=0.42in, right=0.42in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\linespread{0.97}
+\setlist[itemize]{leftmargin=11pt, noitemsep, topsep=1pt, parsep=0pt}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\titlespacing{\section}{0pt}{3.5pt}{1.5pt}
+\titleformat{\section}{\large\bfseries\scshape}{}{0pt}{}[\titlerule]
+\hypersetup{colorlinks=true, linkcolor=blue!75!black, urlcolor=blue!75!black}
+
+\newcommand{\resumeHeader}{
+\begin{center}
+{\LARGE \textbf{SANGRAMJEET GHOSH}} \\[3pt]
+{\small
++91 9059150937 ~$|$~
+\href{mailto:sangramjeet47@gmail.com}{sangramjeet47@gmail.com} ~$|$~
+\href{https://www.linkedin.com/in/sangramjeetghosh}{linkedin.com/in/sangramjeetghosh} ~$|$~
+\href{https://github.com/JeetInTech}{github.com/JeetInTech} ~$|$~
+\href{https://neuroviai.dev}{neuroviai.dev}
+}\\[1pt]
+{\footnotesize Hyderabad, Telangana, India \quad $|$ \quad B.Tech CSE (AI \& ML), Malla Reddy University (2026, GPA: 8.0/10.0)}
+\end{center}
+\vspace{-8pt}
+}
+
+\newcommand{\educationSection}{
+\section*{Education}
+\textbf{Bachelor of Technology in Computer Science and Engineering (AI \& ML)} \hfill Graduated May 2026 \\
+Malla Reddy University, Hyderabad, Telangana \hfill \textbf{GPA: 8.0 / 10.0}
+}
+
+\begin{document}
+\resumeHeader
+
+\section*{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Desktop Frameworks} & PySide6 (Qt6), Rust (Tauri v2), Electron (basics), Windows API, Process Management (psutil) \\[1.5pt]
+\textbf{Languages} & Python (3.10--3.13), Rust (basics), TypeScript, JavaScript (Node.js), C/C++ (basics), PowerShell, Bash \\[1.5pt]
+\textbf{Automation \& Systems} & Playwright, Headless Chrome (CDP), FFmpeg CLI, \texttt{psutil}, Pydub, MoviePy, Windows Task Scheduler \\[1.5pt]
+\textbf{Packaging \& Tooling} & VS Code Extensibility API, PyInstaller (.exe), Tauri NSIS/MSI Bundling, Docker, Git, OpenCV, pytest \\
+\end{tabularx}
+
+\section*{Professional Experience}
+\textbf{Freelance Software Engineer} \hfill Aug 2025 -- Present \\
+\textit{Independent} \hfill Remote
+\begin{itemize}
+    \item Built native desktop workstation software and automated browser orchestration systems utilizing PySide6, Tauri v2, and Playwright.
+    \item Developed process monitoring supervisors with \texttt{psutil}, regex crash remediation engines, and local GPU media processing pipelines.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Data Science \& Backend Intern} \hfill Mar 2025 -- Dec 2025 \\
+\textit{Inikola Technologies} \hfill Hyderabad, India
+\begin{itemize}
+    \item Managed cloud server instances on AWS EC2, configured Nginx reverse proxies, and automated deployment scripts using Bash and Python.
+    \item Built backend service daemons and scheduled cron tasks supporting text scoring services in production.
+\end{itemize}
+
+\section*{Featured Projects}
+\textbf{Genesis — Master Fleet Cockpit \& Multi-Agent Process Supervisor} \hfill \href{https://github.com/JeetInTech}{github.com/JeetInTech} \\
+\textit{Python, PySide6 (Qt6), psutil, NumPy, Matplotlib, Regex Incident Remediation Engine}
+\begin{itemize}
+    \item Built a native desktop operations hub in PySide6 supervising 10 autonomous background agents with non-blocking \texttt{psutil} process tracking.
+    \item Implemented a deterministic regex incident engine intercepting fatal runtime crashes and executing automated recovery routines.
+    \item Vectorized a 60,000-particle animated visualization in pure NumPy at 60 FPS without blocking the GUI thread.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Mr. Memecredible — Published VS Code Extension} \hfill \href{https://marketplace.visualstudio.com/items?itemName=SangramjeetGhosh.mr-memecredible}{904 Active Installs} \\
+\textit{TypeScript, VS Code API, Node.js, Webview IPC Protocol, Diagnostic Watcher}
+\begin{itemize}
+    \item Published developer productivity extension on Microsoft VS Code Marketplace with \textbf{904 active installs} and five-star rating.
+    \item Subscribed to language server diagnostics via \texttt{vscode.languages.onDidChangeDiagnostics} within a strict $<$16ms execution budget.
+    \item Rendered dynamic 9-stage uncanny meme meters in isolated Webview panels communicating via bi-directional postMessage IPC.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{AI Local Video Editor — Autonomous Vision-Guided Studio} \hfill \href{https://github.com/JeetInTech}{github.com/JeetInTech} \\
+\textit{Python, Local GPU Speech Transcription, OpenCV, FFmpeg, Pydub, MoviePy}
+\begin{itemize}
+    \item Developed a 100\% offline vision-guided video editor executing local GPU speech transcription to trim dead air and bad retakes.
+    \item Implemented a 4-signal scoring engine (Intent: 0.35, Visual: 0.30, Safety: 0.20, Asset: 0.15) to insert contextual memes and audio stingers.
+    \item Automated high-throughput FFmpeg video assembly with dynamic burned-in subtitle rendering and zero cloud API dependency.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Local Cortex — Native Desktop AI IDE \& Workspace} \hfill \href{https://github.com/JeetInTech/Local-Cortex-your-local-chatgpt-with-built-in-editor}{github.com/JeetInTech} \\
+\textit{Rust, Tauri v2, React, TypeScript, Monaco Editor, Ollama}
+\begin{itemize}
+    \item Engineered a native Windows desktop code editor using Tauri v2 and Rust, managing native file traversal and local vector RAG indexing.
+    \item Built an autonomous codebase editing loop (\texttt{agent.rs}) generating multi-file diffs; packaged native NSIS and MSI Windows installers.
+\end{itemize}
+
+\educationSection
+
+\end{document}

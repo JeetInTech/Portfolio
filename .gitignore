@@ -1,3 +1,10 @@
 .env
 .vercel
 node_modules/
+
+# Concepts preview and generated images
+concept.html
+concepts.html
+images/concepts/
+images/concepts_v2/
+4-5

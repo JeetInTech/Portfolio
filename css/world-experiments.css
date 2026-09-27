@@ -1,0 +1,413 @@
+/* ============================================================================
+   world-experiments.css — WORLD 04 · EXPERIMENTS & TOOLS
+   ----------------------------------------------------------------------------
+   Reads core tokens from universe-core.css; never redefines them.
+   Every value of this world lives in the --wx-* block below.
+
+   The idea: artefacts sit CORRUPTED on the void and STABILISE on hover/focus.
+   Interaction brings order. Keyboard focus does exactly what hover does, so a
+   keyboard user is never left reading a corrupted name.
+   ========================================================================== */
+
+.wx-root {
+    /* colour */
+    --wx-acid:        var(--u-accent-experiments-2);
+    --wx-ink:         var(--u-accent-experiments);
+    --wx-ghost-r:     rgba(255, 58, 58, 0.55);
+    --wx-ghost-g:     rgba(184, 255, 60, 0.45);
+    --wx-scan:        rgba(3, 4, 7, 0.55);
+
+    /* geometry */
+    --wx-bench-h:     clamp(620px, 78vh, 880px);
+    --wx-name-size:   clamp(17px, 1.35vw, 22px);
+    --wx-shift:       1.5px;    /* channel offset at rest */
+    --wx-parallax:    14px;     /* max pointer parallax travel, per depth unit */
+
+    /* motion */
+    --wx-settle:      var(--u-d-micro-lg);
+    --wx-slip:        5.6s;
+
+    /* pointer position, written by JS (unitless -0.5 .. 0.5) */
+    --wx-px: 0;
+    --wx-py: 0;
+}
+
+/* ============================================================================
+   ENTITY — the canvas fills the core-owned slot entity box.
+   ========================================================================== */
+.wx-entity {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* ============================================================================
+   PROJECT ENVIRONMENT
+   ========================================================================== */
+.wx-head {
+    max-width: 46ch;
+    margin: 0 0 var(--u-s7);
+}
+
+.wx-head__kicker {
+    margin: 0 0 var(--u-s2);
+    font-family: var(--u-font-mono);
+    font-size: var(--u-t-meta);
+    letter-spacing: var(--u-track-mono);
+    color: var(--u-muted);
+}
+
+.wx-head__lead {
+    margin: 0;
+    font-size: var(--u-t-lead);
+    line-height: 1.55;
+    color: var(--u-light);
+}
+
+/* the bench: asymmetric, absolute, generous negative space */
+.wx-bench {
+    position: relative;
+    min-height: var(--wx-bench-h);
+    padding-bottom: var(--u-s6);
+}
+
+/* ---- one artefact --------------------------------------------------------- */
+.wx-p {
+    position: absolute;
+    left: var(--wx-x);
+    top: var(--wx-y);
+    width: var(--wx-w);
+    min-width: 200px;
+    min-height: var(--u-tap);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+        "rule rule"
+        "idx  name"
+        ".    chip"
+        ".    blurb";
+    align-items: start;
+    gap: var(--u-s1) var(--u-s2);
+    margin: 0;
+    padding: var(--u-s2) var(--u-s2) var(--u-s3) 0;
+    background: none;              /* NO CARDS */
+    border: 0;
+    text-align: left;
+    color: var(--u-light);
+    font-family: var(--u-font-display);
+    cursor: pointer;
+    opacity: var(--wx-rest, 0.75);
+    transform:
+        translate3d(calc(var(--wx-px) * var(--wx-depth) * var(--wx-parallax)),
+                    calc(var(--wx-py) * var(--wx-depth) * var(--wx-parallax)), 0)
+        scale(var(--wx-s, var(--wx-scale, 1)));
+    transition:
+        opacity var(--wx-settle) var(--u-ease-enter),
+        transform var(--u-d-scene) var(--u-ease-enter),
+        filter var(--wx-settle) var(--u-ease-enter);
+}
+
+.wx-p:focus { outline: none; }
+
+.wx-p:focus-visible {
+    outline: 1px solid var(--u-pure);
+    outline-offset: 10px;
+}
+
+/* the hairline the artefact sits on */
+.wx-p__rule {
+    grid-area: rule;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-bottom: var(--u-s2);
+    background: var(--u-line-1);
+}
+
+.wx-p__rule::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--wx-acid);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--u-d-scene) var(--u-ease-enter);
+}
+
+.wx-p__idx {
+    grid-area: idx;
+    font-family: var(--u-font-mono);
+    font-size: var(--u-t-meta);
+    letter-spacing: var(--u-track-mono);
+    line-height: 1.6;
+    color: var(--u-muted);
+}
+
+/* name — authored copy, never truncated. Wraps, sized to fit the long ones. */
+.wx-p__name {
+    grid-area: name;
+    position: relative;
+    display: block;
+    font-size: var(--wx-name-size);
+    font-weight: 400;
+    line-height: 1.18;
+    letter-spacing: var(--u-track-title);
+    color: var(--u-white);
+    text-wrap: balance;
+    overflow-wrap: break-word;
+}
+
+/* two channel ghosts stacked over the solid name. The solid layer always
+   stays at full opacity, so the name is legible even fully corrupted. */
+.wx-p__name::before,
+.wx-p__name::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0;
+    transition: opacity var(--wx-settle) var(--u-ease-enter),
+                transform var(--wx-settle) var(--u-ease-enter);
+}
+
+.wx-p__name::before { color: var(--wx-ghost-r); }
+.wx-p__name::after  { color: var(--wx-ghost-g); }
+
+.wx-p__chip {
+    grid-area: chip;
+    justify-self: start;
+    padding: 4px var(--u-s1);
+    border: 1px solid var(--u-line-2);
+    font-family: var(--u-font-mono);
+    font-size: var(--u-t-meta);
+    letter-spacing: var(--u-track-mono);
+    line-height: 1.4;
+    color: var(--u-muted);
+    white-space: nowrap;
+}
+
+/* status: always word + colour, never colour alone */
+.wx-p__chip--live    { color: var(--u-status-live); }
+.wx-p__chip--private { color: var(--u-status-private); }
+.wx-p__chip--open    { color: var(--u-status-open); }
+.wx-p__chip--exp     { color: var(--u-status-experimental); }
+
+.wx-p__blurb {
+    grid-area: blurb;
+    max-width: 34ch;
+    font-size: var(--u-t-body);      /* 16px floor */
+    line-height: 1.55;
+    color: var(--u-light);
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity var(--wx-settle) var(--u-ease-enter),
+                transform var(--wx-settle) var(--u-ease-enter);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;          /* blurbs may clamp; names never do */
+    line-clamp: 2;
+    overflow: hidden;
+}
+
+/* ============================================================================
+   POINTER-ONLY: corruption at rest, stabilisation on approach.
+   ========================================================================== */
+@media (hover: hover) {
+    .wx-p {
+        filter: saturate(0.9);
+    }
+
+    /* scanline veil, dark not bright — no luminance pumping */
+    .wx-p::after {
+        content: "";
+        position: absolute;
+        inset: -4px -8px;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+            to bottom,
+            var(--wx-scan) 0 1px,
+            transparent 1px 3px);
+        opacity: 0.6;
+        transition: opacity var(--wx-settle) var(--u-ease-enter);
+    }
+
+    .wx-p__name::before,
+    .wx-p__name::after {
+        opacity: 0.85;
+        animation: wx-slip-a var(--wx-slip) steps(1, end) infinite;
+    }
+
+    .wx-p__name::after {
+        animation-name: wx-slip-b;
+        animation-duration: calc(var(--wx-slip) * 1.37);
+    }
+
+    /* ---- STABILISE: hover and keyboard focus behave identically ---------- */
+    .wx-p:hover,
+    .wx-p:focus-visible {
+        --wx-s: calc(var(--wx-scale, 1) + 0.04);
+        opacity: 1;
+        filter: none;
+    }
+
+    .wx-p:hover::after,
+    .wx-p:focus-visible::after { opacity: 0; }
+
+    .wx-p:hover .wx-p__name::before,
+    .wx-p:hover .wx-p__name::after,
+    .wx-p:focus-visible .wx-p__name::before,
+    .wx-p:focus-visible .wx-p__name::after {
+        opacity: 0;
+        transform: none;
+        animation: none;
+    }
+
+    .wx-p:hover .wx-p__rule::after,
+    .wx-p:focus-visible .wx-p__rule::after { transform: scaleX(1); }
+
+    .wx-p:hover .wx-p__blurb,
+    .wx-p:focus-visible .wx-p__blurb {
+        opacity: 1;
+        transform: none;
+    }
+
+    .wx-p:hover .wx-p__idx,
+    .wx-p:focus-visible .wx-p__idx { color: var(--u-light); }
+}
+
+/* Irregular, low-amplitude channel slip. Transform only, opacity constant. */
+@keyframes wx-slip-a {
+    0%,  100% { transform: translate3d(calc(var(--wx-shift) * -1), 0, 0); }
+    18%       { transform: translate3d(calc(var(--wx-shift) * -2), 1px, 0); }
+    19%       { transform: translate3d(calc(var(--wx-shift) * -1), 0, 0); }
+    54%       { transform: translate3d(calc(var(--wx-shift) * -3), -1px, 0); }
+    56%       { transform: translate3d(calc(var(--wx-shift) * -1), 0, 0); }
+    83%       { transform: translate3d(calc(var(--wx-shift) * -1.5), 0, 0); }
+}
+
+@keyframes wx-slip-b {
+    0%,  100% { transform: translate3d(var(--wx-shift), 0, 0); }
+    27%       { transform: translate3d(calc(var(--wx-shift) * 2.5), -1px, 0); }
+    29%       { transform: translate3d(var(--wx-shift), 0, 0); }
+    61%       { transform: translate3d(calc(var(--wx-shift) * 1.5), 1px, 0); }
+    64%       { transform: translate3d(var(--wx-shift), 0, 0); }
+}
+
+/* ============================================================================
+   TOUCH / NO HOVER — stable and legible by default; corruption is only an
+   entrance flourish.
+   ========================================================================== */
+@media (hover: none) {
+    .wx-p {
+        opacity: 1;
+        animation: wx-seat 520ms var(--u-ease-enter) both;
+        animation-delay: calc(var(--wx-i) * 70ms);
+    }
+
+    .wx-p__blurb { opacity: 1; transform: none; }
+    .wx-p__rule::after { transform: scaleX(0.18); }
+    .wx-p:active { --wx-s: calc(var(--wx-scale, 1) - 0.01); }
+}
+
+@keyframes wx-seat {
+    from { opacity: 0; transform: translate3d(0, 6px, 0) scale(0.99); }
+    to   { opacity: 1; }
+}
+
+/* ============================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+    /* less spatial complexity: a staggered vertical flow, no parallax */
+    .wx-root { --wx-parallax: 0px; }
+
+    .wx-head { margin-bottom: var(--u-s6); }
+
+    .wx-bench {
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--u-s5);
+    }
+
+    .wx-p {
+        position: static;
+        width: 100%;
+        max-width: 560px;
+        opacity: 1;
+        --wx-scale: 1;
+    }
+
+    .wx-p:nth-child(even) { align-self: flex-end; }
+    .wx-p__blurb { opacity: 1; transform: none; }
+}
+
+@media (max-width: 768px) {
+    /* full-width rows on hairlines — still not cards */
+    .wx-bench { gap: 0; }
+
+    .wx-p {
+        max-width: none;
+        align-self: stretch;
+        padding: var(--u-s4) 0;
+        border-top: 1px solid var(--u-line-1);
+        min-height: 88px;            /* >= 44px target, with real separation */
+    }
+
+    .wx-p:nth-child(even) { align-self: stretch; }
+    .wx-p:first-child { border-top: 0; }
+    .wx-p__rule { display: none; }
+    .wx-p__blurb { max-width: none; }
+    .wx-p__name { font-size: clamp(18px, 5.2vw, 24px); }
+}
+
+@media (max-width: 420px) {
+    .wx-p {
+        grid-template-columns: 1fr;
+        grid-template-areas: "rule" "idx" "name" "chip" "blurb";
+        gap: var(--u-s1);
+    }
+}
+
+/* ============================================================================
+   REDUCED MOTION — the calm version. No glitch, no scanlines, no flicker,
+   no channel separation, no parallax. One stable, fully legible layout.
+   ========================================================================== */
+.wx-root.wx-reduced .wx-p,
+.wx-root.wx-reduced .wx-p__blurb { opacity: 1; transform: none; }
+
+.wx-root.wx-reduced .wx-p::after,
+.wx-root.wx-reduced .wx-p__name::before,
+.wx-root.wx-reduced .wx-p__name::after { content: none; animation: none; }
+
+.wx-root.wx-reduced .wx-p { filter: none; animation: none; }
+.wx-root.wx-reduced .wx-p__rule::after { transform: scaleX(0.18); }
+
+@media (prefers-reduced-motion: reduce) {
+    .wx-root { --wx-parallax: 0px; --wx-shift: 0px; }
+
+    .wx-p,
+    .wx-p__blurb {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        animation: none;
+    }
+
+    .wx-p::after,
+    .wx-p__name::before,
+    .wx-p__name::after {
+        content: none;
+        animation: none;
+    }
+
+    .wx-p__rule::after { transform: scaleX(0.18); }
+
+    /* focus/hover still reads as a state change, just without motion */
+    .wx-p:hover .wx-p__rule::after,
+    .wx-p:focus-visible .wx-p__rule::after { transform: scaleX(1); }
+}

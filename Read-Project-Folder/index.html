@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects · Sangramjeet Ghosh</title>
+<meta name="description" content="Projects Universe — thirty-five systems across four worlds, built by Sangramjeet Ghosh.">
+<meta name="color-scheme" content="dark">
+
+<!-- Display: Space Grotesk · Mono: JetBrains Mono -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Core shell -->
+<link rel="stylesheet" href="css/universe-core.css">
+<!-- World packages (written by the four world agents) -->
+<link rel="stylesheet" href="css/world-live.css">
+<link rel="stylesheet" href="css/world-agents.css">
+<link rel="stylesheet" href="css/world-generators.css">
+<link rel="stylesheet" href="css/world-experiments.css">
+</head>
+
+<body>
+
+<!-- ==========================================================================
+     (a) MINIMAL PAGE FRAME — context only. Not the real portfolio.
+     ========================================================================== -->
+<div id="u-page">
+
+    <header class="u-frame-header">
+        <span class="u-frame-header__mark">SANGRAMJEET GHOSH</span>
+        <span>AI Engineer</span>
+    </header>
+
+    <!-- ======================================================================
+         (b) LEVEL 1 — THE BLACK HOLE PORTAL
+         Self-contained block: lift this <section> verbatim into the portfolio.
+         ====================================================================== -->
+    <section id="projects" class="u-portal" aria-labelledby="u-portal-heading">
+
+        <p class="u-portal__label">03 — Projects</p>
+
+        <div class="u-portal__stage">
+            <canvas id="u-portal-canvas" class="u-portal__canvas" aria-hidden="true"></canvas>
+
+            <button id="u-portal-button" class="u-portal__button" type="button"
+                    aria-label="Enter the projects universe">
+                <!-- span, not <h*>: a button may only contain phrasing content -->
+                <span id="u-portal-heading" class="u-portal__title">ENTER THE REAL WORLD</span>
+                <span class="u-portal__sub">Thirty-five systems. Four worlds. Built from the ground up.</span>
+                <span class="u-portal__hint" aria-hidden="true">Cross the horizon</span>
+            </button>
+        </div>
+
+    </section>
+
+</div><!-- /#u-page -->
+
+
+<!-- ==========================================================================
+     (c) LEVEL 2 — THE UNIVERSE OVERLAY (full-screen fixed layer)
+     ========================================================================== -->
+<main id="universe" class="u-universe" aria-label="Projects universe" hidden>
+
+    <canvas id="u-ambient" class="u-universe__ambient" aria-hidden="true"></canvas>
+    <div class="u-universe__light" aria-hidden="true"></div>
+    <div class="u-universe__rule u-universe__rule--a" aria-hidden="true"></div>
+    <div class="u-universe__rule u-universe__rule--b" aria-hidden="true"></div>
+    <div class="u-universe__rule u-universe__rule--v" aria-hidden="true"></div>
+
+    <!-- four world slots are built here by universe-core.js -->
+    <div id="u-field" class="u-universe__field"></div>
+
+    <!-- one full-screen project environment per world, built by core,
+         populated by each world module via ctx.projectStage -->
+    <div id="u-stages"></div>
+
+</main>
+
+<!-- Persistent navigation chrome -->
+<nav id="u-chrome" class="u-chrome" aria-label="Universe navigation" hidden>
+    <div id="u-crumbs" class="u-crumbs"></div>
+    <a id="u-exit" class="u-exit" href="#/">Exit universe</a>
+</nav>
+
+<!-- Shared project detail view (all four worlds use this one) -->
+<div id="u-detail" class="u-detail" role="dialog" aria-modal="true"
+     aria-labelledby="u-detail-title" hidden>
+    <div id="u-detail-panel" class="u-detail__panel"></div>
+</div>
+
+<!-- Pull-through warp overlay -->
+<div id="u-warp" class="u-warp" aria-hidden="true">
+    <div class="u-warp__rgb u-warp__rgb--r"></div>
+    <div class="u-warp__rgb u-warp__rgb--g"></div>
+    <div class="u-warp__rgb u-warp__rgb--b"></div>
+    <div class="u-warp__core"></div>
+</div>
+
+<div class="u-grain" aria-hidden="true"></div>
+
+
+<!-- ==========================================================================
+     (d) SCRIPTS — data, core, then the four world modules.
+     ========================================================================== -->
+<script src="js/universe-data.js"></script>
+<script src="js/universe-core.js"></script>
+<script src="js/world-live.js"></script>
+<script src="js/world-agents.js"></script>
+<script src="js/world-generators.js"></script>
+<script src="js/world-experiments.js"></script>
+
+</body>
+</html>

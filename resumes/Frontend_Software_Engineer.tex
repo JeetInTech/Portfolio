@@ -1,0 +1,101 @@
+\documentclass[10pt]{article}
+\usepackage[top=0.32in, bottom=0.32in, left=0.42in, right=0.42in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\linespread{0.97}
+\setlist[itemize]{leftmargin=11pt, noitemsep, topsep=1pt, parsep=0pt}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\titlespacing{\section}{0pt}{3.5pt}{1.5pt}
+\titleformat{\section}{\large\bfseries\scshape}{}{0pt}{}[\titlerule]
+\hypersetup{colorlinks=true, linkcolor=blue!75!black, urlcolor=blue!75!black}
+
+\newcommand{\resumeHeader}{
+\begin{center}
+{\LARGE \textbf{SANGRAMJEET GHOSH}} \\[3pt]
+{\small
++91 9059150937 ~$|$~
+\href{mailto:sangramjeet47@gmail.com}{sangramjeet47@gmail.com} ~$|$~
+\href{https://www.linkedin.com/in/sangramjeetghosh}{linkedin.com/in/sangramjeetghosh} ~$|$~
+\href{https://github.com/JeetInTech}{github.com/JeetInTech} ~$|$~
+\href{https://neuroviai.dev}{neuroviai.dev}
+}\\[1pt]
+{\footnotesize Hyderabad, Telangana, India \quad $|$ \quad B.Tech CSE (AI \& ML), Malla Reddy University (2026, GPA: 8.0/10.0)}
+\end{center}
+\vspace{-8pt}
+}
+
+\newcommand{\educationSection}{
+\section*{Education}
+\textbf{Bachelor of Technology in Computer Science and Engineering (AI \& ML)} \hfill Graduated May 2026 \\
+Malla Reddy University, Hyderabad, Telangana \hfill \textbf{GPA: 8.0 / 10.0}
+}
+
+\begin{document}
+\resumeHeader
+
+\section*{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Languages} & TypeScript, JavaScript (ES6+), HTML5, CSS3/PostCSS, Python, Rust (basics) \\[1.5pt]
+\textbf{UI Frameworks} & React 18/19, Next.js 14/16 (App Router, Turbopack, SSR/SSG), Tailwind CSS (v3/v4), Motion (Framer Motion) \\[1.5pt]
+\textbf{State \& Tooling} & Zustand, React Context, VS Code Extensibility API, Webview IPC, WebSockets, HTML5 Canvas, Web Audio API \\[1.5pt]
+\textbf{Performance \& Build} & Vite, Webpack, Monaco Editor, Lighthouse Optimization, 60 FPS Rendering, Git, CI/CD, Netlify \\
+\end{tabularx}
+
+\section*{Professional Experience}
+\textbf{Founding Engineer} \hfill Sep 2026 -- Present \\
+\textit{Molars Nutrition Brand Platform} \hfill Hyderabad, India
+\begin{itemize}
+    \item Built and shipped commercial brand platform using React 19, Next.js, and Tailwind CSS, maintaining 95+ Lighthouse performance scores.
+    \item Designed interactive molecular canvas rendering components (\texttt{molecule.tsx}) with physics-based cursor repulsion and responsive layout.
+    \item Integrated serverless Netlify Functions with transactional email confirmation and accessible client-side form validation.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Freelance Software Engineer} \hfill Aug 2025 -- Present \\
+\textit{Independent} \hfill Remote
+\begin{itemize}
+    \item Developed high-performance developer extensions and responsive single-page applications with TypeScript, React, and VS Code APIs.
+    \item Engineered fluid micro-interactions and complex multi-stage UI state machines with Framer Motion and optimized frame render budgets.
+\end{itemize}
+
+\section*{Featured Projects}
+\textbf{Mr. Memecredible — Published VS Code Extension} \hfill \href{https://marketplace.visualstudio.com/items?itemName=SangramjeetGhosh.mr-memecredible}{904 Active Installs} \\
+\textit{TypeScript, VS Code Extension API, Node.js, Webview Panels, HTML5/CSS3 Animations}
+\begin{itemize}
+    \item Published developer productivity extension on Microsoft VS Code Marketplace with \textbf{904 active installs} and five-star rating.
+    \item Subscribed to language server diagnostics via \texttt{vscode.languages.onDidChangeDiagnostics} within a strict $<$16ms execution budget.
+    \item Engineered bi-directional Webview postMessage IPC rendering dynamic 9-stage uncanny meme meter reflecting real-time syntax error count.
+    \item Optimized extension bundle size under 250KB, ensuring negligible CPU overhead and completely unblocked main editor typing threads.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Realtime Multiverse Community Platform} \hfill \href{https://github.com/JeetInTech/U---enter-the-multiverse}{github.com/JeetInTech} \\
+\textit{Next.js 16 (Turbopack), React 19, Tailwind CSS v4, Motion 13, Supabase Realtime, Web Audio API}
+\begin{itemize}
+    \item Built a real-time community platform using React 19 and Next.js 16 (App Router).
+    \item Designed a 5-stage animated UI state machine (\texttt{enter $\to$ forge $\to$ arrive $\to$ map $\to$ region}) driven by Motion 13 layout transitions.
+    \item Integrated Supabase Realtime WebSockets for sub-50ms live user presence tracking and cursor broadcasting across multiverse spaces.
+    \item Implemented procedural sound design using native Web Audio API, generating synthetic feedback tones on interactive state changes.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Neuroviai} \hfill \href{https://neuroviai.dev}{neuroviai.dev (1.2K+ Monthly Visitors)} \\
+\textit{Next.js 14 App Router, TypeScript, Tailwind CSS, Zustand, Framer Motion}
+\begin{itemize}
+    \item Developed the production SaaS dashboard for \texttt{neuroviai.dev} (\textbf{1.2K+ organic monthly visitors}) with a dark-mode design system.
+    \item Implemented client-side optimistic UI state management using Zustand, synchronizing real-time token credit balances and billing statuses.
+    \item Engineered a custom \texttt{ServerWarmer} routine that proactively warms sleeping serverless containers, slashing cold starts from 5.2s to $<$150ms.
+\end{itemize}
+
+\educationSection
+
+\end{document}

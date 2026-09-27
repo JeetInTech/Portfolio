@@ -1,0 +1,104 @@
+\documentclass[10pt]{article}
+\usepackage[top=0.32in, bottom=0.32in, left=0.42in, right=0.42in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\linespread{0.97}
+\setlist[itemize]{leftmargin=11pt, noitemsep, topsep=1pt, parsep=0pt}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\titlespacing{\section}{0pt}{3.5pt}{1.5pt}
+\titleformat{\section}{\large\bfseries\scshape}{}{0pt}{}[\titlerule]
+\hypersetup{colorlinks=true, linkcolor=blue!75!black, urlcolor=blue!75!black}
+
+\newcommand{\resumeHeader}{
+\begin{center}
+{\LARGE \textbf{SANGRAMJEET GHOSH}} \\[3pt]
+{\small
++91 9059150937 ~$|$~
+\href{mailto:sangramjeet47@gmail.com}{sangramjeet47@gmail.com} ~$|$~
+\href{https://www.linkedin.com/in/sangramjeetghosh}{linkedin.com/in/sangramjeetghosh} ~$|$~
+\href{https://github.com/JeetInTech}{github.com/JeetInTech} ~$|$~
+\href{https://neuroviai.dev}{neuroviai.dev}
+}\\[1pt]
+{\footnotesize Hyderabad, Telangana, India \quad $|$ \quad B.Tech CSE (AI \& ML), Malla Reddy University (2026, GPA: 8.0/10.0)}
+\end{center}
+\vspace{-8pt}
+}
+
+\newcommand{\educationSection}{
+\section*{Education}
+\textbf{Bachelor of Technology in Computer Science and Engineering (AI \& ML)} \hfill Graduated May 2026 \\
+Malla Reddy University, Hyderabad, Telangana \hfill \textbf{GPA: 8.0 / 10.0}
+}
+
+\begin{document}
+\resumeHeader
+
+\section*{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Machine Learning \& DL} & Scikit-Learn, PyTorch, HuggingFace Transformers (T5, PEGASUS), LightGBM, Stable Diffusion, OpenCV \\[1.5pt]
+\textbf{Big Data \& MLOps} & Dask, PyArrow, Optuna (Bayesian Optimization), MLflow, Pandera Data Contracts, ComfyUI, Docker \\[1.5pt]
+\textbf{NLP \& Semantic Search} & Information Extraction, Tokenizers, ROUGE Metrics, ChromaDB, PostgreSQL (\texttt{pgvector}), LIME \\[1.5pt]
+\textbf{Data Analytics \& Viz} & Pandas, NumPy, Matplotlib, Seaborn, Plotly, SciPy, Statistical Hypothesis Testing, SQL \\
+\end{tabularx}
+
+\section*{Professional Experience}
+\textbf{Freelance Software Engineer} \hfill Aug 2025 -- Present \\
+\textit{Independent} \hfill Remote
+\begin{itemize}
+    \item Implemented end-to-end machine learning pipelines encompassing data preprocessing, Bayesian hyperparameter tuning, and model tracking.
+    \item Trained transformer models for sequence-to-sequence NLP tasks and optimized local generative diffusion pipelines on consumer GPUs.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Data Science \& Backend Intern} \hfill Mar 2025 -- Dec 2025 \\
+\textit{Inikola Technologies} \hfill Hyderabad, India
+\begin{itemize}
+    \item Built automated data ingestion and validation pipelines in Python, sanitizing unstructured text datasets using Pydantic and PostgreSQL.
+    \item Developed and evaluated natural language scoring algorithms, deploying inference endpoints via FastAPI microservices on AWS EC2.
+\end{itemize}
+
+\section*{Featured Projects}
+\textbf{AI Data Analyst \& Automated Machine Learning Engine} \hfill \href{https://github.com/JeetInTech/Ai-data-analyst}{github.com/JeetInTech} \\
+\textit{Python, Dask, PyArrow, Pandera, Optuna, Scikit-Learn, LightGBM, MLflow, LIME}
+\begin{itemize}
+    \item Built an out-of-core tabular AutoML pipeline capable of ingesting datasets exceeding physical RAM (5GB+) via Dask and PyArrow.
+    \item Enforced strict schema contracts and boundary validations using Pandera, automating missing-value imputation and feature scaling.
+    \item Executed Bayesian hyperparameter tuning over 50+ trials with Optuna, tracking metrics in MLflow and generating LIME feature explanations.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Genesis: Autonomous Multi-Board Job Application Agent} \hfill \href{https://github.com/JeetInTech}{github.com/JeetInTech} \\
+\textit{Python, Groq LLM API, BeautifulSoup4, SQLite, Playwright, LaTeX pdflatex Engine}
+\begin{itemize}
+    \item Engineered an autonomous recruitment bot parsing unstructured job descriptions and matching candidate skills via NLP.
+    \item Dynamically tailored LaTeX resumes matching job criteria and automated multi-step questionnaire responses across the application pipeline.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Genesis: Offline Image Workstation (Low-VRAM Diffusion Engine)} \hfill \href{https://github.com/JeetInTech}{github.com/JeetInTech} \\
+\textit{Python, PySide6, ComfyUI Headless Queue, Stable Diffusion / Z-Image Turbo, Torch Optimization}
+\begin{itemize}
+    \item Architected a 100\% local generative image workstation with CPU/GPU offloading to generate high-resolution art on a 4GB VRAM consumer GPU.
+    \item Engineered a headless ComfyUI workflow queue with batch scheduling, packaged as a standalone Windows executable with zero cloud dependencies.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{CNN Text Summarization Deep Learning Pipeline} \hfill \href{https://huggingface.co/JeetinTechh/CNN-News-data}{huggingface.co/JeetinTechh} \\
+\textit{Python, PyTorch, HuggingFace Transformers (PEGASUS / T5), Datasets, Docker, Flask}
+\begin{itemize}
+    \item Fine-tuned sequence-to-sequence transformer models on the CNN/DailyMail dataset for abstractive text summarization.
+    \item Implemented custom data transformation pipeline with dynamic token padding, beam search decoding, and ROUGE-1/2/L evaluations.
+\end{itemize}
+
+\educationSection
+
+\end{document}

@@ -1,0 +1,657 @@
+/* ============================================================================
+   world-generators.css — WORLD 03 · LOCAL GENERATORS
+   Consumes the core tokens from universe-core.css. Redefines none of them.
+   Every value this world owns is a --wg-* custom property scoped to the two
+   roots this module renders: .wg-rig (the forge) and .wg-floor (the lab floor).
+
+   Motion rule: transform / opacity / filter only. stroke-dashoffset is used
+   once, for the pipeline rail draw-in.
+   ========================================================================== */
+
+.wg-rig,
+.wg-floor {
+    /* ---- palette (restrained: the scene stays predominantly black) ------ */
+    --wg-violet:   var(--u-accent-generators);     /* #8b5cf6 */
+    --wg-magenta:  var(--u-accent-generators-2);   /* #d946ef */
+    --wg-blue:     var(--u-accent-generators-3);   /* #3b82f6 — cold ground */
+
+    /* ---- stroke weights (SVG user units; rigs are scaled down slightly) - */
+    --wg-sw:       1.6;
+    --wg-sw-hair:  1;
+
+    /* ---- motion --------------------------------------------------------- */
+    --wg-flow:     5.2s;    /* particle transit          */
+    --wg-thumb-d:  6.3s;    /* media thumbnail transit   */
+    --wg-wake:     3.6s;    /* gpu bay wake cycle        */
+    --wg-pulse:    3.2s;    /* core pulse                */
+    --wg-outc:     6.4s;    /* output materialise cycle  */
+    --wg-payload:  2.4s;    /* hover transformation pass */
+
+    /* ---- lab floor depth ------------------------------------------------ */
+    --wg-depth-scale: 0.07; /* keeps 17px blurbs above the 16px floor       */
+    --wg-depth-fade:  0.28;
+    --wg-par-x:      -20px; /* parallax reach at depth 1                     */
+    --wg-par-y:      -14px;
+}
+
+/* ============================================================================
+   THE ENTITY — AI FORGE / COMPUTE WORKSTATION
+   ========================================================================== */
+.wg-host { display: block; }
+
+.wg-rig {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* ---- shared stroke vocabulary: one thin-line set, no fills -------------- */
+.wg-rig .wg-frame,
+.wg-rig .wg-ln,
+.wg-rig .wg-edge,
+.wg-rig .wg-hair,
+.wg-rig .wg-lattice,
+.wg-rig .wg-rail,
+.wg-rig .wg-gpu__bay,
+.wg-rig .wg-core__hex,
+.wg-rig .wg-core__ring {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+}
+
+.wg-rig .wg-frame     { stroke: var(--u-line-2); stroke-width: var(--wg-sw); }
+.wg-rig .wg-edge      { stroke: var(--u-line-3); stroke-width: var(--wg-sw); }
+.wg-rig .wg-ln        { stroke: var(--u-muted);  stroke-width: var(--wg-sw); }
+.wg-rig .wg-hair      { stroke: var(--u-line-2); stroke-width: var(--wg-sw-hair); }
+.wg-rig .wg-lattice   { stroke: var(--u-line-1); stroke-width: var(--wg-sw-hair); }
+.wg-rig .wg-gpu__bay  { stroke: var(--u-line-2); stroke-width: var(--wg-sw); }
+.wg-rig .wg-track     { fill: var(--u-line-1); }
+.wg-rig .wg-bar       { fill: var(--wg-violet); }
+.wg-rig .wg-node      { fill: var(--u-silver); }
+.wg-rig .wg-gpu__led  { fill: var(--wg-violet); opacity: 0.2; }
+.wg-rig .wg-particle  { fill: var(--wg-blue); opacity: 0; }
+
+/* ---- mono chrome inside the rig ---------------------------------------- */
+.wg-rig text {
+    font-family: var(--u-font-mono);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+}
+.wg-rig .wg-label { font-size: 12px; fill: var(--u-muted); }
+.wg-rig .wg-idx   { font-size: 10px; fill: var(--u-silver); }
+.wg-rig .wg-read  { font-size: 11px; fill: var(--u-silver); }
+
+/* ---- pipeline rails: draw in once on mount ------------------------------ */
+.wg-rig .wg-rail {
+    stroke: var(--wg-blue);
+    stroke-width: var(--wg-sw-hair);
+    opacity: 0.55;
+    stroke-dasharray: 240;
+    stroke-dashoffset: 240;
+    animation: wg-draw var(--u-d-scene) var(--u-ease-enter) forwards;
+}
+@keyframes wg-draw { to { stroke-dashoffset: 0; } }
+
+/* ---- INPUT: rough fragments jitter in the intake ------------------------ */
+.wg-rig .jit {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wg-jit 2.8s ease-in-out infinite;
+    animation-delay: calc(var(--i) * -0.9s);
+}
+@keyframes wg-jit {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50%      { transform: translate(1.5px, -1.5px) rotate(2deg); }
+}
+
+/* ---- determinate bars: scaleX only, never width ------------------------- */
+.wg-rig .wg-bar {
+    transform-box: fill-box;
+    transform-origin: left center;
+    animation: wg-fill 4.4s var(--u-ease-enter) infinite;
+    animation-delay: calc(var(--i) * -0.8s);
+}
+@keyframes wg-fill {
+    0%   { transform: scaleX(0.06); opacity: 0.5; }
+    70%  { transform: scaleX(0.96); opacity: 1; }
+    100% { transform: scaleX(0.06); opacity: 0.5; }
+}
+
+/* ---- MODEL: nodes illuminate in sequence -------------------------------- */
+.wg-rig .wg-node {
+    opacity: 0.35;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wg-node 3.6s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.26s);
+}
+@keyframes wg-node {
+    0%, 70%, 100% { opacity: 0.3;  transform: scale(1); }
+    12%           { opacity: 1;    transform: scale(1.35); }
+}
+
+/* ---- PROCESSING: bays wake one at a time -------------------------------- */
+.wg-rig .wg-gpu {
+    opacity: 0.5;
+    animation: wg-wake var(--wg-wake) ease-in-out infinite;
+    animation-delay: calc(var(--i) * -0.9s);
+}
+@keyframes wg-wake {
+    0%, 100% { opacity: 0.45; }
+    18%      { opacity: 1; }
+    45%      { opacity: 0.6; }
+}
+.wg-rig .wg-gpu__led {
+    animation: wg-led var(--wg-wake) ease-in-out infinite;
+    animation-delay: calc(var(--i) * -0.9s);
+}
+@keyframes wg-led {
+    0%, 100% { opacity: 0.15; }
+    18%      { opacity: 1; }
+}
+
+/* ---- the compute core: slow pulse + heat shimmer ------------------------ */
+.wg-rig .wg-core__hex {
+    stroke: var(--wg-magenta);
+    stroke-width: var(--wg-sw);
+    opacity: 0.85;
+}
+.wg-rig .wg-core__dot {
+    fill: var(--wg-magenta);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wg-core-dot var(--wg-pulse) ease-in-out infinite;
+}
+@keyframes wg-core-dot {
+    0%, 100% { opacity: 0.75; transform: scale(0.88); }
+    50%      { opacity: 1;    transform: scale(1.12); }
+}
+
+.wg-rig .wg-core__ring {
+    stroke: var(--wg-violet);
+    stroke-width: var(--wg-sw-hair);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wg-core-ring var(--wg-pulse) var(--u-ease-enter) infinite;
+    animation-delay: calc(var(--i) * -1.1s);
+}
+@keyframes wg-core-ring {
+    0%   { opacity: 0.45; transform: scale(0.86); }
+    60%  { opacity: 0.12; transform: scale(1.14); }
+    100% { opacity: 0.45; transform: scale(0.86); }
+}
+
+.wg-rig .sh {
+    stroke: var(--wg-violet);
+    opacity: 0.22;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wg-shimmer 2.6s ease-in-out infinite;
+    animation-delay: calc(var(--i) * -0.7s);
+}
+@keyframes wg-shimmer {
+    0%, 100% { transform: translateY(0);      opacity: 0.08; }
+    50%      { transform: translateY(-2.5px); opacity: 0.3; }
+}
+
+/* ---- OUTPUT: generated result materialises, then dissolves -------------- */
+.wg-rig .wg-out {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wg-out var(--wg-outc) var(--u-ease-enter) infinite;
+}
+.wg-rig .wg-out .wg-ln { stroke: var(--wg-magenta); }
+@keyframes wg-out {
+    0%        { opacity: 0;    transform: scale(0.94); }
+    18%       { opacity: 0.95; transform: scale(1); }
+    62%       { opacity: 0.8;  transform: scale(1); }
+    88%, 100% { opacity: 0;    transform: scale(1.02); }
+}
+
+.wg-rig .fr {
+    stroke: var(--wg-violet);
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wg-frag var(--wg-outc) var(--u-ease-enter) infinite;
+    animation-delay: calc(var(--i) * 0.18s + 0.5s);
+}
+@keyframes wg-frag {
+    0%       { opacity: 0; transform: translateY(6px) scale(0.7); }
+    16%      { opacity: 0.9; transform: translateY(0) scale(1); }
+    46%      { opacity: 0.5; transform: translateY(-4px) scale(1); }
+    70%,100% { opacity: 0; transform: translateY(-8px) scale(0.9); }
+}
+
+/* ---- particles flowing the whole pipeline ------------------------------- */
+.wg-rig .wg-particle {
+    animation: wg-flow var(--dur, var(--wg-flow)) linear infinite;
+    animation-delay: calc(var(--i) * -0.43s);
+}
+@keyframes wg-flow {
+    0%   { transform: translate(0, 0);                          opacity: 0; }
+    12%  {                                                      opacity: 0.85; }
+    80%  {                                                      opacity: 0.4; }
+    100% { transform: translate(var(--wg-tx), var(--wg-ty));    opacity: 0; }
+}
+
+/* ---- media thumbnails riding the rails into the core -------------------- */
+.wg-rig .wg-thumb {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wg-travel var(--wg-thumb-d) cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    animation-delay: calc(var(--i) * -2.1s);
+}
+.wg-rig .wg-thumb .wg-ln { stroke: var(--u-light); }
+@keyframes wg-travel {
+    0%       { transform: translate(0, 0) scale(0.85); opacity: 0; }
+    10%      { opacity: 0.9; }
+    52%      { transform: translate(var(--wg-mx), var(--wg-my)) scale(1); opacity: 0.9; }
+    64%      { transform: translate(var(--wg-mx), var(--wg-my)) scale(0.2); opacity: 0; }
+    100%     { transform: translate(var(--wg-mx), var(--wg-my)) scale(0.2); opacity: 0; }
+}
+
+/* ---- the hover payload: RAW INPUT -> PROCESSING -> MODEL -> OUTPUT ------ */
+.wg-rig .wg-payload {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+.wg-rig .wg-payload .wg-ln { stroke: var(--wg-magenta); }
+
+.wg-rig.is-hot .wg-payload {
+    animation: wg-payload var(--wg-payload) var(--u-ease-enter) infinite;
+}
+@keyframes wg-payload {
+    0%   { transform: translate(0, 0) scale(0.8) rotate(-6deg); opacity: 0; }
+    10%  { opacity: 1; }
+    50%  { transform: translate(var(--wg-mx), var(--wg-my)) scale(1.15) rotate(4deg); opacity: 1; }
+    62%  { transform: translate(var(--wg-mx), var(--wg-my)) scale(0.15) rotate(0deg); opacity: 0; }
+    100% { transform: translate(var(--wg-mx), var(--wg-my)) scale(0.15); opacity: 0; }
+}
+
+/* ---- hover: throughput rises, everything runs harder -------------------- */
+.wg-rig.is-hot { --wg-wake: 1.5s; --wg-pulse: 1.5s; --wg-outc: 2.4s; }
+.wg-rig.is-hot .wg-particle { animation-duration: calc(var(--dur, var(--wg-flow)) * 0.42); }
+.wg-rig.is-hot .wg-thumb    { animation-duration: calc(var(--wg-thumb-d) * 0.42); }
+.wg-rig.is-hot .wg-bar      { animation-duration: 1.6s; }
+.wg-rig.is-hot .wg-node     { animation-duration: 1.4s; }
+.wg-rig.is-hot .wg-rail     { opacity: 0.9; }
+.wg-rig.is-hot .wg-core__hex { opacity: 1; }
+.wg-rig .wg-rail,
+.wg-rig .wg-core__hex { transition: opacity var(--u-d-micro-lg) var(--u-ease-enter); }
+
+/* ---- activation flourish: brief core over-spin, < 180ms ----------------- */
+.wg-rig.is-spin .wg-core {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wg-overspin 170ms var(--u-ease-exit);
+}
+@keyframes wg-overspin {
+    0%   { transform: rotate(0deg) scale(1); }
+    60%  { transform: rotate(140deg) scale(1.16); }
+    100% { transform: rotate(240deg) scale(1); }
+}
+
+/* ============================================================================
+   THE LAB FLOOR — PROJECT ENVIRONMENT
+   Content sits on the void, separated by hairlines. No cards.
+   ========================================================================== */
+.wg-floor { max-width: 1320px; }
+
+.wg-floor__head { max-width: 60ch; margin-bottom: var(--u-s6); }
+
+.wg-kicker {
+    margin: 0 0 var(--u-s2);
+    font-family: var(--u-font-mono);
+    font-size: var(--u-t-micro);
+    font-weight: 500;
+    letter-spacing: var(--u-track-mono);
+    text-transform: uppercase;
+    color: var(--u-muted);
+}
+
+.wg-floor__title {
+    margin: 0 0 var(--u-s2);
+    font-size: var(--u-t-world);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: var(--u-track-title);
+    color: var(--u-white);
+}
+
+.wg-floor__lead {
+    margin: 0;
+    font-size: var(--u-t-lead);
+    line-height: var(--u-lh-body);
+    color: var(--u-light);
+}
+
+/* ---- the plot: asymmetric spatial composition with real depth ----------- */
+.wg-floor__plot {
+    position: relative;
+    height: 940px;
+}
+
+/* ---- one processing bay ------------------------------------------------- */
+.wg-bay {
+    position: absolute;
+    left: var(--wg-x);
+    top: var(--wg-y);
+    width: clamp(212px, 23%, 300px);
+    display: block;
+    margin: 0;
+    padding: var(--u-s2) 0 var(--u-s3);
+    text-align: left;
+    background: none;                    /* NO CARDS */
+    border: 0;
+    border-top: 1px solid var(--u-line-1);
+    color: var(--u-light);
+    font-family: inherit;
+    cursor: pointer;
+    opacity: calc(1 - var(--wg-d) * var(--wg-depth-fade));
+    transform:
+        translate3d(calc(var(--wg-px, 0) * var(--wg-d) * var(--wg-par-x)),
+                    calc(var(--wg-py, 0) * var(--wg-d) * var(--wg-par-y)), 0)
+        scale(calc((1 - var(--wg-d) * var(--wg-depth-scale)) * var(--wg-hs, 1)));
+    transition:
+        transform var(--u-d-scene) var(--u-ease-enter),
+        opacity var(--u-d-micro-lg) var(--u-ease-enter),
+        border-color var(--u-d-micro-lg) var(--u-ease-enter);
+}
+
+.wg-bay:focus-visible {
+    outline: 1px solid var(--u-pure);
+    outline-offset: 8px;
+}
+
+.wg-bay__idx {
+    display: block;
+    margin-bottom: var(--u-s1);
+    font-family: var(--u-font-mono);
+    font-size: var(--u-t-micro);
+    font-weight: 500;
+    letter-spacing: var(--u-track-mono);
+    color: var(--u-silver);
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---- the machine frame + its media motif -------------------------------- */
+.wg-bay__art {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: var(--u-s2);
+    overflow: visible;
+}
+
+.wg-bay__art .wg-b-frame,
+.wg-bay__art .wg-b-edge,
+.wg-bay__art .wg-b-hair,
+.wg-bay__art .wg-b-ln,
+.wg-bay__art .wg-b-wave,
+.wg-bay__art .wg-b-tile {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+}
+.wg-bay__art .wg-b-frame { stroke: var(--u-line-2); stroke-width: 1.5; }
+.wg-bay__art .wg-b-edge  { stroke: var(--u-line-3); stroke-width: 1.5; }
+.wg-bay__art .wg-b-hair  { stroke: var(--u-line-1); stroke-width: 1; }
+.wg-bay__art .wg-b-ln    { stroke: var(--u-line-2); stroke-width: 1.5; }
+.wg-bay__art .wg-b-lug   { fill: var(--u-line-3); }
+.wg-bay__art .wg-b-wave  { stroke: var(--u-silver); stroke-width: 1.5; }
+.wg-bay__art .wg-b-tile  { stroke: var(--u-line-2); stroke-width: 1.5; }
+.wg-bay__art .wg-b-node  { fill: var(--u-silver); opacity: 0.55; }
+.wg-bay__art .wg-b-motif {
+    transition: opacity var(--u-d-micro-lg) var(--u-ease-enter);
+}
+
+/* ---- name / status / index --------------------------------------------- */
+.wg-bay__name {
+    display: block;
+    margin-bottom: var(--u-s1);
+    /* authored copy — never truncated, wraps instead */
+    font-size: clamp(16px, 1.05vw, 19px);
+    font-weight: 400;
+    line-height: 1.16;
+    letter-spacing: var(--u-track-title);
+    color: var(--u-white);
+    overflow-wrap: break-word;
+    min-height: 2.32em;              /* keeps two-line names on the same rhythm */
+}
+
+.wg-bay__meta { display: block; margin-bottom: var(--u-s1); }
+
+.wg-chip {
+    display: inline-block;
+    padding: 2px 0 0;
+    font-family: var(--u-font-mono);
+    font-size: var(--u-t-micro);
+    font-weight: 500;
+    letter-spacing: var(--u-track-mono);
+    text-transform: uppercase;
+    /* status is the WORD first; colour only reinforces it */
+    border-top: 1px solid currentColor;
+    color: var(--u-muted);
+}
+.wg-chip--live         { color: var(--u-status-live); }
+.wg-chip--private      { color: var(--u-status-private); }
+.wg-chip--open-source  { color: var(--u-status-open); }
+.wg-chip--experimental { color: var(--u-status-experimental); }
+
+.wg-bay__blurb {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 3.4em;               /* space reserved: nothing reflows on hover */
+    font-size: 17px;            /* 17px — survives the depth scale */
+    line-height: 1.6;
+    color: var(--u-light);
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity var(--u-d-micro-lg) var(--u-ease-enter),
+                transform var(--u-d-micro-lg) var(--u-ease-enter);
+}
+
+/* ---- focus state (keyboard, always available) --------------------------- */
+.wg-bay:focus-visible {
+    opacity: 1;
+    border-top-color: var(--wg-violet);
+    --wg-hs: 1.035;
+}
+.wg-bay:focus-visible .wg-bay__blurb { opacity: 1; transform: none; }
+.wg-bay:focus-visible .wg-b-frame    { stroke: var(--wg-violet); }
+.wg-bay:focus-visible .wg-b-lug      { fill: var(--wg-magenta); }
+
+/* ---- pointer-only affordances ------------------------------------------ */
+@media (hover: hover) {
+    .wg-bay:hover {
+        opacity: 1;
+        border-top-color: var(--wg-violet);
+        --wg-hs: 1.035;
+    }
+    .wg-bay:hover .wg-bay__blurb { opacity: 1; transform: none; }
+    .wg-bay:hover .wg-b-frame    { stroke: var(--wg-violet); }
+    .wg-bay:hover .wg-b-lug      { fill: var(--wg-magenta); }
+    .wg-bay:hover .wg-b-motif    { opacity: 1; }
+}
+
+/* motif animation on hover — pointer-only, so it stays in the hover query */
+@media (hover: hover) {
+    .wg-bay:hover .wg-b-wave {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: wg-bwave 1.1s ease-in-out infinite;
+        animation-delay: calc(var(--i) * -0.055s);
+    }
+    .wg-bay:hover .wg-b-strip { animation: wg-bstrip 2.6s linear infinite; }
+    .wg-bay:hover .wg-b-tile {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: wg-btile 2.2s var(--u-ease-enter) infinite;
+        animation-delay: calc(var(--i) * 0.12s);
+    }
+    .wg-bay:hover .wg-b-node {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: wg-bnode 2.4s ease-in-out infinite;
+        animation-delay: calc(var(--i) * 0.13s);
+    }
+}
+
+/* ---- motif animation on keyboard focus (always available) --------------- */
+.wg-bay:focus-visible .wg-b-wave {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wg-bwave 1.1s ease-in-out infinite;
+    animation-delay: calc(var(--i) * -0.055s);
+}
+@keyframes wg-bwave {
+    0%, 100% { transform: scaleY(0.45); opacity: 0.55; }
+    50%      { transform: scaleY(1.35); opacity: 1; }
+}
+
+.wg-bay:focus-visible .wg-b-strip {
+    animation: wg-bstrip 2.6s linear infinite;
+}
+@keyframes wg-bstrip {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-32px); }
+}
+
+.wg-bay:focus-visible .wg-b-tile {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wg-btile 2.2s var(--u-ease-enter) infinite;
+    animation-delay: calc(var(--i) * 0.12s);
+}
+@keyframes wg-btile {
+    0%, 70%, 100% { opacity: 0.45; transform: scale(1); }
+    22%           { opacity: 1;    transform: scale(1.06); }
+}
+
+.wg-bay:focus-visible .wg-b-node {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wg-bnode 2.4s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.13s);
+}
+@keyframes wg-bnode {
+    0%, 66%, 100% { opacity: 0.4; transform: scale(1); }
+    18%           { opacity: 1;   transform: scale(1.5); }
+}
+
+/* the film strip is clipped to the machine frame while it travels */
+.wg-bay__art { clip-path: inset(-6px -2px -6px -2px); }
+
+/* ============================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+/* ≤1024px — spatial complexity drops to a two-column flow. Parallax is not
+   attached by the module at this width. */
+@media (max-width: 1024px) {
+    .wg-floor__plot {
+        position: static;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--u-s5) var(--u-s4);
+    }
+    .wg-bay {
+        position: static;
+        width: calc(50% - var(--u-s4));
+        opacity: 1;
+        transform: scale(var(--wg-hs, 1));
+    }
+}
+
+/* ≤768px — the world becomes one tall vertical scene: the rig runs
+   top-to-bottom (layout swapped in JS) and the bays stack as full-width rows
+   on hairlines. Still not cards. */
+@media (max-width: 768px) {
+    .wg-floor__head { margin-bottom: var(--u-s5); }
+    .wg-floor__plot {
+        display: block;
+        gap: 0;
+    }
+    .wg-bay {
+        width: 100%;
+        min-height: var(--u-tap);
+        padding: var(--u-s3) 0;
+        margin: 0;
+        border-top: 1px solid var(--u-line-1);
+    }
+    .wg-bay + .wg-bay { margin-top: var(--u-s1); }   /* ≥8px between targets */
+    .wg-bay__art { max-width: 420px; }
+    .wg-bay__name { min-height: 0; font-size: 18px; }
+    .wg-bay__blurb { opacity: 1; transform: none; min-height: 0; }  /* no hover */
+}
+
+@media (max-width: 420px) {
+    .wg-floor__plot { overflow-x: hidden; }
+    .wg-bay__art { max-width: 100%; }
+}
+
+/* ============================================================================
+   REDUCED MOTION
+   One static composed frame: all four stages labelled, output present, bays
+   at fixed load levels. No particles, no payload, no shimmer, no wake.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .wg-rig *,
+    .wg-floor * { animation: none !important; transition: none !important; }
+}
+
+.wg--still *,
+.wg-rig.wg--still {
+    animation: none !important;
+    transition: none !important;
+}
+
+.wg--still .wg-particle,
+.wg--still .wg-thumb,
+.wg--still .wg-payload,
+.wg--still .wg-shimmer { display: none; }
+
+.wg--still .wg-rail   { stroke-dashoffset: 0; opacity: 0.6; }
+.wg--still .wg-out    { opacity: 0.9; }
+.wg--still .wg-frag   { display: none; }
+.wg--still .wg-gpu    { opacity: 0.8; }
+.wg--still .wg-gpu__led { opacity: 0.7; }
+.wg--still .wg-node   { opacity: 0.7; }
+.wg--still .wg-bar    {
+    transform-box: fill-box;
+    transform-origin: left center;
+    transform: scaleX(calc(0.32 + var(--i) * 0.17));
+}
+
+/* the same static frame when the OS asks for it, whatever the JS flag said */
+@media (prefers-reduced-motion: reduce) {
+    .wg-rig .wg-particle,
+    .wg-rig .wg-thumb,
+    .wg-rig .wg-payload,
+    .wg-rig .wg-shimmer { display: none; }
+
+    .wg-rig .wg-rail { stroke-dashoffset: 0; opacity: 0.6; }
+    .wg-rig .wg-out  { opacity: 0.9; }
+    .wg-rig .wg-frag { display: none; }
+    .wg-rig .wg-gpu,
+    .wg-rig .wg-node { opacity: 0.75; }
+    .wg-rig .wg-gpu__led { opacity: 0.7; }
+    .wg-rig .wg-bar {
+        transform-box: fill-box;
+        transform-origin: left center;
+        transform: scaleX(calc(0.32 + var(--i) * 0.17));
+    }
+    .wg-bay { transform: none; opacity: 1; }
+    .wg-bay__blurb { opacity: 1; transform: none; }
+}

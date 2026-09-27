@@ -1,0 +1,2226 @@
+/**
+ * v2-command-deck.css — Cybernetic Command Deck Design System
+ * 100% Pixel-faithful styling matching Version 2 Concepts:
+ * - 01_tour_stage_v2.jpg (Curved Glass Cinema Stage & Telemetry Dials)
+ * - 02_project_cards_v2.jpg (Interactive Glass Cards with Voice Wave, Growth Chart & Chess Engine)
+ * - 03_interactive_hud_v2.jpg (Command Bridge Developer HUD Modal & Code Runner)
+ * - 04_identity_journey_v2.jpg (Floating Identity Matrix Capsule & Staggered Branching Roadmap)
+ * - 05_systems_blueprint_v2.jpg (Motherboard Bezel, Skills Stack, 7-Node PCB Flow & Constellation)
+ * - 06_terminal_vault_v2.jpg (Sebastian AI Terminal with Oscilloscope & 3D Prestige Trophy Vault)
+ */
+
+:root {
+    --v2-void: #020408;
+    --v2-space: #050811;
+    --v2-card-bg: rgba(10, 16, 30, 0.9);
+    --v2-cyan: #00f2fe;
+    --v2-cyan-glow: rgba(0, 242, 254, 0.45);
+    --v2-purple: #c084fc;
+    --v2-purple-glow: rgba(192, 132, 252, 0.45);
+    --v2-magenta: #d946ef;
+    --v2-amber: #fbbf24;
+    --v2-amber-glow: rgba(251, 191, 36, 0.45);
+    --v2-emerald: #10b981;
+    --v2-emerald-glow: rgba(16, 185, 129, 0.45);
+    --v2-rose: #f43f5e;
+    --v2-font-mono: 'JetBrains Mono', monospace;
+    --v2-font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* ========================================================
+   SECTION 01 & 02: IDENTITY MATRIX & TRAJECTORY TREE (04)
+   ======================================================== */
+
+.v2-identity-tree-wrapper {
+    position: relative;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Elevated Glassmorphic Identity Matrix Capsule (04_identity_journey_v2.jpg) */
+.v2-identity-capsule {
+    width: 100%;
+    max-width: 780px;
+    background: radial-gradient(ellipse at 50% 10%, rgba(56, 189, 248, 0.12) 0%, rgba(10, 16, 32, 0.92) 75%);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 2px solid rgba(56, 189, 248, 0.38);
+    border-radius: 9999px;
+    padding: 2.2rem 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95),
+                0 0 50px rgba(56, 189, 248, 0.22),
+                0 0 40px rgba(168, 85, 247, 0.18),
+                inset 0 1px 1px rgba(255, 255, 255, 0.35);
+    position: relative;
+    z-index: 10;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.v2-identity-capsule::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%);
+    border-radius: 9999px;
+}
+
+.v2-identity-capsule:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 35px 100px rgba(0, 0, 0, 0.95),
+                0 0 75px rgba(56, 189, 248, 0.4),
+                0 0 55px rgba(168, 85, 247, 0.35);
+}
+
+.v2-avatar-halo {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, #00f2fe, #a855f7);
+    box-shadow: 0 0 28px rgba(0, 242, 254, 0.75), inset 0 0 10px rgba(0, 242, 254, 0.5);
+    margin-bottom: 0.9rem;
+    position: relative;
+}
+
+.v2-avatar-halo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #060a14;
+    display: block;
+}
+
+.v2-status-beacon {
+    font-family: var(--v2-font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--v2-cyan);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.3rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-shadow: 0 0 14px rgba(0, 242, 254, 0.65);
+}
+
+.v2-beacon-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--v2-emerald);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--v2-emerald);
+    animation: beaconBlink 1.6s infinite ease-in-out;
+}
+
+@keyframes beaconBlink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.8); }
+}
+
+/* Horizontal Telemetry Pill Bar inside Capsule */
+.v2-telemetry-pill {
+    background: rgba(14, 22, 42, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 9999px;
+    padding: 0.75rem 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 580px;
+    backdrop-filter: blur(14px);
+    box-shadow: inset 0 0 15px rgba(0, 242, 254, 0.08);
+}
+
+.v2-telem-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.v2-telem-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 15%;
+    bottom: 15%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.v2-telem-num {
+    font-family: var(--v2-font-mono);
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.v2-telem-label {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-top: 0.2rem;
+}
+
+/* Tree Branch Connector SVG */
+.v2-tree-svg {
+    width: 100%;
+    max-width: 1200px;
+    height: 180px;
+    margin: -15px auto 0;
+    display: block;
+    overflow: visible;
+    position: relative;
+    z-index: 4;
+}
+
+.v2-branch-line {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.v2-branch-line.cyan {
+    stroke: url(#cyanPurpleGrad);
+    filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.85));
+}
+
+.v2-branch-line.purple {
+    stroke: url(#purpleMagentaGrad);
+    filter: drop-shadow(0 0 10px rgba(192, 132, 252, 0.85));
+}
+
+/* Staggered Interactive Luminous Trajectory Nodes (Matching 04_identity_journey_v2.jpg) */
+.v2-roadmap-nodes-container {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.2rem;
+    position: relative;
+    z-index: 5;
+    margin-top: -65px;
+}
+
+@media (max-width: 992px) {
+    .v2-roadmap-nodes-container {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 1rem;
+    }
+    .v2-tree-svg { display: none; }
+}
+
+@media (max-width: 600px) {
+    .v2-roadmap-nodes-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.v2-roadmap-pill {
+    background: radial-gradient(ellipse at 50% 20%, rgba(255,255,255,0.08) 0%, rgba(10, 16, 32, 0.92) 80%);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 242, 254, 0.45);
+    border-radius: 9999px;
+    padding: 1.2rem 1.4rem;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 242, 254, 0.28);
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Exact Staggered Vertical Offsets matching Concept 04 */
+.v2-roadmap-pill.node-2022 { transform: translateY(45px); }
+.v2-roadmap-pill.node-2023 { transform: translateY(45px); }
+.v2-roadmap-pill.node-2024 { transform: translateY(-15px); }
+.v2-roadmap-pill.node-2025 { transform: translateY(55px); }
+.v2-roadmap-pill.node-2026 { transform: translateY(5px); }
+
+@media (max-width: 992px) {
+    .v2-roadmap-pill.node-2022,
+    .v2-roadmap-pill.node-2023,
+    .v2-roadmap-pill.node-2024,
+    .v2-roadmap-pill.node-2025,
+    .v2-roadmap-pill.node-2026 {
+        transform: none !important;
+    }
+}
+
+.v2-roadmap-pill:hover {
+    transform: translateY(-8px) scale(1.04) !important;
+    border-color: var(--v2-cyan);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 242, 254, 0.65);
+}
+
+.v2-roadmap-pill.cyan-glow {
+    border-color: #00f2fe;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 242, 254, 0.4);
+}
+
+.v2-roadmap-pill.purple-glow {
+    border-color: #a855f7;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 30px rgba(168, 85, 247, 0.4);
+}
+
+.v2-roadmap-pill.purple-glow:hover {
+    border-color: #c084fc;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 45px rgba(192, 132, 252, 0.7) !important;
+}
+
+.v2-roadmap-pill.magenta-glow {
+    border-color: #d946ef;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 35px rgba(217, 70, 239, 0.5);
+}
+
+.v2-roadmap-pill.magenta-glow:hover {
+    border-color: #f43f5e;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 50px rgba(244, 63, 94, 0.7) !important;
+}
+
+.v2-node-year {
+    font-family: var(--v2-font-mono);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 0.25rem;
+}
+
+.v2-node-title {
+    font-size: 0.82rem;
+    color: #cbd5e1;
+    line-height: 1.3;
+}
+
+
+/* ========================================================
+   SECTION 03 & 04: CYBERNETIC SYSTEMS MOTHERBOARD (05)
+   ======================================================== */
+
+.v2-motherboard-container {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    background: #03060e;
+    border: 2px solid rgba(0, 242, 254, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95), 0 0 60px rgba(0, 242, 254, 0.2);
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+/* Sci-Fi Circuit Header */
+.v2-mb-header {
+    background: rgba(10, 16, 32, 0.98);
+    border-bottom: 1.5px solid rgba(0, 242, 254, 0.35);
+    padding: 0.9rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--v2-font-mono);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.v2-mb-title-left {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+}
+
+.v2-pill-badge {
+    background: var(--v2-cyan);
+    color: #03060e;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.8);
+}
+
+.v2-mb-title-center {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--v2-cyan);
+    letter-spacing: 0.12em;
+    text-shadow: 0 0 12px rgba(0, 242, 254, 0.7);
+}
+
+.v2-mb-title-right {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    letter-spacing: 0.05em;
+}
+
+/* 3-Column Motherboard Layout */
+.v2-mb-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr 240px;
+    gap: 1.1rem;
+    padding: 1.4rem;
+    align-items: stretch;
+}
+
+@media (max-width: 1200px) {
+    .v2-mb-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Left & Right Skill Columns */
+.v2-mb-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.v2-mb-stack-card {
+    background: rgba(10, 16, 32, 0.92);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    border-radius: 14px;
+    padding: 1.1rem 1.2rem 1.1rem 1.65rem;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 242, 254, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Vertical LED VU Meter strip on left side matching Concept 05 */
+.v2-mb-stack-card::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 14px;
+    bottom: 14px;
+    width: 3.5px;
+    background: repeating-linear-gradient(
+        to bottom,
+        #10b981 0px,
+        #10b981 6px,
+        transparent 6px,
+        transparent 10px
+    );
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.75);
+}
+
+.v2-mb-stack-card:hover {
+    border-color: var(--v2-cyan);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85), 0 0 30px rgba(0, 242, 254, 0.4);
+}
+
+.v2-stack-head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.9rem;
+}
+
+.v2-stack-meters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+    font-family: var(--v2-font-mono);
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.v2-stack-meters strong {
+    color: var(--v2-cyan);
+}
+
+.v2-stack-conn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--v2-font-mono);
+    font-size: 0.75rem;
+    color: var(--v2-emerald);
+    margin-bottom: 0.8rem;
+}
+
+.v2-stack-chips {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.v2-stack-chip-row {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 0.4rem 0.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--v2-font-mono);
+    font-size: 0.75rem;
+    color: #cbd5e1;
+}
+
+.v2-chip-badge {
+    font-size: 0.65rem;
+    color: var(--v2-emerald);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+}
+
+/* Center PCB Flow Board */
+.v2-pcb-board {
+    background: radial-gradient(circle at center, #0a1428 0%, #030712 90%);
+    border: 1.5px solid rgba(0, 242, 254, 0.25);
+    border-radius: 16px;
+    padding: 1.2rem 0.8rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 520px;
+    overflow: hidden;
+}
+
+/* Authentic Circuit Traces SVG in PCB Background */
+.v2-pcb-traces-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Accurate 7-Node Flowchart Layout matching Concept 05 */
+.v2-flow-canvas-v2 {
+    display: grid;
+    grid-template-columns: 78px 84px 120px 114px 80px;
+    grid-template-rows: 135px 135px;
+    gap: 0.55rem;
+    position: relative;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+    margin: auto 0;
+    width: 100%;
+}
+
+@media (max-width: 1100px) {
+    .v2-flow-canvas-v2 {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+}
+
+.v2-flow-node-card {
+    background: rgba(10, 18, 38, 0.94);
+    border: 1.5px solid rgba(0, 242, 254, 0.45);
+    border-radius: 12px;
+    padding: 0.6rem 0.35rem;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 242, 254, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.v2-flow-node-card:hover, .v2-flow-node-card.active {
+    border-color: var(--v2-cyan);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), 0 0 35px rgba(0, 242, 254, 0.6);
+    transform: translateY(-2px);
+}
+
+.v2-flow-node-card.purple-glow {
+    border-color: rgba(192, 132, 252, 0.6);
+}
+.v2-flow-node-card.purple-glow:hover, .v2-flow-node-card.purple-glow.active {
+    border-color: var(--v2-purple);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), 0 0 35px rgba(192, 132, 252, 0.6);
+}
+
+.v2-flow-node-card.amber-glow {
+    border-color: rgba(251, 191, 36, 0.6);
+}
+.v2-flow-node-card.amber-glow:hover, .v2-flow-node-card.amber-glow.active {
+    border-color: var(--v2-amber);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), 0 0 35px rgba(251, 191, 36, 0.6);
+}
+
+.v2-flow-num {
+    font-family: var(--v2-font-mono);
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--v2-cyan);
+    margin-bottom: 0.1rem;
+}
+
+.v2-flow-title {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.1rem;
+    line-height: 1.15;
+}
+
+.v2-flow-sub {
+    font-size: 0.62rem;
+    color: #94a3b8;
+    line-height: 1.1;
+}
+
+.v2-flow-icons {
+    display: flex;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    color: var(--v2-cyan);
+    font-size: 0.9rem;
+}
+
+/* Central Constellation Rotating Wheel for LangGraph (Node 03) */
+.v2-constellation-wrap {
+    width: 48px;
+    height: 48px;
+    margin: 0.35rem auto 0;
+    position: relative;
+    border-radius: 50%;
+    border: 1px dashed rgba(192, 132, 252, 0.5);
+    animation: spinClockwise 12s linear infinite;
+}
+
+@keyframes spinClockwise {
+    100% { transform: rotate(360deg); }
+}
+
+.v2-const-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--v2-cyan);
+    box-shadow: 0 0 8px var(--v2-cyan);
+}
+
+.v2-const-dot:nth-child(1) { top: 0; left: 28px; }
+.v2-const-dot:nth-child(2) { top: 28px; right: 0; background: var(--v2-purple); box-shadow: 0 0 8px var(--v2-purple); }
+.v2-const-dot:nth-child(3) { bottom: 0; left: 28px; }
+.v2-const-dot:nth-child(4) { top: 28px; left: 0; background: var(--v2-amber); box-shadow: 0 0 8px var(--v2-amber); }
+
+
+/* ========================================================
+   SECTION 05: CINEMA STAGE & TOUR CONTROLLER (01)
+   ======================================================== */
+
+.v2-cinema-controller-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3.5rem;
+    position: relative;
+}
+
+.v2-cinema-label-top {
+    font-family: var(--v2-font-mono);
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.9rem;
+    position: relative;
+    display: inline-block;
+}
+
+.v2-cinema-label-top::before,
+.v2-cinema-label-top::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 65px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.v2-cinema-label-top::before { right: 100%; margin-right: 15px; }
+.v2-cinema-label-top::after { left: 100%; margin-left: 15px; }
+
+.v2-cat-capsule {
+    background: rgba(13, 20, 36, 0.92);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 9999px;
+    padding: 0.5rem 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.v2-cat-pill {
+    font-family: var(--v2-font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #94a3b8;
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.v2-cat-pill:hover {
+    color: #ffffff;
+}
+
+.v2-cat-pill.active {
+    color: #00f2fe;
+    border-color: #00f2fe;
+    background: rgba(0, 242, 254, 0.12);
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+    font-weight: 700;
+}
+
+.v2-tour-start-pill {
+    margin-top: 1.3rem;
+    background: rgba(14, 22, 44, 0.95);
+    border: 1.5px solid rgba(0, 242, 254, 0.5);
+    border-radius: 9999px;
+    padding: 0.6rem 1.5rem;
+    color: #ffffff;
+    font-family: var(--v2-font-mono);
+    font-size: 0.92rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.35);
+    transition: all 0.3s ease;
+}
+
+.v2-tour-start-pill:hover {
+    border-color: var(--v2-cyan);
+    box-shadow: 0 0 45px rgba(0, 242, 254, 0.7);
+    transform: scale(1.05);
+}
+
+.v2-tour-play-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--v2-cyan);
+    color: #03060e;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    box-shadow: 0 0 14px var(--v2-cyan);
+}
+
+/* CURVED GLASS 3D CINEMA STAGE CONTAINER (01_tour_stage_v2.jpg) */
+.v2-cinema-stage-3d {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto 3rem;
+    perspective: 1400px;
+    position: relative;
+}
+
+.v2-curved-glass-stand {
+    background: linear-gradient(180deg, rgba(12, 19, 36, 0.8) 0%, rgba(4, 7, 16, 0.96) 100%);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 2px solid rgba(0, 242, 254, 0.5);
+    border-radius: 40px;
+    box-shadow: 0 35px 100px rgba(0, 0, 0, 0.95),
+                0 0 60px rgba(0, 242, 254, 0.32),
+                inset 0 0 35px rgba(0, 242, 254, 0.12);
+    display: grid;
+    grid-template-columns: 210px 1fr 210px;
+    align-items: center;
+    gap: 1.8rem;
+    padding: 2.4rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease;
+}
+
+/* Bottom Cybernetic Stand Feet matching Concept 01 */
+.v2-curved-glass-stand::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    right: 20%;
+    height: 6px;
+    background: linear-gradient(90deg, transparent, #00f2fe, #a855f7, transparent);
+    box-shadow: 0 0 20px #00f2fe;
+    border-radius: 9999px;
+}
+
+@media (max-width: 1024px) {
+    .v2-curved-glass-stand {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+}
+
+/* Flanking Wings Gauges */
+.v2-wing-gauges {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+@media (max-width: 1024px) {
+    .v2-wing-gauges {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+}
+
+.v2-arc-gauge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.v2-arc-svg-wrap {
+    width: 95px;
+    height: 95px;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.v2-arc-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.v2-arc-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.12);
+    stroke-width: 5;
+}
+
+.v2-arc-stroke {
+    fill: none;
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke: #00f2fe;
+    filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.9));
+}
+
+.v2-arc-center-val {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--v2-font-mono);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.v2-arc-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+/* Middle Video Player Screen with Dual-Pane Architecture Overlay */
+.v2-player-screen-box {
+    background: #020408;
+    border: 1.5px solid rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+}
+
+.v2-player-inner-stage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 280px;
+    background: radial-gradient(circle at 30% 50%, #0c152a 0%, #020408 85%);
+    align-items: center;
+    padding: 1.8rem;
+    gap: 1.5rem;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .v2-player-inner-stage {
+        grid-template-columns: 1fr;
+    }
+}
+
+.v2-player-content-center {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    padding-left: 1rem;
+}
+
+.v2-player-big-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.1rem;
+    letter-spacing: -0.02em;
+}
+
+.v2-player-big-sub {
+    font-family: var(--v2-font-mono);
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-bottom: 1.2rem;
+}
+
+.v2-player-center-play {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(0, 242, 254, 0.15);
+    border: 2px solid #00f2fe;
+    color: #ffffff;
+    font-size: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.6);
+    transition: all 0.3s ease;
+}
+
+.v2-player-center-play:hover {
+    transform: scale(1.1);
+    background: var(--v2-cyan);
+    color: #03060e;
+    box-shadow: 0 0 45px rgba(0, 242, 254, 0.9);
+}
+
+/* Mini Architecture Node Overlay on Player (Matching Concept 01) */
+.v2-player-arch-overlay {
+    background: rgba(6, 11, 24, 0.85);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    border-radius: 12px;
+    padding: 1rem;
+    font-family: var(--v2-font-mono);
+    font-size: 0.72rem;
+    position: relative;
+    box-shadow: inset 0 0 15px rgba(0, 242, 254, 0.08);
+}
+
+.v2-arch-overlay-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    color: var(--v2-cyan);
+    font-weight: 700;
+}
+
+.v2-arch-mini-flow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+}
+
+.v2-arch-mini-node {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 0.4rem 0.6rem;
+    color: #cbd5e1;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Scrub Bar & Player Controls */
+.v2-player-controls-strip {
+    background: rgba(8, 12, 22, 0.98);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.v2-player-scrub-track {
+    flex: 1;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+}
+
+.v2-player-scrub-fill {
+    height: 100%;
+    width: 45%;
+    background: linear-gradient(90deg, #00f2fe, #a855f7);
+    border-radius: 3px;
+    position: relative;
+}
+
+.v2-player-scrub-thumb {
+    position: absolute;
+    right: -6px;
+    top: -4px;
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00f2fe;
+}
+
+/* Bottom Flagship Carousel Strip */
+.v2-bottom-carousel-wrap {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.v2-carousel-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+}
+
+.v2-carousel-sub {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 1.3rem;
+}
+
+.v2-carousel-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.v2-carousel-nav-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.v2-carousel-nav-btn:hover {
+    background: var(--v2-cyan);
+    color: #03060e;
+    border-color: var(--v2-cyan);
+}
+
+.v2-carousel-thumb-card {
+    background: rgba(14, 20, 36, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 0.75rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.v2-carousel-thumb-card:hover, .v2-carousel-thumb-card.active {
+    border-color: #00f2fe;
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.45);
+    transform: translateY(-2px);
+}
+
+.v2-thumb-info {
+    text-align: left;
+}
+
+.v2-thumb-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+
+/* ========================================================
+   SEGMENTED INTERACTIVE CARDS (V2 CONCEPT 02)
+   ======================================================== */
+
+.v2-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1260px;
+    margin: 0 auto 3rem;
+}
+
+@media (max-width: 1050px) {
+    .v2-cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Card Common Base */
+.v2-exact-card {
+    border-radius: 26px;
+    background: rgba(11, 16, 32, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.v2-exact-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Card 1: Sebastian Flagship (Violet/Magenta Glow) */
+.v2-exact-card.flagship-violet {
+    border: 2px solid #a855f7;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 40px rgba(168, 85, 247, 0.45);
+}
+
+/* Card 2: Molars Industry (Emerald Green Glow) */
+.v2-exact-card.industry-green {
+    border: 2px solid #10b981;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 40px rgba(16, 185, 129, 0.45);
+}
+
+/* Card 3: AI Chess (Dark Glass / Cyan Glow) */
+.v2-exact-card.chess-glass {
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 242, 254, 0.18);
+}
+
+.v2-card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--v2-font-mono);
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-bottom: 0.6rem;
+}
+
+.v2-card-huge-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 1.3rem;
+    letter-spacing: -0.02em;
+}
+
+.v2-inner-sandbox {
+    background: #02040a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.2rem;
+    margin-bottom: 1.4rem;
+}
+
+.v2-sandbox-head-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--v2-font-mono);
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-bottom: 0.9rem;
+}
+
+/* Dense Multi-Frequency Voice Waveform for Sebastian (Card 1) */
+.v2-voice-wave-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 75px;
+    padding: 0 0.5rem;
+}
+
+.v2-voice-bar {
+    width: 4px;
+    background: linear-gradient(180deg, #a855f7 0%, #00f2fe 100%);
+    border-radius: 4px;
+    transition: height 0.15s ease;
+    animation: voiceBarPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes voiceBarPulse {
+    0%, 100% { transform: scaleY(0.7); }
+    50% { transform: scaleY(1.3); }
+}
+
+/* Semi-Gauges Row (Card 1) */
+.v2-semi-gauges-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.4rem;
+}
+
+.v2-semi-tile {
+    background: rgba(16, 24, 44, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 1rem 0.8rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.v2-semi-arc-wrap {
+    width: 70px;
+    height: 38px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.4rem;
+}
+
+.v2-semi-arc-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    border-top-color: #a855f7;
+    border-left-color: #a855f7;
+    transform: rotate(45deg);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.8);
+}
+
+.v2-semi-arc-circle.cyan-arc {
+    border-top-color: #00f2fe;
+    border-left-color: #00f2fe;
+    border-style: dashed;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.8);
+}
+
+.v2-semi-num {
+    font-family: var(--v2-font-mono);
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+}
+
+.v2-semi-label {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-top: 0.25rem;
+}
+
+.v2-full-capsule-btn {
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 14px;
+    font-family: var(--v2-font-mono);
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: none;
+    text-align: center;
+}
+
+.v2-full-capsule-btn.purple-btn {
+    background: rgba(168, 85, 247, 0.2);
+    border: 1.5px solid #a855f7;
+    color: #ffffff;
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
+}
+
+.v2-full-capsule-btn.purple-btn:hover {
+    background: #a855f7;
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.8);
+}
+
+/* Card 2: Cartesian Area Chart for Molars */
+.v2-chart-cartesian {
+    display: grid;
+    grid-template-columns: 35px 1fr;
+    grid-template-rows: 1fr 20px;
+    gap: 0.5rem;
+    height: 125px;
+}
+
+.v2-chart-y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: var(--v2-font-mono);
+    font-size: 0.72rem;
+    color: #64748b;
+    text-align: right;
+    padding-right: 0.4rem;
+}
+
+.v2-chart-body {
+    position: relative;
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.v2-chart-area-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.v2-chart-x-axis {
+    grid-column: 2;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--v2-font-mono);
+    font-size: 0.72rem;
+    color: #64748b;
+    padding-top: 0.3rem;
+}
+
+/* Bottom Bar of Molars Card with Integrated Green Block (Matching 02_project_cards_v2.jpg) */
+.v2-molars-bottom-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    background: rgba(14, 20, 36, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0.4rem 0.5rem 0.4rem 0.8rem;
+}
+
+.v2-molars-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.v2-tag-chip {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9999px;
+    padding: 0.25rem 0.6rem;
+    font-family: var(--v2-font-mono);
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.v2-emerald-block-btn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #03060e;
+    width: 44px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.7);
+    transition: all 0.25s ease;
+}
+
+.v2-emerald-block-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.95);
+}
+
+/* Card 3: 8x8 Chessboard Simulation with Ranks and Files */
+.v2-full-chessboard-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.v2-chess-wrapper-with-coords {
+    display: grid;
+    grid-template-columns: 18px 208px;
+    grid-template-rows: 208px 18px;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+}
+
+.v2-chess-ranks {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: var(--v2-font-mono);
+    font-size: 0.72rem;
+    color: #64748b;
+    text-align: center;
+    height: 100%;
+}
+
+.v2-chess-files {
+    grid-column: 2;
+    display: flex;
+    justify-content: space-around;
+    font-family: var(--v2-font-mono);
+    font-size: 0.72rem;
+    color: #64748b;
+    text-align: center;
+    width: 100%;
+}
+
+.v2-chess-grid-8x8 {
+    display: grid;
+    grid-template-columns: repeat(8, 26px);
+    grid-template-rows: repeat(8, 26px);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.v2-csq {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    position: relative;
+    user-select: none;
+}
+
+.v2-csq.light-sq {
+    background: #334155;
+    color: #f8fafc;
+}
+
+.v2-csq.dark-sq {
+    background: #1e293b;
+    color: #cbd5e1;
+}
+
+.v2-csq.highlight-target {
+    background: rgba(0, 242, 254, 0.45);
+    box-shadow: inset 0 0 12px #00f2fe;
+}
+
+.v2-chess-attack-arrow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.v2-chess-controls-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+    font-family: var(--v2-font-mono);
+}
+
+/* iOS Style Toggle Switch */
+.v2-ios-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    cursor: pointer;
+}
+
+.v2-switch-slider {
+    width: 44px;
+    height: 24px;
+    background: #0284c7;
+    border-radius: 9999px;
+    position: relative;
+    box-shadow: 0 0 12px rgba(2, 132, 199, 0.6);
+}
+
+.v2-switch-slider::after {
+    content: '';
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    width: 18px;
+    height: 18px;
+    background: #ffffff;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+
+/* ========================================================
+   SECTION 06: SEBASTIAN TERMINAL & PRESTIGE VAULT (06)
+   ======================================================== */
+
+.v2-vault-grid-exact {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2.5rem;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1100px) {
+    .v2-vault-grid-exact {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Left: Sebastian AI Terminal (06_terminal_vault_v2.jpg) */
+.v2-terminal-window-exact {
+    background: #03060f;
+    border: 2px solid #00f2fe;
+    border-radius: 20px;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95), 0 0 50px rgba(0, 242, 254, 0.4);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.v2-term-titlebar {
+    background: rgba(14, 22, 44, 0.98);
+    border-bottom: 1.5px solid rgba(0, 242, 254, 0.35);
+    padding: 0.85rem 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--v2-font-mono);
+}
+
+.v2-term-titlebar-text {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.v2-term-controls {
+    color: #64748b;
+    font-size: 0.85rem;
+    letter-spacing: 0.35em;
+}
+
+.v2-term-body-split {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 1.2rem;
+    padding: 1.5rem;
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .v2-term-body-split {
+        grid-template-columns: 1fr;
+    }
+}
+
+.v2-term-cli-pane {
+    font-family: var(--v2-font-mono);
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.v2-term-user-line {
+    color: #cbd5e1;
+    margin-bottom: 0.3rem;
+}
+
+.v2-term-user-line span {
+    color: var(--v2-cyan);
+}
+
+.v2-term-ai-heading {
+    color: #cbd5e1;
+    font-weight: 700;
+    margin: 0.8rem 0 0.3rem;
+}
+
+.v2-term-ai-bullet {
+    color: #94a3b8;
+    margin-left: 0.5rem;
+}
+
+/* Dual Oscilloscope Sine Wave Screen with Grid */
+.v2-oscilloscope-box {
+    background: #010308;
+    background-image: linear-gradient(rgba(0, 242, 254, 0.08) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0, 242, 254, 0.08) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    border-radius: 8px;
+    padding: 0.7rem;
+    margin: 0.8rem 0;
+}
+
+.v2-osc-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: #64748b;
+    margin-bottom: 0.4rem;
+}
+
+.v2-osc-svg {
+    width: 100%;
+    height: 48px;
+}
+
+/* Utilization Progress Bars */
+.v2-util-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin: 0.8rem 0;
+}
+
+.v2-util-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.v2-util-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin-bottom: 0.3rem;
+}
+
+.v2-util-bar-track {
+    height: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.v2-util-fill {
+    height: 100%;
+    background: var(--v2-cyan);
+    box-shadow: 0 0 10px var(--v2-cyan);
+}
+
+.v2-util-fill.green-fill {
+    background: var(--v2-emerald);
+    box-shadow: 0 0 10px var(--v2-emerald);
+}
+
+/* Speech Wave Box inside Terminal */
+.v2-term-speech-wrap {
+    background: rgba(14, 20, 36, 0.8);
+    border: 1px solid rgba(192, 132, 252, 0.35);
+    border-radius: 8px;
+    padding: 0.7rem;
+    margin-top: 0.8rem;
+}
+
+.v2-term-speech-title {
+    font-size: 0.72rem;
+    color: var(--v2-purple);
+    font-weight: 700;
+}
+
+.v2-speech-envelope-svg {
+    width: 100%;
+    height: 34px;
+}
+
+.v2-speech-text-quote {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    font-style: italic;
+    margin-top: 0.35rem;
+}
+
+/* Right Logs Pane in Terminal */
+.v2-term-logs-pane {
+    background: #02040a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 0.9rem;
+    font-family: var(--v2-font-mono);
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: #94a3b8;
+    overflow-y: auto;
+}
+
+.v2-log-tag { color: var(--v2-cyan); font-weight: 700; }
+.v2-log-fn { color: var(--v2-purple); }
+.v2-log-str { color: var(--v2-amber); }
+.v2-log-cmnt { color: #475569; }
+
+/* Right: 3D Prestige Trophy Vault Showcase (06_terminal_vault_v2.jpg) */
+.v2-vault-showcase-exact {
+    background: linear-gradient(180deg, rgba(14, 20, 38, 0.9) 0%, rgba(4, 7, 16, 0.98) 100%);
+    border: 1.5px solid rgba(251, 191, 36, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95), 0 0 50px rgba(251, 191, 36, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Overhead Tube Lights matching Concept 06 */
+.v2-overhead-lights {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.v2-neon-tube {
+    width: 25%;
+    height: 6px;
+    border-radius: 4px;
+    background: #fbbf24;
+    box-shadow: 0 0 16px #fbbf24, 0 5px 20px rgba(251, 191, 36, 0.6);
+}
+
+.v2-neon-tube.purple-tube {
+    background: #a855f7;
+    box-shadow: 0 0 16px #a855f7, 0 5px 20px rgba(168, 85, 247, 0.6);
+}
+
+.v2-pedestals-stage-3d {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+.v2-pedestal-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.v2-pedestal-label-top {
+    font-family: var(--v2-font-mono);
+    font-size: 0.68rem;
+    color: #94a3b8;
+    margin-bottom: 0.8rem;
+}
+
+.v2-trophy-display-3d {
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.v2-gold-cup-img {
+    font-size: 4rem;
+    color: #fbbf24;
+    filter: drop-shadow(0 0 25px rgba(251, 191, 36, 0.8)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.8));
+    animation: trophyFloat 3s infinite ease-in-out;
+}
+
+.v2-vscode-hex-img {
+    font-size: 3.8rem;
+    color: #38bdf8;
+    filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.8)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.8));
+    animation: trophyFloat 3s infinite ease-in-out 0.5s;
+}
+
+.v2-cloud-slab-img {
+    font-size: 3.8rem;
+    color: #a855f7;
+    filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.8)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.8));
+    animation: trophyFloat 3s infinite ease-in-out 1s;
+}
+
+@keyframes trophyFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.v2-pedestal-stand-block {
+    width: 100%;
+    background: #020408;
+    border: 1px solid rgba(251, 191, 36, 0.4);
+    border-radius: 8px;
+    padding: 0.6rem 0.4rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), inset 0 0 12px rgba(251, 191, 36, 0.15);
+}
+
+.v2-plaque-title {
+    font-family: var(--v2-font-mono);
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.v2-plaque-sub {
+    font-size: 0.68rem;
+    color: #94a3b8;
+}
+
+/* Vault Base Credential Badges */
+.v2-vault-base-creds {
+    background: rgba(3, 6, 12, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 0.9rem 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    font-family: var(--v2-font-mono);
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    flex-wrap: wrap;
+}
+
+.v2-cred-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.v2-cred-item i {
+    font-size: 1.3rem;
+    color: var(--v2-cyan);
+}
+
+
+/* ========================================================
+   COMMAND BRIDGE DEVELOPER HUD MODAL (03_interactive_hud_v2.jpg)
+   ======================================================== */
+
+.bridge-hud-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 4, 8, 0.96);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    z-index: 999999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.bridge-hud-overlay.active {
+    display: flex;
+}
+
+.bridge-hud-window {
+    background: #030610;
+    border: 2px solid #00f2fe;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 1280px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 35px 120px rgba(0, 0, 0, 0.95), 0 0 70px rgba(0, 242, 254, 0.45);
+    position: relative;
+}
+
+.bridge-hud-header {
+    background: rgba(12, 18, 36, 0.98);
+    border-bottom: 1.5px solid rgba(0, 242, 254, 0.35);
+    padding: 1.2rem 2.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bridge-hud-title h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+
+.bridge-hud-title p {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-top: 0.2rem;
+}
+
+.bridge-close-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.bridge-close-btn:hover {
+    background: #f43f5e;
+    border-color: #f43f5e;
+}
+
+/* 2 Major Panels Grid matching 03_interactive_hud_v2.jpg */
+.v2-hud-main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+@media (max-width: 1024px) {
+    .v2-hud-main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.v2-hud-panel-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.9rem;
+    font-family: var(--v2-font-sans);
+}
+
+/* Left Simulator Grid: 2 columns */
+.v2-simulator-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 1rem;
+    height: calc(100% - 32px);
+}
+
+.v2-sim-col-terminal {
+    background: #020409;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 0.9rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.v2-sim-box-title {
+    font-family: var(--v2-font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #cbd5e1;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.v2-sim-token-stream {
+    font-family: var(--v2-font-mono);
+    font-size: 0.72rem;
+    line-height: 1.55;
+    color: #34d399;
+    overflow-y: auto;
+    max-height: 380px;
+}
+
+.v2-sim-col-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.v2-sim-tool-box, .v2-sim-telem-box {
+    background: #020409;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 0.8rem;
+    font-family: var(--v2-font-mono);
+}
+
+.v2-sim-tool-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.72rem;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+.v2-sim-tool-list li::before {
+    content: '• ';
+    color: var(--v2-cyan);
+}
+
+.v2-sim-telem-lines {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    line-height: 1.55;
+}
+
+/* Right Panel: Interactive Architectural Pipeline */
+.v2-pipeline-card {
+    background: #020409;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 32px);
+}
+
+.v2-pipeline-flow-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin: auto 0;
+}
+
+.v2-cylinder-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.v2-cylinder-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(14, 22, 44, 0.9);
+    border: 2px solid var(--v2-cyan);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--v2-cyan);
+    margin-bottom: 0.4rem;
+}
+
+.v2-cylinder-unit.right .v2-cylinder-icon {
+    border-color: #fbbf24;
+    color: #fbbf24;
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+}
+
+.v2-cylinder-label {
+    font-family: var(--v2-font-mono);
+    font-size: 0.72rem;
+    color: #cbd5e1;
+}
+
+.v2-pipeline-vertical-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.v2-pipe-node {
+    background: rgba(10, 16, 32, 0.9);
+    padding: 0.5rem 1.4rem;
+    border-radius: 9999px;
+    font-family: var(--v2-font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    min-width: 130px;
+}
+
+.v2-pipe-node.cyan-border {
+    border: 1.5px solid #00f2fe;
+    box-shadow: 0 0 14px rgba(0, 242, 254, 0.4);
+}
+
+.v2-pipe-node.amber-border {
+    border: 1.5px solid #fbbf24;
+    box-shadow: 0 0 14px rgba(251, 191, 36, 0.4);
+    color: #fbbf24;
+}
+
+.v2-pipe-node-arrow {
+    color: #64748b;
+    font-size: 0.7rem;
+}
+
+/* Precision Latency Column on Far Right */
+.v2-precision-latency-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    padding-left: 1rem;
+}
+
+.v2-latency-title {
+    font-family: var(--v2-font-mono);
+    font-size: 0.72rem;
+    color: #94a3b8;
+    text-align: center;
+}
+
+.v2-latency-dial-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.v2-latency-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--v2-font-mono);
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+}
+
+.v2-latency-circle.cyan {
+    border: 3px solid #00f2fe;
+    border-right-color: transparent;
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+.v2-latency-circle.amber {
+    border: 3px solid #fbbf24;
+    border-left-color: transparent;
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+    color: #fbbf24;
+}
+
+.v2-latency-dial-label {
+    font-size: 0.65rem;
+    color: #64748b;
+}
+
+/* Action Buttons Dock at Bottom */
+.v2-hud-actions-dock {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 0.9rem;
+    margin-top: 1rem;
+}
+
+.v2-hud-actions-title {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-bottom: 0.6rem;
+}
+
+.v2-hud-actions-buttons {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.v2-hud-btn {
+    font-family: var(--v2-font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: none;
+}
+
+.v2-hud-btn.cyan-btn {
+    background: rgba(0, 242, 254, 0.15);
+    border: 1.5px solid #00f2fe;
+    color: #00f2fe;
+    box-shadow: 0 0 12px rgba(0, 242, 254, 0.35);
+}
+
+.v2-hud-btn.cyan-btn:hover {
+    background: #00f2fe;
+    color: #030610;
+}
+
+.v2-hud-btn.amber-btn {
+    background: rgba(251, 191, 36, 0.15);
+    border: 1.5px solid #fbbf24;
+    color: #fbbf24;
+}
+
+.v2-hud-btn.amber-btn:hover {
+    background: #fbbf24;
+    color: #030610;
+}
+
+.v2-hud-btn.dark-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+.v2-hud-btn.dark-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}

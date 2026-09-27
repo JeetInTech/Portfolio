@@ -1,0 +1,116 @@
+\documentclass[10pt]{article}
+\usepackage[top=0.32in, bottom=0.32in, left=0.42in, right=0.42in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\linespread{0.93}
+\setlist[itemize]{leftmargin=11pt, noitemsep, topsep=1pt, parsep=0pt}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\titlespacing{\section}{0pt}{3.5pt}{1.5pt}
+\titleformat{\section}{\large\bfseries\scshape}{}{0pt}{}[\titlerule]
+\hypersetup{colorlinks=true, linkcolor=blue!75!black, urlcolor=blue!75!black}
+
+\newcommand{\resumeHeader}{
+\begin{center}
+{\LARGE \textbf{SANGRAMJEET GHOSH}} \\[3pt]
+{\small
++91 9059150937 ~$|$~
+\href{mailto:sangramjeet47@gmail.com}{sangramjeet47@gmail.com} ~$|$~
+\href{https://www.linkedin.com/in/sangramjeetghosh}{linkedin.com/in/sangramjeetghosh} ~$|$~
+\href{https://github.com/JeetInTech}{github.com/JeetInTech} ~$|$~
+\href{https://neuroviai.dev}{neuroviai.dev}
+}\\[1pt]
+{\footnotesize Hyderabad, Telangana, India \quad $|$ \quad B.Tech CSE (AI \& ML), Malla Reddy University (2026, GPA: 8.0/10.0)}
+\end{center}
+\vspace{-8pt}
+}
+
+\newcommand{\educationSection}{
+\section*{Education}
+\textbf{Bachelor of Technology in Computer Science and Engineering (AI \& ML)} \hfill Graduated May 2026 \\
+Malla Reddy University, Hyderabad, Telangana \hfill \textbf{GPA: 8.0 / 10.0}
+}
+
+\begin{document}
+\resumeHeader
+
+\section*{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Languages} & Python (3.10--3.13), TypeScript, SQL \\[1.5pt]
+\textbf{Backend \& Cloud} & FastAPI, AsyncIO, Pydantic v2, Docker, PostgreSQL, AWS (EC2, S3, Lambda) \\[1.5pt]
+\textbf{Agentic Frameworks} & LangGraph (\texttt{StateGraph}), LangChain, Model Context Protocol (MCP SDK), ReAct Agent Loops \\[1.5pt]
+\textbf{LLM APIs \& Inference} & Google Gemini Live (Bidirectional Audio), Groq (Llama-3), OpenAI API, Ollama (Local RAG), Transformers \\[1.5pt]
+\textbf{Vector DBs \& Memory} & PostgreSQL (\texttt{pgvector} Cosine Similarity), ChromaDB, SQLite State Machines, Knowledge Graphs \\[1.5pt]
+\textbf{Vision, Media \& Audio} & OpenCV (FER), GPU Speech Transcription, FFmpeg CLI, Librosa, PyAudio, Kokoro TTS, Playwright \\
+\end{tabularx}
+
+\section*{Professional Experience}
+\textbf{Freelance Software Engineer} \hfill Aug 2025 -- Present \\
+\textit{Independent} \hfill Remote
+\begin{itemize}
+    \item Architected multimodal autonomous agents utilizing LangGraph state machines, Gemini Live streaming, and custom tool suites.
+    \item Built Model Context Protocol (MCP) servers and persistent RAG pipelines with sub-10ms semantic retrieval across vector stores.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Data Science \& Backend Intern} \hfill Mar 2025 -- Dec 2025 \\
+\textit{Inikola Technologies} \hfill Hyderabad, India
+\begin{itemize}
+    \item Deployed FastAPI backend endpoints serving natural language scoring and feature extraction models under strict latency budgets.
+    \item Built automated data validation pipelines using Pydantic and PostgreSQL to sanitize and index unstructured text feeds.
+\end{itemize}
+
+\section*{Featured Projects}
+\textbf{Sebastian — Autonomous AI Operating System \& Private Digital Butler} \hfill \href{https://github.com/JeetInTech}{github.com/JeetInTech} \\
+\textit{Python, Gemini Live API, Kokoro Neural TTS, PostgreSQL, pgvector, Model Context Protocol, PyAudio}
+\begin{itemize}
+    \item Built a full-duplex, 25-module voice operating system via Gemini Live ($\sim$400ms turnaround) with barge-in interruption.
+    \item Orchestrated 92 registered tools across Green/Yellow permission gates via \texttt{npx} child-process MCP servers (GitHub, Playwright, Filesystem).
+    \item Engineered turn-by-turn semantic memory retrieval powered by \textbf{\texttt{pgvector} cosine similarity (sub-10ms)} and persistent Knowledge Graph.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Genesis: Autonomous Multi-Board Job Application Agent} \hfill \href{https://github.com/JeetInTech}{github.com/JeetInTech} \\
+\textit{Python, Playwright, Groq LLM API, SQLite, BeautifulSoup4, Jinja2, pdflatex Engine}
+\begin{itemize}
+    \item Developed an autonomous recruitment agent executing end-to-end applications across 5 job portals via Playwright and CDP.
+    \item Parsed job listings with Groq Llama-3, dynamically generated tailored LaTeX resumes, and compiled PDFs via local \texttt{pdflatex} in 1.8s.
+    \item Managed autonomous multi-step questionnaire answering and form filling with SQLite finite state tracking and screenshot audit trails.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Virtual Therapist — LangGraph Autonomous Multi-Modal Agent} \hfill \href{https://github.com/JeetInTech}{github.com/JeetInTech} \\
+\textit{Python, LangGraph, ChromaDB, OpenCV (FER), Librosa, Groq LLM, Pydantic v2}
+\begin{itemize}
+    \item Implemented a LangGraph \texttt{StateGraph} ReAct loop orchestrating \textbf{24 deterministic domain tools} and episodic conversational memory.
+    \item Combined real-time facial micro-expression recognition (FER/OpenCV) and acoustic voice prosody analysis (Librosa) into an affective state vector.
+    \item Built deterministic safety guardrails intercepting crisis indicators in $<$50ms via rule-based checks that run before any LLM call.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Neuroviai Multi-Model LLM Routing \& Gateway Engine} \hfill \href{https://neuroviai.dev}{neuroviai.dev} \\
+\textit{Python, FastAPI, Pydantic v2, Groq, Google Gemini Pro, HuggingFace, Local Ollama}
+\begin{itemize}
+    \item Designed a 4-tier circuit-breaking LLM gateway (Gemini Pro $\to$ Groq $\to$ HuggingFace $\to$ Ollama) achieving 99.7\% uptime under 12k tokens/min rate limits.
+    \item Implemented exponential backoff with jitter on HTTP 429 and Pydantic v2 schema validation on model outputs.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Genesis: Video Pipeline — Autonomous YouTube Shorts Agent} \hfill \href{https://github.com/JeetInTech}{github.com/JeetInTech} \\
+\textit{Python, Ollama, Groq LLM, Edge-TTS, FFmpeg CLI, YouTube Data API v3, OAuth 2.0}
+\begin{itemize}
+    \item Built an autonomous agent on a daily schedule that generates scripts, synthesizes voiceovers, and composites video via FFmpeg with zero manual intervention.
+    \item Sustained continuous unattended operation for 100+ days, autonomously publishing 138 Shorts via the YouTube Data API v3.
+\end{itemize}
+
+\educationSection
+
+\end{document}

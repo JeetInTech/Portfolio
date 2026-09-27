@@ -42,14 +42,58 @@
 /* ========================================================
    3. ARCHITECTURE NODE INSPECTOR
    ======================================================== */
+/* Every value below is traceable to a real system in the CV.
+   No invented latency/uptime figures. */
 var gravNodeData = {
-    input: { title: '01. Multimodal Streaming Ingestion', desc: 'Captures bidirectional PCM 16kHz audio chunks, live video frames, or structured text payloads. Low-latency buffering before dispatch.', latency: '< 30 ms', tech: 'WebAudio / WebSockets', reliability: '99.9% Recovery', projects: ['SANA Voice Butler', 'Sebastian Agent', 'Voice Studio Pro'] },
-    gateway: { title: '02. FastAPI API Gateway', desc: 'JWT-secured gateway routing 6 microservices. Rate limits, Razorpay webhook validation, and credit-deduction middleware.', latency: '< 8 ms', tech: 'FastAPI / JWT / Razorpay', reliability: '99.5% Uptime', projects: ['Neuroviai Platform', 'SANA API Layer', 'Second Brain API'] },
-    orchestrator: { title: '03. LangGraph Agent Swarm', desc: 'Stateful multi-agent orchestrator with cyclical reasoning loops, specialized sub-agent routing, and memory-aware task decomposition.', latency: '< 200 ms', tech: 'LangGraph / LangChain', reliability: 'Fault Tolerant', projects: ['Sebastian v2.5', 'Neuro-Agent Layer', 'Research Swarm'] },
-    memory: { title: '04. Persistent Vector Memory', desc: 'pgvector-powered semantic similarity store with Supabase persistence. Episodic session memory, cross-session recall, and hybrid retrieval.', latency: '< 60 ms', tech: 'pgvector / Supabase', reliability: '100% Persistence', projects: ['Sebastian Agent', 'Second Brain', 'SANA Memory Engine'] },
-    inference: { title: '05. Multi-Tier LLM Cascade', desc: '4-tier model failover: Gemini Flash -> GPT-4 -> Groq Mixtral -> Claude Haiku. Selects cheapest model within latency budget.', latency: '< 800 ms', tech: 'Gemini / GPT-4 / Groq', reliability: '4-Tier Fallback', projects: ['Neuroviai SaaS', 'SANA Butler', 'Sebastian Tools'] },
-    tools: { title: '06. Autonomous Tool Sandbox', desc: 'Sandboxed execution layer with 110+ APIs. Code interpreter, web browser, file system access, calendar/email control, real-time web search.', latency: '< 1.5 s avg', tech: '110+ APIs / Code Exec', reliability: 'Sandboxed Safe', projects: ['Sebastian Agent v2.5', 'Neuro-Workflow Engine'] },
-    stream: { title: '07. Real-Time Client Streaming', desc: 'Bidirectional WebSocket pipeline streaming TTS audio and token-level response deltas. Sub-second TTFB for voice responses.', latency: '< 50 ms TTFB', tech: 'WebSockets / PCM Stream', reliability: 'Auto-Reconnect', projects: ['SANA Voice Butler', 'Voice Studio Pro', 'Neuroviai Live Mode'] }
+    input: {
+        title: '01. Multimodal Input',
+        desc: 'Captures streaming audio, camera frames and text. Sebastian runs full-duplex audio into Gemini Live at 16 kHz mono, with a Discord bridge resampling 48 kHz stereo down to the pipeline rate. Vision handled by MediaPipe and OpenCV.',
+        data: [['Audio Format', '16 kHz mono PCM'], ['Transport', 'Gemini Live (full-duplex)'], ['Vision', 'MediaPipe / OpenCV'], ['Bridge', 'Discord 48k → 16k']],
+        stack: ['PyAudio', 'MediaPipe', 'OpenCV', 'Gemini Live API'],
+        projects: ['Sebastian AI OS', 'SANA Voice Butler']
+    },
+    gateway: {
+        title: '02. FastAPI Gateway',
+        desc: 'Neuroviai runs 6 decoupled FastAPI microservices covering identity, billing, media generation and scheduling. Razorpay webhooks are verified with HMAC-SHA256; a client-side ServerWarmer pattern cut cold starts from 5.2s to sub-150ms.',
+        data: [['Microservices', '6 (decoupled)'], ['Auth', 'JWT / OAuth 2.0'], ['Rate Limit', '12k tokens/min'], ['Cold Start', '5.2s → <150 ms']],
+        stack: ['FastAPI', 'Pydantic v2', 'Redis', 'Nginx', 'Razorpay'],
+        projects: ['Neuroviai']
+    },
+    orchestrator: {
+        title: '03. Agent Orchestration',
+        desc: 'Stateful multi-agent routing built on LangGraph StateGraph with ReAct-style reasoning loops. Sebastian is structured as 25 modules; Virtual Therapist layers rule-based safety guardrails that run before any LLM call.',
+        data: [['Framework', 'LangGraph StateGraph'], ['Pattern', 'Multi-Agent ReAct'], ['Modules', '25 (Sebastian)'], ['Protocol', 'MCP SDK']],
+        stack: ['LangGraph', 'LangChain', 'MCP SDK', 'Python'],
+        projects: ['Sebastian AI OS', 'Virtual Therapist']
+    },
+    memory: {
+        title: '04. Vector Memory',
+        desc: 'Turn-by-turn semantic recall on PostgreSQL + pgvector cosine similarity, measured at sub-10ms lookups, with a persistent Knowledge Graph correlating entities across sessions. AIExamTool uses FAISS for grounded syllabus retrieval.',
+        data: [['Index', 'pgvector (cosine)'], ['Lookup', 'sub-10 ms'], ['Graph', 'Entity correlation'], ['Also', 'ChromaDB / FAISS']],
+        stack: ['pgvector', 'PostgreSQL', 'ChromaDB', 'FAISS'],
+        projects: ['Sebastian AI OS', 'AIExamTool']
+    },
+    inference: {
+        title: '05. Multi-Tier LLM Gateway',
+        desc: 'A 4-tier circuit-breaking cascade: Gemini Pro → Groq Llama-3 → HuggingFace → local Ollama. Keeps Neuroviai at 99.7% uptime under burst traffic, and multi-provider failover plus prompt budgeting cut client inference spend by up to 60%.',
+        data: [['Cascade', 'Gemini → Groq → HF → Ollama'], ['Pattern', 'Circuit breaker'], ['Uptime', '99.7% (Neuroviai)'], ['Cost Saving', 'up to 60%']],
+        stack: ['Gemini', 'Groq Llama-3', 'HuggingFace', 'Ollama'],
+        projects: ['Neuroviai']
+    },
+    tools: {
+        title: '06. Tool Execution Layer',
+        desc: '92 registered tools split across Green (read-only) and Yellow (action-required) permission gates, driving dynamic npx child-process MCP servers for GitHub, Playwright and Filesystem access.',
+        data: [['Registered Tools', '92'], ['Permission Gates', 'Green / Yellow'], ['MCP Servers', 'GitHub, Playwright, FS'], ['Process', 'npx child-process']],
+        stack: ['MCP SDK', 'Playwright', 'Python', 'FFmpeg'],
+        projects: ['Sebastian AI OS', 'OpenInstaFlow']
+    },
+    stream: {
+        title: '07. Real-Time Streaming',
+        desc: 'Full-duplex bidirectional audio streaming through Gemini Live with roughly 400ms turnaround and barge-in interruption detection, voiced by Kokoro neural TTS.',
+        data: [['Mode', 'Full-duplex'], ['Turnaround', '~400 ms'], ['Feature', 'Barge-in detection'], ['Voice', 'Kokoro neural TTS']],
+        stack: ['WebSockets', 'Gemini Live', 'Kokoro TTS', 'PyAudio'],
+        projects: ['Sebastian AI OS', 'SANA Voice Butler']
+    }
 };
 
 function selectGravNode(key) {
@@ -65,11 +109,19 @@ function selectGravNode(key) {
     setTimeout(function() {
         document.getElementById('gravInspectorTitle').textContent = d.title;
         document.getElementById('gravInspectorDesc').textContent = d.desc;
-        document.getElementById('gravInspectorLatency').textContent = d.latency;
-        document.getElementById('gravInspectorTech').textContent = d.tech;
-        document.getElementById('gravInspectorReliability').textContent = d.reliability;
+        var dataEl = document.getElementById('gravInspectorData');
+        if (dataEl && d.data) {
+            dataEl.innerHTML = d.data.map(function(row) {
+                return '<div class="inspector-datum"><div class="datum-key">' + row[0] +
+                       '</div><div class="datum-val">' + row[1] + '</div></div>';
+            }).join('');
+        }
         var tagsEl = document.getElementById('gravInspectorProjects');
         tagsEl.innerHTML = d.projects.map(function(p) { return '<span class="deployment-tag">' + p + '</span>'; }).join('');
+        var stackEl = document.getElementById('gravInspectorStack');
+        if (stackEl && d.stack) {
+            stackEl.innerHTML = d.stack.map(function(s) { return '<span class="cat-skill-chip">' + s + '</span>'; }).join('');
+        }
         inspector.style.opacity = '1';
         inspector.style.transform = 'translateY(0)';
     }, 180);
@@ -132,12 +184,12 @@ function selectGravNode(key) {
 
     var cmds = {
         help: '<span class="term-grav-sys">available commands:</span>\n<span class="term-grav-key">  whoami   </span><span class="term-grav-val">  Identity profile</span>\n<span class="term-grav-key">  neurovia </span><span class="term-grav-val">  Flagship SaaS details</span>\n<span class="term-grav-key">  projects </span><span class="term-grav-val">  Engineering projects</span>\n<span class="term-grav-key">  skills   </span><span class="term-grav-val">  Technology arsenal</span>\n<span class="term-grav-key">  resume   </span><span class="term-grav-val">  CV download links</span>\n<span class="term-grav-key">  contact  </span><span class="term-grav-val">  Contact channels</span>\n<span class="term-grav-key">  clear    </span><span class="term-grav-val">  Clear terminal</span>',
-        whoami: '<span class="term-grav-key">Name    </span> <span class="term-grav-val">Sangramjeet Ghosh</span>\n<span class="term-grav-key">Role    </span> <span class="term-grav-val">AI Engineer &amp; Founder @ Neuroviai</span>\n<span class="term-grav-key">Degree  </span> <span class="term-grav-val">B.Tech CSE (AI/ML) · CGPA 8.0</span>\n<span class="term-grav-key">Stack   </span> <span class="term-grav-val">Python · FastAPI · LangGraph · Next.js · pgvector · AWS</span>\n<span class="term-grav-key">Status  </span> <span class="term-grav-val">OPEN TO HIRE · OPEN TO COLLABORATE</span>',
-        neurovia: '<span class="term-grav-sys">// NEUROVIA AI — LIVE SaaS</span>\n<span class="term-grav-key">URL     </span> <span class="term-grav-val">https://neuroviai.dev/</span>\n<span class="term-grav-key">Users   </span> <span class="term-grav-val">50+ daily active users</span>\n<span class="term-grav-key">Uptime  </span> <span class="term-grav-val">99.5% SLA</span>\n<span class="term-grav-key">LLM     </span> <span class="term-grav-val">4-tier: Gemini -> GPT-4 -> Groq -> Claude</span>',
-        projects: '<span class="term-grav-sys">// 50+ PROJECTS</span>\n<span class="term-grav-val">1. Neurovia AI</span>   — Live SaaS, Next.js 14 + FastAPI\n<span class="term-grav-val">2. Second Brain</span>  — Knowledge mgmt, pgvector + Gemini\n<span class="term-grav-val">3. SANA</span>          — Voice AI, React 19 + Three.js\n<span class="term-grav-val">4. Sebastian</span>     — Autonomous agent, 110+ APIs\n<span class="term-grav-val">5. Crafting Brain</span>— Creative agency platform',
+        whoami: '<span class="term-grav-key">Name    </span> <span class="term-grav-val">Sangramjeet Ghosh</span>\n<span class="term-grav-key">Role    </span> <span class="term-grav-val">AI Engineer &amp; Founder @ Neuroviai</span>\n<span class="term-grav-key">Degree  </span> <span class="term-grav-val">B.Tech CSE (AI/ML) · GPA 8.0/10</span>\n<span class="term-grav-key">Stack   </span> <span class="term-grav-val">Python · FastAPI · LangGraph · Next.js · pgvector · AWS</span>\n<span class="term-grav-key">Status  </span> <span class="term-grav-val">OPEN TO HIRE · OPEN TO COLLABORATE</span>',
+        neurovia: '<span class="term-grav-sys">// NEUROVIAI — LIVE SaaS</span>\n<span class="term-grav-key">URL     </span> <span class="term-grav-val">https://neuroviai.dev/</span>\n<span class="term-grav-key">Users   </span> <span class="term-grav-val">1.2K+ monthly visitors, paying users</span>\n<span class="term-grav-key">Uptime  </span> <span class="term-grav-val">99.7% SLA</span>\n<span class="term-grav-key">LLM     </span> <span class="term-grav-val">4-tier: Gemini -> GPT-4 -> Groq -> Claude</span>',
+        projects: '<span class="term-grav-sys">// 40+ PROJECTS</span>\n<span class="term-grav-val">1. Neuroviai</span>   — Live SaaS, Next.js 14 + FastAPI\n<span class="term-grav-val">2. Second Brain</span>  — Knowledge mgmt, pgvector + Gemini\n<span class="term-grav-val">3. SANA</span>          — Voice AI, React 19 + Three.js\n<span class="term-grav-val">4. Sebastian</span>     — Autonomous AI OS, 92 tools\n<span class="term-grav-val">5. Crafting Brain</span>— Creative agency platform',
         skills: '<span class="term-grav-sys">// ARSENAL</span>\n<span class="term-grav-key">AI/LLMs </span> <span class="term-grav-val">LangChain · LangGraph · RAG · Gemini · GPT-4 · Groq</span>\n<span class="term-grav-key">ML/CV   </span> <span class="term-grav-val">PyTorch · TensorFlow · OpenCV · MediaPipe · BERT</span>\n<span class="term-grav-key">Backend </span> <span class="term-grav-val">Python · FastAPI · PostgreSQL · pgvector · Supabase</span>\n<span class="term-grav-key">Frontend</span> <span class="term-grav-val">React 19 · Next.js 15 · TypeScript · Three.js</span>\n<span class="term-grav-key">Cloud   </span> <span class="term-grav-val">AWS (Certified) · Docker · GitHub Actions · Vercel</span>',
-        resume: '<span class="term-grav-sys">// DOWNLOADS</span>\n<span class="term-grav-key">AI      </span> <span class="term-grav-val">../resumes/Sangramjeet Ghosh - AI Software Systems.pdf</span>\n<span class="term-grav-key">FS      </span> <span class="term-grav-val">../resumes/Sangramjeet Ghosh - Full Stack AI.pdf</span>\n<span class="term-grav-key">CV      </span> <span class="term-grav-val">../resumes/Sangramjeet Ghosh - CV.pdf</span>',
-        contact: '<span class="term-grav-sys">// CONTACT</span>\n<span class="term-grav-key">Email   </span> <span class="term-grav-val">jeeth.enterprises108@gmail.com</span>\n<span class="term-grav-key">LinkedIn</span> <span class="term-grav-val">linkedin.com/in/sangramjeetghosh</span>\n<span class="term-grav-key">GitHub  </span> <span class="term-grav-val">github.com/JeetInTech</span>\n<span class="term-grav-key">Twitter </span> <span class="term-grav-val">@SangramJee97448</span>'
+        resume: '<span class="term-grav-sys">// DOWNLOADS (7 PROFILES)</span>\n<span class="term-grav-key">AI/AGENT</span> <span class="term-grav-val">../resumes/AI_Agentic_Systems_Engineer.pdf</span>\n<span class="term-grav-key">FULLSTACK</span><span class="term-grav-val">../resumes/Full_Stack_Software_Engineer.pdf</span>\n<span class="term-grav-key">ML/DATA </span> <span class="term-grav-val">../resumes/Data_Scientist_Machine_Learning.pdf</span>\n<span class="term-grav-key">BACKEND </span> <span class="term-grav-val">../resumes/Backend_Software_Engineer.pdf</span>\n<span class="term-grav-key">FRONTEND</span> <span class="term-grav-val">../resumes/Frontend_Software_Engineer.pdf</span>\n<span class="term-grav-key">DESKTOP </span> <span class="term-grav-val">../resumes/Desktop_Systems_Automation_Engineer.pdf</span>\n<span class="term-grav-key">MASTER CV</span><span class="term-grav-val">../resumes/Sangramjeet_Ghosh_UK_CV.pdf</span>',
+        contact: '<span class="term-grav-sys">// CONTACT</span>\n<span class="term-grav-key">Email   </span> <span class="term-grav-val">sangramjeet47@gmail.com</span>\n<span class="term-grav-key">LinkedIn</span> <span class="term-grav-val">linkedin.com/in/sangramjeetghosh</span>\n<span class="term-grav-key">GitHub  </span> <span class="term-grav-val">github.com/JeetInTech</span>\n<span class="term-grav-key">Twitter </span> <span class="term-grav-val">@SangramJee97448</span>'
     };
 
     function printLine(html, isCmd) {
@@ -188,12 +240,12 @@ function executeTermCommand(cmd) {
    ======================================================== */
 var PROJECTS = {
     neurovia: {
-        title: 'Neurovia AI',
+        title: 'Neuroviai',
         url: 'https://neuroviai.dev/',
         tagline: 'Next-gen AI content automation SaaS — live and in production.',
-        desc: 'Flagship platform serving 50+ daily active users at 99.5% uptime. Six FastAPI microservices behind a JWT gateway, a 4-tier LLM fallback chain, and Razorpay checkout with credit-deduction middleware.',
+        desc: 'Flagship platform with paying customers and 1.2K+ monthly visitors at 99.7% uptime. Six FastAPI microservices behind a JWT gateway, a 4-tier LLM fallback chain, and Razorpay checkout with credit-deduction middleware.',
         stack: ['Next.js 14', 'TypeScript', 'FastAPI', 'PostgreSQL', 'Gemini AI', 'Razorpay'],
-        meta: [['Status', 'Live · Flagship SaaS'], ['Users', '50+ daily active'], ['Uptime', '99.5%'], ['Role', 'Founder · Full build']]
+        meta: [['Status', 'Live · Flagship SaaS'], ['Users', '1.2K+ monthly'], ['Uptime', '99.7%'], ['Role', 'Founder · Full build']]
     },
     secondbrain: {
         title: 'Second Brain',
@@ -380,7 +432,7 @@ var PROJECTS = {
             .then(function(res) { if (!res.success) return Promise.reject(); showSuccess(); })
             .catch(function() {
                 var body = encodeURIComponent('Name: ' + data.name + '\nEmail: ' + data.email + '\nDesignation: ' + data.designation + '\n\n' + data.message);
-                window.open('mailto:jeeth.enterprises108@gmail.com?subject=' + encodeURIComponent(data.subject) + '&body=' + body);
+                window.open('mailto:sangramjeet47@gmail.com?subject=' + encodeURIComponent(data.subject) + '&body=' + body);
                 showSuccess();
             });
     });

@@ -1,0 +1,108 @@
+\documentclass[10pt]{article}
+\usepackage[top=0.32in, bottom=0.32in, left=0.42in, right=0.42in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\linespread{0.97}
+\setlist[itemize]{leftmargin=11pt, noitemsep, topsep=1pt, parsep=0pt}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\titlespacing{\section}{0pt}{3.5pt}{1.5pt}
+\titleformat{\section}{\large\bfseries\scshape}{}{0pt}{}[\titlerule]
+\hypersetup{colorlinks=true, linkcolor=blue!75!black, urlcolor=blue!75!black}
+
+\newcommand{\resumeHeader}{
+\begin{center}
+{\LARGE \textbf{SANGRAMJEET GHOSH}} \\[3pt]
+{\small
++91 9059150937 ~$|$~
+\href{mailto:sangramjeet47@gmail.com}{sangramjeet47@gmail.com} ~$|$~
+\href{https://www.linkedin.com/in/sangramjeetghosh}{linkedin.com/in/sangramjeetghosh} ~$|$~
+\href{https://github.com/JeetInTech}{github.com/JeetInTech} ~$|$~
+\href{https://neuroviai.dev}{neuroviai.dev}
+}\\[1pt]
+{\footnotesize Hyderabad, Telangana, India \quad $|$ \quad B.Tech CSE (AI \& ML), Malla Reddy University (2026, GPA: 8.0/10.0)}
+\end{center}
+\vspace{-8pt}
+}
+
+\newcommand{\educationSection}{
+\section*{Education}
+\textbf{Bachelor of Technology in Computer Science and Engineering (AI \& ML)} \hfill Graduated May 2026 \\
+Malla Reddy University, Hyderabad, Telangana \hfill \textbf{GPA: 8.0 / 10.0}
+}
+
+\begin{document}
+\resumeHeader
+
+\section*{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Languages} & TypeScript, JavaScript (ES6+), Python (3.10--3.13), SQL, HTML5, CSS3, Rust (basics) \\[1.5pt]
+\textbf{Frontend} & React 18/19, Next.js 14/16 (App Router, Turbopack), Tailwind CSS, Zustand, Framer Motion, Webview IPC \\[1.5pt]
+\textbf{Backend \& APIs} & FastAPI, AsyncIO, RESTful APIs, Pydantic v2, JWT, OAuth 2.0, Webhooks, Celery, Redis, Netlify Functions, Razorpay, pytest \\[1.5pt]
+\textbf{Databases \& Cloud} & PostgreSQL, Supabase (RLS, Migrations, Realtime), SQLite, Docker, Git, CI/CD, AWS (Lambda/S3) \\
+\end{tabularx}
+
+\section*{Professional Experience}
+\textbf{Founding Engineer} \hfill Sep 2026 -- Present \\
+\textit{Molars Nutrition Brand Platform} \hfill Hyderabad, India
+\begin{itemize}
+    \item Architected the commercial brand web platform using Next.js, React 19, TypeScript, and Tailwind CSS, achieving a 95+ Lighthouse performance score.
+    \item Developed serverless Netlify Functions with transactional email dispatch, client-side input validation, and Supabase synchronization.
+    \item Built interactive molecular canvas rendering components (\texttt{molecule.tsx}) with physics-based cursor repulsion for engaging UX.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Freelance Software Engineer} \hfill Aug 2025 -- Present \\
+\textit{Independent} \hfill Remote
+\begin{itemize}
+    \item Engineered end-to-end web applications with React/Next.js and FastAPI microservices for 3+ international startup clients.
+    \item Designed modular REST APIs enforcing strict Pydantic v2 contracts, JWT session tokens, and Docker Compose deployment pipelines.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Data Science \& Backend Intern} \hfill Mar 2025 -- Dec 2025 \\
+\textit{Inikola Technologies} \hfill Hyderabad, India
+\begin{itemize}
+    \item Developed asynchronous FastAPI endpoints for real-time text scoring modules and constructed Pydantic validation pipelines.
+    \item Managed AWS EC2 hosting instances, S3 asset storage buckets, and Nginx reverse proxy configurations with SSL termination.
+\end{itemize}
+
+\section*{Featured Projects}
+\textbf{Neuroviai — Multi-Service Content Automation SaaS} \hfill \href{https://neuroviai.dev}{neuroviai.dev (1.2K+ Monthly Visitors)} \\
+\textit{Next.js 14, TypeScript, FastAPI, PostgreSQL, Supabase, Celery, Redis, Razorpay, Docker}
+\begin{itemize}
+    \item Architected a live SaaS platform with 6 decoupled FastAPI microservices, handling authentication, billing, scheduling, and publishing.
+    \item Built Next.js 14 App Router frontend with a custom \texttt{ServerWarmer} routine, slashing cold-start latency from 5.2s down to sub-150ms.
+    \item Implemented atomic token billing ($20\times$ redenomination) via Razorpay HMAC-SHA256 signatures, idempotency, and PostgreSQL stored procedures.
+    \item Decoupled browser automation and heavy workflows into Celery and Redis task queues to prevent thread starvation under concurrent traffic.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Mr. Memecredible — Published VS Code Extension} \hfill \href{https://marketplace.visualstudio.com/items?itemName=SangramjeetGhosh.mr-memecredible}{904 Active Installs} \\
+\textit{TypeScript, VS Code Extension API, Node.js, Webview Panels, Diagnostic Watcher}
+\begin{itemize}
+    \item Published developer productivity extension on Microsoft VS Code Marketplace with \textbf{904 active installs} and five-star rating.
+    \item Built asynchronous debounced listener (\texttt{diagnosticsWatcher.ts}) querying language server diagnostics within a strict $<$16ms frame budget.
+    \item Rendered dynamic 9-stage uncanny meme meters in isolated Webview panels communicating via bi-directional postMessage IPC.
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{Genesis: Autonomous Multi-Board Job Application Agent} \hfill \href{https://github.com/JeetInTech}{github.com/JeetInTech} \\
+\textit{Python, Playwright, Groq LLM API, SQLite, LaTeX pdflatex Engine}
+\begin{itemize}
+    \item Built a Playwright + Groq LLM agent that parses listings and automates applications across 5 job portals.
+    \item Automated dynamic LaTeX resume tailoring using Groq LLM and compiled fresh PDFs via local \texttt{pdflatex} in 1.8s.
+    \item Managed multi-step form submissions with Playwright browser automation, crash watchdog recovery, and SQLite state tracking.
+\end{itemize}
+
+\educationSection
+
+\end{document}
