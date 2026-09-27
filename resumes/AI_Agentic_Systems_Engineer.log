@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.11)  27 SEP 2026 14:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.11)  27 SEP 2026 18:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -296,8 +296,7 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count301
-)
-No file AI_Agentic_Systems_Engineer.aux.
+) (AI_Agentic_Systems_Engineer.aux)
 \openout1 = `AI_Agentic_Systems_Engineer.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
@@ -318,6 +317,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
 LaTeX Font Info:    ... okay on input line 42.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 42.
 LaTeX Font Info:    ... okay on input line 42.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -353,6 +353,7 @@ LaTeX Font Info:    ... okay on input line 42.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring ON on input line 42.
+(AI_Agentic_Systems_Engineer.out) (AI_Agentic_Systems_Engineer.out)
 \@outlinefile=\write3
 \openout3 = `AI_Agentic_Systems_Engineer.out'.
 
@@ -401,8 +402,6 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 43.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 43.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 43.
 
 
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
@@ -433,22 +432,16 @@ L3 programming layer <2025-12-24>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-Package rerunfilecheck Warning: File `AI_Agentic_Systems_Engineer.out' has chan
-ged.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `AI_Agentic_Systems_Engineer.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `AI_Agentic_Systems_Engineer.out' has not cha
+nged.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 10201 strings out of 467871
- 158541 string characters out of 5418860
- 601885 words of memory out of 5000000
- 38956 multiletter control sequences out of 15000+600000
- 679541 words of font info for 72 fonts, out of 8000000 for 9000
+ 10202 strings out of 467871
+ 158875 string characters out of 5418860
+ 601904 words of memory out of 5000000
+ 38954 multiletter control sequences out of 15000+600000
+ 675940 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,8n,79p,309b,440s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Jeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb
@@ -459,13 +452,12 @@ C:/Users/Jeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:
 ers/Jeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users
 /Jeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/
 Jeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/J
-eet/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Jee
-t/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy9.pfb><C:/Users/Jeet/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Jeet/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on AI_Agentic_Systems_Engineer.pdf (1 page, 254262 bytes).
+eet/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy9.pfb><C:/Users/Jee
+t/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Jeet
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
+Output written on AI_Agentic_Systems_Engineer.pdf (1 page, 245045 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
+ 82 PDF objects out of 1000 (max. 8388607)
  2 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.11)  27 SEP 2026 14:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.11)  27 SEP 2026 18:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -401,8 +401,6 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 43.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 43.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 43.
 
 
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
@@ -442,11 +440,11 @@ Package rerunfilecheck Info: Checksums for `Desktop_Systems_Automation_Engineer
 (rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 10198 strings out of 467871
- 158599 string characters out of 5418860
- 597909 words of memory out of 5000000
- 38954 multiletter control sequences out of 15000+600000
- 679223 words of font info for 71 fonts, out of 8000000 for 9000
+ 10191 strings out of 467871
+ 158527 string characters out of 5418860
+ 597836 words of memory out of 5000000
+ 38950 multiletter control sequences out of 15000+600000
+ 675622 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,8n,79p,324b,440s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Jeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb
@@ -456,13 +454,12 @@ C:/Users/Jeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:
 /Users/Jeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Us
 ers/Jeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users
 /Jeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/
-Jeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Je
-et/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy9.pfb><C:/Users/Jeet
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Desktop_Systems_Automation_Engineer.pdf (1 page, 221803 bytes
+Jeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy9.pfb><C:/Users/Je
+et/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
+Output written on Desktop_Systems_Automation_Engineer.pdf (1 page, 212585 bytes
 ).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
+ 71 PDF objects out of 1000 (max. 8388607)
  2 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
