@@ -121,7 +121,11 @@ html {
 }
 
 /* body scroll lock while the universe overlay is open */
-body.u-locked { overflow: hidden; }
+html.u-locked,
+body.u-locked {
+    overflow: hidden !important;
+    height: 100% !important;
+}
 
 .u-portal a, #universe a, #u-chrome a, #u-detail a {
     color: inherit;
@@ -627,7 +631,7 @@ body.u-locked { overflow: hidden; }
 }
 
 /* ============================================================================
-   PULL-THROUGH WARP OVERLAY (CINEMATIC NEBULA TRAVERSAL)
+   PULL-THROUGH WARP OVERLAY (CINEMATIC NEBULA TRAVERSAL — 60 FPS)
    ========================================================================== */
 .u-warp {
     position: fixed;
@@ -1051,8 +1055,13 @@ body.u-locked { overflow: hidden; }
     color: var(--u-silver);
 }
 
-/* world route active — slots recede, project stage takes over */
-.u-universe.is-world .u-universe__field { opacity: 0; pointer-events: none; }
+/* world route active — slots and background spatial hairlines recede completely */
+.u-universe.is-world .u-universe__field,
+.u-universe.is-world .u-universe__rule {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    display: none !important;
+}
 .u-universe__field { transition: opacity var(--u-d-scene) var(--u-ease-enter); }
 
 /* ---- per-world full-screen project environments ------------------------- */
@@ -1062,11 +1071,27 @@ body.u-locked { overflow: hidden; }
     padding: calc(var(--u-s7) + var(--u-s4)) 6% var(--u-s6);
     overflow-y: auto;
     overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
     opacity: 0;
     transform: translateY(16px);
     pointer-events: none;
     transition: opacity var(--u-d-scene) var(--u-ease-enter),
                 transform var(--u-d-scene) var(--u-ease-enter);
+}
+
+.u-worldstage::-webkit-scrollbar {
+    width: 6px;
+}
+.u-worldstage::-webkit-scrollbar-track {
+    background: rgba(3, 4, 7, 0.5);
+}
+.u-worldstage::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: 3px;
+}
+.u-worldstage::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.32);
 }
 
 .u-worldstage.is-active {
@@ -1139,7 +1164,12 @@ body.u-locked { overflow: hidden; }
     justify-content: space-between;
     gap: var(--u-s3);
     padding: var(--u-s2) 6%;
-    pointer-events: none;
+    background: rgba(3, 4, 7, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--u-line-1);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+    pointer-events: auto;
 }
 
 .u-chrome[hidden] { display: none; }

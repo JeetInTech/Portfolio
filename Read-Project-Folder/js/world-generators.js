@@ -442,11 +442,9 @@
 
         var plot = '<div class="wg-floor__plot">';
         ctx.projects.forEach(function (p, i) {
-            var slot = PLOT[i] || { x: 0, y: 0, d: 0 };
             var kind = BAY_MOTIF[p.id] || 'tiles';
             plot +=
                 '<button type="button" class="wg-bay wg-bay--' + kind + '" data-id="' + esc(p.id) + '" ' +
-                'style="--wg-x:' + slot.x + '%;--wg-y:' + slot.y + '%;--wg-d:' + slot.d + '" ' +
                 'aria-label="' + esc(p.name + '. ' + p.status + '. ' + p.blurb) + '">' +
                 '<span class="wg-bay__idx">' + pad2(i + 1) + '</span>' +
                 bayArtwork(kind) +

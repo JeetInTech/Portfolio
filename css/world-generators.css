@@ -302,9 +302,16 @@
    THE LAB FLOOR — PROJECT ENVIRONMENT
    Content sits on the void, separated by hairlines. No cards.
    ========================================================================== */
-.wg-floor { max-width: 1320px; }
+.wg-floor {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding-bottom: var(--u-s7);
+}
 
-.wg-floor__head { max-width: 60ch; margin-bottom: var(--u-s6); }
+.wg-floor__head {
+    max-width: 68ch;
+    margin-bottom: var(--u-s6);
+}
 
 .wg-kicker {
     margin: 0 0 var(--u-s2);
@@ -319,8 +326,8 @@
 .wg-floor__title {
     margin: 0 0 var(--u-s2);
     font-size: var(--u-t-world);
-    font-weight: 400;
-    line-height: 1.08;
+    font-weight: 500;
+    line-height: 1.15;
     letter-spacing: var(--u-track-title);
     color: var(--u-white);
 }
@@ -332,37 +339,54 @@
     color: var(--u-light);
 }
 
-/* ---- the plot: asymmetric spatial composition with real depth ----------- */
+/* ---- the plot: high-density precision compute bays grid ----------------- */
 .wg-floor__plot {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--u-s5) var(--u-s4);
     position: relative;
-    height: 940px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* ---- one processing bay ------------------------------------------------- */
 .wg-bay {
-    position: absolute;
-    left: var(--wg-x);
-    top: var(--wg-y);
-    width: clamp(212px, 23%, 300px);
-    display: block;
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     margin: 0;
-    padding: var(--u-s2) 0 var(--u-s3);
+    padding: var(--u-s3);
     text-align: left;
-    background: none;                    /* NO CARDS */
-    border: 0;
-    border-top: 1px solid var(--u-line-1);
+    background: rgba(8, 12, 18, 0.45);
+    border: 1px solid var(--u-line-1);
+    border-top: 2px solid var(--u-line-2);
+    border-radius: 4px;
     color: var(--u-light);
     font-family: inherit;
     cursor: pointer;
-    opacity: calc(1 - var(--wg-d) * var(--wg-depth-fade));
-    transform:
-        translate3d(calc(var(--wg-px, 0) * var(--wg-d) * var(--wg-par-x)),
-                    calc(var(--wg-py, 0) * var(--wg-d) * var(--wg-par-y)), 0)
-        scale(calc((1 - var(--wg-d) * var(--wg-depth-scale)) * var(--wg-hs, 1)));
+    box-sizing: border-box;
+    opacity: 0.95;
+    transform: none;
     transition:
-        transform var(--u-d-scene) var(--u-ease-enter),
-        opacity var(--u-d-micro-lg) var(--u-ease-enter),
-        border-color var(--u-d-micro-lg) var(--u-ease-enter);
+        transform var(--u-d-micro-lg) var(--u-ease-enter),
+        border-color var(--u-d-micro-lg) var(--u-ease-enter),
+        background-color var(--u-d-micro-lg) var(--u-ease-enter),
+        box-shadow var(--u-d-micro-lg) var(--u-ease-enter),
+        opacity var(--u-d-micro-lg) var(--u-ease-enter);
+}
+
+.wg-bay:hover,
+.wg-bay:focus-visible {
+    opacity: 1;
+    border-top-color: var(--wg-violet);
+    border-color: rgba(139, 92, 246, 0.4);
+    background: rgba(139, 92, 246, 0.06);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 24px rgba(139, 92, 246, 0.16);
+    outline: none;
 }
 
 .wg-bay:focus-visible {
@@ -417,57 +441,60 @@
 .wg-bay__name {
     display: block;
     margin-bottom: var(--u-s1);
-    /* authored copy — never truncated, wraps instead */
-    font-size: clamp(16px, 1.05vw, 19px);
-    font-weight: 400;
-    line-height: 1.16;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.28;
     letter-spacing: var(--u-track-title);
     color: var(--u-white);
     overflow-wrap: break-word;
-    min-height: 2.32em;              /* keeps two-line names on the same rhythm */
+    min-height: 2.56em;
 }
 
-.wg-bay__meta { display: block; margin-bottom: var(--u-s1); }
+.wg-bay__meta {
+    display: block;
+    margin-bottom: var(--u-s2);
+}
 
 .wg-chip {
     display: inline-block;
-    padding: 2px 0 0;
+    padding: 2px 8px;
     font-family: var(--u-font-mono);
-    font-size: var(--u-t-micro);
-    font-weight: 500;
+    font-size: 10px;
+    font-weight: 600;
     letter-spacing: var(--u-track-mono);
     text-transform: uppercase;
-    /* status is the WORD first; colour only reinforces it */
-    border-top: 1px solid currentColor;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid currentColor;
     color: var(--u-muted);
 }
-.wg-chip--live         { color: var(--u-status-live); }
-.wg-chip--private      { color: var(--u-status-private); }
-.wg-chip--open-source  { color: var(--u-status-open); }
-.wg-chip--experimental { color: var(--u-status-experimental); }
+.wg-chip--live         { color: var(--u-status-live); border-color: rgba(125, 211, 160, 0.4); }
+.wg-chip--private      { color: var(--u-status-private); border-color: rgba(148, 163, 184, 0.35); }
+.wg-chip--open-source  { color: var(--u-status-open); border-color: rgba(167, 139, 250, 0.4); }
+.wg-chip--experimental { color: var(--u-status-experimental); border-color: rgba(184, 255, 60, 0.4); }
 
 .wg-bay__blurb {
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    min-height: 3.4em;               /* space reserved: nothing reflows on hover */
-    font-size: 17px;            /* 17px — survives the depth scale */
-    line-height: 1.6;
-    color: var(--u-light);
-    opacity: 0;
-    transform: translateY(4px);
-    transition: opacity var(--u-d-micro-lg) var(--u-ease-enter),
-                transform var(--u-d-micro-lg) var(--u-ease-enter);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--u-muted);
+    opacity: 0.85;
+    margin-top: auto;
+    transition: color var(--u-d-micro) var(--u-ease-enter),
+                opacity var(--u-d-micro) var(--u-ease-enter);
 }
 
 /* ---- focus state (keyboard, always available) --------------------------- */
 .wg-bay:focus-visible {
     opacity: 1;
     border-top-color: var(--wg-violet);
-    --wg-hs: 1.035;
+    border-color: rgba(139, 92, 246, 0.5);
+    background: rgba(139, 92, 246, 0.08);
 }
-.wg-bay:focus-visible .wg-bay__blurb { opacity: 1; transform: none; }
+.wg-bay:focus-visible .wg-bay__blurb { opacity: 1; color: var(--u-light); }
 .wg-bay:focus-visible .wg-b-frame    { stroke: var(--wg-violet); }
 .wg-bay:focus-visible .wg-b-lug      { fill: var(--wg-magenta); }
 
@@ -476,9 +503,10 @@
     .wg-bay:hover {
         opacity: 1;
         border-top-color: var(--wg-violet);
-        --wg-hs: 1.035;
+        border-color: rgba(139, 92, 246, 0.5);
+        background: rgba(139, 92, 246, 0.08);
     }
-    .wg-bay:hover .wg-bay__blurb { opacity: 1; transform: none; }
+    .wg-bay:hover .wg-bay__blurb { opacity: 1; color: var(--u-light); }
     .wg-bay:hover .wg-b-frame    { stroke: var(--wg-violet); }
     .wg-bay:hover .wg-b-lug      { fill: var(--wg-magenta); }
     .wg-bay:hover .wg-b-motif    { opacity: 1; }
@@ -555,50 +583,38 @@
 /* ============================================================================
    RESPONSIVE
    ========================================================================== */
-
-/* ≤1024px — spatial complexity drops to a two-column flow. Parallax is not
-   attached by the module at this width. */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .wg-floor__plot {
-        position: static;
-        height: auto;
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--u-s5) var(--u-s4);
-    }
-    .wg-bay {
-        position: static;
-        width: calc(50% - var(--u-s4));
-        opacity: 1;
-        transform: scale(var(--wg-hs, 1));
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--u-s4);
     }
 }
 
-/* ≤768px — the world becomes one tall vertical scene: the rig runs
-   top-to-bottom (layout swapped in JS) and the bays stack as full-width rows
-   on hairlines. Still not cards. */
-@media (max-width: 768px) {
+@media (max-width: 860px) {
     .wg-floor__head { margin-bottom: var(--u-s5); }
     .wg-floor__plot {
-        display: block;
-        gap: 0;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--u-s3);
     }
     .wg-bay {
-        width: 100%;
-        min-height: var(--u-tap);
-        padding: var(--u-s3) 0;
-        margin: 0;
-        border-top: 1px solid var(--u-line-1);
+        padding: var(--u-s2);
     }
-    .wg-bay + .wg-bay { margin-top: var(--u-s1); }   /* ≥8px between targets */
-    .wg-bay__art { max-width: 420px; }
-    .wg-bay__name { min-height: 0; font-size: 18px; }
-    .wg-bay__blurb { opacity: 1; transform: none; min-height: 0; }  /* no hover */
+    .wg-bay__name {
+        font-size: 14px;
+    }
 }
 
-@media (max-width: 420px) {
-    .wg-floor__plot { overflow-x: hidden; }
-    .wg-bay__art { max-width: 100%; }
+@media (max-width: 560px) {
+    .wg-floor__plot {
+        grid-template-columns: 1fr;
+        gap: var(--u-s3);
+    }
+    .wg-bay {
+        padding: var(--u-s3);
+    }
+    .wg-bay__name {
+        font-size: 16px;
+    }
 }
 
 /* ============================================================================

@@ -894,6 +894,7 @@
         /* --- page frame / universe visibility --- */
         if (inUniverse) {
             universe.hidden = false;
+            document.documentElement.classList.add('u-locked');
             document.body.classList.add('u-locked');
             if (page) page.setAttribute('inert', '');
             portalStop();
@@ -902,6 +903,7 @@
         } else {
             universe.hidden = true;
             if (!warping) {
+                document.documentElement.classList.remove('u-locked');
                 document.body.classList.remove('u-locked');
                 portalStart();
             }
@@ -916,8 +918,13 @@
             var st = slots[w.id].stage;
             st.hidden = !active;
             st.classList.toggle('is-active', active);
+            if (active) {
+                st.scrollTop = 0;
+            }
         });
         universe.classList.toggle('is-world', r.name === 'world' || r.name === 'project');
+        if (universe) universe.scrollTop = 0;
+        window.scrollTo(0, 0);
 
         if (r.world && (r.name === 'world' || r.name === 'project')) mountWorld(r.world);
 
@@ -1056,6 +1063,10 @@
         };
         if (motionQuery.addEventListener) motionQuery.addEventListener('change', onMotion);
         else if (motionQuery.addListener) motionQuery.addListener(onMotion);
+
+        if ('scrollRestoration' in history) {
+            try { history.scrollRestoration = 'manual'; } catch (e) {}
+        }
 
         /* deep links resolve on load, with no warp on first paint */
         mountAllRegisteredWorlds();
