@@ -57,7 +57,7 @@
         <div class="orbit-intro">
             <span class="orbit-label">Credentials</span>
             <h1 class="orbit-title">Verified <span>Certifications</span></h1>
-            <p class="orbit-subtitle">40+ credentials from Google, AWS, Coursera, DeepLearning.AI and Great Learning &mdash; plus competition wins.</p>
+            <p class="orbit-subtitle">40+ credentials from Google, AWS, Coursera, DeepLearning.AI and Great Learning &mdash; plus a national hackathon win.</p>
 
             <div class="orbit-stats">
                 <div>
@@ -69,8 +69,8 @@
                     <span class="orbit-stat-label">Platforms</span>
                 </div>
                 <div>
-                    <span class="orbit-stat-num">3</span>
-                    <span class="orbit-stat-label">Competition Wins</span>
+                    <span class="orbit-stat-num">1</span>
+                    <span class="orbit-stat-label">Hackathon Win</span>
                 </div>
             </div>
         </div>
@@ -82,23 +82,22 @@
             <button class="orbit-filter" data-filter="competition"><i class='bx bx-trophy'></i> Competitions</button>
         </div>
 
-        <p class="orbit-hint">Click a certificate to open it &middot; click again to send it back</p>
+        <p class="orbit-hint">Certificates orbit in 3D &middot; click one to open it, click again to send it back</p>
 
         <!-- THE ORBIT -->
         <div class="orbit-stage" id="orbitStage">
-            <div class="orbit-guide" style="width:600px;height:600px;"></div>
-            <div class="orbit-guide" style="width:800px;height:800px;"></div>
-            <div class="orbit-guide" style="width:1000px;height:1000px;"></div>
-
             <div class="orbit-corona"></div>
             <div class="orbit-core-ring"></div>
 
-            <div class="orbit-core">
-                <div class="orbit-floor-shadow"></div>
-                <img class="orbit-figure" src="../images/jeet.png" alt="Sangramjeet Ghosh">
+            <!-- One shared 3D context: the figure and the sphere depth-sort
+                 against each other, so certificates pass behind him. -->
+            <div class="orbit-scene" id="orbitScene">
+                <div class="orbit-core">
+                    <div class="orbit-floor-shadow"></div>
+                    <img class="orbit-figure" src="../images/jeet cert.png" alt="Sangramjeet Ghosh">
+                </div>
+                <!-- .orbit-sphere injected by orbit-gallery.js -->
             </div>
-
-            <!-- Rings injected by orbit-gallery.js -->
         </div>
 
         <!-- Flat fallback: narrow screens and reduced-motion -->

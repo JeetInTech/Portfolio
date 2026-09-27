@@ -54,14 +54,10 @@
         { img: '../images/certs/Coursera-ZTO0F1V6P4Z0.jpg', cat: 'aiml', pdf: '../certs/Coursera-ZTO0F1V6P4Z0.pdf', title: 'Coursera Certificate', badge: 'AI / ML' }
     ];
 
-    // base radius (px at full scale), rotation period (s), direction
-    var RINGS = [
-        { r: 270, dur: 78, dir: 'cw' },
-        { r: 365, dur: 104, dir: 'ccw' },
-        { r: 460, dur: 132, dir: 'cw' }
-    ];
-    var THUMB = 96;              // thumbnail width
-    var FULL_SPAN = 460 * 2 + THUMB;   // stage size the base radii assume
+    var SPIN_SECONDS = 110;      // one full revolution of the sphere
+    var THUMB = 96;              // thumbnail width in px
+    var BASE_RADIUS = 400;       // sphere radius at full scale
+    var FULL_SPAN = BASE_RADIUS * 2 + THUMB;   // stage size that radius assumes
 
     var stage = document.getElementById('orbitStage');
     var grid = document.getElementById('orbitGrid');
@@ -86,81 +82,128 @@
         btn.setAttribute('aria-label', 'View ' + cert.title);
         btn.dataset.index = indexInVisible;
 
+        var face = document.createElement('span');
+        face.className = 'orbit-cert-face';
+
         var img = document.createElement('img');
         img.src = cert.img;
         img.alt = cert.title;
         img.loading = 'lazy';
         img.decoding = 'async';
-        btn.appendChild(img);
+        face.appendChild(img);
+        btn.appendChild(face);
 
         return btn;
     }
 
-    // Choose how many rings to use, then spread evenly across them. A small
-    // filtered set gets ONE ring — three rings holding one item each reads as
-    // broken, not sparse.
-    function distribute(count) {
-        if (!count) return [0, 0, 0];
+    // Evenly spaced points on a sphere via a Fibonacci lattice — the only
+    // distribution that avoids the clumping you get at the poles when you
+    // step latitude and longitude on a fixed grid.
+    function spherePoints(n) {
+        var pts = [];
+        if (!n) return pts;
 
-        var buckets = [0, 0, 0];
-        if (count <= 12) {
-            buckets[1] = count;                      // middle ring only
-        } else if (count <= 26) {
-            buckets[1] = Math.ceil(count * 0.45);    // middle + outer
-            buckets[2] = count - buckets[1];
-        } else {
-            buckets[0] = Math.round(count * 0.25);   // all three
-            buckets[1] = Math.round(count * 0.35);
-            buckets[2] = count - buckets[0] - buckets[1];
+        var golden = Math.PI * (3 - Math.sqrt(5));   // ~2.39996 rad
+        for (var i = 0; i < n; i++) {
+            // The +0.5 offset keeps points off the exact poles. Without it a
+            // 2-item filter puts one card straight overhead and one underfoot.
+            var y = 1 - ((i + 0.5) / n) * 2;         // near +1 (top) .. near -1
+            var ring = Math.sqrt(Math.max(0, 1 - y * y));
+            var theta = golden * i;
+            var x = Math.cos(theta) * ring;
+            var z = Math.sin(theta) * ring;
+            pts.push({
+                x: x, y: y, z: z,
+                lon: Math.atan2(x, z) * 180 / Math.PI,
+                lat: Math.asin(y) * 180 / Math.PI
+            });
         }
-        return buckets;
+        return pts;
     }
 
-    // Orbits must fit inside the stage box in BOTH axes, or overflow:hidden
-    // clips the top and bottom of the outer ring.
-    function scaleFactor() {
+    // The sphere must fit inside the stage box in BOTH axes, or overflow:hidden
+    // clips its top and bottom.
+    function radius() {
         var box = stage.getBoundingClientRect();
         var span = Math.min(box.width, box.height);
-        if (!span) return 1;
-        return Math.min(1, span / FULL_SPAN);
+        if (!span) return BASE_RADIUS;
+        return Math.round(BASE_RADIUS * Math.min(1, span / FULL_SPAN));
     }
 
+    var slots = [];   // { el, billboard, x, y, z } for the depth pass
+
     function render() {
-        stage.querySelectorAll('.orbit-ring').forEach(function (r) { r.remove(); });
+        var scene = document.getElementById('orbitScene');
+        scene.querySelectorAll('.orbit-sphere').forEach(function (el) { el.remove(); });
         grid.innerHTML = '';
+        slots = [];
 
-        var buckets = distribute(visible.length);
-        var scale = scaleFactor();
-        var cursor = 0;
+        var r = radius();
+        var pts = spherePoints(visible.length);
 
-        buckets.forEach(function (count, ringIndex) {
-            if (!count) return;
-            var cfg = RINGS[ringIndex];
-            var ring = document.createElement('div');
-            ring.className = 'orbit-ring';
-            ring.dataset.dir = cfg.dir;
-            ring.style.setProperty('--dur', cfg.dur + 's');
+        var sphere = document.createElement('div');
+        sphere.className = 'orbit-sphere';
+        sphere.style.setProperty('--dur', SPIN_SECONDS + 's');
 
-            for (var i = 0; i < count; i++) {
-                var cert = visible[cursor];
-                var slot = document.createElement('div');
-                slot.className = 'orbit-cert';
-                slot.style.setProperty('--a', (i / count) * 360 + 'deg');
-                slot.style.setProperty('--r', Math.round(cfg.r * scale) + 'px');
-                slot.style.setProperty('--dur', cfg.dur + 's');
-                slot.dataset.index = cursor;
-                slot.appendChild(makeThumb(cert, cursor));
-                ring.appendChild(slot);
-                cursor++;
-            }
-            stage.appendChild(ring);
+        pts.forEach(function (pt, i) {
+            var slot = document.createElement('div');
+            slot.className = 'orbit-cert';
+            slot.style.setProperty('--lon', pt.lon.toFixed(3) + 'deg');
+            slot.style.setProperty('--lat', pt.lat.toFixed(3) + 'deg');
+            slot.style.setProperty('--r', r + 'px');
+            slot.style.setProperty('--dur', SPIN_SECONDS + 's');
+            slot.dataset.index = i;
+
+            // Extra layer: cancels the surface tilt so the card faces us.
+            var billboard = document.createElement('div');
+            billboard.className = 'orbit-cert-billboard';
+            billboard.appendChild(makeThumb(visible[i], i));
+            slot.appendChild(billboard);
+
+            sphere.appendChild(slot);
+            slots.push({ el: slot, billboard: billboard, x: pt.x, y: pt.y, z: pt.z });
         });
+
+        scene.appendChild(sphere);
 
         // Flat fallback for narrow screens / reduced motion
         visible.forEach(function (cert, i) {
             grid.appendChild(makeThumb(cert, i));
         });
     }
+
+    /* ========================================================
+       DEPTH PASS
+       Perspective already scales the cards by distance, but front and back
+       still read identically without haze. One rAF loop derives the spin
+       angle from the clock (no layout reads) and writes --depth per card.
+       ======================================================== */
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    (function depthLoop() {
+        if (reduceMotion) return;
+        var elapsed = 0;
+        var last = performance.now();
+
+        function frame(now) {
+            var dt = now - last;
+            last = now;
+            if (!stage.classList.contains('paused')) elapsed += dt;
+
+            var theta = (elapsed / (SPIN_SECONDS * 1000)) * Math.PI * 2;
+            var cos = Math.cos(theta);
+            var sin = Math.sin(theta);
+
+            for (var i = 0; i < slots.length; i++) {
+                var s = slots[i];
+                // rotate the unit position around Y by theta, take the z component
+                var z = s.z * cos + s.x * sin;
+                s.el.style.setProperty('--depth', ((z + 1) / 2).toFixed(3));
+            }
+            requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+    })();
 
     /* ========================================================
        POPUP
@@ -276,18 +319,13 @@
         });
     }
 
-    // Re-scale the orbits when the stage box changes
+    // Re-scale the sphere when the stage box changes
     var resizeTimer;
     window.addEventListener('resize', function () {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function () {
-            var scale = scaleFactor();
-            stage.querySelectorAll('.orbit-ring').forEach(function (ring, ringIndex) {
-                var base = RINGS[ringIndex] ? RINGS[ringIndex].r : RINGS[RINGS.length - 1].r;
-                ring.querySelectorAll('.orbit-cert').forEach(function (slot) {
-                    slot.style.setProperty('--r', Math.round(base * scale) + 'px');
-                });
-            });
+            var r = radius() + 'px';
+            slots.forEach(function (s) { s.el.style.setProperty('--r', r); });
         }, 150);
     }, { passive: true });
 

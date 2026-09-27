@@ -282,6 +282,9 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    /* The camera. Everything below lives in this 3D space. */
+    perspective: 1500px;
+    perspective-origin: 50% 50%;
 }
 
 /* --- Centre: the figure and its halo (same layering as the hero) --- */
@@ -382,41 +385,38 @@ body {
 }
 
 /* --- Guide rings --- */
-.orbit-guide {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border-radius: 50%;
-    border: 1px dashed rgba(255, 255, 255, 0.06);
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* --- Rotating rings holding the certificates --- */
-/* Behind the figure — certificates pass around and behind him.
-   .orbit-core is pointer-events:none so clicks still reach the thumbnails. */
-.orbit-ring {
+/* --- 3D SCENE ---------------------------------------------------
+   The figure and the certificate sphere share one 3D context so the
+   browser depth-sorts them: certificates genuinely pass behind him.
+   ---------------------------------------------------------------- */
+.orbit-scene {
     position: absolute;
     top: 50%;
     left: 50%;
     width: 0;
     height: 0;
-    z-index: 3;
-    animation: orbitSpin var(--dur, 90s) linear infinite;
+    transform-style: preserve-3d;
+}
+
+/* The sphere itself — one container, spinning on its axis */
+.orbit-sphere {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    transform-style: preserve-3d;
+    animation: sphereSpin var(--dur, 110s) linear infinite;
     will-change: transform;
 }
 
-.orbit-ring[data-dir="ccw"] {
-    animation-direction: reverse;
+@keyframes sphereSpin {
+    from { transform: rotateY(0deg); }
+    to   { transform: rotateY(360deg); }
 }
 
-@keyframes orbitSpin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-}
-
-/* Each item sits on the ring at --a degrees, --r px out */
+/* Each certificate sits on the sphere surface at (--lon, --lat), --r out.
+   Distribution comes from a Fibonacci lattice in orbit-gallery.js. */
 .orbit-cert {
     position: absolute;
     top: 0;
@@ -424,47 +424,69 @@ body {
     width: 96px;
     height: 72px;
     margin: -36px 0 0 -48px;
-    transform: rotate(var(--a)) translate(var(--r)) rotate(calc(-1 * var(--a)));
+    transform-style: preserve-3d;
+    transform:
+        rotateY(var(--lon))
+        rotateX(var(--lat))
+        translateZ(var(--r));
 }
 
-/* Inner element counter-rotates so thumbnails stay upright */
+/* Undoes the surface tilt, so the card faces the camera at rest... */
+.orbit-cert-billboard {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform:
+        rotateX(calc(-1 * var(--lat)))
+        rotateY(calc(-1 * var(--lon)));
+}
+
+/* ...and this cancels the sphere's own spin, so it keeps facing the
+   camera as the sphere turns. Same duration, reversed. */
 .orbit-cert-inner {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display: block;
+    padding: 0;
+    background: none;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: sphereSpin var(--dur, 110s) linear infinite reverse;
+    will-change: transform;
+}
+
+/* All painting happens here. Nothing in the transform chain above may carry
+   opacity or filter — either one forces transform-style:flat and collapses
+   the billboard maths, leaving the cards tilted edge-on. */
+.orbit-cert-face {
+    display: block;
     width: 100%;
     height: 100%;
     border-radius: 0.5rem;
     overflow: hidden;
     border: 1px solid var(--card-border);
     background: var(--surface);
-    cursor: pointer;
-    display: block;
-    padding: 0;
-    position: relative;
-    animation: orbitSpin var(--dur, 90s) linear infinite reverse;
+    /* Depth cue — orbit-gallery.js writes --depth (0 = far, 1 = near) per
+       frame. Perspective handles size; this carries haze and contrast. */
+    opacity: calc(0.3 + 0.7 * var(--depth, 1));
+    filter: brightness(calc(0.55 + 0.45 * var(--depth, 1)));
     transition: border-color 0.35s ease, box-shadow 0.35s ease;
-    will-change: transform;
 }
 
-.orbit-ring[data-dir="ccw"] .orbit-cert-inner {
-    animation-direction: normal;
-}
-
-.orbit-cert-inner img {
+.orbit-cert-face img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    opacity: 0.62;
-    transition: opacity 0.35s ease;
 }
 
-.orbit-cert-inner:hover {
+.orbit-cert-inner:hover .orbit-cert-face,
+.orbit-cert-inner:focus-visible .orbit-cert-face {
     border-color: var(--border-hi);
-    box-shadow: 0 0 26px rgba(255, 255, 255, 0.18);
-}
-
-.orbit-cert-inner:hover img,
-.orbit-cert-inner:focus-visible img {
+    box-shadow: 0 0 26px rgba(255, 255, 255, 0.25);
     opacity: 1;
+    filter: none;
 }
 
 .orbit-cert-inner:focus-visible {
@@ -473,13 +495,15 @@ body {
 }
 
 /* Item currently open in the popup keeps its slot marked */
-.orbit-cert.is-open .orbit-cert-inner {
+.orbit-cert.is-open .orbit-cert-face {
     border-color: #ffffff;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.35);
+    opacity: 1;
+    filter: none;
 }
 
 /* Pause only while a certificate is open */
-.orbit-stage.paused .orbit-ring,
+.orbit-stage.paused .orbit-sphere,
 .orbit-stage.paused .orbit-cert-inner {
     animation-play-state: paused;
 }
@@ -667,6 +691,12 @@ body {
     width: 100%;
     height: 130px;
     animation: none;
+    transform: none;
+}
+
+.orbit-grid .orbit-cert-face {
+    opacity: 1;
+    filter: none;
 }
 
 /* ========================================================
