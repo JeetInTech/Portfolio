@@ -79,16 +79,16 @@
             '<path class="wg-hair" d="M-4 -7v14M4 -7v14M-11 0h22"/>'
     };
 
-    /* project id -> media motif for the lab floor */
+    /* project id -> media motif for the lab floor (8 distinct procedural machines) */
     var BAY_MOTIF = {
-        'ai-video-editor': 'film',
-        'offline-image': 'tiles',
-        'yt-clip-master': 'film',
-        'photo-enhancer': 'tiles',
-        'chatterbox': 'wave',
-        'long-video': 'film',
-        'ai-data-analyst': 'lattice',
-        'genesis-linkedin-publisher': 'tiles'
+        'ai-video-editor': 'timeline',
+        'offline-image': 'diffusion',
+        'yt-clip-master': 'facetrack',
+        'photo-enhancer': 'enhancer',
+        'chatterbox': 'audio',
+        'long-video': 'pipeline',
+        'ai-data-analyst': 'automl',
+        'genesis-linkedin-publisher': 'publisher'
     };
 
     /* asymmetric lab-floor placement (desktop only). x/y are % of the plot,
@@ -363,43 +363,150 @@
        PROJECT ENVIRONMENT — THE LAB FLOOR
        ========================================================================== */
 
-    /* thin-line machine frame + media motif for one project bay */
+    /* thin-line machine frame + media motif for one project bay (8 distinct machine types) */
     function bayArtwork(kind) {
         var motif = '', i, j, x;
 
-        if (kind === 'wave') {
-            for (i = 0; i < 26; i++) {
-                x = 18 + i * 6.4;
-                motif += '<path class="wg-b-wave" style="--i:' + i + '" d="M' + x +
-                    ' 42v-' + (4 + ((i * 7) % 13)) + 'M' + x + ' 42v' + (4 + ((i * 5) % 11)) + '"/>';
+        if (kind === 'timeline') {
+            /* 01: AI LOCAL VIDEO EDITOR — NLE Timeline scrubbing with playhead & audio energy cuts */
+            motif += '<g class="wg-b-timeline">';
+            motif += '<rect class="wg-b-ln wg-tl-clip c1" x="16" y="24" width="44" height="13" rx="1.5"/>';
+            motif += '<rect class="wg-b-ln wg-tl-clip c2" x="64" y="24" width="52" height="13" rx="1.5"/>';
+            motif += '<rect class="wg-b-ln wg-tl-clip c3" x="120" y="24" width="64" height="13" rx="1.5"/>';
+            motif += '<path class="wg-b-hair" d="M30 24v13M50 24v13M88 24v13M148 24v13"/>';
+            motif += '<rect class="wg-b-hair" x="16" y="41" width="168" height="11" rx="1"/>';
+            for (i = 0; i < 24; i++) {
+                var ax = 20 + i * 7;
+                var ah = 2 + ((i * 7 + 3) % 8);
+                motif += '<line class="wg-tl-audio" style="--i:' + i + '" x1="' + ax + '" y1="' + (46.5 - ah/2) + '" x2="' + ax + '" y2="' + (46.5 + ah/2) + '"/>';
             }
-        } else if (kind === 'film') {
-            motif += '<g class="wg-b-strip">';
-            for (i = 0; i < 6; i++) {
-                x = 16 + i * 32;
-                motif += '<rect class="wg-b-ln" x="' + x + '" y="26" width="26" height="32" rx="1"/>' +
-                    '<path class="wg-b-hair" d="M' + (x + 3) + ' 26v32M' + (x + 23) + ' 26v32"/>';
-            }
+            motif += '<rect class="wg-tl-overlay o1" x="40" y="56" width="24" height="6" rx="1"/>';
+            motif += '<rect class="wg-tl-overlay o2" x="100" y="56" width="34" height="6" rx="1"/>';
+            motif += '<g class="wg-tl-playhead">' +
+                '<line class="wg-tl-needle" x1="0" y1="20" x2="0" y2="64"/>' +
+                '<polygon class="wg-tl-diamond" points="0,20 -4,15 4,15"/>' +
+                '</g>';
             motif += '</g>';
-        } else if (kind === 'tiles') {
+        } else if (kind === 'diffusion') {
+            /* 02: OFFLINE IMAGE WORKSTATION — Latent space grid with progressive denoising vectors */
+            motif += '<g class="wg-b-diffusion">';
             for (j = 0; j < 2; j++) {
-                for (i = 0; i < 5; i++) {
-                    motif += '<rect class="wg-b-tile" style="--i:' + (j * 5 + i) + '" x="' +
-                        (18 + i * 34) + '" y="' + (24 + j * 19) + '" width="28" height="15" rx="1"/>';
+                for (i = 0; i < 4; i++) {
+                    var dx = 22 + i * 40;
+                    var dy = 24 + j * 20;
+                    motif += '<rect class="wg-diff-cell" style="--i:' + (j * 4 + i) + '" x="' + dx + '" y="' + dy + '" width="34" height="16" rx="1.5"/>';
+                    motif += '<circle class="wg-diff-seed" style="--i:' + (j * 4 + i) + '" cx="' + (dx + 17) + '" cy="' + (dy + 8) + '" r="2"/>';
                 }
             }
-        } else { /* lattice — data / AutoML */
-            var cx = [24, 70, 116, 162], cy = [26, 42, 58];
+            motif += '<path class="wg-diff-vector" d="M39 32 L79 52 M119 32 L159 52 M79 32 L119 52"/>';
+            motif += '<circle class="wg-diff-core" cx="99" cy="42" r="14"/>';
+            motif += '<circle class="wg-diff-core-pulse" cx="99" cy="42" r="8"/>';
+            motif += '</g>';
+        } else if (kind === 'facetrack') {
+            /* 03: GENESIS: YT-CLIP-MASTER — 16:9 frame + 9:16 vertical crop bounds + face tracking reticle */
+            motif += '<g class="wg-b-facetrack">';
+            motif += '<rect class="wg-b-hair" x="18" y="22" width="164" height="42" rx="2"/>';
+            motif += '<rect class="wg-ft-crop" x="84" y="22" width="32" height="42" stroke-dasharray="3 2"/>';
+            motif += '<g class="wg-ft-reticle">' +
+                '<path class="wg-ft-bracket" d="M-10 -10h5 M-10 -10v5 M10 -10h-5 M10 -10v5 M-10 10h5 M-10 10v-5 M10 10h-5 M10 10v-5"/>' +
+                '<circle class="wg-ft-dot" cx="0" cy="0" r="1.6"/>' +
+                '<line class="wg-ft-eyeline" x1="-6" y1="-2" x2="6" y2="-2"/>' +
+                '</g>';
+            motif += '<line class="wg-ft-caption" x1="88" y1="58" x2="112" y2="58"/>';
+            motif += '<line class="wg-ft-caption" x1="92" y1="61" x2="108" y2="61"/>';
+            motif += '</g>';
+        } else if (kind === 'enhancer') {
+            /* 04: PHOTO ENHANCER & BG REMOVER — Coarse pixel blocks + sharp cutout mesh & scanning laser */
+            motif += '<g class="wg-b-enhancer">';
+            for (j = 0; j < 3; j++) {
+                for (i = 0; i < 4; i++) {
+                    motif += '<rect class="wg-esr-pixel" style="--i:' + (j*4+i) + '" x="' + (22 + i*16) + '" y="' + (24 + j*14) + '" width="14" height="12"/>';
+                }
+            }
+            motif += '<path class="wg-esr-contour" d="M106 58 C106 38, 122 30, 142 30 C162 30, 178 38, 178 58 Z"/>';
+            motif += '<circle class="wg-esr-mesh-dot" cx="142" cy="40" r="2.5"/>';
+            motif += '<path class="wg-b-hair" d="M118 48h48 M126 54h32"/>';
+            motif += '<g class="wg-esr-laser-group">' +
+                '<line class="wg-esr-beam" x1="0" y1="20" x2="0" y2="66"/>' +
+                '<circle class="wg-esr-spark" cx="0" cy="43" r="2"/>' +
+                '</g>';
+            motif += '</g>';
+        } else if (kind === 'audio') {
+            /* 05: CHATTERBOX AUDIO STUDIO — 22-bar voice frequency spectrum analyzer + voice formant ripples */
+            motif += '<g class="wg-b-audio">';
+            for (i = 0; i < 22; i++) {
+                var bx = 22 + i * 7.2;
+                var bmax = 8 + ((i * 11) % 18);
+                motif += '<line class="wg-audio-eq-bar" style="--i:' + i + ';--h:' + bmax + '" x1="' + bx + '" y1="62" x2="' + bx + '" y2="' + (62 - bmax) + '"/>';
+                motif += '<rect class="wg-audio-peak" style="--i:' + i + '" x="' + (bx - 1) + '" y="' + (60 - bmax) + '" width="2" height="1.5"/>';
+            }
+            motif += '<path class="wg-audio-wave" d="M22 40 Q 56 22, 92 40 T 162 40 T 176 40"/>';
+            motif += '<circle class="wg-audio-core" cx="22" cy="40" r="3"/>';
+            motif += '</g>';
+        } else if (kind === 'pipeline') {
+            /* 06: LONG-FORMAT VIDEO PIPELINE — Modular conveyor assembly with flowing packet conduits */
+            motif += '<g class="wg-b-pipeline">';
+            var px = [22, 64, 106, 148];
+            for (i = 0; i < 4; i++) {
+                motif += '<rect class="wg-pipe-stage" style="--i:' + i + '" x="' + px[i] + '" y="28" width="28" height="28" rx="2"/>';
+                motif += '<circle class="wg-pipe-node" style="--i:' + i + '" cx="' + (px[i] + 14) + '" cy="42" r="3"/>';
+            }
+            motif += '<line class="wg-pipe-conduit" x1="50" y1="42" x2="64" y2="42"/>';
+            motif += '<line class="wg-pipe-conduit" x1="92" y1="42" x2="106" y2="42"/>';
+            motif += '<line class="wg-pipe-conduit" x1="134" y1="42" x2="148" y2="42"/>';
+            motif += '<circle class="wg-pipe-pkt pkt-1" cx="0" cy="42" r="2.4"/>';
+            motif += '<circle class="wg-pipe-pkt pkt-2" cx="0" cy="42" r="2.4"/>';
+            motif += '<path class="wg-pipe-rail" d="M16 62h168M20 65h160" stroke-dasharray="6 4"/>';
+            motif += '</g>';
+        } else if (kind === 'automl') {
+            /* 07: AI DATA ANALYST & AUTOML — Decision tree synapse DAG + animated ROC/AUC loss curve */
+            motif += '<g class="wg-b-automl">';
+            var l1 = [28, 42, 56];
+            var l2 = [22, 35, 48, 61];
+            var l3 = [28, 42, 56];
+            var l4 = [35, 49];
             for (i = 0; i < 3; i++) {
-                for (j = 0; j < 3; j++) {
-                    motif += '<path class="wg-b-hair" d="M' + cx[i] + ' ' + cy[j] +
-                        'L' + cx[i + 1] + ' ' + cy[(j + 1) % 3] + '"/>';
+                for (j = 0; j < 4; j++) {
+                    motif += '<line class="wg-aml-synapse" style="--i:' + (i+j) + '" x1="30" y1="' + l1[i] + '" x2="72" y2="' + l2[j] + '"/>';
                 }
             }
             for (i = 0; i < 4; i++) {
                 for (j = 0; j < 3; j++) {
-                    motif += '<circle class="wg-b-node" style="--i:' + (i * 3 + j) +
-                        '" cx="' + cx[i] + '" cy="' + cy[j] + '" r="2.6"/>';
+                    motif += '<line class="wg-aml-synapse" style="--i:' + (i*2+j) + '" x1="72" y1="' + l2[i] + '" x2="118" y2="' + l3[j] + '"/>';
+                }
+            }
+            for (i = 0; i < 3; i++) {
+                for (j = 0; j < 2; j++) {
+                    motif += '<line class="wg-aml-synapse" style="--i:' + (i+j*3) + '" x1="118" y1="' + l3[i] + '" x2="164" y2="' + l4[j] + '"/>';
+                }
+            }
+            for (i = 0; i < 3; i++) motif += '<circle class="wg-aml-node" style="--i:' + i + '" cx="30" cy="' + l1[i] + '" r="2.8"/>';
+            for (i = 0; i < 4; i++) motif += '<circle class="wg-aml-node" style="--i:' + (i+3) + '" cx="72" cy="' + l2[i] + '" r="2.8"/>';
+            for (i = 0; i < 3; i++) motif += '<circle class="wg-aml-node" style="--i:' + (i+7) + '" cx="118" cy="' + l3[i] + '" r="2.8"/>';
+            for (i = 0; i < 2; i++) motif += '<circle class="wg-aml-node" style="--i:' + (i+10) + '" cx="164" cy="' + l4[i] + '" r="3.2"/>';
+            motif += '<path class="wg-aml-curve" d="M30 65 Q 80 62, 130 36 T 172 26"/>';
+            motif += '</g>';
+        } else if (kind === 'publisher') {
+            /* 08: GENESIS: LINKEDIN PUBLISHER — Social post frame with typewriter beam & broadcast pulse */
+            motif += '<g class="wg-b-publisher">';
+            motif += '<rect class="wg-pub-card" x="20" y="22" width="130" height="44" rx="2"/>';
+            motif += '<circle class="wg-pub-avatar" cx="30" cy="32" r="4"/>';
+            motif += '<line class="wg-pub-text t1" x1="38" y1="30" x2="100" y2="30"/>';
+            motif += '<line class="wg-pub-text t2" x1="38" y1="35" x2="80" y2="35"/>';
+            motif += '<rect class="wg-pub-img" x="26" y="42" width="118" height="18" rx="1.5"/>';
+            motif += '<circle class="wg-pub-ring" cx="85" cy="51" r="5" stroke-dasharray="4 3"/>';
+            motif += '<circle class="wg-pub-beacon" cx="164" cy="34" r="3.5"/>';
+            motif += '<line class="wg-b-ln" x1="164" y1="37.5" x2="164" y2="60"/>';
+            motif += '<path class="wg-pub-wave w1" d="M170 28 a 9 9 0 0 1 0 12"/>';
+            motif += '<path class="wg-pub-wave w2" d="M174 24 a 15 15 0 0 1 0 20"/>';
+            motif += '<path class="wg-pub-wave w3" d="M178 20 a 21 21 0 0 1 0 28"/>';
+            motif += '</g>';
+        } else {
+            /* Fallback generic high-tech module */
+            for (j = 0; j < 2; j++) {
+                for (i = 0; i < 5; i++) {
+                    motif += '<rect class="wg-b-tile" style="--i:' + (j * 5 + i) + '" x="' +
+                        (18 + i * 34) + '" y="' + (24 + j * 19) + '" width="28" height="15" rx="1"/>';
                 }
             }
         }
@@ -442,9 +549,10 @@
 
         var plot = '<div class="wg-floor__plot">';
         ctx.projects.forEach(function (p, i) {
-            var kind = BAY_MOTIF[p.id] || 'tiles';
+            var kind = BAY_MOTIF[p.id] || 'timeline';
             plot +=
                 '<button type="button" class="wg-bay wg-bay--' + kind + '" data-id="' + esc(p.id) + '" ' +
+                'style="--i:' + i + '" ' +
                 'aria-label="' + esc(p.name + '. ' + p.status + '. ' + p.blurb) + '">' +
                 '<span class="wg-bay__idx">' + pad2(i + 1) + '</span>' +
                 bayArtwork(kind) +

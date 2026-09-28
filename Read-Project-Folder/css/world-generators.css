@@ -360,16 +360,19 @@
     margin: 0;
     padding: var(--u-s3);
     text-align: left;
-    background: rgba(8, 12, 18, 0.45);
-    border: 1px solid var(--u-line-1);
-    border-top: 2px solid var(--u-line-2);
-    border-radius: 4px;
+    background: rgba(9, 13, 22, 0.68);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(139, 92, 246, 0.18);
+    border-top: 2px solid rgba(139, 92, 246, 0.4);
+    border-radius: 8px;
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.06);
     color: var(--u-light);
     font-family: inherit;
     cursor: pointer;
     box-sizing: border-box;
-    opacity: 0.95;
-    transform: none;
+    opacity: 0.96;
+    will-change: transform;
     transition:
         transform var(--u-d-micro-lg) var(--u-ease-enter),
         border-color var(--u-d-micro-lg) var(--u-ease-enter),
@@ -378,14 +381,69 @@
         opacity var(--u-d-micro-lg) var(--u-ease-enter);
 }
 
+/* Staggered abstract floating constellation on desktop */
+@media (min-width: 1201px) {
+    .wg-bay:nth-child(1) { margin-top: 0px; }
+    .wg-bay:nth-child(2) { margin-top: 36px; }
+    .wg-bay:nth-child(3) { margin-top: 14px; }
+    .wg-bay:nth-child(4) { margin-top: 48px; }
+    .wg-bay:nth-child(5) { margin-top: 18px; }
+    .wg-bay:nth-child(6) { margin-top: 52px; }
+    .wg-bay:nth-child(7) { margin-top: 8px; }
+    .wg-bay:nth-child(8) { margin-top: 42px; }
+}
+@media (min-width: 861px) and (max-width: 1200px) {
+    .wg-bay:nth-child(1) { margin-top: 0px; }
+    .wg-bay:nth-child(2) { margin-top: 28px; }
+    .wg-bay:nth-child(3) { margin-top: 10px; }
+    .wg-bay:nth-child(4) { margin-top: 32px; }
+    .wg-bay:nth-child(5) { margin-top: 8px; }
+    .wg-bay:nth-child(6) { margin-top: 36px; }
+    .wg-bay:nth-child(7) { margin-top: 12px; }
+    .wg-bay:nth-child(8) { margin-top: 26px; }
+}
+
+/* Weightless organic floating animations */
+.wg-bay:nth-child(4n + 1) {
+    animation: wgFloat1 6.8s ease-in-out infinite;
+}
+.wg-bay:nth-child(4n + 2) {
+    animation: wgFloat2 7.6s ease-in-out infinite 0.9s;
+}
+.wg-bay:nth-child(4n + 3) {
+    animation: wgFloat3 6.2s ease-in-out infinite 1.8s;
+}
+.wg-bay:nth-child(4n + 4) {
+    animation: wgFloat4 7.2s ease-in-out infinite 2.7s;
+}
+
+@keyframes wgFloat1 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50%      { transform: translateY(-9px) rotate(-0.5deg); }
+}
+@keyframes wgFloat2 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50%      { transform: translateY(8px) rotate(0.6deg); }
+}
+@keyframes wgFloat3 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50%      { transform: translateY(-7px) rotate(0.4deg); }
+}
+@keyframes wgFloat4 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50%      { transform: translateY(9px) rotate(-0.6deg); }
+}
+
 .wg-bay:hover,
 .wg-bay:focus-visible {
+    animation-play-state: paused;
+    transform: translateY(-10px) scale(1.028) !important;
     opacity: 1;
     border-top-color: var(--wg-violet);
-    border-color: rgba(139, 92, 246, 0.4);
-    background: rgba(139, 92, 246, 0.06);
-    transform: translateY(-4px);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 24px rgba(139, 92, 246, 0.16);
+    border-color: rgba(168, 85, 247, 0.6);
+    background: rgba(18, 16, 32, 0.88);
+    box-shadow: 0 24px 48px -8px rgba(0, 0, 0, 0.8), 0 0 28px rgba(139, 92, 246, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    z-index: 10;
     outline: none;
 }
 
@@ -512,69 +570,511 @@
     .wg-bay:hover .wg-b-motif    { opacity: 1; }
 }
 
-/* motif animation on hover — pointer-only, so it stays in the hover query */
-@media (hover: hover) {
-    .wg-bay:hover .wg-b-wave {
-        transform-box: fill-box;
-        transform-origin: center;
-        animation: wg-bwave 1.1s ease-in-out infinite;
-        animation-delay: calc(var(--i) * -0.055s);
-    }
-    .wg-bay:hover .wg-b-strip { animation: wg-bstrip 2.6s linear infinite; }
-    .wg-bay:hover .wg-b-tile {
-        transform-box: fill-box;
-        transform-origin: center;
-        animation: wg-btile 2.2s var(--u-ease-enter) infinite;
-        animation-delay: calc(var(--i) * 0.12s);
-    }
-    .wg-bay:hover .wg-b-node {
-        transform-box: fill-box;
-        transform-origin: center;
-        animation: wg-bnode 2.4s ease-in-out infinite;
-        animation-delay: calc(var(--i) * 0.13s);
-    }
+/* ============================================================================
+   8 DISTINCT MACHINE MOTIF ANIMATIONS & ARTWORK
+   ========================================================================== */
+
+/* Shared SVG styling rules for all motifs */
+.wg-bay__art line,
+.wg-bay__art path,
+.wg-bay__art circle,
+.wg-bay__art rect,
+.wg-bay__art polygon {
+    vector-effect: non-scaling-stroke;
 }
 
-/* ---- motif animation on keyboard focus (always available) --------------- */
-.wg-bay:focus-visible .wg-b-wave {
+/* --------------------------------------------------------------------------
+   01: TIMELINE (AI LOCAL VIDEO EDITOR)
+   NLE Playhead scrub, multi-track audio energy dancing, clip blocks
+   -------------------------------------------------------------------------- */
+.wg-b-timeline .wg-tl-clip {
+    fill: rgba(139, 92, 246, 0.08);
+    stroke: rgba(139, 92, 246, 0.45);
+    stroke-width: 1.2;
+}
+.wg-b-timeline .wg-tl-clip.c1 { fill: rgba(59, 130, 246, 0.12); stroke: rgba(59, 130, 246, 0.65); }
+.wg-b-timeline .wg-tl-clip.c2 { fill: rgba(217, 70, 239, 0.12); stroke: rgba(217, 70, 239, 0.65); }
+.wg-b-timeline .wg-tl-clip.c3 { fill: rgba(139, 92, 246, 0.12); stroke: rgba(139, 92, 246, 0.65); }
+
+.wg-b-timeline .wg-tl-audio {
+    stroke: var(--u-silver);
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    opacity: 0.65;
     transform-box: fill-box;
     transform-origin: center;
-    animation: wg-bwave 1.1s ease-in-out infinite;
-    animation-delay: calc(var(--i) * -0.055s);
+    animation: wgTlAudioWave 1.4s ease-in-out infinite alternate;
+    animation-delay: calc(var(--i) * -0.06s);
 }
-@keyframes wg-bwave {
-    0%, 100% { transform: scaleY(0.45); opacity: 0.55; }
-    50%      { transform: scaleY(1.35); opacity: 1; }
-}
-
-.wg-bay:focus-visible .wg-b-strip {
-    animation: wg-bstrip 2.6s linear infinite;
-}
-@keyframes wg-bstrip {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-32px); }
+@keyframes wgTlAudioWave {
+    0%   { transform: scaleY(0.4); opacity: 0.35; stroke: var(--u-muted); }
+    100% { transform: scaleY(1.35); opacity: 0.95; stroke: var(--wg-violet); }
 }
 
-.wg-bay:focus-visible .wg-b-tile {
+.wg-b-timeline .wg-tl-overlay {
+    fill: rgba(245, 158, 11, 0.18);
+    stroke: rgba(245, 158, 11, 0.6);
+    stroke-width: 1;
+}
+
+.wg-b-timeline .wg-tl-playhead {
+    transform-box: view-box;
+    animation: wgTlScrub 4.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.wg-b-timeline .wg-tl-needle {
+    stroke: #ef4444;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+}
+.wg-b-timeline .wg-tl-diamond {
+    fill: #ef4444;
+}
+@keyframes wgTlScrub {
+    0%   { transform: translateX(20px); }
+    88%  { transform: translateX(180px); }
+    100% { transform: translateX(180px); opacity: 0; }
+}
+
+.wg-bay:hover .wg-b-timeline .wg-tl-playhead,
+.wg-bay:focus-visible .wg-b-timeline .wg-tl-playhead {
+    animation-duration: 2.2s;
+    filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.8));
+}
+.wg-bay:hover .wg-b-timeline .wg-tl-clip,
+.wg-bay:focus-visible .wg-b-timeline .wg-tl-clip {
+    stroke-width: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   02: DIFFUSION (OFFLINE IMAGE WORKSTATION)
+   Latent denoising vector field, seed cell shimmer, compute core pulse
+   -------------------------------------------------------------------------- */
+.wg-b-diffusion .wg-diff-cell {
+    fill: rgba(15, 23, 42, 0.5);
+    stroke: rgba(148, 163, 184, 0.35);
+    stroke-width: 1;
+    transition: all var(--u-d-micro-lg) var(--u-ease-enter);
+}
+.wg-b-diffusion .wg-diff-seed {
+    fill: var(--wg-violet);
+    opacity: 0.55;
     transform-box: fill-box;
     transform-origin: center;
-    animation: wg-btile 2.2s var(--u-ease-enter) infinite;
-    animation-delay: calc(var(--i) * 0.12s);
+    animation: wgDiffSeed 2.6s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.16s);
 }
-@keyframes wg-btile {
-    0%, 70%, 100% { opacity: 0.45; transform: scale(1); }
-    22%           { opacity: 1;    transform: scale(1.06); }
+@keyframes wgDiffSeed {
+    0%, 100% { transform: scale(0.7); opacity: 0.3; fill: var(--wg-violet); }
+    50%      { transform: scale(1.4); opacity: 1; fill: var(--wg-magenta); }
 }
 
-.wg-bay:focus-visible .wg-b-node {
+.wg-b-diffusion .wg-diff-vector {
+    fill: none;
+    stroke: rgba(139, 92, 246, 0.6);
+    stroke-width: 1.2;
+    stroke-dasharray: 6 4;
+    animation: wgDiffFlow 3s linear infinite;
+}
+@keyframes wgDiffFlow {
+    to { stroke-dashoffset: -20; }
+}
+
+.wg-b-diffusion .wg-diff-core {
+    fill: rgba(217, 70, 239, 0.08);
+    stroke: var(--wg-magenta);
+    stroke-width: 1.4;
+    stroke-dasharray: 4 3;
+    animation: wgDiffCoreDash 6s linear infinite;
+}
+@keyframes wgDiffCoreDash {
+    to { stroke-dashoffset: 28; }
+}
+
+.wg-b-diffusion .wg-diff-core-pulse {
+    fill: var(--wg-magenta);
     transform-box: fill-box;
     transform-origin: center;
-    animation: wg-bnode 2.4s ease-in-out infinite;
-    animation-delay: calc(var(--i) * 0.13s);
+    animation: wgDiffCorePulse 2.8s ease-in-out infinite;
 }
-@keyframes wg-bnode {
-    0%, 66%, 100% { opacity: 0.4; transform: scale(1); }
-    18%           { opacity: 1;   transform: scale(1.5); }
+@keyframes wgDiffCorePulse {
+    0%, 100% { transform: scale(0.8); opacity: 0.35; }
+    50%      { transform: scale(1.3); opacity: 0.9; }
+}
+
+.wg-bay:hover .wg-b-diffusion .wg-diff-cell,
+.wg-bay:focus-visible .wg-b-diffusion .wg-diff-cell {
+    stroke: rgba(217, 70, 239, 0.7);
+    fill: rgba(217, 70, 239, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   03: FACETRACK (GENESIS: YT-CLIP-MASTER)
+   Vertical 9:16 crop bounds, real-time face tracking reticle & lock
+   -------------------------------------------------------------------------- */
+.wg-b-facetrack .wg-ft-crop {
+    fill: rgba(139, 92, 246, 0.06);
+    stroke: var(--wg-violet);
+    stroke-width: 1.2;
+    animation: wgFtCropBlink 3.2s ease-in-out infinite;
+}
+@keyframes wgFtCropBlink {
+    0%, 100% { opacity: 0.55; }
+    50%      { opacity: 1; stroke-width: 1.6; }
+}
+
+.wg-b-facetrack .wg-ft-reticle {
+    transform-box: view-box;
+    animation: wgFtPan 5.2s ease-in-out infinite;
+}
+@keyframes wgFtPan {
+    0%   { transform: translate(94px, 36px); }
+    30%  { transform: translate(106px, 34px); }
+    65%  { transform: translate(90px, 42px); }
+    100% { transform: translate(94px, 36px); }
+}
+
+.wg-b-facetrack .wg-ft-bracket {
+    fill: none;
+    stroke: #10b981;
+    stroke-width: 1.5;
+    animation: wgFtLockPulse 1.8s ease-in-out infinite;
+}
+@keyframes wgFtLockPulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.15); stroke: #34d399; }
+}
+
+.wg-b-facetrack .wg-ft-dot {
+    fill: #10b981;
+}
+.wg-b-facetrack .wg-ft-eyeline {
+    stroke: #10b981;
+    stroke-width: 1;
+    stroke-dasharray: 2 2;
+}
+.wg-b-facetrack .wg-ft-caption {
+    stroke: var(--u-silver);
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    opacity: 0.6;
+    animation: wgFtCaptionBlink 2.4s ease-in-out infinite;
+}
+@keyframes wgFtCaptionBlink {
+    0%, 100% { opacity: 0.3; }
+    50%      { opacity: 0.9; }
+}
+
+.wg-bay:hover .wg-b-facetrack .wg-ft-bracket,
+.wg-bay:focus-visible .wg-b-facetrack .wg-ft-bracket {
+    stroke: #34d399;
+    filter: drop-shadow(0 0 6px #10b981);
+}
+
+/* --------------------------------------------------------------------------
+   04: ENHANCER (PHOTO ENHANCER & BG REMOVER)
+   Coarse pixel blocks, vector contour cutout, laser scanning beam
+   -------------------------------------------------------------------------- */
+.wg-b-enhancer .wg-esr-pixel {
+    fill: rgba(255, 255, 255, 0.04);
+    stroke: rgba(148, 163, 184, 0.4);
+    stroke-width: 1;
+    animation: wgEsrDither 2.8s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.14s);
+}
+@keyframes wgEsrDither {
+    0%, 100% { opacity: 0.3; }
+    50%      { opacity: 0.85; fill: rgba(6, 182, 212, 0.18); }
+}
+
+.wg-b-enhancer .wg-esr-contour {
+    fill: rgba(6, 182, 212, 0.08);
+    stroke: #06b6d4;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 140;
+    stroke-dashoffset: 0;
+}
+.wg-b-enhancer .wg-esr-mesh-dot {
+    fill: #06b6d4;
+    filter: drop-shadow(0 0 4px #06b6d4);
+}
+
+.wg-b-enhancer .wg-esr-laser-group {
+    transform-box: view-box;
+    animation: wgEsrSweep 3.6s ease-in-out infinite alternate;
+}
+.wg-b-enhancer .wg-esr-beam {
+    stroke: #06b6d4;
+    stroke-width: 1.6;
+    filter: drop-shadow(0 0 5px #06b6d4);
+}
+.wg-b-enhancer .wg-esr-spark {
+    fill: #ffffff;
+    filter: drop-shadow(0 0 6px #06b6d4);
+}
+@keyframes wgEsrSweep {
+    0%   { transform: translateX(24px); }
+    100% { transform: translateX(174px); }
+}
+
+.wg-bay:hover .wg-b-enhancer .wg-esr-contour,
+.wg-bay:focus-visible .wg-b-enhancer .wg-esr-contour {
+    stroke-width: 2.4;
+    filter: drop-shadow(0 0 8px #06b6d4);
+}
+.wg-bay:hover .wg-b-enhancer .wg-esr-laser-group,
+.wg-bay:focus-visible .wg-b-enhancer .wg-esr-laser-group {
+    animation-duration: 1.8s;
+}
+
+/* --------------------------------------------------------------------------
+   05: AUDIO (CHATTERBOX AUDIO STUDIO)
+   22-band voice frequency spectrum analyzer, formant ripples
+   -------------------------------------------------------------------------- */
+.wg-b-audio .wg-audio-eq-bar {
+    stroke: var(--wg-violet);
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    transform-box: fill-box;
+    transform-origin: bottom center;
+    animation: wgAudioBounce 1.2s ease-in-out infinite alternate;
+    animation-delay: calc(var(--i) * -0.065s);
+}
+@keyframes wgAudioBounce {
+    0%   { transform: scaleY(0.2); stroke: var(--wg-violet); opacity: 0.45; }
+    50%  { transform: scaleY(0.85); opacity: 0.8; }
+    100% { transform: scaleY(1.35); stroke: var(--wg-magenta); opacity: 1; }
+}
+
+.wg-b-audio .wg-audio-peak {
+    fill: var(--wg-magenta);
+    opacity: 0.85;
+    animation: wgAudioPeakFloat 1.2s ease-in-out infinite alternate;
+    animation-delay: calc(var(--i) * -0.065s);
+}
+@keyframes wgAudioPeakFloat {
+    0%   { transform: translateY(6px); opacity: 0.3; }
+    100% { transform: translateY(-4px); opacity: 1; }
+}
+
+.wg-b-audio .wg-audio-wave {
+    fill: none;
+    stroke: rgba(217, 70, 239, 0.65);
+    stroke-width: 1.4;
+    stroke-dasharray: 6 3;
+    animation: wgAudioWaveFlow 2.6s linear infinite;
+}
+@keyframes wgAudioWaveFlow {
+    to { stroke-dashoffset: -20; }
+}
+.wg-b-audio .wg-audio-core {
+    fill: var(--wg-violet);
+}
+
+.wg-bay:hover .wg-b-audio .wg-audio-eq-bar,
+.wg-bay:focus-visible .wg-b-audio .wg-audio-eq-bar {
+    stroke-width: 2.6;
+    animation-duration: 0.75s;
+    filter: drop-shadow(0 0 5px rgba(217, 70, 239, 0.6));
+}
+
+/* --------------------------------------------------------------------------
+   06: PIPELINE (LONG-FORMAT VIDEO PIPELINE)
+   Modular assembly stages, glowing conduit rails & data packet transport
+   -------------------------------------------------------------------------- */
+.wg-b-pipeline .wg-pipe-stage {
+    fill: rgba(15, 23, 42, 0.6);
+    stroke: var(--u-line-2);
+    stroke-width: 1.2;
+    animation: wgPipeStagePulse 3.4s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.85s);
+}
+@keyframes wgPipeStagePulse {
+    0%, 100% { stroke: var(--u-line-2); fill: rgba(15, 23, 42, 0.6); }
+    30%      { stroke: var(--wg-violet); fill: rgba(139, 92, 246, 0.16); }
+}
+
+.wg-b-pipeline .wg-pipe-node {
+    fill: var(--u-silver);
+    opacity: 0.55;
+    animation: wgPipeNodeFlash 3.4s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.85s);
+}
+@keyframes wgPipeNodeFlash {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    30%      { opacity: 1; fill: var(--wg-magenta); transform: scale(1.3); }
+}
+
+.wg-b-pipeline .wg-pipe-conduit {
+    stroke: var(--wg-blue);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+}
+
+.wg-b-pipeline .wg-pipe-pkt {
+    transform-box: view-box;
+}
+.wg-b-pipeline .pkt-1 {
+    fill: var(--wg-magenta);
+    filter: drop-shadow(0 0 5px var(--wg-magenta));
+    animation: wgPipePktMove 3.4s linear infinite;
+}
+.wg-b-pipeline .pkt-2 {
+    fill: var(--wg-violet);
+    filter: drop-shadow(0 0 5px var(--wg-violet));
+    animation: wgPipePktMove 3.4s linear infinite 1.7s;
+}
+@keyframes wgPipePktMove {
+    0%   { transform: translateX(24px); opacity: 0; }
+    12%  { opacity: 1; }
+    88%  { opacity: 1; }
+    100% { transform: translateX(170px); opacity: 0; }
+}
+
+.wg-b-pipeline .wg-pipe-rail {
+    stroke: var(--u-line-2);
+    stroke-width: 1;
+    animation: wgPipeRailDash 4s linear infinite;
+}
+@keyframes wgPipeRailDash {
+    to { stroke-dashoffset: -20; }
+}
+
+.wg-bay:hover .wg-b-pipeline .pkt-1,
+.wg-bay:hover .wg-b-pipeline .pkt-2,
+.wg-bay:focus-visible .wg-b-pipeline .pkt-1,
+.wg-bay:focus-visible .wg-b-pipeline .pkt-2 {
+    animation-duration: 1.8s;
+}
+
+/* --------------------------------------------------------------------------
+   07: AUTOML (AI DATA ANALYST & AUTOML)
+   Synapse graph DAG, decision node network, ROC/AUC curve sweep
+   -------------------------------------------------------------------------- */
+.wg-b-automl .wg-aml-synapse {
+    stroke: rgba(148, 163, 184, 0.2);
+    stroke-width: 1;
+    animation: wgSynapseSpark 2.8s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.14s);
+}
+@keyframes wgSynapseSpark {
+    0%, 100% { stroke: rgba(148, 163, 184, 0.18); stroke-width: 1; }
+    50%      { stroke: var(--wg-violet); stroke-width: 1.5; }
+}
+
+.wg-b-automl .wg-aml-node {
+    fill: var(--u-silver);
+    opacity: 0.5;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wgAmlNodePulse 2.8s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.22s);
+}
+@keyframes wgAmlNodePulse {
+    0%, 100% { transform: scale(1); fill: var(--u-silver); opacity: 0.4; }
+    50%      { transform: scale(1.4); fill: #10b981; opacity: 1; }
+}
+
+.wg-b-automl .wg-aml-curve {
+    fill: none;
+    stroke: #10b981;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-dasharray: 200;
+    animation: wgAmlCurveDraw 4.4s ease-in-out infinite;
+}
+@keyframes wgAmlCurveDraw {
+    0%   { stroke-dashoffset: 200; opacity: 0.3; }
+    45%  { stroke-dashoffset: 0; opacity: 1; }
+    85%  { stroke-dashoffset: 0; opacity: 0.9; }
+    100% { stroke-dashoffset: -200; opacity: 0.3; }
+}
+
+.wg-bay:hover .wg-b-automl .wg-aml-curve,
+.wg-bay:focus-visible .wg-b-automl .wg-aml-curve {
+    stroke-width: 2.4;
+    filter: drop-shadow(0 0 8px #10b981);
+}
+
+/* --------------------------------------------------------------------------
+   08: PUBLISHER (GENESIS: LINKEDIN PUBLISHER)
+   Social post preview, typewriter streaming line, RF broadcast transmitter
+   -------------------------------------------------------------------------- */
+.wg-b-publisher .wg-pub-card {
+    fill: rgba(15, 23, 42, 0.55);
+    stroke: var(--u-line-2);
+    stroke-width: 1.2;
+}
+.wg-b-publisher .wg-pub-avatar {
+    fill: #0ea5e9;
+}
+.wg-b-publisher .wg-pub-text {
+    stroke: var(--u-silver);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    transform-box: fill-box;
+    transform-origin: left center;
+    animation: wgTypeStream 3.4s ease-in-out infinite;
+}
+.wg-b-publisher .wg-pub-text.t2 {
+    animation-delay: 0.4s;
+}
+@keyframes wgTypeStream {
+    0%        { transform: scaleX(0.2); opacity: 0.35; }
+    45%, 85%  { transform: scaleX(1); opacity: 0.95; }
+    100%      { transform: scaleX(0.2); opacity: 0.35; }
+}
+
+.wg-b-publisher .wg-pub-img {
+    fill: rgba(139, 92, 246, 0.08);
+    stroke: rgba(139, 92, 246, 0.4);
+    stroke-width: 1;
+}
+
+.wg-b-publisher .wg-pub-ring {
+    fill: none;
+    stroke: #0ea5e9;
+    stroke-width: 1.2;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wgRingSpin 4s linear infinite;
+}
+@keyframes wgRingSpin {
+    to { transform: rotate(360deg); }
+}
+
+.wg-b-publisher .wg-pub-beacon {
+    fill: #0ea5e9;
+    filter: drop-shadow(0 0 6px #0ea5e9);
+    animation: wgBeaconPulse 1.8s ease-in-out infinite;
+}
+@keyframes wgBeaconPulse {
+    0%, 100% { opacity: 0.6; }
+    50%      { opacity: 1; }
+}
+
+.wg-b-publisher .wg-pub-wave {
+    fill: none;
+    stroke: #0ea5e9;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: left center;
+    animation: wgRfWave 2.1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.wg-b-publisher .wg-pub-wave.w1 { animation-delay: 0s; }
+.wg-b-publisher .wg-pub-wave.w2 { animation-delay: 0.55s; }
+.wg-b-publisher .wg-pub-wave.w3 { animation-delay: 1.1s; }
+@keyframes wgRfWave {
+    0%   { opacity: 0.9; transform: scale(0.85); stroke-width: 1.6; }
+    100% { opacity: 0; transform: scale(1.4); stroke-width: 0.8; }
+}
+
+.wg-bay:hover .wg-b-publisher .wg-pub-beacon,
+.wg-bay:focus-visible .wg-b-publisher .wg-pub-beacon {
+    filter: drop-shadow(0 0 10px #0ea5e9);
 }
 
 /* the film strip is clipped to the machine frame while it travels */
@@ -597,6 +1097,7 @@
         gap: var(--u-s3);
     }
     .wg-bay {
+        margin-top: 0 !important;
         padding: var(--u-s2);
     }
     .wg-bay__name {
@@ -610,6 +1111,7 @@
         gap: var(--u-s3);
     }
     .wg-bay {
+        margin-top: 0 !important;
         padding: var(--u-s3);
     }
     .wg-bay__name {
@@ -668,6 +1170,6 @@
         transform-origin: left center;
         transform: scaleX(calc(0.32 + var(--i) * 0.17));
     }
-    .wg-bay { transform: none; opacity: 1; }
+    .wg-bay { transform: none !important; opacity: 1; margin-top: 0 !important; animation: none !important; }
     .wg-bay__blurb { opacity: 1; transform: none; }
 }

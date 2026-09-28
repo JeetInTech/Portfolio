@@ -929,18 +929,15 @@ body.u-locked {
     pointer-events: none;
 }
 
-/* thin glowing hairlines — spatial structure, not a grid */
-.u-universe__rule {
-    position: absolute;
-    pointer-events: none;
-    background: linear-gradient(90deg, transparent, var(--u-line-2), transparent);
-    height: 1px;
-}
-.u-universe__rule--a { top: 22%; left: 6%;  right: 44%; }
-.u-universe__rule--b { top: 62%; left: 38%; right: 6%; }
+/* u-universe__rule permanently disabled per user request */
+.u-universe__rule,
+.u-universe__rule--a,
+.u-universe__rule--b,
 .u-universe__rule--v {
-    top: 10%; bottom: 10%; left: 50%; width: 1px; height: auto;
-    background: linear-gradient(180deg, transparent, var(--u-line-1), transparent);
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
 .u-universe__field {
