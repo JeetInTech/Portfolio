@@ -62,6 +62,7 @@
     var PROJECTS = DATA.projects;
 
     var SITE = 'Sangramjeet Ghosh';
+    var PAGE_TITLE = document.title; /* portal level keeps the SEO <title> */
     var ACTIVATE_GRACE = 180;   // ms core waits for onActivate() flourish
     var RESIZE_DEBOUNCE = 160;  // ms
 
@@ -858,7 +859,7 @@
         if (r.name === 'project') return projectById[r.project].name + ' · ' + SITE;
         if (r.name === 'world') return worldById[r.world].title + ' · ' + SITE;
         if (r.name === 'universe') return 'Projects Universe · ' + SITE;
-        return 'Projects · ' + SITE;
+        return PAGE_TITLE;
     }
 
     function buildCrumbs(r) {
