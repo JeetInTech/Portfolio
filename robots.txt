@@ -1,9 +1,9 @@
-# robots.txt for sangramjeet.me
+# robots.txt for jeetintech.github.io
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://sangramjeet.me/sitemap.xml
+Sitemap: https://jeetintech.github.io/sitemap.xml
 
 # Disallow admin/internal paths
 Disallow: /node_modules/

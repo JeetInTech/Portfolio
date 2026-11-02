@@ -4,11 +4,11 @@ A modern, responsive portfolio website showcasing my expertise in Data Science, 
 
 ## 🌐 Portfolio is Live!
 
-Visit: [https://sangramjeet.me/](https://sangramjeet.me/) | [https://www.sangramjeet.me/](https://www.sangramjeet.me/)
+Visit: [https://jeetintech.github.io/](https://jeetintech.github.io/)
 
 Connect on LinkedIn: [https://www.linkedin.com/in/sangramjeetghosh/](https://www.linkedin.com/in/sangramjeetghosh/)
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://sangramjeet.me)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://jeetintech.github.io)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?style=for-the-badge&logo=github)](https://github.com/JeetInTech/Portfolio)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/sangramjeetghosh/)
 
@@ -313,7 +313,7 @@ This project is **free to use** and does not contain any license. Feel free to u
 
 **Sangramjeet Ghosh**
 
-- Portfolio: [https://sangramjeet.me/](https://sangramjeet.me/)
+- Portfolio: [https://jeetintech.github.io/](https://jeetintech.github.io/)
 - LinkedIn: [Sangramjeet Ghosh](https://www.linkedin.com/in/sangramjeetghosh/)
 - GitHub: [@JeetInTech](https://github.com/JeetInTech)
 - Twitter: [@SangramJee97448](https://x.com/SangramJee97448)
